@@ -1,0 +1,418 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-code.png",
+    "id": "code",
+    "label": "VS Code",
+    "keys": "open app",
+    "action": "launch / focus Visual Studio Code.app",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-commands.png",
+    "id": "commands",
+    "label": "Commands",
+    "keys": "⇧⌘P",
+    "action": "workbench.action.showCommands",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-quick-open.png",
+    "id": "quick-open",
+    "label": "Quick open",
+    "keys": "⌘P",
+    "action": "workbench.action.quickOpen",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-symbol.png",
+    "id": "symbol",
+    "label": "Go to symbol",
+    "keys": "⇧⌘O",
+    "action": "workbench.action.gotoSymbol",
+    "when": "editor",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-line.png",
+    "id": "line",
+    "label": "Go to line",
+    "keys": "⌃G",
+    "action": "workbench.action.gotoLine",
+    "when": "editor",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-definition.png",
+    "id": "definition",
+    "label": "Definition",
+    "keys": "F12",
+    "action": "editor.action.revealDefinition",
+    "when": "editor",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-back.png",
+    "id": "back",
+    "label": "Back",
+    "keys": "⌃-",
+    "action": "workbench.action.navigateBack",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-forward.png",
+    "id": "forward",
+    "label": "Forward",
+    "keys": "⌃⇧-",
+    "action": "workbench.action.navigateForward",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-rename.png",
+    "id": "rename",
+    "label": "Rename",
+    "keys": "F2",
+    "action": "editor.action.rename",
+    "when": "editor",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-format.png",
+    "id": "format",
+    "label": "Format",
+    "keys": "⇧⌥F",
+    "action": "editor.action.formatDocument",
+    "when": "editor",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-quick-fix.png",
+    "id": "quick-fix",
+    "label": "Quick fix",
+    "keys": "⌘.",
+    "action": "editor.action.quickFix",
+    "when": "editor",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-comment.png",
+    "id": "comment",
+    "label": "Comment",
+    "keys": "⌘/",
+    "action": "editor.action.commentLine",
+    "when": "editor",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-line-up.png",
+    "id": "line-up",
+    "label": "Line up",
+    "keys": "⌥↑",
+    "action": "editor.action.moveLinesUpAction",
+    "when": "editor",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-line-down.png",
+    "id": "line-down",
+    "label": "Line down",
+    "keys": "⌥↓",
+    "action": "editor.action.moveLinesDownAction",
+    "when": "editor",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-duplicate.png",
+    "id": "duplicate",
+    "label": "Duplicate",
+    "keys": "⇧⌥↓",
+    "action": "editor.action.copyLinesDownAction",
+    "when": "editor",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-next-match.png",
+    "id": "next-match",
+    "label": "Next match",
+    "keys": "⌘D",
+    "action": "editor.action.addSelectionToNextFindMatch",
+    "when": "editor",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-explorer.png",
+    "id": "explorer",
+    "label": "Explorer",
+    "keys": "⇧⌘E",
+    "action": "workbench.view.explorer",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-search.png",
+    "id": "search",
+    "label": "Search",
+    "keys": "⇧⌘F",
+    "action": "workbench.action.findInFiles",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-scm.png",
+    "id": "scm",
+    "label": "Source control",
+    "keys": "⌃⇧G",
+    "action": "workbench.view.scm",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-extensions.png",
+    "id": "extensions",
+    "label": "Extensions",
+    "keys": "⇧⌘X",
+    "action": "workbench.view.extensions",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-sidebar.png",
+    "id": "sidebar",
+    "label": "Sidebar",
+    "keys": "⌘B",
+    "action": "workbench.action.toggleSidebarVisibility",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-terminal.png",
+    "id": "terminal",
+    "label": "Terminal",
+    "keys": "⌃`",
+    "action": "workbench.action.terminal.toggleTerminal",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-split.png",
+    "id": "split",
+    "label": "Split editor",
+    "keys": "⌘\\",
+    "action": "workbench.action.splitEditor",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-problems.png",
+    "id": "problems",
+    "label": "Problems",
+    "keys": "⇧⌘M",
+    "action": "workbench.actions.view.problems",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-debug.png",
+    "id": "debug",
+    "label": "Debug",
+    "keys": "F5",
+    "action": "workbench.action.debug.start",
+    "when": "anywhere",
+    "category": "run"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-step-over.png",
+    "id": "step-over",
+    "label": "Step over",
+    "keys": "F10",
+    "action": "workbench.action.debug.stepOver",
+    "when": "debugging",
+    "category": "run"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-restart.png",
+    "id": "restart",
+    "label": "Restart",
+    "keys": "⇧⌘F5",
+    "action": "workbench.action.debug.restart",
+    "when": "debugging",
+    "category": "run"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-stop.png",
+    "id": "stop",
+    "label": "Stop",
+    "keys": "⇧F5",
+    "action": "workbench.action.debug.stop",
+    "when": "debugging",
+    "category": "run"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-breakpoint.png",
+    "id": "breakpoint",
+    "label": "Breakpoint",
+    "keys": "F9",
+    "action": "editor.debug.action.toggleBreakpoint",
+    "when": "editor",
+    "category": "run"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-chat.png",
+    "id": "chat",
+    "label": "Chat",
+    "keys": "⌃⌘I",
+    "action": "workbench.action.chat.open",
+    "when": "anywhere",
+    "category": "run"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-inline-chat.png",
+    "id": "inline-chat",
+    "label": "Inline chat",
+    "keys": "⌘I",
+    "action": "inlineChat.start",
+    "when": "editor",
+    "category": "run"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-claude.png",
+    "id": "claude",
+    "label": "Claude Code",
+    "keys": "⌘esc",
+    "action": "claude-vscode.focus / claude-vscode.blur (Claude Code extension)",
+    "when": "anywhere",
+    "category": "run"
+  }
+]

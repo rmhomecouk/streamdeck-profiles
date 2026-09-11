@@ -1,0 +1,213 @@
+<title>VS Code Deck</title>
+<style>
+:root{
+  --ground:#e9ebee; --win:#ffffff; --bar:#f8f8f8; --line:#e5e5e5; --text:#3b3b3b; --muted:#6f6f6f;
+  --accent:#005fb8; --hover:#0000000a; --sel:#005fb81a; --plate:#0e0e10; --code:#f3f3f3;
+  --nav:#005fb8; --edit:#af00db; --view:#267f99; --run:#795e26;
+  --status:#005fb8; --status-text:#ffffff;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0b0b0c; --win:#1f1f1f; --bar:#181818; --line:#2b2b2b; --text:#cccccc; --muted:#9d9d9d;
+  --accent:#4daafc; --hover:#ffffff0d; --sel:#4daafc22; --plate:#0e0e10; --code:#2a2a2a;
+  --nav:#4daafc; --edit:#c586c0; --view:#4ec9b0; --run:#dcdcaa;
+  --status:#0078d4; --status-text:#ffffff;
+}}
+:root[data-theme="dark"]{
+  --ground:#0b0b0c; --win:#1f1f1f; --bar:#181818; --line:#2b2b2b; --text:#cccccc; --muted:#9d9d9d;
+  --accent:#4daafc; --hover:#ffffff0d; --sel:#4daafc22; --plate:#0e0e10; --code:#2a2a2a;
+  --nav:#4daafc; --edit:#c586c0; --view:#4ec9b0; --run:#dcdcaa;
+  --status:#0078d4; --status-text:#ffffff;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--text);font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;padding:28px 16px 48px}
+code,.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.window{max-width:1200px;margin:0 auto;background:var(--win);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 24px 60px -30px #0008}
+/* title bar with command center */
+.title{display:grid;grid-template-columns:90px 1fr 90px;align-items:center;height:38px;background:var(--bar);border-bottom:1px solid var(--line)}
+.lights{display:flex;gap:8px;padding-left:14px}.lights i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.lights i:nth-child(2){background:#febc2e}.lights i:nth-child(3){background:#28c840}
+.cc{justify-self:center;width:min(440px,100%);height:24px;border:1px solid var(--line);border-radius:6px;background:var(--win);color:var(--muted);display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px}
+.cc b{color:var(--text);font-weight:500}
+.shell{display:grid;grid-template-columns:48px 1fr}
+.activity{background:var(--bar);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding-top:6px;gap:2px}
+.activity span{width:48px;height:44px;display:grid;place-items:center;color:var(--muted);position:relative}
+.activity span.on{color:var(--text)}.activity span.on::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;background:var(--accent)}
+.activity svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.main{min-width:0}
+.tabs{display:flex;background:var(--bar);border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{padding:8px 16px;font-size:12.5px;color:var(--muted);border-right:1px solid var(--line);white-space:nowrap}
+.tab.on{background:var(--win);color:var(--text);box-shadow:inset 0 1px 0 var(--accent);margin-bottom:-1px}
+.crumbs{padding:6px 20px;color:var(--muted);font-size:12px}
+.content{padding:6px 20px 24px;display:grid;gap:22px}
+h1{font-size:22px;font-weight:600;margin:4px 0 2px;text-wrap:balance}
+.lede{margin:0;color:var(--muted);max-width:70ch}
+/* device + detail */
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+.device{background:var(--plate);border-radius:22px;padding:16px;box-shadow:inset 0 0 0 1px #ffffff14,0 14px 30px -18px #000}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}
+.key{padding:0;border:0;background:none;cursor:pointer;border-radius:13%;aspect-ratio:1;position:relative;transition:transform .12s,opacity .15s,filter .15s}
+.key img{width:100%;height:100%;display:block;border-radius:13%}
+.key:hover{transform:translateY(-2px)}
+.key:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.key[aria-pressed="true"]{outline:2px solid #4daafc;outline-offset:3px}
+.key.dim{opacity:.22;filter:saturate(.3)}
+.hover{border:1px solid var(--line);border-radius:8px;background:var(--bar);overflow:hidden}
+.hover .hd{display:flex;gap:12px;align-items:center;padding:14px;border-bottom:1px solid var(--line)}
+.hover .hd img{width:64px;height:64px;border-radius:12px}
+.hover h2{font-size:16px;margin:0}
+.row-tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.hover dl{margin:0;padding:12px 14px;display:grid;grid-template-columns:78px 1fr;gap:8px 10px;font-size:12.5px}
+.hover dt{color:var(--muted)}.hover dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.caps{display:flex;gap:4px;flex-wrap:wrap}
+kbd{font:600 12px ui-monospace,"SF Mono",Menlo,monospace;min-width:24px;padding:3px 7px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;background:var(--win)}
+.note{padding:0 14px 14px;margin:0;color:var(--muted);font-size:12.5px}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:12px}
+/* when filter */
+.filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter .lbl{color:var(--muted);font-size:12px;margin-right:4px}
+.chip{border:1px solid var(--line);background:var(--win);color:var(--text);border-radius:999px;padding:4px 12px;font:inherit;font-size:12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--sel);border-color:var(--accent);color:var(--accent)}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat{border-top:2px solid;padding-top:8px}
+.cat b{display:block;font-size:13px}.cat span{color:var(--muted);font-size:12px}
+/* keyboard shortcuts editor table */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:12.5px;min-width:720px}
+th{text-align:left;font-weight:600;color:var(--muted);background:var(--bar);padding:7px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:6px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{background:var(--sel)}
+tbody tr.dim{opacity:.4}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
+.status{display:flex;justify-content:space-between;gap:12px;background:var(--status);color:var(--status-text);font-size:12px;padding:3px 12px;flex-wrap:wrap}
+.status span{margin-right:14px}
+@media (max-width:900px){.stage{grid-template-columns:1fr}.cats{grid-template-columns:repeat(2,1fr)}.activity{display:none}.shell{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.key{transition:none}}
+</style>
+
+<div class="window">
+  <div class="title">
+    <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="cc" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg><b>streamdeck-profiles</b></div>
+    <div></div>
+  </div>
+  <div class="shell">
+    <nav class="activity" aria-hidden="true">
+      <span class="on"><svg viewBox="0 0 24 24"><path d="M14 3H7a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"/><path d="M14 3v4h4"/><path d="M3 7v13a1 1 0 0 0 1 1h10"/></svg></span>
+      <span><svg viewBox="0 0 24 24"><circle cx="14" cy="10" r="6"/><path d="M9.5 14.5 3 21"/></svg></span>
+      <span><svg viewBox="0 0 24 24"><circle cx="7" cy="5" r="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="8" r="2"/><path d="M7 7v10M17 10c0 5-10 4-10 7"/></svg></span>
+      <span><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+      <span><svg viewBox="0 0 24 24"><rect x="3" y="10" width="5" height="5"/><rect x="3" y="16" width="5" height="5"/><rect x="9" y="16" width="5" height="5"/><rect x="14" y="3" width="6" height="6" transform="rotate(12 17 6)"/></svg></span>
+    </nav>
+    <div class="main">
+      <div class="tabs"><div class="tab on">VSCode.streamDeckProfile</div><div class="tab">keymap.json</div><div class="tab">gen.mjs</div></div>
+      <div class="crumbs">profiles › vscode › Stream Deck XL · 8 × 4</div>
+      <div class="content">
+        <header>
+          <h1>VS Code on a Stream Deck XL</h1>
+          <p class="lede">32 keys taken from VS Code 1.136's own default macOS keybindings. There's one row each for navigating, editing, the workbench views, and run &amp; AI. Click a key or a table row to see the command it runs.</p>
+        </header>
+
+        <div class="stage">
+          <div class="device"><div class="grid" id="grid"></div></div>
+          <aside class="hover" id="detail" aria-live="polite"></aside>
+        </div>
+
+        <div class="filter" role="group" aria-label="Filter by when-clause">
+          <span class="lbl mono">when:</span>
+          <button class="chip" data-when="all" aria-pressed="true">All keys</button>
+          <button class="chip" data-when="anywhere" aria-pressed="false">Anywhere</button>
+          <button class="chip" data-when="editor" aria-pressed="false">editorTextFocus</button>
+          <button class="chip" data-when="debugging" aria-pressed="false">inDebugMode</button>
+        </div>
+
+        <div class="cats" id="cats"></div>
+
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Key</th><th>Keybinding</th><th>Command</th><th>When</th><th>Source</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="status"><div><span>⎇ main</span><span>32 keys · 31 hotkeys + open app</span></div><div><span>Stream Deck XL</span><span>VS Code 1.136.2</span></div></div>
+</div>
+
+<script>
+const CATS = {
+  nav: { name: 'Navigate', blurb: 'Palette, files, symbols, history' },
+  edit: { name: 'Edit', blurb: 'Refactor, format, move lines' },
+  view: { name: 'Workbench', blurb: 'Sidebar views and panels' },
+  run: { name: 'Run & AI', blurb: 'Debugging, Copilot and Claude' },
+};
+const WHEN = { anywhere: 'anywhere', editor: 'editorTextFocus', debugging: 'inDebugMode' };
+const K = [
+  ['code','VS Code','open app','Open Application · com.microsoft.VSCode','nav','anywhere','Opens VS Code or brings it to the front. A long press quits it.','Stream Deck action'],
+  ['commands','Commands','⇧⌘P','workbench.action.showCommands','nav','anywhere','The Command Palette, for anything without a key of its own.','workbench bundle · 3118'],
+  ['quick-open','Quick open','⌘P','workbench.action.quickOpen','nav','anywhere','Fuzzy-find a file in the workspace. Type @, : or > for symbols, lines or commands.','workbench bundle · 2094'],
+  ['symbol','Go to symbol','⇧⌘O','workbench.action.gotoSymbol','nav','editor','Jump to a function, class or heading in the current file.','workbench bundle · 3117'],
+  ['line','Go to line','⌃G','workbench.action.gotoLine','nav','editor','Opens Quick Open with the : prefix. Type a line number, or line:column.','workbench bundle · mac 293'],
+  ['definition','Definition','F12','editor.action.revealDefinition','nav','editor','Jump to where the symbol under the cursor is defined.','workbench bundle · 70'],
+  ['back','Back','⌃-','workbench.action.navigateBack','nav','anywhere','Go back through the places you have been, across files.','workbench bundle · mac 344'],
+  ['forward','Forward','⌃⇧-','workbench.action.navigateForward','nav','anywhere','Go forward again after Back.','workbench bundle · mac 1368'],
+  ['rename','Rename','F2','editor.action.rename','edit','editor','Rename the symbol everywhere it is used, through the language server.','workbench bundle · 60'],
+  ['format','Format','⇧⌥F','editor.action.formatDocument','edit','editor','Format the whole file with the default formatter.','workbench bundle · 1572'],
+  ['quick-fix','Quick fix','⌘.','editor.action.quickFix','edit','editor','Open the lightbulb menu of code actions at the cursor.','workbench bundle · 2137'],
+  ['comment','Comment','⌘/','editor.action.commentLine','edit','editor','Toggle a line comment on the current line or selection.','workbench bundle · 2138'],
+  ['line-up','Line up','⌥↑','editor.action.moveLinesUpAction','edit','editor','Move the line or selection up one line.','workbench bundle · 528'],
+  ['line-down','Line down','⌥↓','editor.action.moveLinesDownAction','edit','editor','Move the line or selection down one line.','workbench bundle · 530'],
+  ['duplicate','Duplicate','⇧⌥↓','editor.action.copyLinesDownAction','edit','editor','Copy the line or selection below itself.','workbench bundle · 1554'],
+  ['next-match','Next match','⌘D','editor.action.addSelectionToNextFindMatch','edit','editor','Add the next occurrence of the selection as another cursor.','workbench bundle · 2082'],
+  ['explorer','Explorer','⇧⌘E','workbench.view.explorer','view','anywhere','Show the file Explorer in the sidebar.','workbench bundle · 3107'],
+  ['search','Search','⇧⌘F','workbench.action.findInFiles','view','anywhere','Search across every file in the workspace.','workbench bundle · 3108'],
+  ['scm','Source control','⌃⇧G','workbench.view.scm','view','anywhere','Show the Source Control view. GitLens binds the same key to the same view.','workbench bundle · mac 1317'],
+  ['extensions','Extensions','⇧⌘X','workbench.view.extensions','view','anywhere','Show the Extensions view.','workbench bundle · 3126'],
+  ['sidebar','Sidebar','⌘B','workbench.action.toggleSidebarVisibility','view','anywhere','Show or hide the primary sidebar.','workbench bundle · 2080'],
+  ['terminal','Terminal','⌃`','workbench.action.terminal.toggleTerminal','view','anywhere','Show or hide the integrated terminal.','workbench bundle · mac 347'],
+  ['split','Split editor','⌘\\','workbench.action.splitEditor','view','anywhere','Split the editor to the side. With the terminal focused, it splits the terminal instead.','workbench bundle · 2141'],
+  ['problems','Problems','⇧⌘M','workbench.actions.view.problems','view','anywhere','Open the Problems panel with errors and warnings.','workbench bundle · 3115'],
+  ['debug','Debug','F5','workbench.action.debug.start','run','anywhere','Start debugging. While paused at a breakpoint, the same key continues.','workbench bundle · 63'],
+  ['step-over','Step over','F10','workbench.action.debug.stepOver','run','debugging','Run the current line and stop on the next one.','workbench bundle · 68'],
+  ['restart','Restart','⇧⌘F5','workbench.action.debug.restart','run','debugging','Restart the debug session. This replaces Step into, because macOS takes F11 for Show Desktop.','workbench bundle · 3135'],
+  ['stop','Stop','⇧F5','workbench.action.debug.stop','run','debugging','End the debug session.','workbench bundle · 1087'],
+  ['breakpoint','Breakpoint','F9','editor.debug.action.toggleBreakpoint','run','editor','Add or remove a breakpoint on the current line.','workbench bundle · 67'],
+  ['chat','Chat','⌃⌘I','workbench.action.chat.open','run','anywhere','Open the Copilot Chat view. Needs chat.agent.enabled.','workbench bundle · mac 2343'],
+  ['inline-chat','Inline chat','⌘I','inlineChat.start','run','editor','Ask Copilot for an edit right where the cursor is.','workbench bundle · 2087'],
+  ['claude','Claude Code','⌘esc','claude-vscode.focus / claude-vscode.blur','run','anywhere','Move focus into the Claude Code panel. Press again from the panel to go back to the editor.','anthropic.claude-code 2.1.251 package.json'],
+].map(([id,label,keys,cmd,cat,when,note,src],i)=>({id,label,keys,cmd,cat,when,note,src,n:String(i+1).padStart(2,'0')}));
+
+const $ = (s) => document.querySelector(s);
+const img = (k) => `icons/${k.n}-${k.id}.png`;
+const caps = (keys) => {
+  if (keys === 'open app') return '<kbd>open app</kbd>';
+  const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
+  return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
+};
+const color = (cat) => `var(--${cat})`;
+let current = K[1], filter = 'all';
+
+$('#grid').innerHTML = K.map((k, i) => `<button class="key" data-i="${i}" aria-label="${k.label}, ${k.keys}" aria-pressed="false"><img src="${img(k)}" alt=""></button>`).join('');
+$('#rows').innerHTML = K.map((k, i) => `<tr data-i="${i}"><td><span class="dot" style="background:${color(k.cat)}"></span>${k.label}</td><td><span class="caps">${caps(k.keys)}</span></td><td><code>${k.cmd}</code></td><td class="mono">${WHEN[k.when]}</td><td>${k.src}</td></tr>`).join('');
+$('#cats').innerHTML = Object.entries(CATS).map(([c, v]) => `<div class="cat" style="border-color:${color(c)}"><b>${v.name}</b><span>${v.blurb}</span></div>`).join('');
+
+function show(k) {
+  current = k;
+  $('#detail').innerHTML = `<div class="hd"><img src="${img(k)}" alt=""><div><div class="row-tag" style="color:${color(k.cat)}">${CATS[k.cat].name}</div><h2>${k.label}</h2></div></div>
+  <dl><dt>Keybinding</dt><dd><span class="caps">${caps(k.keys)}</span></dd><dt>Command</dt><dd><code>${k.cmd}</code></dd><dt>When</dt><dd class="mono">${WHEN[k.when]}</dd><dt>Source</dt><dd>${k.src}</dd></dl>
+  <p class="note">${k.note}</p>`;
+  document.querySelectorAll('.key').forEach((b) => b.setAttribute('aria-pressed', String(K[b.dataset.i] === k)));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('sel', K[r.dataset.i] === k));
+}
+function applyFilter() {
+  const off = (k) => filter !== 'all' && k.when !== filter;
+  document.querySelectorAll('.key').forEach((b) => b.classList.toggle('dim', off(K[b.dataset.i])));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('dim', off(K[r.dataset.i])));
+  document.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.when === filter)));
+}
+$('#grid').addEventListener('click', (e) => { const b = e.target.closest('.key'); if (b) show(K[b.dataset.i]); });
+$('#rows').addEventListener('click', (e) => { const r = e.target.closest('tr'); if (r) show(K[r.dataset.i]); });
+document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => { filter = c.dataset.when; applyFilter(); }));
+show(current); applyFilter();
+</script>

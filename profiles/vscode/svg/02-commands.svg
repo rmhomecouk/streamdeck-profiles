@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#272727"/><stop offset="0.55" stop-color="#1e1e1e"/><stop offset="1" stop-color="#161616"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#4daafc" stop-opacity="0.11"/><stop offset="1" stop-color="#4daafc" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.6" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<rect x="0" y="30" width="4.5" height="52" fill="#4daafc"/>
+<g transform="translate(40 14)" filter="url(#lift)"><rect x="4" y="12" width="56" height="40" rx="9" fill="none" stroke="#e8e8e8" stroke-width="4.2"/><polyline points="15,24 23,32 15,40" fill="none" stroke="#4daafc" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="29" y1="40" x2="45" y2="40" stroke="#4daafc" stroke-width="4.6" stroke-linecap="round"/></g>
+<text x="72" y="103" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Commands</text>
+<rect x="0" y="113" width="144" height="31" fill="#4daafc" fill-opacity="0.16"/>
+<rect x="0" y="113" width="144" height="1.5" fill="#4daafc" fill-opacity="0.6"/>
+<text x="72" y="134" font-family=".SF NS Mono" font-size="16.5" fill="#4daafc" stroke="#4daafc" stroke-width="0.5" text-anchor="middle">⇧⌘P</text>
+</svg>

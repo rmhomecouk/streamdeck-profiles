@@ -97,6 +97,20 @@ Each cache entry is in Chromium's simple-cache format:
 
 Search the bodies for the registration calls (`addHotKey(["shift+cmd+m"],"ToggleMuteCurrentCall")`). Then find the platform switch (`re.isMac ? new x(...) : new k(...)`) and take only the Mac desktop class's bindings. There were four classes: Windows, Mac, web on Mac, and web on Windows.
 
+### VS Code (keybindings compiled into the workbench bundle)
+
+VS Code's native menu accelerators are derived from its keybinding registry, so read the registry itself:
+
+1. Open `Contents/Resources/app/out/vs/workbench/workbench.desktop.main.js`. It's minified and about 19 MB, so use Python, not `grep`.
+2. Each command registers `keybinding:{primary:N, mac:{primary:M}, when:…}`. On a Mac, `mac.primary` wins when it's present.
+3. Decode the numbers:
+   - Modifier bits are ⌘ `2048`, ⇧ `1024`, ⌥ `512` and ⌃ `256`.
+   - The low bits are a KeyCode. Take the codes from the bundle's own table of `[…,"KeyA",31,"A",…]` rows, where F1 is `59` and `/` is `90`.
+   - `mo(a,b)` is a chord. Leave chords out, because a hotkey key sends one combination.
+4. Many ids are constants (`id:s5`, or `static{this.ID="…"}`). Resolve them by searching for `s5="workbench.action.splitEditor"`, or search the other way, from `primary:<N>` to the ids near it.
+5. Check `~/Library/Application Support/Code/User/keybindings.json` for user overrides. Also check each `~/.vscode/extensions/*/package.json` under `contributes.keybindings` for extension keys and clashes (Claude Code's ⌘Esc came from there).
+6. Check `com.apple.symbolichotkeys` for system shortcuts. A missing entry means the macOS default is on. F11 is macOS's default Show Desktop shortcut, so VS Code's Step into (F11) was left out.
+
 ### Leave out
 
 - **Keys that depend on how the user has arranged the app.** Teams' app bar `⌘1–9`, for example, opens whatever the user has put in each slot.
@@ -139,6 +153,7 @@ Design rules:
   - Claude: warm charcoal, paper grain, New York serif
   - Safari: dark glass with a compass bezel
   - Teams: dark Fluent tiles with a selection pill
+  - VS Code: Dark Modern greys, Dark+ syntax colours per row, an activity-bar marker and a status-bar strip; Helvetica Neue labels
 - **Colour by row**, one accent per category taken from the app's palette. Individual keys can override the colour for meaning: red to leave or decline, green to accept, presence colours for status.
 - **Keep labels short** and use sentence case, in the house style of the app.
 
