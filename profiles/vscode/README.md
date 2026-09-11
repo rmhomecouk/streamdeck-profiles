@@ -1,6 +1,6 @@
 # Visual Studio Code — Stream Deck XL
 
-32 keys for VS Code on macOS: navigation, editing, the workbench views, and run & debug plus AI chat. The tiles use VS Code's Dark Modern greys. Each row is coloured with a Dark+ syntax colour: focus blue, keyword purple, type teal and function yellow. The row colour also appears on an activity-bar marker at the left edge and a status-bar strip holding the shortcut.
+32 keys for VS Code on macOS: navigation, editing, the workbench views, and run & debug plus AI chat. The tiles use VS Code's Dark Modern greys. Each row is coloured with a Dark+ syntax colour: focus blue, keyword purple, type teal and function yellow. The row colour also appears on an activity-bar marker at the left edge and on the shortcut under each label.
 
 ![VS Code deck](sheet.png)
 

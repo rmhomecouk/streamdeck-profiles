@@ -153,7 +153,7 @@ Design rules:
   - Claude: warm charcoal, paper grain, New York serif
   - Safari: dark glass with a compass bezel
   - Teams: dark Fluent tiles with a selection pill
-  - VS Code: Dark Modern greys, Dark+ syntax colours per row, an activity-bar marker and a status-bar strip; Helvetica Neue labels
+  - VS Code: Dark Modern greys, Dark+ syntax colours per row, an activity-bar marker at the left edge; Helvetica Neue labels. Keep the shortcut as plain accent text under the label: a filled status-bar strip was tried and rejected because it didn't match the other decks
 - **Colour by row**, one accent per category taken from the app's palette. Individual keys can override the colour for meaning: red to leave or decline, green to accept, presence colours for status.
 - **Keep labels short** and use sentence case, in the house style of the app.
 

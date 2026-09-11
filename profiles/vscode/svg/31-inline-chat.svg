@@ -14,8 +14,7 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect x="0" y="30" width="4.5" height="52" fill="#dcdcaa"/>
 <g transform="translate(40 14)" filter="url(#lift)"><line x1="4" y1="10" x2="44" y2="10" stroke="#858585" stroke-width="3.4" stroke-linecap="round"/><line x1="4" y1="54" x2="36" y2="54" stroke="#858585" stroke-width="3.4" stroke-linecap="round"/><rect x="4" y="21" width="56" height="22" rx="6" fill="none" stroke="#dcdcaa" stroke-width="4.2"/><path d="M15 25 Q16.26 30.74 22 32 Q16.26 33.26 15 39 Q13.74 33.26 8 32 Q13.74 30.74 15 25 Z" fill="#dcdcaa"/><line x1="26" y1="32" x2="50" y2="32" stroke="#e8e8e8" stroke-width="3.4" stroke-linecap="round"/></g>
-<text x="72" y="103" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Inline chat</text>
-<rect x="0" y="113" width="144" height="31" fill="#dcdcaa" fill-opacity="0.16"/>
-<rect x="0" y="113" width="144" height="1.5" fill="#dcdcaa" fill-opacity="0.6"/>
-<text x="72" y="134" font-family=".SF NS Mono" font-size="16.5" fill="#dcdcaa" stroke="#dcdcaa" stroke-width="0.5" text-anchor="middle">⌘I</text>
+<text x="72" y="106" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Inline chat</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#dcdcaa" stroke="#dcdcaa" stroke-width="0.45" text-anchor="middle">⌘I</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

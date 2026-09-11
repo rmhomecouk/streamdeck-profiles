@@ -5,8 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 // Output defaults to this profile's folder: svg/, icons/, keymap.json, sheet.png
-const OUT = process.argv[2] || path.dirname(fileURLToPath(import.meta.url));
-fs.mkdirSync(path.join(OUT, 'svg'), { recursive: true });
+const OUT = process.argv[2] || path.dirname(fileURLToPath(import.meta.url));fs.mkdirSync(path.join(OUT, 'svg'), { recursive: true });
 fs.mkdirSync(path.join(OUT, 'icons'), { recursive: true });
 
 // Family names as stored in the fonts' name tables. resvg can't render SF Pro (SFNS.ttf),
@@ -135,10 +134,9 @@ function tile(k) {
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect x="0" y="30" width="4.5" height="52" fill="${tint}"/>
 <g transform="translate(40 14)" filter="url(#lift)">${k.icon(a)}</g>
-<text x="72" y="103" font-family="${SANS}" font-size="${labelSize}" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">${k.label}</text>
-<rect x="0" y="113" width="144" height="31" fill="${tint}" fill-opacity="${k.hero ? 0.9 : 0.16}"/>
-<rect x="0" y="113" width="144" height="1.5" fill="${tint}" fill-opacity="0.6"/>
-<text x="72" y="134" font-family="${MONO}" font-size="16.5" fill="${k.hero ? '#ffffff' : a}" stroke="${k.hero ? '#ffffff' : a}" stroke-width="0.5" text-anchor="middle">${k.keys}</text>
+<text x="72" y="106" font-family="${SANS}" font-size="${labelSize}" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">${k.label}</text>
+<text x="72" y="127" font-family="${MONO}" font-size="15" fill="${k.hero ? '#9cc9ff' : a}" stroke="${k.hero ? '#9cc9ff' : a}" stroke-width="0.45" text-anchor="middle">${k.keys}</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="${k.hero ? 0.2 : 0.08}" stroke-width="1.5"/>
 </svg>`;
 }
 

@@ -14,8 +14,7 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect x="0" y="30" width="4.5" height="52" fill="#dcdcaa"/>
 <g transform="translate(40 14)" filter="url(#lift)"><path d="M8 14 Q8 8 14 8 H50 Q56 8 56 14 V38 Q56 44 50 44 H26 L14 55 V44 Q8 44 8 38 Z" fill="none" stroke="#e8e8e8" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 14 Q34.16 23.84 44 26 Q34.16 28.16 32 38 Q29.84 28.16 20 26 Q29.84 23.84 32 14 Z" fill="#dcdcaa"/></g>
-<text x="72" y="103" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Chat</text>
-<rect x="0" y="113" width="144" height="31" fill="#dcdcaa" fill-opacity="0.16"/>
-<rect x="0" y="113" width="144" height="1.5" fill="#dcdcaa" fill-opacity="0.6"/>
-<text x="72" y="134" font-family=".SF NS Mono" font-size="16.5" fill="#dcdcaa" stroke="#dcdcaa" stroke-width="0.5" text-anchor="middle">⌃⌘I</text>
+<text x="72" y="106" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Chat</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#dcdcaa" stroke="#dcdcaa" stroke-width="0.45" text-anchor="middle">⌃⌘I</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

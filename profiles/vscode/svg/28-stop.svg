@@ -14,8 +14,7 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect x="0" y="30" width="4.5" height="52" fill="#f14c4c"/>
 <g transform="translate(40 14)" filter="url(#lift)"><rect x="12" y="12" width="40" height="40" rx="6" fill="#f14c4c40" stroke="#f14c4c" stroke-width="4.6"/></g>
-<text x="72" y="103" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Stop</text>
-<rect x="0" y="113" width="144" height="31" fill="#f14c4c" fill-opacity="0.16"/>
-<rect x="0" y="113" width="144" height="1.5" fill="#f14c4c" fill-opacity="0.6"/>
-<text x="72" y="134" font-family=".SF NS Mono" font-size="16.5" fill="#f14c4c" stroke="#f14c4c" stroke-width="0.5" text-anchor="middle">⇧F5</text>
+<text x="72" y="106" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Stop</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#f14c4c" stroke="#f14c4c" stroke-width="0.45" text-anchor="middle">⇧F5</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>
