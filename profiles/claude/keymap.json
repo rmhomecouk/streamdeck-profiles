@@ -1,0 +1,386 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-claude.png",
+    "id": "claude",
+    "label": "Claude",
+    "keys": "open app",
+    "action": "launch / focus Claude.app",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-new-chat.png",
+    "id": "new-chat",
+    "label": "New chat",
+    "keys": "⌘N",
+    "action": "File ▸ New Chat (New session on the Code tab)",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-search.png",
+    "id": "search",
+    "label": "Search",
+    "keys": "⌘K",
+    "action": "command_palette — quick chat or search",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-quick-chat.png",
+    "id": "quick-chat",
+    "label": "Quick chat",
+    "keys": "⌃⌘K",
+    "action": "quick_chat",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-incognito.png",
+    "id": "incognito",
+    "label": "Incognito",
+    "keys": "⇧⌘I",
+    "action": "incognito — new incognito chat",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-prev-chat.png",
+    "id": "prev-chat",
+    "label": "Prev chat",
+    "keys": "⇧⌘[",
+    "action": "Go ▸ previous chat / session",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-next-chat.png",
+    "id": "next-chat",
+    "label": "Next chat",
+    "keys": "⇧⌘]",
+    "action": "Go ▸ next chat / session",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-sidebar.png",
+    "id": "sidebar",
+    "label": "Sidebar",
+    "keys": "⌘.",
+    "action": "toggle_sidebar",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-attach.png",
+    "id": "attach",
+    "label": "Attach",
+    "keys": "⌘U",
+    "action": "file_upload — add files or photos",
+    "category": "comp"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-dictate.png",
+    "id": "dictate",
+    "label": "Dictate",
+    "keys": "⌘D",
+    "action": "toggle_dictation",
+    "category": "comp"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-thinking.png",
+    "id": "thinking",
+    "label": "Thinking",
+    "keys": "⇧⌘E",
+    "action": "extended_thinking (effort menu on the Code tab)",
+    "category": "comp"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-model.png",
+    "id": "model",
+    "label": "Model",
+    "keys": "⇧⌘.",
+    "action": "model_selector",
+    "category": "comp"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-stop.png",
+    "id": "stop",
+    "label": "Stop",
+    "keys": "esc",
+    "action": "stop Claude’s response",
+    "category": "comp"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-side-chat.png",
+    "id": "side-chat",
+    "label": "Side chat",
+    "keys": "⌘;",
+    "action": "btw_side_chat — toggle side chat",
+    "category": "comp"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-close.png",
+    "id": "close",
+    "label": "Close",
+    "keys": "⌘W",
+    "action": "close chat / session",
+    "category": "comp"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-reopen.png",
+    "id": "reopen",
+    "label": "Reopen",
+    "keys": "⇧⌘T",
+    "action": "reopen closed session",
+    "category": "comp"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-open-folder.png",
+    "id": "open-folder",
+    "label": "Open folder",
+    "keys": "⇧⌘O",
+    "action": "File ▸ Open Folder… (new Code session)",
+    "category": "code"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-pane-prev.png",
+    "id": "pane-prev",
+    "label": "Prev pane",
+    "keys": "⌃[",
+    "action": "focus_previous_pane (split view)",
+    "category": "code"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-pane-next.png",
+    "id": "pane-next",
+    "label": "Next pane",
+    "keys": "⌃]",
+    "action": "focus_next_pane (split view)",
+    "category": "code"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-close-pane.png",
+    "id": "close-pane",
+    "label": "Close pane",
+    "keys": "⌘\\",
+    "action": "close the most recent pane",
+    "category": "code"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-prompt-up.png",
+    "id": "prompt-up",
+    "label": "Prompt up",
+    "keys": "⌥⌘↑",
+    "action": "jump_prev_prompt",
+    "category": "code"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-prompt-down.png",
+    "id": "prompt-down",
+    "label": "Prompt down",
+    "keys": "⌥⌘↓",
+    "action": "jump_next_prompt",
+    "category": "code"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-files.png",
+    "id": "files",
+    "label": "Files",
+    "keys": "⇧⌘F",
+    "action": "toggle Files pane",
+    "category": "code"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-open-pr.png",
+    "id": "open-pr",
+    "label": "Open PR",
+    "keys": "⌥⌘G",
+    "action": "open_code_session_pr",
+    "category": "code"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-fork.png",
+    "id": "fork",
+    "label": "Fork",
+    "keys": "⌥⌘O",
+    "action": "fork_code_session",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-pin.png",
+    "id": "pin",
+    "label": "Pin",
+    "keys": "⌥⌘P",
+    "action": "pin / unpin chat, task or session",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-archive.png",
+    "id": "archive",
+    "label": "Archive",
+    "keys": "⌥⌘A",
+    "action": "archive task / session",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-find.png",
+    "id": "find",
+    "label": "Find",
+    "keys": "⌘F",
+    "action": "Edit ▸ Find…",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-zoom-out.png",
+    "id": "zoom-out",
+    "label": "Zoom out",
+    "keys": "⌘−",
+    "action": "View ▸ Zoom Out",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-zoom-in.png",
+    "id": "zoom-in",
+    "label": "Zoom in",
+    "keys": "⌘=",
+    "action": "View ▸ Zoom In",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-shortcuts.png",
+    "id": "shortcuts",
+    "label": "Shortcuts",
+    "keys": "⌘/",
+    "action": "Help ▸ Keyboard Shortcuts",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-settings.png",
+    "id": "settings",
+    "label": "Settings",
+    "keys": "⌘,",
+    "action": "Claude ▸ Settings…",
+    "category": "app"
+  }
+]

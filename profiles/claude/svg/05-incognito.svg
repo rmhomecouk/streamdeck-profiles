@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="22%" r="95%">
+    <stop offset="0" stop-color="#36322d"/><stop offset="0.55" stop-color="#26241f"/><stop offset="1" stop-color="#1b1a17"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="45%">
+    <stop offset="0" stop-color="#e07a5f" stop-opacity="0.12"/><stop offset="1" stop-color="#e07a5f" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grain" width="5" height="5" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1.2" r="0.55" fill="#fff" opacity="0.07"/>
+    <circle cx="3.6" cy="3.4" r="0.45" fill="#000" opacity="0.16"/>
+    <circle cx="3.2" cy="0.6" r="0.35" fill="#fff" opacity="0.04"/>
+  </pattern>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.6" stdDeviation="1.6" flood-color="#000" flood-opacity="0.45"/>
+  </filter>
+  <clipPath id="fr"><rect x="6" y="10" width="52" height="44" rx="7"/></clipPath>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<rect width="144" height="144" fill="url(#grain)"/>
+<g transform="translate(40 14)" filter="url(#lift)"><path d="M16 54 V30 A16 16 0 0 1 48 30 V54 L42.7 49 L37.3 54 L32 49 L26.7 54 L21.3 49 Z" fill="none" stroke="#f4f1ea" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="31" r="3.2" fill="#e07a5f" stroke="none" stroke-width="0"/><circle cx="38" cy="31" r="3.2" fill="#e07a5f" stroke="none" stroke-width="0"/></g>
+<text x="72" y="106" font-family="New York" font-size="19" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Incognito</text>
+<text x="72" y="128" font-family="SF Mono" font-size="14.5" fill="#e07a5f" stroke="#e07a5f" stroke-width="0.35" text-anchor="middle">⇧⌘I</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.07" stroke-width="1.5"/>
+</svg>

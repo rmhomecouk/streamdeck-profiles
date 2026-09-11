@@ -11,6 +11,7 @@ Custom Elgato Stream Deck profiles with generated icon sets. Each profile lives 
 | Profile | Device | Keys | Preview |
 |---|---|---|---|
 | [Ghostty](profiles/ghostty/) | Stream Deck XL | 32 | <img src="profiles/ghostty/sheet.png" width="360" alt="Ghostty deck"> |
+| [Claude](profiles/claude/) | Stream Deck XL | 32 | <img src="profiles/claude/sheet.png" width="360" alt="Claude deck"> |
 
 ## Install a profile
 

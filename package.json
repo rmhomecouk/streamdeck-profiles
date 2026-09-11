@@ -6,7 +6,10 @@
   "scripts": {
     "ghostty:icons": "node profiles/ghostty/gen.mjs",
     "ghostty:profile": "node profiles/ghostty/profile.mjs",
-    "ghostty": "npm run ghostty:icons && npm run ghostty:profile"
+    "ghostty": "npm run ghostty:icons && npm run ghostty:profile",
+    "claude:icons": "node profiles/claude/gen.mjs",
+    "claude:profile": "node profiles/claude/profile.mjs",
+    "claude": "npm run claude:icons && npm run claude:profile"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2"

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="22%" r="95%">
+    <stop offset="0" stop-color="#e3876a"/><stop offset="0.55" stop-color="#cf6647"/><stop offset="1" stop-color="#a9492f"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="45%">
+    <stop offset="0" stop-color="#fff3e8" stop-opacity="0.18"/><stop offset="1" stop-color="#e07a5f" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grain" width="5" height="5" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1.2" r="0.55" fill="#fff" opacity="0.12"/>
+    <circle cx="3.6" cy="3.4" r="0.45" fill="#000" opacity="0.16"/>
+    <circle cx="3.2" cy="0.6" r="0.35" fill="#fff" opacity="0.08"/>
+  </pattern>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.6" stdDeviation="1.6" flood-color="#000" flood-opacity="0.28"/>
+  </filter>
+  <clipPath id="fr"><rect x="6" y="10" width="52" height="44" rx="7"/></clipPath>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<rect width="144" height="144" fill="url(#grain)"/>
+<g transform="translate(40 14)" filter="url(#lift)"><line x1="32.00" y1="27.00" x2="32.00" y2="5.00" stroke="#fffaf3" stroke-width="6.2" stroke-linecap="round"/><line x1="34.65" y1="27.76" x2="43.66" y2="13.34" stroke="#fffaf3" stroke-width="5" stroke-linecap="round"/><line x1="36.33" y1="29.50" x2="54.52" y2="19.00" stroke="#fffaf3" stroke-width="6.2" stroke-linecap="round"/><line x1="37.00" y1="32.17" x2="52.99" y2="32.73" stroke="#fffaf3" stroke-width="5" stroke-linecap="round"/><line x1="36.33" y1="34.50" x2="55.38" y2="45.50" stroke="#fffaf3" stroke-width="6.2" stroke-linecap="round"/><line x1="34.65" y1="36.24" x2="44.19" y2="51.51" stroke="#fffaf3" stroke-width="5" stroke-linecap="round"/><line x1="32.17" y1="37.00" x2="32.91" y2="57.98" stroke="#fffaf3" stroke-width="6.2" stroke-linecap="round"/><line x1="29.65" y1="36.41" x2="22.14" y2="50.54" stroke="#fffaf3" stroke-width="5" stroke-linecap="round"/><line x1="27.67" y1="34.50" x2="8.62" y2="45.50" stroke="#fffaf3" stroke-width="6.2" stroke-linecap="round"/><line x1="27.00" y1="32.00" x2="10.00" y2="32.00" stroke="#fffaf3" stroke-width="5" stroke-linecap="round"/><line x1="27.59" y1="29.65" x2="9.04" y2="19.79" stroke="#fffaf3" stroke-width="6.2" stroke-linecap="round"/><line x1="29.35" y1="27.76" x2="20.87" y2="14.19" stroke="#fffaf3" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#fffaf3" stroke="none" stroke-width="0"/></g>
+<text x="72" y="106" font-family="New York" font-size="19" fill="#fffaf3" stroke="#fffaf3" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Claude</text>
+<text x="72" y="128" font-family="SF Mono" font-size="14.5" fill="#ffe3d4" stroke="#ffe3d4" stroke-width="0.35" text-anchor="middle">open app</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.25" stroke-width="1.5"/>
+</svg>
