@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#232a3c"/><stop offset="0.55" stop-color="#191e2d"/><stop offset="1" stop-color="#11141e"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#b9a8ff" stop-opacity="0.13"/><stop offset="1" stop-color="#b9a8ff" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ob" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3f86e8"/><stop offset="1" stop-color="#2c4fc4"/></linearGradient>
+  <linearGradient id="os" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8fd3fb"/><stop offset="0.5" stop-color="#6f8cf4"/><stop offset="1" stop-color="#4b3fd1"/></linearGradient>
+  <linearGradient id="of" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6ccbf8"/><stop offset="1" stop-color="#3a7ee6"/></linearGradient>
+  <linearGradient id="op" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4d8cf0"/><stop offset="1" stop-color="#2447b8"/></linearGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<polyline points="61,5 72,11 83,5" fill="none" stroke="#b9a8ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+<g transform="translate(40 16)" filter="url(#lift)"><rect x="4" y="10" width="56" height="44" rx="7" fill="none" stroke="#ffffff" stroke-width="4.2"/><rect x="34" y="12" width="24" height="40" rx="5" fill="#b9a8ff" fill-opacity="0.45"/><line x1="33" y1="12" x2="33" y2="52" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/><line x1="11" y1="22" x2="26" y2="22" stroke="#ffffffaa" stroke-width="3.2" stroke-linecap="round"/><line x1="11" y1="32" x2="26" y2="32" stroke="#ffffffaa" stroke-width="3.2" stroke-linecap="round"/><line x1="11" y1="42" x2="22" y2="42" stroke="#ffffffaa" stroke-width="3.2" stroke-linecap="round"/></g>
+<text x="72" y="107" font-family=".SF NS Rounded" font-size="15.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Reading pane</text>
+<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#b9a8ff" stroke="#b9a8ff" stroke-width="0.45" text-anchor="middle">⌘\</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,418 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-outlook.png",
+    "id": "outlook",
+    "label": "Outlook",
+    "keys": "open app",
+    "action": "launch / focus Microsoft Outlook.app",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-mail.png",
+    "id": "mail",
+    "label": "Mail",
+    "keys": "⌘1",
+    "action": "Go To ▸ Mail · ViewMenus.nib",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-calendar.png",
+    "id": "calendar",
+    "label": "Calendar",
+    "keys": "⌘2",
+    "action": "Go To ▸ Calendar · ViewMenus.nib",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-people.png",
+    "id": "people",
+    "label": "People",
+    "keys": "⌘3",
+    "action": "Go To ▸ People · ViewMenus.nib",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-tasks.png",
+    "id": "tasks",
+    "label": "Tasks",
+    "keys": "⌘4",
+    "action": "Go To ▸ Tasks · ViewMenus.nib",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-search.png",
+    "id": "search",
+    "label": "Search",
+    "keys": "⇧⌘F",
+    "action": "Find ▸ Outlook Items Search · OutlookApp.nib",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-go-to-folder.png",
+    "id": "go-to-folder",
+    "label": "Go to folder",
+    "keys": "⌃G",
+    "action": "Folder ▸ Go to Folder… · OutlookApp.nib",
+    "when": "mail",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-sync.png",
+    "id": "sync",
+    "label": "Sync",
+    "keys": "⌃⌘K",
+    "action": "Tools ▸ Send & Receive · OutlookApp.nib",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-new-email.png",
+    "id": "new-email",
+    "label": "New email",
+    "keys": "⌘N",
+    "action": "New ▸ Email · OutlookApp.nib",
+    "when": "anywhere",
+    "category": "mail"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-reply.png",
+    "id": "reply",
+    "label": "Reply",
+    "keys": "⌘R",
+    "action": "Message ▸ Reply · DocumentMenus.nib",
+    "when": "mail",
+    "category": "mail"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-reply-all.png",
+    "id": "reply-all",
+    "label": "Reply all",
+    "keys": "⇧⌘R",
+    "action": "Message ▸ Reply All · DocumentMenus.nib",
+    "when": "mail",
+    "category": "mail"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-forward.png",
+    "id": "forward",
+    "label": "Forward",
+    "keys": "⌘J",
+    "action": "Message ▸ Forward · DocumentMenus.nib",
+    "when": "mail",
+    "category": "mail"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-send.png",
+    "id": "send",
+    "label": "Send",
+    "keys": "⌘↩",
+    "action": "Draft ▸ Send · DocumentMenus.nib",
+    "when": "compose",
+    "category": "mail"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-discard.png",
+    "id": "discard",
+    "label": "Discard",
+    "keys": "⌘esc",
+    "action": "Draft ▸ Discard · DocumentMenus.nib",
+    "when": "compose",
+    "category": "mail"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-undo-send.png",
+    "id": "undo-send",
+    "label": "Undo send",
+    "keys": "⌥⌘↩",
+    "action": "Edit ▸ Undo Send · OutlookApp.nib",
+    "when": "mail",
+    "category": "mail"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-react.png",
+    "id": "react",
+    "label": "React",
+    "keys": "⌃⌘R",
+    "action": "Message ▸ React · DocumentMenus.nib",
+    "when": "mail",
+    "category": "mail"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-archive.png",
+    "id": "archive",
+    "label": "Archive",
+    "keys": "⌃E",
+    "action": "Message ▸ Archive · DocumentMenus.nib",
+    "when": "mail",
+    "category": "tri"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-delete.png",
+    "id": "delete",
+    "label": "Delete",
+    "keys": "⌘⌫",
+    "action": "Edit ▸ Delete · OutlookApp.nib",
+    "when": "mail",
+    "category": "tri"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-move.png",
+    "id": "move",
+    "label": "Move",
+    "keys": "⇧⌘M",
+    "action": "Move ▸ Choose Folder… · DocumentMenus.nib",
+    "when": "mail",
+    "category": "tri"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-mark-read.png",
+    "id": "mark-read",
+    "label": "Mark read",
+    "keys": "⌘T",
+    "action": "Message ▸ Mark as Read · DocumentMenus.nib",
+    "when": "mail",
+    "category": "tri"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-mark-unread.png",
+    "id": "mark-unread",
+    "label": "Mark unread",
+    "keys": "⇧⌘T",
+    "action": "Message ▸ Mark as Unread · DocumentMenus.nib",
+    "when": "mail",
+    "category": "tri"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-flag.png",
+    "id": "flag",
+    "label": "Flag",
+    "keys": "⌃1",
+    "action": "To Do ▸ Today · SetToDoMenu.nib",
+    "when": "mail",
+    "category": "tri"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-pin.png",
+    "id": "pin",
+    "label": "Pin",
+    "keys": "⌃P",
+    "action": "Message ▸ Pin · DocumentMenus.nib",
+    "when": "mail",
+    "category": "tri"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-junk.png",
+    "id": "junk",
+    "label": "Junk",
+    "keys": "⇧⌘J",
+    "action": "Junk Mail ▸ Mark as Junk · DocumentMenus.nib",
+    "when": "mail",
+    "category": "tri"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-today.png",
+    "id": "today",
+    "label": "Today",
+    "keys": "⌘T",
+    "action": "View ▸ Today · ViewMenus.nib",
+    "when": "calendar",
+    "category": "cal"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-day.png",
+    "id": "day",
+    "label": "Day",
+    "keys": "⌃⌘1",
+    "action": "View ▸ Day · ViewMenus.nib",
+    "when": "calendar",
+    "category": "cal"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-work-week.png",
+    "id": "work-week",
+    "label": "Work week",
+    "keys": "⌃⌘2",
+    "action": "View ▸ Work Week · ViewMenus.nib",
+    "when": "calendar",
+    "category": "cal"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-month.png",
+    "id": "month",
+    "label": "Month",
+    "keys": "⌃⌘4",
+    "action": "View ▸ Month · ViewMenus.nib",
+    "when": "calendar",
+    "category": "cal"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-previous.png",
+    "id": "previous",
+    "label": "Previous",
+    "keys": "⌥⌘←",
+    "action": "View ▸ Previous · ViewMenus.nib",
+    "when": "calendar",
+    "category": "cal"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-next.png",
+    "id": "next",
+    "label": "Next",
+    "keys": "⌥⌘→",
+    "action": "View ▸ Next · ViewMenus.nib",
+    "when": "calendar",
+    "category": "cal"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-reading-pane.png",
+    "id": "reading-pane",
+    "label": "Reading pane",
+    "keys": "⌘\\",
+    "action": "View ▸ Reading Pane ▸ Right · ViewMenus.nib",
+    "when": "mail",
+    "category": "cal"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-sidebar.png",
+    "id": "sidebar",
+    "label": "Sidebar",
+    "keys": "⇧⌘[",
+    "action": "View ▸ Sidebar · ViewMenus.nib",
+    "when": "anywhere",
+    "category": "cal"
+  }
+]

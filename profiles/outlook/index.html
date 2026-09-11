@@ -1,0 +1,197 @@
+<title>Outlook Deck</title>
+<style>
+:root{
+  --ground:#eef1f7; --win:#ffffff; --pane:#f5f7fb; --bar:#e9eef8; --line:#dfe3ec; --text:#242424; --muted:#616161;
+  --brand:#0f6cbd; --hover:#0f6cbd0d; --sel:#0f6cbd1f; --plate:#0d0f16; --chip:#f0f2f7;
+  --go:#0b88c7; --mail:#1d6ee0; --tri:#5b4fd6; --cal:#7b5fe0;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0b0d13; --win:#1f1f1f; --pane:#1a1c22; --bar:#16181e; --line:#33363d; --text:#e6e6e6; --muted:#a3a6ad;
+  --brand:#4d9bf7; --hover:#ffffff0a; --sel:#4d9bf726; --plate:#0d0f16; --chip:#2a2d34;
+  --go:#6cd0fa; --mail:#4d9bf7; --tri:#8a7ff8; --cal:#b9a8ff;
+}}
+:root[data-theme="dark"]{
+  --ground:#0b0d13; --win:#1f1f1f; --pane:#1a1c22; --bar:#16181e; --line:#33363d; --text:#e6e6e6; --muted:#a3a6ad;
+  --brand:#4d9bf7; --hover:#ffffff0a; --sel:#4d9bf726; --plate:#0d0f16; --chip:#2a2d34;
+  --go:#6cd0fa; --mail:#4d9bf7; --tri:#8a7ff8; --cal:#b9a8ff;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--text);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;padding:28px 16px 48px}
+.mono,code{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.window{max-width:1240px;margin:0 auto;background:var(--win);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 24px 60px -30px #0007}
+/* title bar with the search box, like new Outlook */
+.top{display:grid;grid-template-columns:90px 1fr 90px;align-items:center;height:44px;background:var(--bar);border-bottom:1px solid var(--line)}
+.lights{display:flex;gap:8px;padding-left:14px}.lights i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.lights i:nth-child(2){background:#febc2e}.lights i:nth-child(3){background:#28c840}
+.search{justify-self:center;width:min(520px,100%);height:28px;border-radius:6px;background:var(--win);border:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 10px;color:var(--muted);font-size:13px}
+/* ribbon row */
+.ribbon{display:flex;gap:6px;align-items:center;padding:8px 14px;border-bottom:1px solid var(--line);overflow-x:auto}
+.newbtn{background:var(--brand);color:#fff;border-radius:6px;padding:5px 14px;font-weight:600;font-size:13px;white-space:nowrap}
+.rbtn{color:var(--muted);font-size:13px;padding:5px 10px;border-radius:6px;white-space:nowrap}
+.shell{display:grid;grid-template-columns:220px minmax(0,1fr)}
+/* folder pane: the four rows */
+.folders{background:var(--pane);border-right:1px solid var(--line);padding:12px 8px;display:flex;flex-direction:column;gap:2px}
+.fh{font-size:12px;font-weight:600;color:var(--muted);padding:8px 10px 4px;text-transform:uppercase;letter-spacing:.05em}
+.fbtn{all:unset;display:flex;align-items:center;gap:10px;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:14px}
+.fbtn:hover{background:var(--hover)}
+.fbtn[aria-pressed="true"]{background:var(--sel);font-weight:600}
+.fbtn:focus-visible{outline:2px solid var(--brand);outline-offset:1px}
+.fbtn .sw{width:10px;height:10px;border-radius:3px}
+.fbtn .n{margin-left:auto;color:var(--muted);font-size:12px}
+.main{padding:18px 20px 26px;display:grid;gap:18px;min-width:0}
+h1{font-size:20px;font-weight:600;margin:0;text-wrap:balance}
+.lede{margin:2px 0 0;color:var(--muted);max-width:72ch}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+.device{background:var(--plate);border-radius:22px;padding:16px;box-shadow:inset 0 0 0 1px #ffffff14,0 14px 30px -18px #000}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}
+.key{padding:0;border:0;background:none;cursor:pointer;border-radius:14%;aspect-ratio:1;transition:transform .12s,opacity .15s,filter .15s}
+.key img{width:100%;height:100%;display:block;border-radius:14%}
+.key:hover{transform:translateY(-2px)}
+.key:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.key[aria-pressed="true"]{outline:2px solid #fff;outline-offset:3px}
+.key.dim{opacity:.2;filter:saturate(.3)}
+/* reading pane */
+.reading{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.reading .subj{padding:14px 16px 10px;border-bottom:1px solid var(--line)}
+.reading .subj small{color:var(--muted);font-size:12px;display:block}
+.reading h2{font-size:18px;margin:2px 0 0;font-weight:600}
+.reading .from{display:flex;gap:10px;align-items:center;padding:12px 16px}
+.reading .from img{width:44px;height:44px;border-radius:10px}
+.reading .from b{display:block}.reading .from span{color:var(--muted);font-size:12.5px}
+.reading .bodytext{padding:0 16px 16px;font-size:14px}
+.caps{display:flex;gap:4px;flex-wrap:wrap;margin:0 0 10px}
+kbd{font:600 12px ui-monospace,"SF Mono",Menlo,monospace;min-width:24px;padding:3px 7px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;background:var(--chip)}
+.src{margin-top:10px;font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--chip)}
+.filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter .lbl{color:var(--muted);font-size:13px;margin-right:4px}
+.chip{border:1px solid var(--line);background:var(--win);color:var(--text);border-radius:999px;padding:4px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--sel);border-color:var(--brand);color:var(--brand);font-weight:600}
+.chip:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:720px}
+th{text-align:left;font-weight:600;color:var(--muted);background:var(--pane);padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:12.5px}
+td{padding:7px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{background:var(--sel)}tbody tr.dim{opacity:.35}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
+@media (max-width:960px){.shell{grid-template-columns:1fr}.folders{display:none}.stage{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.key{transition:none}}
+</style>
+
+<div class="window">
+  <div class="top">
+    <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="search" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>Search</div>
+    <div></div>
+  </div>
+  <div class="ribbon" aria-hidden="true"><span class="newbtn">New Email</span><span class="rbtn">Delete</span><span class="rbtn">Archive</span><span class="rbtn">Move</span><span class="rbtn">Reply</span><span class="rbtn">Reply All</span><span class="rbtn">Forward</span><span class="rbtn">Flag</span></div>
+  <div class="shell">
+    <nav class="folders" aria-label="Rows">
+      <div class="fh">Stream Deck XL</div>
+      <button class="fbtn" data-cat="all" aria-pressed="true"><span class="sw" style="background:var(--brand)"></span>All keys<span class="n">32</span></button>
+      <button class="fbtn" data-cat="go" aria-pressed="false"><span class="sw" style="background:var(--go)"></span>Go to<span class="n">8</span></button>
+      <button class="fbtn" data-cat="mail" aria-pressed="false"><span class="sw" style="background:var(--mail)"></span>Compose<span class="n">8</span></button>
+      <button class="fbtn" data-cat="tri" aria-pressed="false"><span class="sw" style="background:var(--tri)"></span>Triage<span class="n">8</span></button>
+      <button class="fbtn" data-cat="cal" aria-pressed="false"><span class="sw" style="background:var(--cal)"></span>Calendar &amp; view<span class="n">8</span></button>
+      <div class="fh">Source</div>
+      <div class="fbtn" style="cursor:default">Outlook 16.112.3</div>
+      <div class="fbtn" style="cursor:default">New Outlook · macOS</div>
+    </nav>
+    <main class="main">
+      <header>
+        <h1>Outlook on a Stream Deck XL</h1>
+        <p class="lede">32 keys, each read from the menu files inside Outlook 16.112. Pick a row from the folder list, filter by where a key works, or click any key to open it in the reading pane.</p>
+      </header>
+      <div class="stage">
+        <div class="device"><div class="grid" id="grid"></div></div>
+        <article class="reading" id="detail" aria-live="polite"></article>
+      </div>
+      <div class="filter" role="group" aria-label="Filter by where it works">
+        <span class="lbl">Works in:</span>
+        <button class="chip" data-when="all" aria-pressed="true">All keys</button>
+        <button class="chip" data-when="anywhere" aria-pressed="false">Anywhere</button>
+        <button class="chip" data-when="mail" aria-pressed="false">Mail</button>
+        <button class="chip" data-when="compose" aria-pressed="false">Writing an email</button>
+        <button class="chip" data-when="calendar" aria-pressed="false">Calendar</button>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Key</th><th>Shortcut</th><th>Works in</th><th>Outlook menu</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+const CATS = { go: 'Go to', mail: 'Compose', tri: 'Triage', cal: 'Calendar & view' };
+const WHEN = { anywhere: 'Anywhere', mail: 'Mail', compose: 'Writing an email', calendar: 'Calendar' };
+const K = [
+  ['outlook','Outlook','open app','Stream Deck Open Application · com.microsoft.Outlook','go','anywhere','Opens Outlook or brings it to the front. A long press quits it.'],
+  ['mail','Mail','⌘1','Go To ▸ Mail','go','anywhere','Switch to your inbox.'],
+  ['calendar','Calendar','⌘2','Go To ▸ Calendar','go','anywhere','Switch to the calendar.'],
+  ['people','People','⌘3','Go To ▸ People','go','anywhere','Switch to contacts.'],
+  ['tasks','Tasks','⌘4','Go To ▸ Tasks','go','anywhere','Switch to tasks.'],
+  ['search','Search','⇧⌘F','Find ▸ Outlook Items Search','go','anywhere','Search mail, events and contacts.'],
+  ['go-to-folder','Go to folder','⌃G','Folder ▸ Go to Folder…','go','mail','Type a folder name to jump to it.'],
+  ['sync','Sync','⌃⌘K','Tools ▸ Send & Receive','go','anywhere','Check for new mail now.'],
+  ['new-email','New email','⌘N','New ▸ Email','mail','anywhere','Start a new email.'],
+  ['reply','Reply','⌘R','Message ▸ Reply','mail','mail','Reply to the sender of the selected email.'],
+  ['reply-all','Reply all','⇧⌘R','Message ▸ Reply All','mail','mail','Reply to everyone on the selected email.'],
+  ['forward','Forward','⌘J','Message ▸ Forward','mail','mail','Forward the selected email.'],
+  ['send','Send','⌘↩','Draft ▸ Send','mail','compose','Send the email you are writing.'],
+  ['discard','Discard','⌘esc','Draft ▸ Discard','mail','compose','Throw away the email you are writing.'],
+  ['undo-send','Undo send','⌥⌘↩','Edit ▸ Undo Send','mail','mail','Pull back the email you just sent, while the undo window is still open.'],
+  ['react','React','⌃⌘R','Message ▸ React','mail','mail','Add a reaction to the selected email.'],
+  ['archive','Archive','⌃E','Message ▸ Archive','tri','mail','Move the selected email to Archive.'],
+  ['delete','Delete','⌘⌫','Edit ▸ Delete','tri','mail','Delete the selected email.'],
+  ['move','Move','⇧⌘M','Move ▸ Choose Folder…','tri','mail','Pick a folder to move the selected email to.'],
+  ['mark-read','Mark read','⌘T','Message ▸ Mark as Read','tri','mail','Mark the selected email as read. In the calendar, the same key goes to today.'],
+  ['mark-unread','Mark unread','⇧⌘T','Message ▸ Mark as Unread','tri','mail','Mark the selected email as unread.'],
+  ['flag','Flag','⌃1','To Do ▸ Today','tri','mail','Flag the email for follow-up today. If Mission Control\'s "Switch to Desktop 1" is on, macOS takes ⌃1 first.'],
+  ['pin','Pin','⌃P','Message ▸ Pin','tri','mail','Pin the email to the top of the list.'],
+  ['junk','Junk','⇧⌘J','Junk Mail ▸ Mark as Junk','tri','mail','Mark the selected email as junk.'],
+  ['today','Today','⌘T','View ▸ Today','cal','calendar','Jump the calendar to today. Shares ⌘T with Mark read, which applies in mail.'],
+  ['day','Day','⌃⌘1','View ▸ Day','cal','calendar','Show one day.'],
+  ['work-week','Work week','⌃⌘2','View ▸ Work Week','cal','calendar','Show Monday to Friday.'],
+  ['month','Month','⌃⌘4','View ▸ Month','cal','calendar','Show the whole month.'],
+  ['previous','Previous','⌥⌘←','View ▸ Previous','cal','calendar','Go back one day, week or month.'],
+  ['next','Next','⌥⌘→','View ▸ Next','cal','calendar','Go forward one day, week or month.'],
+  ['reading-pane','Reading pane','⌘\\','View ▸ Reading Pane ▸ Right','cal','mail','Put the reading pane on the right.'],
+  ['sidebar','Sidebar','⇧⌘[','View ▸ Sidebar','cal','anywhere','Show or hide the folder pane.'],
+].map(([id,label,keys,src,cat,when,note],i)=>({id,label,keys,src,cat,when,note,n:String(i+1).padStart(2,'0')}));
+
+const $ = (s) => document.querySelector(s);
+const img = (k) => `icons/${k.n}-${k.id}.png`;
+const caps = (keys) => {
+  if (keys === 'open app') return '<kbd>open app</kbd>';
+  const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
+  return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
+};
+const color = (c) => `var(--${c})`;
+let cat = 'all', when = 'all';
+
+$('#grid').innerHTML = K.map((k, i) => `<button class="key" data-i="${i}" aria-label="${k.label}, ${k.keys}" aria-pressed="false"><img src="${img(k)}" alt=""></button>`).join('');
+$('#rows').innerHTML = K.map((k, i) => `<tr data-i="${i}"><td><span class="dot" style="background:${color(k.cat)}"></span>${k.label}</td><td><span class="caps" style="margin:0">${caps(k.keys)}</span></td><td>${WHEN[k.when]}</td><td>${k.src}</td></tr>`).join('');
+
+function show(k) {
+  $('#detail').innerHTML = `<div class="subj"><small style="color:${color(k.cat)};font-weight:600">${CATS[k.cat]}</small><h2>${k.label}</h2></div>
+  <div class="from"><img src="${img(k)}" alt=""><div><b>Stream Deck XL</b><span>Key ${k.n} · ${WHEN[k.when]}</span></div></div>
+  <div class="bodytext"><div class="caps">${caps(k.keys)}</div>${k.note}<div class="src"><span class="pill">Menu</span> ${k.src}</div></div>`;
+  document.querySelectorAll('.key').forEach((b) => b.setAttribute('aria-pressed', String(K[b.dataset.i] === k)));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('sel', K[r.dataset.i] === k));
+}
+function apply() {
+  const off = (k) => (cat !== 'all' && k.cat !== cat) || (when !== 'all' && k.when !== when);
+  document.querySelectorAll('.key').forEach((b) => b.classList.toggle('dim', off(K[b.dataset.i])));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('dim', off(K[r.dataset.i])));
+  document.querySelectorAll('.fbtn[data-cat]').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.cat === cat)));
+  document.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.when === when)));
+}
+$('#grid').addEventListener('click', (e) => { const b = e.target.closest('.key'); if (b) show(K[b.dataset.i]); });
+$('#rows').addEventListener('click', (e) => { const r = e.target.closest('tr'); if (r) show(K[r.dataset.i]); });
+document.querySelectorAll('.fbtn[data-cat]').forEach((c) => c.addEventListener('click', () => { cat = c.dataset.cat; apply(); }));
+document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => { when = c.dataset.when; apply(); }));
+show(K[9]); apply();
+</script>

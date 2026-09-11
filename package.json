@@ -21,7 +21,10 @@
     "vscode": "npm run vscode:icons && npm run vscode:profile",
     "slack:icons": "node profiles/slack/gen.mjs",
     "slack:profile": "node profiles/slack/profile.mjs",
-    "slack": "npm run slack:icons && npm run slack:profile"
+    "slack": "npm run slack:icons && npm run slack:profile",
+    "outlook:icons": "node profiles/outlook/gen.mjs",
+    "outlook:profile": "node profiles/outlook/profile.mjs",
+    "outlook": "npm run outlook:icons && npm run outlook:profile"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2"
