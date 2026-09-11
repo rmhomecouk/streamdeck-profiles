@@ -14,6 +14,7 @@ Custom Elgato Stream Deck profiles with generated icon sets. Each profile lives 
 | [Ghostty](profiles/ghostty/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/0b677874-a30c-473f-9104-18c0ce02b17f) · [local](profiles/ghostty/index.html) | <img src="profiles/ghostty/sheet.png" width="360" alt="Ghostty deck"> |
 | [Claude](profiles/claude/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/e322b528-abbb-4874-b1f0-8e6d39fe08c3) · [local](profiles/claude/index.html) | <img src="profiles/claude/sheet.png" width="360" alt="Claude deck"> |
 | [Safari](profiles/safari/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/589a06e9-d96b-4750-b59f-a9a2613080eb) · [local](profiles/safari/index.html) | <img src="profiles/safari/sheet.png" width="360" alt="Safari deck"> |
+| [Microsoft Teams](profiles/teams/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/d6fc463f-ecff-4b2e-b2ad-69d1c72d0579) · [local](profiles/teams/index.html) | <img src="profiles/teams/sheet.png" width="360" alt="Teams deck"> |
 
 The live mockups are private Claude artifacts, so only you can open them unless you share them. The local `index.html` files work offline from a clone.
 

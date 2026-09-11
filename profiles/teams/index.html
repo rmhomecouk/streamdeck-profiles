@@ -1,0 +1,287 @@
+<title>Teams Deck</title>
+<style>
+  /* Fluent-flavoured: Teams' brand violet on neutral greys, light and dark. */
+  :root {
+    --ground: #f5f5f7;
+    --surface: #ffffff;
+    --surface-2: #f3f2f8;
+    --line: #e1dfea;
+    --fg: #1b1a24;
+    --fg-soft: #424055;
+    --muted: #6d6a80;
+    --brand: #5b5fc7;
+    --brand-soft: #ebebfb;
+    --meet: #5b5fc7; --calls: #1f8f4b; --react: #b36b00; --app: #0f6cbd; --red: #c4314b;
+    --kbd: #f0eff6; --kbd-edge: #d3d0e0;
+    --row-on: #f0f0fd;
+    --bar: #2b2a33; --bar-fg: #f4f3fb;
+    --shadow: 0 1px 2px rgba(27,26,36,.06), 0 12px 32px -18px rgba(27,26,36,.28);
+    --sans: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    --display: "Segoe UI Variable Display", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #141418; --surface: #1f1f25; --surface-2: #26252e; --line: #34333f;
+      --fg: #f1f0f7; --fg-soft: #c9c7d6; --muted: #9795a8; --brand: #8b8ff8; --brand-soft: #2b2a45;
+      --meet: #8b8ff8; --calls: #5fd38a; --react: #ffc34d; --app: #6cb8f6; --red: #ff6f80;
+      --kbd: #2a2932; --kbd-edge: #45434f; --row-on: #2a2940;
+      --bar: #26252e; --bar-fg: #f1f0f7;
+      --shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 16px 40px -22px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #141418; --surface: #1f1f25; --surface-2: #26252e; --line: #34333f;
+    --fg: #f1f0f7; --fg-soft: #c9c7d6; --muted: #9795a8; --brand: #8b8ff8; --brand-soft: #2b2a45;
+    --meet: #8b8ff8; --calls: #5fd38a; --react: #ffc34d; --app: #6cb8f6; --red: #ff6f80;
+    --kbd: #2a2932; --kbd-edge: #45434f; --row-on: #2a2940;
+    --bar: #26252e; --bar-fg: #f1f0f7;
+    --shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 16px 40px -22px rgba(0,0,0,.8);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--fg); font: 15px/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 44px 28px 72px; display: grid; gap: 38px; }
+
+  /* ---- header: a meeting control bar, where this deck earns its keep ---- */
+  header { display: grid; gap: 18px; max-width: 800px; }
+  .bar {
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap; padding: 8px; border-radius: 14px;
+    background: var(--bar); color: var(--bar-fg); box-shadow: var(--shadow); width: fit-content;
+  }
+  .bar .clock { font: 600 13px/1 var(--mono); padding: 0 10px 0 6px; color: var(--bar-fg); opacity: .8; font-variant-numeric: tabular-nums; }
+  .ctl { display: grid; justify-items: center; gap: 3px; padding: 6px 10px; border-radius: 9px; font: 500 11px/1 var(--sans); color: var(--bar-fg); }
+  .ctl svg { width: 20px; height: 20px; }
+  .ctl.on { background: rgba(139,143,248,.22); }
+  .leave { display: flex; align-items: center; gap: 7px; margin-left: 6px; padding: 9px 14px; border-radius: 9px; background: #c4314b; color: #fff; font: 600 13px/1 var(--sans); }
+  .leave svg { width: 18px; height: 18px; }
+  h1 { font: 700 clamp(36px, 5vw, 56px)/1.02 var(--display); letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+  h1 span { color: var(--brand); }
+  .lede { margin: 0; color: var(--fg-soft); max-width: 66ch; }
+
+  /* ---- filter ---- */
+  .toolbar { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .toolbar > span { font: 600 11.5px/1 var(--sans); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+  .seg { display: inline-flex; flex-wrap: wrap; padding: 3px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .seg button { all: unset; cursor: pointer; font: 500 13.5px/1 var(--sans); color: var(--fg-soft); padding: 8px 13px; border-radius: 7px; }
+  .seg button[aria-pressed="true"] { background: var(--brand-soft); color: var(--brand); font-weight: 600; }
+  .seg button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+  /* ---- the device ---- */
+  .stage { overflow-x: auto; padding: 4px 4px 20px; display: grid; gap: 18px; }
+  .deck {
+    width: max-content; margin: 0 auto; padding: 34px 38px 40px; border-radius: 30px; position: relative;
+    background: linear-gradient(180deg, #25252c, #17171b 20%, #111114);
+    box-shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 -2px 0 rgba(0,0,0,.6) inset, 0 40px 80px -30px rgba(0,0,0,.6), 0 0 0 1px #000;
+  }
+  .deck::after { content: ""; position: absolute; left: 50%; bottom: 15px; width: 46px; height: 3px; border-radius: 2px; transform: translateX(-50%); background: #2f2e38; }
+  .grid { display: grid; grid-template-columns: repeat(8, 96px); gap: 18px; }
+  .key {
+    all: unset; cursor: pointer; width: 96px; height: 96px; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 0 0 1px #000, 0 3px 0 #08080a, 0 6px 10px rgba(0,0,0,.45);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .2s ease, filter .2s ease;
+  }
+  .key img { width: 100%; height: 100%; display: block; }
+  .key:hover { transform: translateY(-1px); }
+  .key:active { transform: translateY(2px); box-shadow: 0 0 0 1px #000, 0 1px 0 #08080a; }
+  .key:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+  .key[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--c), 0 0 22px -2px var(--c), 0 3px 0 #08080a; }
+  .key.dim { opacity: .22; filter: grayscale(.85); }
+
+  /* ---- detail + groups ---- */
+  .below { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+  @media (max-width: 860px) { .below { grid-template-columns: 1fr; } }
+  .detail {
+    display: grid; grid-template-columns: 144px 1fr; gap: 22px; align-items: center;
+    padding: 22px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
+  }
+  .detail > img { width: 144px; height: 144px; border-radius: 20px; display: block; box-shadow: 0 0 0 1px rgba(0,0,0,.6); }
+  .eyebrow { font: 600 11.5px/1 var(--sans); text-transform: uppercase; letter-spacing: .1em; color: var(--c, var(--muted)); }
+  .detail h2 { font: 700 28px/1.1 var(--display); letter-spacing: -.01em; margin: 8px 0 12px; }
+  .kbd { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+  .kbd span { font: 500 14px/1 var(--sans); padding: 6px 8px; border-radius: 6px; min-width: 28px; text-align: center; background: var(--kbd); border: 1px solid var(--kbd-edge); border-bottom-width: 2px; color: var(--fg); }
+  .facts { margin: 14px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 13.5px; }
+  .facts dt { color: var(--muted); }
+  .facts dd { margin: 0; color: var(--fg-soft); }
+  .facts code { font: 13px/1.4 var(--mono); color: var(--fg); }
+  .when { display: inline-block; font: 600 12px/1 var(--sans); padding: 4px 9px; border-radius: 999px; background: var(--brand-soft); color: var(--brand); }
+  .note { margin: 12px 0 0; font-size: 13.5px; color: var(--fg-soft); max-width: 52ch; }
+
+  .groups { display: grid; padding: 6px 20px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .group { display: grid; grid-template-columns: 14px 1fr auto; gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .group:last-child { border-bottom: 0; }
+  .swatch { width: 10px; height: 10px; border-radius: 3px; background: var(--c); transform: translateY(1px); }
+  .group b { font-weight: 600; }
+  .group p { margin: 2px 0 0; font-size: 13.5px; color: var(--fg-soft); }
+  .group .row { font: 500 12px/1 var(--sans); color: var(--muted); white-space: nowrap; }
+
+  /* ---- keymap table ---- */
+  h3 { font: 700 20px/1.2 var(--display); margin: 0 0 14px; }
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px; }
+  th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  th { font: 600 11px/1 var(--sans); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--surface-2); }
+  tr:last-child td { border-bottom: 0; }
+  tbody tr { cursor: pointer; }
+  tbody tr:hover td, tbody tr.on td { background: var(--row-on); }
+  tbody tr.dim td { opacity: .35; }
+  td.pos { font: 500 12px/1 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.lbl { font-weight: 600; white-space: nowrap; }
+  td.lbl i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: var(--c); margin-right: 10px; vertical-align: 1px; }
+  td.keys { font-weight: 500; white-space: nowrap; letter-spacing: .04em; }
+  td.w { color: var(--fg-soft); white-space: nowrap; }
+  td code { font: 12.5px/1.3 var(--mono); color: var(--fg-soft); }
+
+  footer { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 24px; }
+  footer b { color: var(--fg-soft); font-weight: 600; }
+  @media (prefers-reduced-motion: reduce) { .key { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="bar" aria-hidden="true">
+      <span class="clock">24:07</span>
+      <span class="ctl"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="12" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15 11l5-3v8l-5-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Camera</span>
+      <span class="ctl on"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M4 4l16 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Mic</span>
+      <span class="ctl"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 13V7.5M9.5 10 12 7.5 14.5 10M9 20h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Share</span>
+      <span class="ctl"><svg viewBox="0 0 24 24"><path d="M8 12V6.5a1.5 1.5 0 0 1 3 0V11M11 10.5V5a1.5 1.5 0 0 1 3 0v5.5M14 10.5V6.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-.5A5.5 5.5 0 0 1 6 16.8L4.4 13a1.5 1.5 0 0 1 2.6-1.4L8 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Raise</span>
+      <span class="ctl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9.5" cy="10" r="1.1" fill="currentColor"/><circle cx="14.5" cy="10" r="1.1" fill="currentColor"/></svg>React</span>
+      <span class="leave"><svg viewBox="0 0 24 24"><path d="M3.5 13.5c4.7-4.2 12.3-4.2 17 0l-1.9 2.4-3.3-1v-2.6a11 11 0 0 0-6.6 0v2.6l-3.3 1z" fill="currentColor"/></svg>Leave</span>
+    </div>
+    <h1>Teams <span>deck</span></h1>
+    <p class="lede">A 32-key Stream Deck XL layout for Microsoft Teams on the Mac. Every binding was read from the macOS keymap inside the Teams app itself, the set its code picks when <code>isMac</code> is true. Meeting controls are on top, then calls, reactions and presence status, then chat. Tap a key to see Teams' own command name and when it works.</p>
+  </header>
+
+  <div class="stage">
+    <div class="toolbar">
+      <span id="filter-label">When it works</span>
+      <div class="seg" role="group" aria-labelledby="filter-label" id="seg">
+        <button type="button" data-f="all" aria-pressed="true">All keys</button>
+        <button type="button" data-f="meeting" aria-pressed="false">In a meeting</button>
+        <button type="button" data-f="incoming" aria-pressed="false">Incoming call</button>
+        <button type="button" data-f="chat" aria-pressed="false">In a chat</button>
+        <button type="button" data-f="anywhere" aria-pressed="false">Anywhere</button>
+      </div>
+    </div>
+    <div class="deck" aria-label="Stream Deck XL, 8 by 4 keys">
+      <div class="grid" id="grid" role="group"></div>
+    </div>
+  </div>
+
+  <div class="below">
+    <section class="detail" id="detail" aria-live="polite"></section>
+    <section class="groups" aria-label="Key groups">
+      <div class="group" style="--c:var(--meet)"><i class="swatch"></i><div><b>In the meeting</b><p>The Teams key, plus mute, camera, raise hand, share, background blur, live captions, and leave.</p></div><span class="row">row 1</span></div>
+      <div class="group" style="--c:var(--calls)"><i class="swatch"></i><div><b>Calls</b><p>Accept with video or audio, decline, join from the toast, admit from the lobby, mute incoming audio, start a call from a chat.</p></div><span class="row">row 2</span></div>
+      <div class="group" style="--c:var(--react)"><i class="swatch"></i><div><b>Reactions &amp; status</b><p>The five meeting reactions, then set yourself Available, Busy or Do not disturb.</p></div><span class="row">row 3</span></div>
+      <div class="group" style="--c:var(--app)"><i class="swatch"></i><div><b>Chat &amp; app</b><p>Search, new chat, go to, compose, pop a conversation out, keep the window on top, settings, shortcuts.</p></div><span class="row">row 4</span></div>
+    </section>
+  </div>
+
+  <section>
+    <h3>Keymap</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Pos</th><th>Key</th><th>Sends</th><th>When</th><th>Teams command</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <span><b>Icons</b> 288 × 288 PNG, crisp on the XL's 96 px keys</span>
+    <span><b>Source</b> an SVG per key, rebuilt with <code>npm run teams</code></span>
+    <span><b>Tip</b> link the profile to Microsoft Teams.app so it switches in automatically</span>
+  </footer>
+</div>
+
+<script>
+// [id, label, keys, Teams command id, row group, when, colour override, note]
+const K = [
+  ["teams","Teams","open app","Opens Microsoft Teams.app","meet","anywhere",null,"Launches Teams, or brings it to the front. The only key that works from any app."],
+  ["mute","Mute","⇧ ⌘ M","ToggleMuteCurrentCall","meet","meeting"],
+  ["camera","Camera","⇧ ⌘ O","ToggleVideoCurrentCall","meet","meeting"],
+  ["raise-hand","Raise hand","⇧ ⌘ K","ToggleRaiseHandCurrentCall","meet","meeting","","Press again to lower your hand."],
+  ["share","Share","⇧ ⌘ E","ToggleShareTray","meet","meeting","","Opens the share tray so you can pick a screen or window."],
+  ["blur","Blur","⇧ ⌘ P","ToggleBackgroundBlurCurrentCall","meet","meeting"],
+  ["captions","Captions","⇧ ⌘ A","ToggleLiveCaptions","meet","meeting","","Same keys as Accept audio. Teams decides by context: captions in a meeting, answer when a call is ringing."],
+  ["leave","Leave","⇧ ⌘ H","LeaveCall","meet","meeting","red"],
+  ["accept-video","Accept video","⇧ ⌘ V","AcceptIncomingCallWithVideo","calls","incoming","green"],
+  ["accept-audio","Accept audio","⇧ ⌘ A","AcceptIncomingCallWithAudio","calls","incoming","green","Same keys as Captions. Only answers while a call is ringing."],
+  ["decline","Decline","⇧ ⌘ D","RejectIncomingCall","calls","incoming","red"],
+  ["join","Join","⇧ ⌘ J","JoinMeetingFromToast","calls","incoming","","Joins from the “meeting started” notification."],
+  ["admit","Admit","⇧ ⌘ Y","AdmitLobbyParticipant","calls","meeting","","Lets in whoever is waiting in the lobby."],
+  ["speaker","Speaker","⇧ ⌘ U","ToggleSpeakerMuteCurrentCall","calls","meeting","","Mutes or unmutes what you hear, not your mic."],
+  ["audio-call","Audio call","⌥ ⌘ S","StartAudioCallInChat","calls","chat","","Calls the people in the open chat."],
+  ["video-call","Video call","⇧ ⌘ S","StartVideoCallInChat","calls","chat","","Video-calls the people in the open chat."],
+  ["like","Like","⌥ ⇧ 1","MeetingLikeReaction","react","meeting"],
+  ["heart","Heart","⌥ ⇧ 2","MeetingHeartReaction","react","meeting"],
+  ["applause","Applause","⌥ ⇧ 3","MeetingApplauseReaction","react","meeting"],
+  ["laugh","Laugh","⌥ ⇧ 4","MeetingLaughReaction","react","meeting"],
+  ["surprised","Surprised","⌥ ⇧ 5","MeetingSurprisedReaction","react","meeting"],
+  ["available","Available","⌥ ⇧ Q","SetPresenceStatusAvailable","react","anywhere","green"],
+  ["busy","Busy","⌥ ⇧ Y","SetPresenceStatusBusy","react","anywhere","red","In Calendar the same keys jump to the current time."],
+  ["dnd","Do not disturb","⌥ ⇧ U","SetPresenceStatusDND","react","anywhere","red"],
+  ["search","Search","⌘ E","GoToPowerBar","app","anywhere"],
+  ["new-chat","New chat","⌘ N","NewChat","app","anywhere"],
+  ["go-to","Go to","⌘ G","SlashCommandGoto","app","anywhere","","Jump straight to a chat or channel by name."],
+  ["compose","Compose","⌘ R","Compose","app","chat","","Puts the cursor in the message box."],
+  ["pop-out","Pop out","⌘ O","PopoutConv","app","chat","","Opens the current conversation in its own window."],
+  ["on-top","On top","⌃ ⌘ T","ToggleWindowAlwaysOnTop","app","anywhere","","Keeps the Teams window above everything else, handy during a call."],
+  ["settings","Settings","⌘ ,","OpenSettingsMenu","app","anywhere"],
+  ["shortcuts","Shortcuts","⌘ .","ShowShortcuts","app","anywhere","","Opens Teams' own keyboard shortcuts list."],
+];
+const GROUP = { meet: "In the meeting", calls: "Calls", react: "Reactions & status", app: "Chat & app" };
+const WHEN = { meeting: "In a meeting", incoming: "Incoming call", chat: "In a chat", anywhere: "Anywhere" };
+const src = (i) => `icons/${String(i + 1).padStart(2, "0")}-${K[i][0]}.png`;
+const pos = (i) => `r${Math.floor(i / 8) + 1} · c${(i % 8) + 1}`;
+const col = (k) => k[6] === "red" ? "var(--red)" : k[6] === "green" ? "var(--calls)" : `var(--${k[4]})`;
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+const grid = document.getElementById("grid"), rows = document.getElementById("rows"), detail = document.getElementById("detail");
+K.forEach((k, i) => {
+  const b = document.createElement("button");
+  b.className = "key"; b.style.setProperty("--c", col(k));
+  b.setAttribute("aria-label", `${k[1]}, ${k[2]}`); b.setAttribute("aria-pressed", "false");
+  b.innerHTML = `<img src="${src(i)}" alt="">`;
+  b.onclick = () => select(i);
+  grid.appendChild(b);
+
+  const tr = document.createElement("tr");
+  tr.style.setProperty("--c", col(k));
+  tr.innerHTML = `<td class="pos">${pos(i)}</td><td class="lbl"><i></i>${k[1]}</td><td class="keys">${esc(k[2].replace(/ /g, ""))}</td><td class="w">${WHEN[k[5]]}</td><td><code>${esc(k[3])}</code></td>`;
+  tr.onclick = () => { select(i); grid.scrollIntoView({ block: "nearest", behavior: "smooth" }); };
+  rows.appendChild(tr);
+});
+
+function select(i) {
+  const k = K[i];
+  [...grid.children].forEach((b, j) => b.setAttribute("aria-pressed", String(i === j)));
+  [...rows.children].forEach((r, j) => r.classList.toggle("on", i === j));
+  detail.style.setProperty("--c", col(k));
+  detail.innerHTML = `
+    <img src="${src(i)}" alt="${k[1]} key icon">
+    <div>
+      <div class="eyebrow">${GROUP[k[4]]} · ${pos(i)}</div>
+      <h2>${k[1]}</h2>
+      <div class="kbd">${k[2].split(" ").map((s) => `<span>${esc(s)}</span>`).join("")}</div>
+      <dl class="facts">
+        <dt>When</dt><dd><span class="when">${WHEN[k[5]]}</span></dd>
+        <dt>Command</dt><dd><code>${esc(k[3])}</code></dd>
+      </dl>
+      ${k[7] ? `<p class="note">${esc(k[7])}</p>` : ""}
+    </div>`;
+}
+
+document.getElementById("seg").addEventListener("click", (e) => {
+  const f = e.target.closest("button")?.dataset.f;
+  if (!f) return;
+  document.querySelectorAll("#seg button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.f === f)));
+  K.forEach((k, i) => {
+    const off = f !== "all" && k[5] !== f;
+    grid.children[i].classList.toggle("dim", off);
+    rows.children[i].classList.toggle("dim", off);
+  });
+});
+select(0);
+</script>

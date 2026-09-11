@@ -1,0 +1,418 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-teams.png",
+    "id": "teams",
+    "label": "Teams",
+    "keys": "open app",
+    "action": "launch / focus Microsoft Teams.app",
+    "when": "anywhere",
+    "category": "meet"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-mute.png",
+    "id": "mute",
+    "label": "Mute",
+    "keys": "⇧⌘M",
+    "action": "ToggleMuteCurrentCall",
+    "when": "meeting",
+    "category": "meet"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-camera.png",
+    "id": "camera",
+    "label": "Camera",
+    "keys": "⇧⌘O",
+    "action": "ToggleVideoCurrentCall",
+    "when": "meeting",
+    "category": "meet"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-raise-hand.png",
+    "id": "raise-hand",
+    "label": "Raise hand",
+    "keys": "⇧⌘K",
+    "action": "ToggleRaiseHandCurrentCall",
+    "when": "meeting",
+    "category": "meet"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-share.png",
+    "id": "share",
+    "label": "Share",
+    "keys": "⇧⌘E",
+    "action": "ToggleShareTray",
+    "when": "meeting",
+    "category": "meet"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-blur.png",
+    "id": "blur",
+    "label": "Blur",
+    "keys": "⇧⌘P",
+    "action": "ToggleBackgroundBlurCurrentCall",
+    "when": "meeting",
+    "category": "meet"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-captions.png",
+    "id": "captions",
+    "label": "Captions",
+    "keys": "⇧⌘A",
+    "action": "ToggleLiveCaptions",
+    "when": "meeting",
+    "category": "meet"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-leave.png",
+    "id": "leave",
+    "label": "Leave",
+    "keys": "⇧⌘H",
+    "action": "LeaveCall",
+    "when": "meeting",
+    "category": "meet"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-accept-video.png",
+    "id": "accept-video",
+    "label": "Accept video",
+    "keys": "⇧⌘V",
+    "action": "AcceptIncomingCallWithVideo",
+    "when": "incoming",
+    "category": "calls"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-accept-audio.png",
+    "id": "accept-audio",
+    "label": "Accept audio",
+    "keys": "⇧⌘A",
+    "action": "AcceptIncomingCallWithAudio",
+    "when": "incoming",
+    "category": "calls"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-decline.png",
+    "id": "decline",
+    "label": "Decline",
+    "keys": "⇧⌘D",
+    "action": "RejectIncomingCall",
+    "when": "incoming",
+    "category": "calls"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-join.png",
+    "id": "join",
+    "label": "Join",
+    "keys": "⇧⌘J",
+    "action": "JoinMeetingFromToast",
+    "when": "incoming",
+    "category": "calls"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-admit.png",
+    "id": "admit",
+    "label": "Admit",
+    "keys": "⇧⌘Y",
+    "action": "AdmitLobbyParticipant",
+    "when": "meeting",
+    "category": "calls"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-speaker.png",
+    "id": "speaker",
+    "label": "Speaker",
+    "keys": "⇧⌘U",
+    "action": "ToggleSpeakerMuteCurrentCall",
+    "when": "meeting",
+    "category": "calls"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-audio-call.png",
+    "id": "audio-call",
+    "label": "Audio call",
+    "keys": "⌥⌘S",
+    "action": "StartAudioCallInChat",
+    "when": "chat",
+    "category": "calls"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-video-call.png",
+    "id": "video-call",
+    "label": "Video call",
+    "keys": "⇧⌘S",
+    "action": "StartVideoCallInChat",
+    "when": "chat",
+    "category": "calls"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-like.png",
+    "id": "like",
+    "label": "Like",
+    "keys": "⌥⇧1",
+    "action": "MeetingLikeReaction",
+    "when": "meeting",
+    "category": "react"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-heart.png",
+    "id": "heart",
+    "label": "Heart",
+    "keys": "⌥⇧2",
+    "action": "MeetingHeartReaction",
+    "when": "meeting",
+    "category": "react"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-applause.png",
+    "id": "applause",
+    "label": "Applause",
+    "keys": "⌥⇧3",
+    "action": "MeetingApplauseReaction",
+    "when": "meeting",
+    "category": "react"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-laugh.png",
+    "id": "laugh",
+    "label": "Laugh",
+    "keys": "⌥⇧4",
+    "action": "MeetingLaughReaction",
+    "when": "meeting",
+    "category": "react"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-surprised.png",
+    "id": "surprised",
+    "label": "Surprised",
+    "keys": "⌥⇧5",
+    "action": "MeetingSurprisedReaction",
+    "when": "meeting",
+    "category": "react"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-available.png",
+    "id": "available",
+    "label": "Available",
+    "keys": "⌥⇧Q",
+    "action": "SetPresenceStatusAvailable",
+    "when": "anywhere",
+    "category": "react"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-busy.png",
+    "id": "busy",
+    "label": "Busy",
+    "keys": "⌥⇧Y",
+    "action": "SetPresenceStatusBusy",
+    "when": "anywhere",
+    "category": "react"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-dnd.png",
+    "id": "dnd",
+    "label": "Do not disturb",
+    "keys": "⌥⇧U",
+    "action": "SetPresenceStatusDND",
+    "when": "anywhere",
+    "category": "react"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-search.png",
+    "id": "search",
+    "label": "Search",
+    "keys": "⌘E",
+    "action": "GoToPowerBar",
+    "when": "anywhere",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-new-chat.png",
+    "id": "new-chat",
+    "label": "New chat",
+    "keys": "⌘N",
+    "action": "NewChat",
+    "when": "anywhere",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-go-to.png",
+    "id": "go-to",
+    "label": "Go to",
+    "keys": "⌘G",
+    "action": "SlashCommandGoto",
+    "when": "anywhere",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-compose.png",
+    "id": "compose",
+    "label": "Compose",
+    "keys": "⌘R",
+    "action": "Compose",
+    "when": "chat",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-pop-out.png",
+    "id": "pop-out",
+    "label": "Pop out",
+    "keys": "⌘O",
+    "action": "PopoutConv",
+    "when": "chat",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-on-top.png",
+    "id": "on-top",
+    "label": "On top",
+    "keys": "⌃⌘T",
+    "action": "ToggleWindowAlwaysOnTop",
+    "when": "anywhere",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-settings.png",
+    "id": "settings",
+    "label": "Settings",
+    "keys": "⌘,",
+    "action": "OpenSettingsMenu",
+    "when": "anywhere",
+    "category": "app"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-shortcuts.png",
+    "id": "shortcuts",
+    "label": "Shortcuts",
+    "keys": "⌘.",
+    "action": "ShowShortcuts",
+    "when": "anywhere",
+    "category": "app"
+  }
+]

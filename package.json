@@ -12,7 +12,10 @@
     "claude": "npm run claude:icons && npm run claude:profile",
     "safari:icons": "node profiles/safari/gen.mjs",
     "safari:profile": "node profiles/safari/profile.mjs",
-    "safari": "npm run safari:icons && npm run safari:profile"
+    "safari": "npm run safari:icons && npm run safari:profile",
+    "teams:icons": "node profiles/teams/gen.mjs",
+    "teams:profile": "node profiles/teams/profile.mjs",
+    "teams": "npm run teams:icons && npm run teams:profile"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2"
