@@ -1,0 +1,386 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-safari.png",
+    "id": "safari",
+    "label": "Safari",
+    "keys": "open app",
+    "action": "launch / focus Safari.app",
+    "category": "tabs"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-new-tab.png",
+    "id": "new-tab",
+    "label": "New tab",
+    "keys": "⌘T",
+    "action": "File ▸ New Tab",
+    "category": "tabs"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-new-window.png",
+    "id": "new-window",
+    "label": "New window",
+    "keys": "⌘N",
+    "action": "File ▸ New Window",
+    "category": "tabs"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-private.png",
+    "id": "private",
+    "label": "Private",
+    "keys": "⇧⌘N",
+    "action": "File ▸ New Private Window",
+    "category": "tabs"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-prev-tab.png",
+    "id": "prev-tab",
+    "label": "Prev tab",
+    "keys": "⌃⇧⇥",
+    "action": "Window ▸ Show Previous Tab",
+    "category": "tabs"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-next-tab.png",
+    "id": "next-tab",
+    "label": "Next tab",
+    "keys": "⌃⇥",
+    "action": "Window ▸ Show Next Tab",
+    "category": "tabs"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-close-tab.png",
+    "id": "close-tab",
+    "label": "Close tab",
+    "keys": "⌘W",
+    "action": "File ▸ Close Tab",
+    "category": "tabs"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-tab-overview.png",
+    "id": "tab-overview",
+    "label": "Overview",
+    "keys": "⇧⌘\\",
+    "action": "View ▸ Show Tab Overview",
+    "category": "tabs"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-back.png",
+    "id": "back",
+    "label": "Back",
+    "keys": "⌘[",
+    "action": "History ▸ Back",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-forward.png",
+    "id": "forward",
+    "label": "Forward",
+    "keys": "⌘]",
+    "action": "History ▸ Forward",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-reload.png",
+    "id": "reload",
+    "label": "Reload",
+    "keys": "⌘R",
+    "action": "View ▸ Reload Page",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-stop.png",
+    "id": "stop",
+    "label": "Stop",
+    "keys": "⌘.",
+    "action": "View ▸ Stop",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-address.png",
+    "id": "address",
+    "label": "Address",
+    "keys": "⌘L",
+    "action": "File ▸ Open Location…",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-home.png",
+    "id": "home",
+    "label": "Home",
+    "keys": "⇧⌘H",
+    "action": "History ▸ Home",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-history.png",
+    "id": "history",
+    "label": "History",
+    "keys": "⌘Y",
+    "action": "History ▸ Show History",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-reopen.png",
+    "id": "reopen",
+    "label": "Reopen",
+    "keys": "⌘Z",
+    "action": "Edit ▸ Undo (reopens a closed tab)",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-find.png",
+    "id": "find",
+    "label": "Find",
+    "keys": "⌘F",
+    "action": "Edit ▸ Find ▸ Find…",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-find-prev.png",
+    "id": "find-prev",
+    "label": "Find prev",
+    "keys": "⇧⌘G",
+    "action": "Edit ▸ Find ▸ Find Previous",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-find-next.png",
+    "id": "find-next",
+    "label": "Find next",
+    "keys": "⌘G",
+    "action": "Edit ▸ Find ▸ Find Next",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-reader.png",
+    "id": "reader",
+    "label": "Reader",
+    "keys": "⇧⌘R",
+    "action": "View ▸ Show Reader",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-zoom-out.png",
+    "id": "zoom-out",
+    "label": "Zoom out",
+    "keys": "⌘−",
+    "action": "View ▸ Zoom Out",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-actual-size.png",
+    "id": "actual-size",
+    "label": "Actual size",
+    "keys": "⌘0",
+    "action": "View ▸ Actual Size",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-zoom-in.png",
+    "id": "zoom-in",
+    "label": "Zoom in",
+    "keys": "⌘+",
+    "action": "View ▸ Zoom In",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-full-screen.png",
+    "id": "full-screen",
+    "label": "Full screen",
+    "keys": "⌃⌘F",
+    "action": "View ▸ Enter Full Screen",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-sidebar.png",
+    "id": "sidebar",
+    "label": "Sidebar",
+    "keys": "⇧⌘L",
+    "action": "View ▸ Show Sidebar",
+    "category": "marks"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-add-bookmark.png",
+    "id": "add-bookmark",
+    "label": "Add bookmark",
+    "keys": "⌘D",
+    "action": "Bookmarks ▸ Add Bookmark…",
+    "category": "marks"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-reading-list.png",
+    "id": "reading-list",
+    "label": "Reading list",
+    "keys": "⇧⌘D",
+    "action": "Bookmarks ▸ Add to Reading List",
+    "category": "marks"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-bookmarks.png",
+    "id": "bookmarks",
+    "label": "Bookmarks",
+    "keys": "⌥⌘B",
+    "action": "Bookmarks ▸ Edit Bookmarks",
+    "category": "marks"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-favorites.png",
+    "id": "favorites",
+    "label": "Favorites",
+    "keys": "⇧⌘B",
+    "action": "View ▸ Show Favorites Bar",
+    "category": "marks"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-downloads.png",
+    "id": "downloads",
+    "label": "Downloads",
+    "keys": "⌥⌘L",
+    "action": "View ▸ Show Downloads",
+    "category": "marks"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-group-prev.png",
+    "id": "group-prev",
+    "label": "Prev group",
+    "keys": "⇧⌘↑",
+    "action": "Window ▸ Go To Previous Tab Group",
+    "category": "marks"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-group-next.png",
+    "id": "group-next",
+    "label": "Next group",
+    "keys": "⇧⌘↓",
+    "action": "Window ▸ Go To Next Tab Group",
+    "category": "marks"
+  }
+]

@@ -9,7 +9,10 @@
     "ghostty": "npm run ghostty:icons && npm run ghostty:profile",
     "claude:icons": "node profiles/claude/gen.mjs",
     "claude:profile": "node profiles/claude/profile.mjs",
-    "claude": "npm run claude:icons && npm run claude:profile"
+    "claude": "npm run claude:icons && npm run claude:profile",
+    "safari:icons": "node profiles/safari/gen.mjs",
+    "safari:profile": "node profiles/safari/profile.mjs",
+    "safari": "npm run safari:icons && npm run safari:profile"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2"
