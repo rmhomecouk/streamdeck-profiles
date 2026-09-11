@@ -11,7 +11,11 @@ const ICONS = path.resolve(process.argv[2] || path.join(HERE, 'icons'));
 const OUTFILE = path.resolve(process.argv[3] || path.join(HERE, 'Claude.streamDeckProfile'));
 const keymap = JSON.parse(fs.readFileSync(path.join(ICONS, '..', 'keymap.json'), 'utf8'));
 
-const APP = { path: '/Applications/Claude.app', bundleIdentifier: 'com.anthropic.claudefordesktop' };
+// Open Application settings, using the key names Stream Deck 7.5 itself writes for this action
+const APP = {
+  app_name: 'Claude', args: '', bring_to_front: true, bundle_id: 'com.anthropic.claudefordesktop',
+  bundle_path: '/Applications/Claude.app', exec: '', is_bundle: true, long_press: 'quit', source: '',
+};
 
 // macOS virtual keycode (kVK_*) and Qt::Key value for each key we send
 const KEY = {
