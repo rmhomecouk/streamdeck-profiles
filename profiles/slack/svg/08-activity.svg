@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#3a1c3c"/><stop offset="0.55" stop-color="#27132a"/><stop offset="1" stop-color="#190c1a"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#36c5f0" stop-opacity="0.14"/><stop offset="1" stop-color="#36c5f0" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<g opacity="0.5"><line x1="15" y1="9" x2="13.75" y2="19" stroke="#36c5f0" stroke-width="1.8" stroke-linecap="round"/><line x1="18.25" y1="9" x2="17" y2="19" stroke="#36c5f0" stroke-width="1.8" stroke-linecap="round"/><line x1="11" y1="12.1" x2="21" y2="12.1" stroke="#36c5f0" stroke-width="1.8" stroke-linecap="round"/><line x1="10.75" y1="15.9" x2="20.75" y2="15.9" stroke="#36c5f0" stroke-width="1.8" stroke-linecap="round"/></g>
+<g transform="translate(40 14)" filter="url(#lift)"><path d="M32 7 Q15 7 15 26 V38 L9 47 H55 L49 38 V26 Q49 7 32 7 Z" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 53 Q32 60 39 53" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="12" r="7" fill="#36c5f0" stroke="none" stroke-width="0"/></g>
+<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Activity</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#5fd3f5" stroke="#5fd3f5" stroke-width="0.45" text-anchor="middle">⇧⌘M</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

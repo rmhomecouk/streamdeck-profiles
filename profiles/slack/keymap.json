@@ -1,0 +1,418 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-slack.png",
+    "id": "slack",
+    "label": "Slack",
+    "keys": "open app",
+    "action": "launch / focus Slack.app",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-jump-to.png",
+    "id": "jump-to",
+    "label": "Jump to",
+    "keys": "⌘K",
+    "action": "SWITCH_TO_CHANNEL · Go ▸ Switch to Channel",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-search.png",
+    "id": "search",
+    "label": "Search",
+    "keys": "⌘G",
+    "action": "SEARCH · Edit ▸ Search",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-back.png",
+    "id": "back",
+    "label": "Back",
+    "keys": "⌘[",
+    "action": "Sheet: Back in history",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-forward.png",
+    "id": "forward",
+    "label": "Forward",
+    "keys": "⌘]",
+    "action": "Sheet: Forward in history",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-unreads.png",
+    "id": "unreads",
+    "label": "All unreads",
+    "keys": "⇧⌘A",
+    "action": "ALL_UNREADS · Go ▸ All Unreads",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-threads.png",
+    "id": "threads",
+    "label": "Threads",
+    "keys": "⇧⌘T",
+    "action": "THREADS · Go ▸ Threads",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-activity.png",
+    "id": "activity",
+    "label": "Activity",
+    "keys": "⇧⌘M",
+    "action": "MENTIONS_REACTIONS · Go ▸ Activity",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-new-message.png",
+    "id": "new-message",
+    "label": "New message",
+    "keys": "⌘N",
+    "action": "NEW_MESSAGE · File ▸ New Message",
+    "when": "anywhere",
+    "category": "msg"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-dms.png",
+    "id": "dms",
+    "label": "DMs",
+    "keys": "⇧⌘K",
+    "action": "ALL_DMS · Go ▸ Direct messages",
+    "when": "anywhere",
+    "category": "msg"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-channels.png",
+    "id": "channels",
+    "label": "Channels",
+    "keys": "⇧⌘L",
+    "action": "CHANNEL_BROWSER · Go ▸ Channel Browser",
+    "when": "anywhere",
+    "category": "msg"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-directory.png",
+    "id": "directory",
+    "label": "Directory",
+    "keys": "⇧⌘E",
+    "action": "PEOPLE_USER_GROUPS · Go ▸ People & User Groups",
+    "when": "anywhere",
+    "category": "msg"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-channel-info.png",
+    "id": "channel-info",
+    "label": "Channel info",
+    "keys": "⇧⌘I",
+    "action": "CHANNEL_DETAILS · Sheet: Channel Info",
+    "when": "anywhere",
+    "category": "msg"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-react.png",
+    "id": "react",
+    "label": "React",
+    "keys": "⇧⌘\\",
+    "action": "Sheet: React to last message (or message with focus)",
+    "when": "anywhere",
+    "category": "msg"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-find.png",
+    "id": "find",
+    "label": "Find",
+    "keys": "⌘F",
+    "action": "FIND · Sheet: Search current conversation",
+    "when": "anywhere",
+    "category": "msg"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-add-file.png",
+    "id": "add-file",
+    "label": "Add a file",
+    "keys": "⌘O",
+    "action": "Sheet: Add a file",
+    "when": "anywhere",
+    "category": "msg"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-mark-read.png",
+    "id": "mark-read",
+    "label": "Mark read",
+    "keys": "esc",
+    "action": "MARK_ALL_AS_READ · Sheet: Mark all messages in current channel as read",
+    "when": "channel",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-mark-all-read.png",
+    "id": "mark-all-read",
+    "label": "Mark all read",
+    "keys": "⇧esc",
+    "action": "Sheet: Mark all messages as read",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-prev-unread.png",
+    "id": "prev-unread",
+    "label": "Prev unread",
+    "keys": "⌥⇧↑",
+    "action": "Sheet: Previous unread channel or DM",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-next-unread.png",
+    "id": "next-unread",
+    "label": "Next unread",
+    "keys": "⌥⇧↓",
+    "action": "Sheet: Next unread channel or DM",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-prev-channel.png",
+    "id": "prev-channel",
+    "label": "Prev channel",
+    "keys": "⌥↑",
+    "action": "Sheet: Previous channel or DM",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-next-channel.png",
+    "id": "next-channel",
+    "label": "Next channel",
+    "keys": "⌥↓",
+    "action": "Sheet: Next channel or DM",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-close-pane.png",
+    "id": "close-pane",
+    "label": "Close pane",
+    "keys": "⌘.",
+    "action": "CLOSE_SECONDARY_VIEW · Sheet: Close item details",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-sidebar.png",
+    "id": "sidebar",
+    "label": "Sidebar",
+    "keys": "⇧⌘D",
+    "action": "TOGGLE_SIDEBAR · View ▸ Hide Sidebar",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-huddle.png",
+    "id": "huddle",
+    "label": "Huddle",
+    "keys": "⇧⌘H",
+    "action": "HUDDLE_ACTION · Sheet: Toggle huddles start / stop",
+    "when": "channel",
+    "category": "you"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-mute.png",
+    "id": "mute",
+    "label": "Mute",
+    "keys": "⇧⌘Space",
+    "action": "Sheet: Toggle huddles mute / unmute",
+    "when": "huddle",
+    "category": "you"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-status.png",
+    "id": "status",
+    "label": "Set status",
+    "keys": "⇧⌘Y",
+    "action": "Sheet: Set a status",
+    "when": "anywhere",
+    "category": "you"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-canvas.png",
+    "id": "canvas",
+    "label": "New canvas",
+    "keys": "⇧⌘N",
+    "action": "NEW_CANVAS · File ▸ New Canvas",
+    "when": "anywhere",
+    "category": "you"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-downloads.png",
+    "id": "downloads",
+    "label": "Downloads",
+    "keys": "⇧⌘J",
+    "action": "DOWNLOADS · File ▸ Downloads",
+    "when": "anywhere",
+    "category": "you"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-workspaces.png",
+    "id": "workspaces",
+    "label": "Workspaces",
+    "keys": "⇧⌘S",
+    "action": "Sheet: Open workspace switcher",
+    "when": "anywhere",
+    "category": "you"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-preferences.png",
+    "id": "preferences",
+    "label": "Preferences",
+    "keys": "⌘,",
+    "action": "PREFERENCES · Slack ▸ Preferences…",
+    "when": "anywhere",
+    "category": "you"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-shortcuts.png",
+    "id": "shortcuts",
+    "label": "Shortcuts",
+    "keys": "⌘/",
+    "action": "Global table: mod+/ → toggleKeyboardShortcuts",
+    "when": "anywhere",
+    "category": "you"
+  }
+]

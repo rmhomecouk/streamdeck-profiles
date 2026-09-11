@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#3a1c3c"/><stop offset="0.55" stop-color="#27132a"/><stop offset="1" stop-color="#190c1a"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#2eb67d" stop-opacity="0.14"/><stop offset="1" stop-color="#2eb67d" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<g opacity="0.5"><line x1="15" y1="9" x2="13.75" y2="19" stroke="#2eb67d" stroke-width="1.8" stroke-linecap="round"/><line x1="18.25" y1="9" x2="17" y2="19" stroke="#2eb67d" stroke-width="1.8" stroke-linecap="round"/><line x1="11" y1="12.1" x2="21" y2="12.1" stroke="#2eb67d" stroke-width="1.8" stroke-linecap="round"/><line x1="10.75" y1="15.9" x2="20.75" y2="15.9" stroke="#2eb67d" stroke-width="1.8" stroke-linecap="round"/></g>
+<g transform="translate(40 14)" filter="url(#lift)"><circle cx="27" cy="34" r="22" fill="none" stroke="#ffffff" stroke-width="4.2"/><circle cx="19.3" cy="29.6" r="2.6" fill="#ffffff" stroke="none" stroke-width="0"/><circle cx="34.7" cy="29.6" r="2.6" fill="#ffffff" stroke="none" stroke-width="0"/><path d="M17.1 39.5 Q27 50.5 36.9 39.5" fill="none" stroke="#ffffff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="51" cy="13" r="10" fill="#1a0f1b"/><line x1="44" y1="13" x2="58" y2="13" stroke="#2eb67d" stroke-width="4.4" stroke-linecap="round"/><line x1="51" y1="6" x2="51" y2="20" stroke="#2eb67d" stroke-width="4.4" stroke-linecap="round"/></g>
+<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">React</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#4cd395" stroke="#4cd395" stroke-width="0.45" text-anchor="middle">⇧⌘\</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

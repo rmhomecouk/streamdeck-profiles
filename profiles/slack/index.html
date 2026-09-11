@@ -1,0 +1,196 @@
+<title>Slack Deck</title>
+<style>
+:root{
+  --ground:#f4ede4; --win:#ffffff; --side:#3f0e40; --side-2:#350d36; --side-text:#e7d9e8; --side-muted:#bfa6c0;
+  --line:#e2dde2; --text:#1d1c1d; --muted:#616061; --hover:#f8f8f8; --sel:#1164a31a; --link:#1264a3;
+  --plate:#170c18; --chip:#f2f0f2;
+  --nav:#1b8fb7; --msg:#1d8a5c; --read:#b5860f; --you:#c01650;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0f0a10; --win:#1a1d21; --side:#2b0c2c; --side-2:#220a23; --side-text:#e7d9e8; --side-muted:#a88ea9;
+  --line:#35373b; --text:#d1d2d3; --muted:#9a9b9d; --hover:#222529; --sel:#1d9bd126; --link:#1d9bd1;
+  --plate:#120a13; --chip:#222529;
+  --nav:#36c5f0; --msg:#2eb67d; --read:#ecb22e; --you:#ff5c8d;
+}}
+:root[data-theme="dark"]{
+  --ground:#0f0a10; --win:#1a1d21; --side:#2b0c2c; --side-2:#220a23; --side-text:#e7d9e8; --side-muted:#a88ea9;
+  --line:#35373b; --text:#d1d2d3; --muted:#9a9b9d; --hover:#222529; --sel:#1d9bd126; --link:#1d9bd1;
+  --plate:#120a13; --chip:#222529;
+  --nav:#36c5f0; --msg:#2eb67d; --read:#ecb22e; --you:#ff5c8d;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--text);font:15px/1.46 Lato,"Helvetica Neue",-apple-system,system-ui,sans-serif;padding:28px 16px 48px}
+code,.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.window{max-width:1220px;margin:0 auto;border-radius:12px;overflow:hidden;background:var(--side-2);box-shadow:0 24px 60px -30px #000a}
+/* top bar with search, like the desktop app */
+.top{height:40px;display:grid;grid-template-columns:90px 1fr 90px;align-items:center;background:var(--side-2)}
+.lights{display:flex;gap:8px;padding-left:14px}.lights i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.lights i:nth-child(2){background:#febc2e}.lights i:nth-child(3){background:#28c840}
+.search{justify-self:center;width:min(560px,100%);height:26px;border-radius:6px;background:#ffffff1f;color:#ffffffb3;font-size:13px;display:flex;align-items:center;gap:8px;padding:0 10px}
+.shell{display:grid;grid-template-columns:250px 1fr;min-height:640px}
+/* sidebar: the four rows are the channels */
+.side{background:var(--side);color:var(--side-text);padding:12px 8px;display:flex;flex-direction:column;gap:2px}
+.ws{font-weight:900;font-size:18px;padding:4px 10px 12px;color:#fff}
+.sec{font-size:13px;color:var(--side-muted);padding:10px 10px 4px}
+.ch{all:unset;display:flex;align-items:center;gap:8px;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:15px;color:var(--side-text)}
+.ch:hover{background:#ffffff14}
+.ch[aria-pressed="true"]{background:#1164a3;color:#fff;font-weight:700}
+.ch:focus-visible{outline:2px solid #fff;outline-offset:1px}
+.ch .h{opacity:.7;width:14px;text-align:center}
+.ch .sw{width:8px;height:8px;border-radius:50%;margin-left:auto}
+.main{background:var(--win);min-width:0;border-top-left-radius:8px;display:flex;flex-direction:column}
+.chead{padding:12px 20px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.chead b{font-size:18px;font-weight:900}
+.chead span{color:var(--muted);font-size:13px}
+.body{padding:18px 20px 26px;display:grid;gap:20px}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:18px;align-items:start}
+.device{background:var(--plate);border-radius:22px;padding:16px;box-shadow:inset 0 0 0 1px #ffffff14,0 14px 30px -18px #000}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}
+.key{padding:0;border:0;background:none;cursor:pointer;border-radius:14%;aspect-ratio:1;transition:transform .12s,opacity .15s,filter .15s}
+.key img{width:100%;height:100%;display:block;border-radius:14%}
+.key:hover{transform:translateY(-2px)}
+.key:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+.key[aria-pressed="true"]{outline:2px solid #fff;outline-offset:3px}
+.key.dim{opacity:.2;filter:saturate(.3)}
+/* detail panel styled as a message */
+.msg{display:grid;grid-template-columns:40px 1fr;gap:10px;padding:12px;border:1px solid var(--line);border-radius:8px}
+.msg .av{width:40px;height:40px;border-radius:8px}
+.msg .who{font-weight:900}.msg .who small{font-weight:400;color:var(--muted);margin-left:6px;font-size:12px}
+.msg h2{font-size:17px;margin:2px 0 6px}
+.caps{display:flex;gap:4px;flex-wrap:wrap;margin:6px 0}
+kbd{font:700 12px ui-monospace,"SF Mono",Menlo,monospace;min-width:24px;padding:3px 7px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;background:var(--chip)}
+.msg p{margin:6px 0 0;font-size:14px}
+.src{margin-top:8px;border-left:4px solid var(--line);padding-left:10px;color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 6px;background:var(--chip)}
+/* when filter */
+.filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter .lbl{color:var(--muted);font-size:13px;margin-right:4px}
+.chip{border:1px solid var(--line);background:var(--win);color:var(--text);border-radius:999px;padding:4px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--sel);border-color:var(--link);color:var(--link);font-weight:700}
+.chip:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:720px}
+th{text-align:left;font-weight:700;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:13px}
+td{padding:7px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{background:var(--sel)}tbody tr.dim{opacity:.35}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
+@media (max-width:920px){.shell{grid-template-columns:1fr}.side{display:none}.stage{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.key{transition:none}}
+</style>
+
+<div class="window">
+  <div class="top">
+    <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="search" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>Search stream-deck-xl</div>
+    <div></div>
+  </div>
+  <div class="shell">
+    <nav class="side" aria-label="Rows">
+      <div class="ws">streamdeck-profiles</div>
+      <div class="sec">Channels · one per row</div>
+      <button class="ch" data-cat="all" aria-pressed="true"><span class="h">#</span>stream-deck-xl<span class="sw" style="background:#fff"></span></button>
+      <button class="ch" data-cat="nav" aria-pressed="false"><span class="h">#</span>navigate<span class="sw" style="background:#36c5f0"></span></button>
+      <button class="ch" data-cat="msg" aria-pressed="false"><span class="h">#</span>messaging<span class="sw" style="background:#2eb67d"></span></button>
+      <button class="ch" data-cat="read" aria-pressed="false"><span class="h">#</span>catch-up<span class="sw" style="background:#ecb22e"></span></button>
+      <button class="ch" data-cat="you" aria-pressed="false"><span class="h">#</span>huddles-and-you<span class="sw" style="background:#e01e5a"></span></button>
+      <div class="sec">About</div>
+      <div class="ch" style="cursor:default">Slack 4.52.155 · macOS</div>
+      <div class="ch" style="cursor:default">Stream Deck XL · 8 × 4</div>
+    </nav>
+    <main class="main">
+      <div class="chead"><b id="chan"># stream-deck-xl</b><span>32 keys, taken from Slack's own menus and shortcut tables. Click a key or a row to see the source.</span></div>
+      <div class="body">
+        <div class="stage">
+          <div class="device"><div class="grid" id="grid"></div></div>
+          <div class="msg" id="detail" aria-live="polite"></div>
+        </div>
+        <div class="filter" role="group" aria-label="Filter by where it works">
+          <span class="lbl">Works when:</span>
+          <button class="chip" data-when="all" aria-pressed="true">All keys</button>
+          <button class="chip" data-when="anywhere" aria-pressed="false">Anywhere in Slack</button>
+          <button class="chip" data-when="channel" aria-pressed="false">In a conversation</button>
+          <button class="chip" data-when="huddle" aria-pressed="false">In a huddle</button>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Key</th><th>Shortcut</th><th>Works when</th><th>Source in Slack</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+const CATS = { nav: '#navigate', msg: '#messaging', read: '#catch-up', you: '#huddles-and-you' };
+const WHEN = { anywhere: 'Anywhere in Slack', channel: 'In a conversation', huddle: 'In a huddle' };
+const K = [
+  ['slack','Slack','open app','Stream Deck Open Application · com.tinyspeck.slackmacgap','nav','anywhere','Opens Slack or brings it to the front. A long press quits it.'],
+  ['jump-to','Jump to','⌘K','SWITCH_TO_CHANNEL · Go ▸ Switch to Channel','nav','anywhere','The quick switcher. Type a channel, person or canvas name.'],
+  ['search','Search','⌘G','SEARCH · Edit ▸ Search','nav','anywhere','Search the whole workspace.'],
+  ['back','Back','⌘[','Sheet: Back in history','nav','anywhere','Back to the previous conversation or view.'],
+  ['forward','Forward','⌘]','Sheet: Forward in history','nav','anywhere','Forward again after Back.'],
+  ['unreads','All unreads','⇧⌘A','ALL_UNREADS · Go ▸ All Unreads','nav','anywhere','Everything unread, grouped by channel.'],
+  ['threads','Threads','⇧⌘T','THREADS · Go ▸ Threads','nav','anywhere','Threads you follow.'],
+  ['activity','Activity','⇧⌘M','MENTIONS_REACTIONS · Go ▸ Activity','nav','anywhere','Mentions, reactions and other activity.'],
+  ['new-message','New message','⌘N','NEW_MESSAGE · File ▸ New Message','msg','anywhere','Start a message to anyone or any channel.'],
+  ['dms','DMs','⇧⌘K','ALL_DMS · Go ▸ Direct messages','msg','anywhere','All your direct messages.'],
+  ['channels','Channels','⇧⌘L','CHANNEL_BROWSER · Go ▸ Channel Browser','msg','anywhere','Browse and join channels.'],
+  ['directory','Directory','⇧⌘E','PEOPLE_USER_GROUPS · Go ▸ People & User Groups','msg','anywhere','People and user groups.'],
+  ['channel-info','Channel info','⇧⌘I','CHANNEL_DETAILS · Sheet: Channel Info','msg','anywhere','Details, members and settings for the current conversation.'],
+  ['react','React','⇧⌘\\','Sheet: React to last message (or message with focus)','msg','anywhere','Opens the emoji picker on the latest message.'],
+  ['find','Find','⌘F','FIND · Sheet: Search current conversation','msg','anywhere','Search only the conversation you are in.'],
+  ['add-file','Add a file','⌘O','Sheet: Add a file','msg','channel','Attach a file to the message you are writing.'],
+  ['mark-read','Mark read','esc','MARK_ALL_AS_READ · Sheet: Mark all messages in current channel as read','read','channel','Clears the unread marker in this conversation. Esc also closes menus first if one is open.'],
+  ['mark-all-read','Mark all read','⇧esc','Sheet: Mark all messages as read','read','anywhere','Marks everything in the workspace as read. Slack asks you to confirm.'],
+  ['prev-unread','Prev unread','⌥⇧↑','Sheet: Previous unread channel or DM','read','anywhere','Jump up to the previous conversation with unread messages.'],
+  ['next-unread','Next unread','⌥⇧↓','Sheet: Next unread channel or DM','read','anywhere','Jump down to the next conversation with unread messages.'],
+  ['prev-channel','Prev channel','⌥↑','Sheet: Previous channel or DM','read','anywhere','Move up the sidebar one conversation.'],
+  ['next-channel','Next channel','⌥↓','Sheet: Next channel or DM','read','anywhere','Move down the sidebar one conversation.'],
+  ['close-pane','Close pane','⌘.','CLOSE_SECONDARY_VIEW · Sheet: Close item details','read','anywhere','Closes the right-hand pane: a thread, profile or details.'],
+  ['sidebar','Sidebar','⇧⌘D','TOGGLE_SIDEBAR · View ▸ Hide Sidebar','read','anywhere','Show or hide the sidebar.'],
+  ['huddle','Huddle','⇧⌘H','HUDDLE_ACTION · Sheet: Toggle huddles start / stop','you','channel','Start a huddle in the current conversation, or leave the one you are in.'],
+  ['mute','Mute','⇧⌘Space','Sheet: Toggle huddles mute / unmute','you','huddle','Mute or unmute yourself in a huddle.'],
+  ['status','Set status','⇧⌘Y','Sheet: Set a status','you','anywhere','Open the set-a-status dialog.'],
+  ['canvas','New canvas','⇧⌘N','NEW_CANVAS · File ▸ New Canvas','you','anywhere','Create a new canvas.'],
+  ['downloads','Downloads','⇧⌘J','DOWNLOADS · File ▸ Downloads','you','anywhere','Files you downloaded from Slack.'],
+  ['workspaces','Workspaces','⇧⌘S','Sheet: Open workspace switcher','you','anywhere','Switch between your workspaces.'],
+  ['preferences','Preferences','⌘,','PREFERENCES · Slack ▸ Preferences…','you','anywhere','Slack preferences.'],
+  ['shortcuts','Shortcuts','⌘/','Global table: mod+/ → toggleKeyboardShortcuts','you','anywhere','Opens Slack\'s own Keyboard Shortcuts pane.'],
+].map(([id,label,keys,src,cat,when,note],i)=>({id,label,keys,src,cat,when,note,n:String(i+1).padStart(2,'0')}));
+
+const $ = (s) => document.querySelector(s);
+const img = (k) => `icons/${k.n}-${k.id}.png`;
+const caps = (keys) => {
+  if (keys === 'open app') return '<kbd>open app</kbd>';
+  const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
+  return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
+};
+const color = (c) => `var(--${c})`;
+let cat = 'all', when = 'all';
+
+$('#grid').innerHTML = K.map((k, i) => `<button class="key" data-i="${i}" aria-label="${k.label}, ${k.keys}" aria-pressed="false"><img src="${img(k)}" alt=""></button>`).join('');
+$('#rows').innerHTML = K.map((k, i) => `<tr data-i="${i}"><td><span class="dot" style="background:${color(k.cat)}"></span>${k.label}</td><td><span class="caps">${caps(k.keys)}</span></td><td>${WHEN[k.when]}</td><td class="mono" style="font-size:12.5px">${k.src}</td></tr>`).join('');
+
+function show(k) {
+  $('#detail').innerHTML = `<img class="av" src="${img(k)}" alt=""><div><div class="who">Stream Deck <small>${CATS[k.cat]}</small></div>
+  <h2>${k.label}</h2><div class="caps">${caps(k.keys)}</div><p>${k.note}</p>
+  <div class="src"><span class="tag" style="color:${color(k.cat)}">${WHEN[k.when]}</span><br><span class="mono">${k.src}</span></div></div>`;
+  document.querySelectorAll('.key').forEach((b) => b.setAttribute('aria-pressed', String(K[b.dataset.i] === k)));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('sel', K[r.dataset.i] === k));
+}
+function apply() {
+  const off = (k) => (cat !== 'all' && k.cat !== cat) || (when !== 'all' && k.when !== when);
+  document.querySelectorAll('.key').forEach((b) => b.classList.toggle('dim', off(K[b.dataset.i])));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('dim', off(K[r.dataset.i])));
+  document.querySelectorAll('.ch[data-cat]').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.cat === cat)));
+  document.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.when === when)));
+  $('#chan').textContent = cat === 'all' ? '# stream-deck-xl' : CATS[cat];
+}
+$('#grid').addEventListener('click', (e) => { const b = e.target.closest('.key'); if (b) show(K[b.dataset.i]); });
+$('#rows').addEventListener('click', (e) => { const r = e.target.closest('tr'); if (r) show(K[r.dataset.i]); });
+document.querySelectorAll('.ch[data-cat]').forEach((c) => c.addEventListener('click', () => { cat = c.dataset.cat; apply(); }));
+document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => { when = c.dataset.when; apply(); }));
+show(K[1]); apply();
+</script>
