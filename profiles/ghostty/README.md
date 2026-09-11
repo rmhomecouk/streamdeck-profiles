@@ -6,7 +6,7 @@ A 32-key Stream Deck XL profile for the [Ghostty](https://github.com/ghostty-org
 
 The icons follow Ghostty's own app icon: glowing line glyphs on a blue dot-matrix screen, set in JetBrains Mono. Each row is coloured from the Spacedust theme. Labels are part of the images, so the Stream Deck titles are turned off.
 
-Open `index.html` locally for an interactive mockup: click any key to see the matching Ghostty `keybind`.
+**Interactive mockup:** [live version](https://claude.ai/code/artifact/0b677874-a30c-473f-9104-18c0ce02b17f), or open `index.html` locally. Click any key to see the matching Ghostty `keybind`.
 
 ## Layout
 

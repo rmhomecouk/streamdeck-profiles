@@ -5,13 +5,16 @@ Custom Elgato Stream Deck profiles with generated icon sets. Each profile lives 
 - a ready-to-import `.streamDeckProfile`
 - the icons (PNG) and their SVG sources
 - the scripts that rebuild both
+- an interactive mockup (`index.html`): click a key to see what it sends
 
 ## Profiles
 
-| Profile | Device | Keys | Preview |
-|---|---|---|---|
-| [Ghostty](profiles/ghostty/) | Stream Deck XL | 32 | <img src="profiles/ghostty/sheet.png" width="360" alt="Ghostty deck"> |
-| [Claude](profiles/claude/) | Stream Deck XL | 32 | <img src="profiles/claude/sheet.png" width="360" alt="Claude deck"> |
+| Profile | Device | Keys | Mockup | Preview |
+|---|---|---|---|---|
+| [Ghostty](profiles/ghostty/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/0b677874-a30c-473f-9104-18c0ce02b17f) · [local](profiles/ghostty/index.html) | <img src="profiles/ghostty/sheet.png" width="360" alt="Ghostty deck"> |
+| [Claude](profiles/claude/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/e322b528-abbb-4874-b1f0-8e6d39fe08c3) · [local](profiles/claude/index.html) | <img src="profiles/claude/sheet.png" width="360" alt="Claude deck"> |
+
+The live mockups are private Claude artifacts, so only you can open them unless you share them. The local `index.html` files work offline from a clone.
 
 ## Install a profile
 

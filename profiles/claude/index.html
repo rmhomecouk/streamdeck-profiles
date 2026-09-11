@@ -1,0 +1,283 @@
+<title>Claude Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  /* Deliberately single-theme: the page sits on the same warm charcoal as the keys it documents. */
+  :root {
+    --ground: #1b1a17;
+    --surface: #24221e;
+    --surface-2: #2c2924;
+    --line: #3a362f;
+    --fg: #f2eee6;
+    --fg-soft: #cfc8bb;
+    --muted: #9c9588;
+    --chat: #e07a5f; --comp: #e3b57c; --code: #8fb4e3; --app: #b9b3e0;
+    --serif: "Newsreader", "New York", Georgia, serif;
+    --sans: "Hanken Grotesk", -apple-system, "Helvetica Neue", sans-serif;
+    --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; color: var(--fg); font: 15px/1.6 var(--sans);
+    background: radial-gradient(1100px 520px at 50% -8%, #2d2822 0%, var(--ground) 62%) fixed, var(--ground);
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 48px 28px 72px; display: grid; gap: 40px; }
+
+  /* ---- header: title + a composer box, the way Claude greets you ---- */
+  header { display: grid; gap: 22px; max-width: 760px; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand svg { width: 38px; height: 38px; flex: none; }
+  h1 { font: 400 clamp(38px, 5.4vw, 60px)/1 var(--serif); letter-spacing: -.015em; margin: 0; text-wrap: balance; }
+  h1 em { font-style: italic; color: var(--chat); }
+  .composer {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 20px;
+    padding: 18px 20px 14px; display: grid; gap: 14px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 18px 40px -24px rgba(0,0,0,.7);
+  }
+  .composer p { margin: 0; color: var(--fg-soft); font-size: 16px; line-height: 1.55; max-width: 64ch; }
+  .composer .bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .chip { font: 500 12.5px/1 var(--sans); color: var(--fg-soft); padding: 7px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); }
+  .send { margin-left: auto; width: 32px; height: 32px; border-radius: 10px; background: var(--chat); display: grid; place-items: center; }
+  .send svg { width: 16px; height: 16px; }
+
+  /* ---- filter ---- */
+  .toolbar { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .toolbar span { font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+  .seg { display: inline-flex; padding: 3px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
+  .seg button {
+    all: unset; cursor: pointer; font: 500 13.5px/1 var(--sans); color: var(--fg-soft);
+    padding: 8px 14px; border-radius: 9px;
+  }
+  .seg button[aria-pressed="true"] { background: var(--surface-2); color: var(--fg); box-shadow: 0 0 0 1px var(--line); }
+  .seg button:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+
+  /* ---- the device ---- */
+  .stage { overflow-x: auto; padding: 4px 4px 20px; display: grid; gap: 18px; }
+  .deck {
+    width: max-content; margin: 0 auto; padding: 34px 38px 40px; border-radius: 30px; position: relative;
+    background: linear-gradient(180deg, #25231f, #171613 20%, #121110);
+    box-shadow: 0 1px 0 rgba(255,255,255,.07) inset, 0 -2px 0 rgba(0,0,0,.6) inset, 0 40px 80px -30px rgba(0,0,0,.85), 0 0 0 1px #000;
+  }
+  .deck::after { content: ""; position: absolute; left: 50%; bottom: 15px; width: 46px; height: 3px; border-radius: 2px; transform: translateX(-50%); background: #33302a; }
+  .grid { display: grid; grid-template-columns: repeat(8, 96px); gap: 18px; }
+  .key {
+    all: unset; cursor: pointer; width: 96px; height: 96px; border-radius: 14px; overflow: hidden; position: relative;
+    box-shadow: 0 0 0 1px #000, 0 3px 0 #0a0908, 0 6px 10px rgba(0,0,0,.5);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .2s ease, filter .2s ease;
+  }
+  .key img { width: 100%; height: 100%; display: block; }
+  .key:hover { transform: translateY(-1px); }
+  .key:active { transform: translateY(2px); box-shadow: 0 0 0 1px #000, 0 1px 0 #0a0908; }
+  .key:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+  .key[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--c), 0 0 22px -2px var(--c), 0 3px 0 #0a0908; }
+  .key.dim { opacity: .22; filter: grayscale(.8); }
+
+  /* ---- detail + groups ---- */
+  .below { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+  @media (max-width: 860px) { .below { grid-template-columns: 1fr; } }
+  .detail {
+    display: grid; grid-template-columns: 144px 1fr; gap: 22px; align-items: center;
+    padding: 22px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line);
+  }
+  .detail > img { width: 144px; height: 144px; border-radius: 20px; display: block; box-shadow: 0 0 0 1px #000; }
+  .eyebrow { font: 500 11.5px/1 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--c, var(--muted)); }
+  .detail h2 { font: 400 32px/1.05 var(--serif); margin: 8px 0 12px; }
+  .kbd { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+  .kbd span {
+    font: 500 14px/1 var(--mono); padding: 6px 8px; border-radius: 6px; min-width: 28px; text-align: center;
+    background: var(--surface-2); border: 1px solid #4a453c; border-bottom-width: 2px; color: var(--fg);
+  }
+  .facts { margin: 14px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 13.5px; }
+  .facts dt { color: var(--muted); }
+  .facts dd { margin: 0; color: var(--fg-soft); }
+  .facts code { font: 13px/1.4 var(--mono); color: var(--c); }
+  .where { display: inline-block; font: 500 12px/1 var(--sans); padding: 4px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--fg); }
+  .note { margin: 12px 0 0; font-size: 13.5px; color: var(--fg-soft); max-width: 52ch; }
+
+  .groups { display: grid; }
+  .group { display: grid; grid-template-columns: 14px 1fr auto; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .group:last-child { border-bottom: 0; }
+  .swatch { width: 10px; height: 10px; border-radius: 3px; background: var(--c); transform: translateY(1px); }
+  .group b { font: 400 19px/1.2 var(--serif); }
+  .group p { margin: 3px 0 0; font-size: 13.5px; color: var(--fg-soft); }
+  .group .row { font: 500 12px/1 var(--mono); color: var(--muted); white-space: nowrap; }
+
+  /* ---- keymap table ---- */
+  h3 { font: 400 24px/1.1 var(--serif); margin: 0 0 14px; }
+  h3 small { font: 500 12px/1 var(--mono); color: var(--muted); letter-spacing: .08em; margin-left: 10px; }
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px; }
+  th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  th { font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); background: #211f1b; }
+  tr:last-child td { border-bottom: 0; }
+  tbody tr { cursor: pointer; }
+  tbody tr:hover td, tbody tr.on td { background: #2e2b25; }
+  tbody tr.dim td { opacity: .35; }
+  td.pos { font: 500 12px/1 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.lbl { font-weight: 600; white-space: nowrap; }
+  td.lbl i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: var(--c); margin-right: 10px; vertical-align: 1px; }
+  td.keys { font: 500 14px/1 var(--mono); white-space: nowrap; }
+  td code { font: 13px/1.3 var(--mono); color: var(--fg-soft); }
+  td.w { color: var(--fg-soft); white-space: nowrap; }
+
+  footer { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 24px; }
+  footer b { color: var(--fg-soft); font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) { .key { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#e07a5f" stroke-linecap="round">
+        <line x1="32" y1="27" x2="32" y2="5" stroke-width="5.5"/><line x1="34.6" y1="27.7" x2="43.6" y2="13.3" stroke-width="4.5"/>
+        <line x1="36.3" y1="29.5" x2="54.5" y2="19" stroke-width="5.5"/><line x1="37" y1="32.2" x2="53" y2="32.7" stroke-width="4.5"/>
+        <line x1="36.3" y1="34.5" x2="55.4" y2="45.5" stroke-width="5.5"/><line x1="34.6" y1="36.3" x2="43.8" y2="51.5" stroke-width="4.5"/>
+        <line x1="32.2" y1="37" x2="32.9" y2="58" stroke-width="5.5"/><line x1="29.6" y1="36.3" x2="21.5" y2="50" stroke-width="4.5"/>
+        <line x1="27.7" y1="34.5" x2="8.6" y2="45.5" stroke-width="5.5"/><line x1="27" y1="32" x2="10" y2="32" stroke-width="4.5"/>
+        <line x1="27.7" y1="29.5" x2="9.5" y2="19" stroke-width="5.5"/><line x1="29.6" y1="27.7" x2="21.5" y2="14" stroke-width="4.5"/>
+      </g></svg>
+      <h1>Claude <em>deck</em></h1>
+    </div>
+    <div class="composer">
+      <p>A 32-key Stream Deck XL profile for Claude desktop, covering Chat, Cowork tasks and Claude Code. Every shortcut comes from Claude 1.52386.3 itself: its menus and its own Keyboard Shortcuts list. Tap a key to see what it sends and where it works.</p>
+      <div class="bar">
+        <span class="chip">Stream Deck XL</span><span class="chip">32 keys</span><span class="chip">Claude 1.52386.3</span>
+        <span class="send" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" fill="none" stroke="#1b1a17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="stage">
+    <div class="toolbar">
+      <span id="filter-label">Where it works</span>
+      <div class="seg" role="group" aria-labelledby="filter-label" id="seg">
+        <button type="button" data-f="all" aria-pressed="true">All keys</button>
+        <button type="button" data-f="chat" aria-pressed="false">In chats</button>
+        <button type="button" data-f="code" aria-pressed="false">In Claude Code</button>
+      </div>
+    </div>
+    <div class="deck" aria-label="Stream Deck XL, 8 by 4 keys">
+      <div class="grid" id="grid" role="group"></div>
+    </div>
+  </div>
+
+  <div class="below">
+    <section class="detail" id="detail" aria-live="polite"></section>
+    <section class="groups" aria-label="Key groups">
+      <div class="group" style="--c:var(--chat)"><i class="swatch"></i><div><b>Chats</b><p>The Claude key, plus new chat, search, quick chat, incognito, stepping between chats, and the sidebar.</p></div><span class="row">row 1</span></div>
+      <div class="group" style="--c:var(--comp)"><i class="swatch"></i><div><b>Composer</b><p>Attach, dictate, thinking, model, stop, side chat, close and reopen.</p></div><span class="row">row 2</span></div>
+      <div class="group" style="--c:var(--code)"><i class="swatch"></i><div><b>Claude Code</b><p>Open a folder, move between split panes, jump between prompts, the Files pane, open the PR.</p></div><span class="row">row 3</span></div>
+      <div class="group" style="--c:var(--app)"><i class="swatch"></i><div><b>Sessions &amp; app</b><p>Fork, pin, archive, find, zoom, the shortcuts sheet and settings.</p></div><span class="row">row 4</span></div>
+    </section>
+  </div>
+
+  <section>
+    <h3>Keymap <small>32 keys</small></h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Pos</th><th>Key</th><th>Sends</th><th>Works in</th><th>Source in Claude</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <span><b>Icons</b> 288 × 288 PNG, crisp on the XL's 96 px keys</span>
+    <span><b>Source</b> an SVG per key, rebuilt with <code>npm run claude</code></span>
+    <span><b>Tip</b> link the profile to Claude.app so it switches in automatically</span>
+  </footer>
+</div>
+
+<script>
+// [id, label, keys, source, row group, where it works, note]
+const K = [
+  ["claude","Claude","open app","Open Application · /Applications/Claude.app","chat","all","Launches Claude, or brings it to the front. The only key that works from any app."],
+  ["new-chat","New chat","⌘ N","menu · New Chat","chat","all","Starts a new chat, task or Code session, depending on the tab you're on."],
+  ["search","Search","⌘ K","shortcut · command_palette","chat","all","Opens the palette for a quick chat or a search."],
+  ["quick-chat","Quick chat","⌃ ⌘ K","shortcut · quick_chat","chat","all"],
+  ["incognito","Incognito","⇧ ⌘ I","shortcut · incognito","chat","chat","On the Code tab, this combination opens the model menu instead."],
+  ["prev-chat","Prev chat","⇧ ⌘ [","Go menu · previous","chat","all"],
+  ["next-chat","Next chat","⇧ ⌘ ]","Go menu · next","chat","all"],
+  ["sidebar","Sidebar","⌘ .","shortcut · toggle_sidebar","chat","all"],
+  ["attach","Attach","⌘ U","shortcut · file_upload","comp","all","Adds files or photos to the message you're writing."],
+  ["dictate","Dictate","⌘ D","shortcut · toggle_dictation","comp","all"],
+  ["thinking","Thinking","⇧ ⌘ E","shortcut · extended_thinking","comp","chat","On the Code tab, this combination opens the effort selector instead."],
+  ["model","Model","⇧ ⌘ .","shortcut · model_selector","comp","chat","On the Code tab, the model menu is ⇧⌘I."],
+  ["stop","Stop","esc","Stop Claude’s response","comp","all","In a chat, press it twice to edit your last message."],
+  ["side-chat","Side chat","⌘ ;","shortcut · btw_side_chat","comp","code"],
+  ["close","Close","⌘ W","Close chat / session","comp","all"],
+  ["reopen","Reopen","⇧ ⌘ T","menu · reopen closed session","comp","code","Brings back the Code session you most recently closed."],
+  ["open-folder","Open folder","⇧ ⌘ O","menu · Open Folder…","code","all","Pick a folder to start a new Claude Code session in it."],
+  ["pane-prev","Prev pane","⌃ [","shortcut · focus_previous_pane","code","code","Moves focus between sessions shown side by side in split view."],
+  ["pane-next","Next pane","⌃ ]","shortcut · focus_next_pane","code","code","Moves focus between sessions shown side by side in split view."],
+  ["close-pane","Close pane","⌘ \\","menu · Close Pane","code","code"],
+  ["prompt-up","Prompt up","⌥ ⌘ ↑","shortcut · jump_prev_prompt","code","code"],
+  ["prompt-down","Prompt down","⌥ ⌘ ↓","shortcut · jump_next_prompt","code","code"],
+  ["files","Files","⇧ ⌘ F","Toggle Files","code","code"],
+  ["open-pr","Open PR","⌥ ⌘ G","shortcut · open_code_session_pr","code","code"],
+  ["fork","Fork","⌥ ⌘ O","shortcut · fork_code_session","app","code"],
+  ["pin","Pin","⌥ ⌘ P","shortcut · pin_code_session","app","all","Pins or unpins the current chat, task or session."],
+  ["archive","Archive","⌥ ⌘ A","shortcut · archive_code_session_chord","app","code","Also archives Cowork tasks."],
+  ["find","Find","⌘ F","menu · Find…","app","all"],
+  ["zoom-out","Zoom out","⌘ −","menu · Zoom Out","app","all"],
+  ["zoom-in","Zoom in","⌘ =","menu · Zoom In","app","all"],
+  ["shortcuts","Shortcuts","⌘ /","menu · Keyboard Shortcuts","app","all","Opens Claude's own shortcuts sheet."],
+  ["settings","Settings","⌘ ,","menu · Settings…","app","all"],
+];
+const GROUP = { chat: "Chats", comp: "Composer", code: "Claude Code", app: "Sessions & app" };
+const WHERE = { all: "Everywhere", chat: "Chats", code: "Claude Code" };
+const src = (i) => `icons/${String(i + 1).padStart(2, "0")}-${K[i][0]}.png`;
+const pos = (i) => `r${Math.floor(i / 8) + 1} · c${(i % 8) + 1}`;
+const col = (g) => `var(--${g})`;
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+const grid = document.getElementById("grid"), rows = document.getElementById("rows"), detail = document.getElementById("detail");
+K.forEach((k, i) => {
+  const b = document.createElement("button");
+  b.className = "key"; b.style.setProperty("--c", col(k[4]));
+  b.setAttribute("aria-label", `${k[1]}, ${k[2]}`); b.setAttribute("aria-pressed", "false");
+  b.innerHTML = `<img src="${src(i)}" alt="">`;
+  b.onclick = () => select(i);
+  grid.appendChild(b);
+
+  const tr = document.createElement("tr");
+  tr.style.setProperty("--c", col(k[4]));
+  tr.innerHTML = `<td class="pos">${pos(i)}</td><td class="lbl"><i></i>${k[1]}</td><td class="keys">${esc(k[2])}</td><td class="w">${WHERE[k[5]]}</td><td><code>${esc(k[3])}</code></td>`;
+  tr.onclick = () => { select(i); grid.scrollIntoView({ block: "nearest", behavior: "smooth" }); };
+  rows.appendChild(tr);
+});
+
+function select(i) {
+  const k = K[i];
+  [...grid.children].forEach((b, j) => b.setAttribute("aria-pressed", String(i === j)));
+  [...rows.children].forEach((r, j) => r.classList.toggle("on", i === j));
+  detail.style.setProperty("--c", col(k[4]));
+  detail.innerHTML = `
+    <img src="${src(i)}" alt="${k[1]} key icon">
+    <div>
+      <div class="eyebrow">${GROUP[k[4]]} · ${pos(i)}</div>
+      <h2>${k[1]}</h2>
+      <div class="kbd">${k[2].split(" ").map((s) => `<span>${esc(s)}</span>`).join("")}</div>
+      <dl class="facts">
+        <dt>Works in</dt><dd><span class="where">${WHERE[k[5]]}</span></dd>
+        <dt>Source</dt><dd><code>${esc(k[3])}</code></dd>
+      </dl>
+      ${k[6] ? `<p class="note">${esc(k[6])}</p>` : ""}
+    </div>`;
+}
+
+document.getElementById("seg").addEventListener("click", (e) => {
+  const f = e.target.closest("button")?.dataset.f;
+  if (!f) return;
+  document.querySelectorAll("#seg button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.f === f)));
+  K.forEach((k, i) => {
+    const off = f !== "all" && k[5] !== "all" && k[5] !== f;
+    grid.children[i].classList.toggle("dim", off);
+    rows.children[i].classList.toggle("dim", off);
+  });
+});
+select(0);
+</script>

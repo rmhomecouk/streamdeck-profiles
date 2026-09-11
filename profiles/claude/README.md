@@ -8,6 +8,8 @@ Every shortcut was read from Claude 1.52386.3 itself, from two sources:
 
 ![Claude deck](sheet.png)
 
+**Interactive mockup:** [live version](https://claude.ai/code/artifact/e322b528-abbb-4874-b1f0-8e6d39fe08c3), or open `index.html` locally. Click any key to see what it sends and where it comes from in Claude, or filter the deck by where each shortcut works.
+
 The keys follow Claude's own look: warm charcoal tiles with a fine paper grain, ivory line glyphs, labels in New York serif and shortcuts in SF Mono. Each row takes an accent from Claude's palette. The hero key is the terracotta spark from the app icon.
 
 ## Layout
