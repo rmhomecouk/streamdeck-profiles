@@ -41,6 +41,8 @@ npm run ghostty
 
 ## Adding a profile
 
+AI agents: read [AGENTS.md](AGENTS.md) first. It's the full playbook: where to find an app's real shortcuts, the icon system, how to build and check the profile file, the import steps, and the traps to avoid. `CLAUDE.md` loads it automatically for Claude Code. The short version:
+
 1. Create `profiles/<name>/` with a `gen.mjs` that writes `icons/`, `svg/`, `keymap.json` and `sheet.png`.
 2. Copy `profiles/ghostty/profile.mjs`, then update the `KEY`/`SEND` hotkey maps, the profile `Name` and the device model.
 3. Add `<name>:icons`, `<name>:profile` and `<name>` scripts to `package.json`, and a row to the table above.
