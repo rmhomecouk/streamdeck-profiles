@@ -1,0 +1,386 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-quick-terminal.png",
+    "id": "quick-terminal",
+    "label": "quick term",
+    "keys": "⌘`",
+    "action": "toggle_quick_terminal",
+    "category": "win"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-new-window.png",
+    "id": "new-window",
+    "label": "new window",
+    "keys": "⌘N",
+    "action": "new_window",
+    "category": "win"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-new-tab.png",
+    "id": "new-tab",
+    "label": "new tab",
+    "keys": "⌘T",
+    "action": "new_tab",
+    "category": "win"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-prev-tab.png",
+    "id": "prev-tab",
+    "label": "prev tab",
+    "keys": "⇧⌘[",
+    "action": "previous_tab",
+    "category": "win"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-next-tab.png",
+    "id": "next-tab",
+    "label": "next tab",
+    "keys": "⇧⌘]",
+    "action": "next_tab",
+    "category": "win"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-close.png",
+    "id": "close",
+    "label": "close",
+    "keys": "⌘W",
+    "action": "close_surface",
+    "category": "win"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-reopen.png",
+    "id": "reopen",
+    "label": "reopen",
+    "keys": "⌘Z",
+    "action": "undo",
+    "category": "win"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-palette.png",
+    "id": "palette",
+    "label": "palette",
+    "keys": "⇧⌘P",
+    "action": "toggle_command_palette",
+    "category": "win"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-split-right.png",
+    "id": "split-right",
+    "label": "split →",
+    "keys": "⌘D",
+    "action": "new_split:right",
+    "category": "split"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-split-down.png",
+    "id": "split-down",
+    "label": "split ↓",
+    "keys": "⇧⌘D",
+    "action": "new_split:down",
+    "category": "split"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-focus-left.png",
+    "id": "focus-left",
+    "label": "focus ←",
+    "keys": "⌥⌘←",
+    "action": "goto_split:left",
+    "category": "split"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-focus-up.png",
+    "id": "focus-up",
+    "label": "focus ↑",
+    "keys": "⌥⌘↑",
+    "action": "goto_split:up",
+    "category": "split"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-focus-down.png",
+    "id": "focus-down",
+    "label": "focus ↓",
+    "keys": "⌥⌘↓",
+    "action": "goto_split:down",
+    "category": "split"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-focus-right.png",
+    "id": "focus-right",
+    "label": "focus →",
+    "keys": "⌥⌘→",
+    "action": "goto_split:right",
+    "category": "split"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-zoom-split.png",
+    "id": "zoom-split",
+    "label": "zoom",
+    "keys": "⇧⌘↩",
+    "action": "toggle_split_zoom",
+    "category": "split"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-equalize.png",
+    "id": "equalize",
+    "label": "equalize",
+    "keys": "⌃⌘=",
+    "action": "equalize_splits",
+    "category": "split"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-prompt-up.png",
+    "id": "prompt-up",
+    "label": "prompt ↑",
+    "keys": "⌘↑",
+    "action": "jump_to_prompt:-1",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-prompt-down.png",
+    "id": "prompt-down",
+    "label": "prompt ↓",
+    "keys": "⌘↓",
+    "action": "jump_to_prompt:1",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-scroll-top.png",
+    "id": "scroll-top",
+    "label": "top",
+    "keys": "⌘Home",
+    "action": "scroll_to_top",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-scroll-bottom.png",
+    "id": "scroll-bottom",
+    "label": "bottom",
+    "keys": "⌘End",
+    "action": "scroll_to_bottom",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-find.png",
+    "id": "find",
+    "label": "find",
+    "keys": "⌘F",
+    "action": "start_search",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-find-prev.png",
+    "id": "find-prev",
+    "label": "find prev",
+    "keys": "⇧⌘G",
+    "action": "navigate_search:previous",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-find-next.png",
+    "id": "find-next",
+    "label": "find next",
+    "keys": "⌘G",
+    "action": "navigate_search:next",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-clear.png",
+    "id": "clear",
+    "label": "clear",
+    "keys": "⌘K",
+    "action": "clear_screen",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-copy.png",
+    "id": "copy",
+    "label": "copy",
+    "keys": "⌘C",
+    "action": "copy_to_clipboard",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-paste.png",
+    "id": "paste",
+    "label": "paste",
+    "keys": "⌘V",
+    "action": "paste_from_clipboard",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-font-smaller.png",
+    "id": "font-smaller",
+    "label": "font −",
+    "keys": "⌘−",
+    "action": "decrease_font_size",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-font-reset.png",
+    "id": "font-reset",
+    "label": "font reset",
+    "keys": "⌘0",
+    "action": "reset_font_size",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-font-bigger.png",
+    "id": "font-bigger",
+    "label": "font +",
+    "keys": "⌘=",
+    "action": "increase_font_size",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-fullscreen.png",
+    "id": "fullscreen",
+    "label": "fullscreen",
+    "keys": "⌘↩",
+    "action": "toggle_fullscreen",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-open-config.png",
+    "id": "open-config",
+    "label": "config",
+    "keys": "⌘,",
+    "action": "open_config",
+    "category": "cfg"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-reload-config.png",
+    "id": "reload-config",
+    "label": "reload",
+    "keys": "⇧⌘,",
+    "action": "reload_config",
+    "category": "cfg"
+  }
+]

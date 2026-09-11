@@ -1,0 +1,14 @@
+{
+  "name": "streamdeck-profiles",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Custom Elgato Stream Deck profiles with generated icon sets",
+  "scripts": {
+    "ghostty:icons": "node profiles/ghostty/gen.mjs",
+    "ghostty:profile": "node profiles/ghostty/profile.mjs",
+    "ghostty": "npm run ghostty:icons && npm run ghostty:profile"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
+  }
+}

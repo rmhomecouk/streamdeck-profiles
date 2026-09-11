@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="28%" r="85%">
+    <stop offset="0" stop-color="#132a66"/><stop offset="0.55" stop-color="#0a1638"/><stop offset="1" stop-color="#060b1f"/>
+  </radialGradient>
+  <radialGradient id="aura" cx="50%" cy="36%" r="42%">
+    <stop offset="0" stop-color="#6fe0b8" stop-opacity="0.16"/><stop offset="1" stop-color="#6fe0b8" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="0.75" fill="#9db4ff" opacity="0.13"/>
+  </pattern>
+  <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0.09"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="3.4" result="b"/>
+    <feFlood flood-color="#6fe0b8" flood-opacity="0.85"/>
+    <feComposite in2="b" operator="in" result="g"/>
+    <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tglow" x="-20%" y="-60%" width="140%" height="220%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="b"/>
+    <feFlood flood-color="#6fe0b8" flood-opacity="0.5"/>
+    <feComposite in2="b" operator="in" result="g"/>
+    <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <clipPath id="fr"><rect x="6" y="10" width="52" height="44" rx="7"/></clipPath>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#dots)"/>
+<rect width="144" height="144" fill="url(#aura)"/>
+<rect width="144" height="72" fill="url(#sheen)"/>
+<g transform="translate(40 14)" filter="url(#glow)"><rect x="6" y="10" width="52" height="22" fill="#6fe0b8" clip-path="url(#fr)"/><rect x="6" y="10" width="52" height="44" rx="7" fill="none" stroke="#eef3ff" stroke-width="4"/><line x1="6" y1="32" x2="58" y2="32" stroke="#eef3ff" stroke-width="4" stroke-linecap="round"/><line x1="32" y1="27" x2="32" y2="15" stroke="#07102a" stroke-width="4.5" stroke-linecap="round"/><polyline points="37.5,20.5 32,15 26.5,20.5" fill="none" stroke="#07102a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
+  <text x="72" y="105" font-size="17" font-weight="700" fill="#eef3ff" filter="url(#tglow)">focus ↑</text>
+  <text x="72" y="128" font-size="16" font-weight="700" fill="#6fe0b8" opacity="0.92">⌥⌘↑</text>
+</g>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>
