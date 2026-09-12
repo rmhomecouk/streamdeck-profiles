@@ -27,7 +27,10 @@
     "outlook": "npm run outlook:icons && npm run outlook:profile",
     "discord:icons": "node profiles/discord/gen.mjs",
     "discord:profile": "node profiles/discord/profile.mjs",
-    "discord": "npm run discord:icons && npm run discord:profile"
+    "discord": "npm run discord:icons && npm run discord:profile",
+    "word:icons": "node profiles/word/gen.mjs",
+    "word:profile": "node profiles/word/profile.mjs",
+    "word": "npm run word:icons && npm run word:profile"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2"

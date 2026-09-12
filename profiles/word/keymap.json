@@ -1,0 +1,418 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-word.png",
+    "id": "word",
+    "label": "Word",
+    "keys": "open app",
+    "action": "launch / focus Microsoft Word.app",
+    "when": "anywhere",
+    "category": "doc"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-save.png",
+    "id": "save",
+    "label": "Save",
+    "keys": "⌘S",
+    "action": "FileSave · File ▸ Save",
+    "when": "document",
+    "category": "doc"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-save-as.png",
+    "id": "save-as",
+    "label": "Save as",
+    "keys": "⇧⌘S",
+    "action": "FileSaveAs · File ▸ Save As…",
+    "when": "document",
+    "category": "doc"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-print.png",
+    "id": "print",
+    "label": "Print",
+    "keys": "⌘P",
+    "action": "FilePrint · File ▸ Print…",
+    "when": "document",
+    "category": "doc"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-undo.png",
+    "id": "undo",
+    "label": "Undo",
+    "keys": "⌘Z",
+    "action": "EditUndo · Edit ▸ Undo",
+    "when": "document",
+    "category": "doc"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-redo.png",
+    "id": "redo",
+    "label": "Redo",
+    "keys": "⇧⌘Z",
+    "action": "EditRedo",
+    "when": "document",
+    "category": "doc"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-find.png",
+    "id": "find",
+    "label": "Find",
+    "keys": "⌘F",
+    "action": "EditFind · Edit ▸ Find ▸ Find…",
+    "when": "document",
+    "category": "doc"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-go-to.png",
+    "id": "go-to",
+    "label": "Go to",
+    "keys": "⌥⌘G",
+    "action": "EditGoTo · Edit ▸ Find ▸ Go To…",
+    "when": "document",
+    "category": "doc"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-bold.png",
+    "id": "bold",
+    "label": "Bold",
+    "keys": "⌘B",
+    "action": "Bold",
+    "when": "text",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-italic.png",
+    "id": "italic",
+    "label": "Italic",
+    "keys": "⌘I",
+    "action": "Italic",
+    "when": "text",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-underline.png",
+    "id": "underline",
+    "label": "Underline",
+    "keys": "⌘U",
+    "action": "Underline",
+    "when": "text",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-strikethrough.png",
+    "id": "strikethrough",
+    "label": "Strikethrough",
+    "keys": "⇧⌘X",
+    "action": "Strikethrough",
+    "when": "text",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-smaller.png",
+    "id": "smaller",
+    "label": "Smaller",
+    "keys": "⌘[",
+    "action": "ShrinkFontOnePoint",
+    "when": "text",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-bigger.png",
+    "id": "bigger",
+    "label": "Bigger",
+    "keys": "⌘]",
+    "action": "GrowFontOnePoint",
+    "when": "text",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-copy-format.png",
+    "id": "copy-format",
+    "label": "Copy format",
+    "keys": "⌥⌘C",
+    "action": "CopyFormat",
+    "when": "text",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-paste-format.png",
+    "id": "paste-format",
+    "label": "Paste format",
+    "keys": "⌥⌘V",
+    "action": "PasteFormat",
+    "when": "text",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-heading-1.png",
+    "id": "heading-1",
+    "label": "Heading 1",
+    "keys": "⌥⌘1",
+    "action": "ApplyHeading1",
+    "when": "text",
+    "category": "para"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-heading-2.png",
+    "id": "heading-2",
+    "label": "Heading 2",
+    "keys": "⌥⌘2",
+    "action": "ApplyHeading2",
+    "when": "text",
+    "category": "para"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-heading-3.png",
+    "id": "heading-3",
+    "label": "Heading 3",
+    "keys": "⌥⌘3",
+    "action": "ApplyHeading3",
+    "when": "text",
+    "category": "para"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-normal.png",
+    "id": "normal",
+    "label": "Normal",
+    "keys": "⇧⌘N",
+    "action": "NormalStyle",
+    "when": "text",
+    "category": "para"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-bullets.png",
+    "id": "bullets",
+    "label": "Bullets",
+    "keys": "⇧⌘L",
+    "action": "ApplyListBullet",
+    "when": "text",
+    "category": "para"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-align-left.png",
+    "id": "align-left",
+    "label": "Align left",
+    "keys": "⌘L",
+    "action": "LeftPara",
+    "when": "text",
+    "category": "para"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-center.png",
+    "id": "center",
+    "label": "Center",
+    "keys": "⌘E",
+    "action": "CenterPara",
+    "when": "text",
+    "category": "para"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-page-break.png",
+    "id": "page-break",
+    "label": "Page break",
+    "keys": "⌘↩",
+    "action": "InsertPageBreak · Insert ▸ Break ▸ Page Break",
+    "when": "text",
+    "category": "para"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-track-changes.png",
+    "id": "track-changes",
+    "label": "Track changes",
+    "keys": "⇧⌘E",
+    "action": "ToolsRevisionMarksToggle",
+    "when": "document",
+    "category": "rev"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-comment.png",
+    "id": "comment",
+    "label": "Comment",
+    "keys": "⌥⌘A",
+    "action": "InsertAnnotation",
+    "when": "document",
+    "category": "rev"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-footnote.png",
+    "id": "footnote",
+    "label": "Footnote",
+    "keys": "⌥⌘F",
+    "action": "InsertFootnoteNow",
+    "when": "text",
+    "category": "rev"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-spelling.png",
+    "id": "spelling",
+    "label": "Spelling",
+    "keys": "⌥⌘L",
+    "action": "ToolsProofing",
+    "when": "document",
+    "category": "rev"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-thesaurus.png",
+    "id": "thesaurus",
+    "label": "Thesaurus",
+    "keys": "⌃⌥⌘R",
+    "action": "ToolsThesaurusRR · Tools ▸ Thesaurus…",
+    "when": "text",
+    "category": "rev"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-focus.png",
+    "id": "focus",
+    "label": "Focus",
+    "keys": "⌃⇧⌘F",
+    "action": "ToggleFocusMode · View ▸ Focus",
+    "when": "document",
+    "category": "rev"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-styles-pane.png",
+    "id": "styles-pane",
+    "label": "Styles pane",
+    "keys": "⌥⇧⌘S",
+    "action": "ToggleStylesPane",
+    "when": "document",
+    "category": "rev"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-copilot.png",
+    "id": "copilot",
+    "label": "Copilot",
+    "keys": "⌃⌘I",
+    "action": "SetFocusToCopilot",
+    "when": "document",
+    "category": "rev"
+  }
+]

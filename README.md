@@ -19,6 +19,7 @@ Custom Elgato Stream Deck profiles with generated icon sets. Each profile lives 
 | [Slack](profiles/slack/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/4877865c-049a-4959-ad8b-acfb9c6b964e) · [local](profiles/slack/index.html) | <img src="profiles/slack/sheet.png" width="360" alt="Slack deck"> |
 | [Microsoft Outlook](profiles/outlook/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/c06c47c8-eab6-4ea0-8b83-4f8f52bf87a1) · [local](profiles/outlook/index.html) | <img src="profiles/outlook/sheet.png" width="360" alt="Outlook deck"> |
 | [Discord](profiles/discord/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/36be267f-77fe-4bb5-a3e4-572d2e3ef490) · [local](profiles/discord/index.html) | <img src="profiles/discord/sheet.png" width="360" alt="Discord deck"> |
+| [Microsoft Word](profiles/word/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/8188ebce-238d-437d-b4ac-860b02ad2787) · [local](profiles/word/index.html) | <img src="profiles/word/sheet.png" width="360" alt="Word deck"> |
 
 The live mockups are private Claude artifacts, so only you can open them unless you share them. The local `index.html` files work offline from a clone.
 

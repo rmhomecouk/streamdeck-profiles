@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#1d2232"/><stop offset="0.55" stop-color="#141824"/><stop offset="1" stop-color="#0b0d14"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#a393ff" stop-opacity="0.14"/><stop offset="1" stop-color="#a393ff" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<g opacity="0.55"><text x="17" y="26" font-family="Aptos" font-size="17" font-weight="700" font-style="normal" fill="#a393ff" text-anchor="middle">¶</text></g>
+<g transform="translate(40 14)" filter="url(#lift)"><text x="24" y="50" font-family="Aptos" font-size="46" font-weight="700" font-style="normal" fill="#ffffff" text-anchor="middle">H</text><text x="50" y="50" font-family="Aptos" font-size="34" font-weight="700" font-style="normal" fill="#a393ff" text-anchor="middle">3</text></g>
+<text x="72" y="106" font-family="Aptos" font-size="18" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Heading 3</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#bdb3ff" stroke="#bdb3ff" stroke-width="0.45" text-anchor="middle">⌥⌘3</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,184 @@
+<title>Word Deck</title>
+<style>
+:root{
+  --ground:#e8ebf0; --chrome:#f3f3f3; --ribbon:#ffffff; --canvas:#ebebeb; --page:#ffffff;
+  --line:#dedede; --text:#242424; --muted:#616161; --hover:#f0f0f0; --sel:#185abd14; --word:#185abd; --wordtx:#185abd;
+  --plate:#0b0d14; --chip:#f5f5f5;
+  --doc:#0e8fbf; --fmt:#2f6fe0; --para:#6b56e0; --rev:#1f4fd8;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#101218; --chrome:#1f1f1f; --ribbon:#292929; --canvas:#1b1b1b; --page:#2b2b2b;
+  --line:#3d3d3d; --text:#e6e6e6; --muted:#a8a8a8; --hover:#333333; --sel:#7aa7ff22; --word:#4f7dff; --wordtx:#9dbcff;
+  --plate:#07080c; --chip:#1f1f1f;
+  --doc:#5fd0f6; --fmt:#7ea6ff; --para:#a393ff; --rev:#86a6ff;
+}}
+:root[data-theme="dark"]{
+  --ground:#101218; --chrome:#1f1f1f; --ribbon:#292929; --canvas:#1b1b1b; --page:#2b2b2b;
+  --line:#3d3d3d; --text:#e6e6e6; --muted:#a8a8a8; --hover:#333333; --sel:#7aa7ff22; --word:#4f7dff; --wordtx:#9dbcff;
+  --plate:#07080c; --chip:#1f1f1f;
+  --doc:#5fd0f6; --fmt:#7ea6ff; --para:#a393ff; --rev:#86a6ff;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--text);font:15px/1.5 Aptos,"Segoe UI","Helvetica Neue",-apple-system,system-ui,sans-serif;padding:28px 16px 48px}
+code,.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.window{max-width:1220px;margin:0 auto;border-radius:12px;overflow:hidden;background:var(--canvas);box-shadow:0 24px 60px -30px #000a}
+/* title bar */
+.top{height:40px;display:grid;grid-template-columns:120px 1fr 120px;align-items:center;background:var(--chrome)}
+.lights{display:flex;gap:8px;padding-left:14px}.lights i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.lights i:nth-child(2){background:#febc2e}.lights i:nth-child(3){background:#28c840}
+.docname{justify-self:center;font-size:13px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px}
+.docname .w{width:18px;height:18px;border-radius:4px;background:var(--word);color:#fff;font-weight:800;font-size:11px;display:grid;place-items:center}
+.docname span{color:var(--muted);font-weight:400}
+/* ribbon: the tabs are the rows */
+.tabs{background:var(--chrome);display:flex;gap:2px;padding:0 12px;overflow-x:auto}
+.tab{all:unset;position:relative;padding:8px 12px 10px;font-size:14px;color:var(--text);cursor:pointer;white-space:nowrap;border-radius:4px 4px 0 0}
+.tab:hover{background:var(--hover)}
+.tab[aria-pressed="true"]{font-weight:700;color:var(--wordtx)}
+.tab[aria-pressed="true"]::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:3px;border-radius:2px;background:var(--word)}
+.tab:focus-visible{outline:2px solid var(--word);outline-offset:-2px}
+.tab .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px}
+.ribbon{background:var(--ribbon);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.ribbon b{color:var(--text);font-weight:600}
+.body{padding:20px 20px 28px;display:grid;gap:20px}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start}
+.device{background:var(--plate);border-radius:22px;padding:16px;box-shadow:inset 0 0 0 1px #ffffff14,0 14px 30px -18px #000}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}
+.key{padding:0;border:0;background:none;cursor:pointer;border-radius:14%;aspect-ratio:1;transition:transform .12s,opacity .15s,filter .15s}
+.key img{width:100%;height:100%;display:block;border-radius:14%}
+.key:hover{transform:translateY(-2px)}
+.key:focus-visible{outline:2px solid var(--word);outline-offset:3px}
+.key[aria-pressed="true"]{outline:2px solid #fff;outline-offset:3px}
+.key.dim{opacity:.2;filter:saturate(.3)}
+/* detail panel styled as a document page */
+.pagecard{background:var(--page);border-radius:2px;box-shadow:0 1px 3px #0003,0 8px 24px -16px #0006;padding:26px 28px 24px;position:relative}
+.pagecard::before{content:"";position:absolute;left:28px;right:28px;top:12px;height:6px;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 9px);opacity:.8}
+.pagecard .eyebrow{font-size:12px;color:var(--muted);letter-spacing:.03em}
+.pagecard h2{font-size:26px;font-weight:700;margin:4px 0 8px;color:var(--wordtx);text-wrap:balance}
+.caps{display:flex;gap:4px;flex-wrap:wrap;margin:6px 0 10px}
+kbd{font:700 12px ui-monospace,"SF Mono",Menlo,monospace;min-width:24px;padding:3px 7px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;background:var(--chip);color:var(--text)}
+.pagecard p{margin:0;font-size:15px}
+.pagecard .fn{margin-top:16px;padding-top:8px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+.pagecard .fn sup{color:var(--wordtx);font-weight:700;margin-right:4px}
+.pagecard img{position:absolute;right:20px;top:24px;width:52px;height:52px;border-radius:10px}
+/* when filter */
+.filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter .lbl{color:var(--muted);font-size:13px;margin-right:4px}
+.chip{border:1px solid var(--line);background:var(--ribbon);color:var(--text);border-radius:4px;padding:4px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--sel);border-color:var(--word);color:var(--wordtx);font-weight:700}
+.chip:focus-visible{outline:2px solid var(--word);outline-offset:2px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--ribbon)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:720px}
+th{text-align:left;font-weight:700;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:13px}
+td{padding:7px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{background:var(--sel)}tbody tr.dim{opacity:.35}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
+@media (max-width:920px){.stage{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.key{transition:none}}
+</style>
+
+<div class="window">
+  <div class="top">
+    <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="docname"><span class="w" aria-hidden="true">W</span>Stream Deck XL.docx <span>— Saved to this Mac</span></div>
+    <div></div>
+  </div>
+  <nav class="tabs" aria-label="Rows">
+    <button class="tab" data-cat="all" aria-pressed="true">All keys</button>
+    <button class="tab" data-cat="doc" aria-pressed="false"><span class="sw" style="background:#5fd0f6"></span>Document</button>
+    <button class="tab" data-cat="fmt" aria-pressed="false"><span class="sw" style="background:#7ea6ff"></span>Format text</button>
+    <button class="tab" data-cat="para" aria-pressed="false"><span class="sw" style="background:#a393ff"></span>Paragraph &amp; styles</button>
+    <button class="tab" data-cat="rev" aria-pressed="false"><span class="sw" style="background:#4f7dff"></span>Review &amp; view</button>
+  </nav>
+  <div class="ribbon"><span><b>Word 16.112.4</b> · macOS</span><span><b>32 keys</b> · Stream Deck XL, 8 × 4</span><span>Every shortcut is what Word's own key table reports. Click a key to see the command.</span></div>
+  <div class="body">
+    <div class="stage">
+      <div class="device"><div class="grid" id="grid"></div></div>
+      <article class="pagecard" id="detail" aria-live="polite"></article>
+    </div>
+    <div class="filter" role="group" aria-label="Filter by where it works">
+      <span class="lbl">Works when:</span>
+      <button class="chip" data-when="all" aria-pressed="true">All keys</button>
+      <button class="chip" data-when="anywhere" aria-pressed="false">Anywhere</button>
+      <button class="chip" data-when="document" aria-pressed="false">A document is open</button>
+      <button class="chip" data-when="text" aria-pressed="false">Cursor in text</button>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Key</th><th>Shortcut</th><th>Works when</th><th>Word command</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const CATS = { doc: 'Document', fmt: 'Format text', para: 'Paragraph & styles', rev: 'Review & view' };
+const WHEN = { anywhere: 'Anywhere', document: 'A document is open', text: 'Cursor in text' };
+const K = [
+  ['word','Word','open app','Stream Deck Open Application · com.microsoft.Word','doc','anywhere','Opens Word or brings it to the front. A long press quits it.'],
+  ['save','Save','⌘S','FileSave · File ▸ Save','doc','document','Saves the document.'],
+  ['save-as','Save as','⇧⌘S','FileSaveAs · File ▸ Save As…','doc','document','Save a copy under a new name, place or format.'],
+  ['print','Print','⌘P','FilePrint · File ▸ Print…','doc','document','Opens the print dialog.'],
+  ['undo','Undo','⌘Z','EditUndo · Edit ▸ Undo','doc','document','Undo the last change.'],
+  ['redo','Redo','⇧⌘Z','EditRedo','doc','document','Redo what you undid. ⌘Y does Redo or Repeat.'],
+  ['find','Find','⌘F','EditFind · Edit ▸ Find ▸ Find…','doc','document','Search the document in the sidebar.'],
+  ['go-to','Go to','⌥⌘G','EditGoTo · Edit ▸ Find ▸ Go To…','doc','document','Jump to a page, section, line, bookmark or comment.'],
+  ['bold','Bold','⌘B','Bold','fmt','text','Bold on or off for the selection.'],
+  ['italic','Italic','⌘I','Italic','fmt','text','Italic on or off.'],
+  ['underline','Underline','⌘U','Underline','fmt','text','Underline on or off.'],
+  ['strikethrough','Strikethrough','⇧⌘X','Strikethrough','fmt','text','Strikethrough on or off.'],
+  ['smaller','Smaller','⌘[','ShrinkFontOnePoint','fmt','text','Font size down one point.'],
+  ['bigger','Bigger','⌘]','GrowFontOnePoint','fmt','text','Font size up one point.'],
+  ['copy-format','Copy format','⌥⌘C','CopyFormat','fmt','text','Copies the formatting of the selection, like the format painter.'],
+  ['paste-format','Paste format','⌥⌘V','PasteFormat','fmt','text','Applies the copied formatting to the selection.'],
+  ['heading-1','Heading 1','⌥⌘1','ApplyHeading1','para','text','Applies the Heading 1 style to the paragraph.'],
+  ['heading-2','Heading 2','⌥⌘2','ApplyHeading2','para','text','Applies Heading 2.'],
+  ['heading-3','Heading 3','⌥⌘3','ApplyHeading3','para','text','Applies Heading 3.'],
+  ['normal','Normal','⇧⌘N','NormalStyle','para','text','Back to the Normal style.'],
+  ['bullets','Bullets','⇧⌘L','ApplyListBullet','para','text','Turns the paragraph into a bulleted list item.'],
+  ['align-left','Align left','⌘L','LeftPara','para','text','Left-aligns the paragraph.'],
+  ['center','Center','⌘E','CenterPara','para','text','Centers the paragraph.'],
+  ['page-break','Page break','⌘↩','InsertPageBreak · Insert ▸ Break ▸ Page Break','para','text','Starts a new page at the cursor.'],
+  ['track-changes','Track changes','⇧⌘E','ToolsRevisionMarksToggle','rev','document','Turns Track Changes on or off.'],
+  ['comment','Comment','⌥⌘A','InsertAnnotation','rev','document','Adds a comment to the selection.'],
+  ['footnote','Footnote','⌥⌘F','InsertFootnoteNow','rev','text','Inserts a footnote at the cursor.'],
+  ['spelling','Spelling','⌥⌘L','ToolsProofing','rev','document','Checks spelling and grammar.'],
+  ['thesaurus','Thesaurus','⌃⌥⌘R','ToolsThesaurusRR · Tools ▸ Thesaurus…','rev','text','Synonyms for the word at the cursor.'],
+  ['focus','Focus','⌃⇧⌘F','ToggleFocusMode · View ▸ Focus','rev','document','Hides everything but the page. Press again to leave.'],
+  ['styles-pane','Styles pane','⌥⇧⌘S','ToggleStylesPane','rev','document','Shows or hides the Styles pane.'],
+  ['copilot','Copilot','⌃⌘I','SetFocusToCopilot','rev','document','Opens Copilot. Needs a Microsoft 365 Copilot plan.'],
+].map(([id,label,keys,src,cat,when,note],i)=>({id,label,keys,src,cat,when,note,n:String(i+1).padStart(2,'0')}));
+
+const $ = (s) => document.querySelector(s);
+const img = (k) => `icons/${k.n}-${k.id}.png`;
+const caps = (keys) => {
+  if (keys === 'open app') return '<kbd>open app</kbd>';
+  const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
+  return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
+};
+const color = (c) => `var(--${c})`;
+let cat = 'all', when = 'all';
+
+$('#grid').innerHTML = K.map((k, i) => `<button class="key" data-i="${i}" aria-label="${k.label}, ${k.keys}" aria-pressed="false"><img src="${img(k)}" alt=""></button>`).join('');
+$('#rows').innerHTML = K.map((k, i) => `<tr data-i="${i}"><td><span class="dot" style="background:${color(k.cat)}"></span>${k.label}</td><td><span class="caps">${caps(k.keys)}</span></td><td>${WHEN[k.when]}</td><td class="mono" style="font-size:12.5px">${k.src}</td></tr>`).join('');
+
+function show(k) {
+  $('#detail').innerHTML = `<img src="${img(k)}" alt=""><div class="eyebrow" style="color:${color(k.cat)}">${CATS[k.cat].toUpperCase()}</div>
+  <h2>${k.label}</h2><div class="caps">${caps(k.keys)}</div><p>${k.note}<sup style="color:var(--wordtx);font-weight:700">1</sup></p>
+  <div class="fn"><sup>1</sup>${WHEN[k.when]} · <span class="mono">${k.src}</span></div>`;
+  document.querySelectorAll('.key').forEach((b) => b.setAttribute('aria-pressed', String(K[b.dataset.i] === k)));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('sel', K[r.dataset.i] === k));
+}
+function apply() {
+  const off = (k) => (cat !== 'all' && k.cat !== cat) || (when !== 'all' && k.when !== when);
+  document.querySelectorAll('.key').forEach((b) => b.classList.toggle('dim', off(K[b.dataset.i])));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('dim', off(K[r.dataset.i])));
+  document.querySelectorAll('.tab').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.cat === cat)));
+  document.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.when === when)));
+}
+$('#grid').addEventListener('click', (e) => { const b = e.target.closest('.key'); if (b) show(K[b.dataset.i]); });
+$('#rows').addEventListener('click', (e) => { const r = e.target.closest('tr'); if (r) show(K[r.dataset.i]); });
+document.querySelectorAll('.tab').forEach((c) => c.addEventListener('click', () => { cat = c.dataset.cat; apply(); }));
+document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => { when = c.dataset.when; apply(); }));
+show(K[16]); apply();
+</script>

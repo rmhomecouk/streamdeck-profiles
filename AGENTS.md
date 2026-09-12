@@ -121,6 +121,18 @@ Discord's native menu (`discord_desktop_core`'s `core.asar`) only adds Preferenc
 4. Read the keybind action table: `{[IWg.TOGGLE_MUTE]: {binds: ["mod+shift+m"], …}}`. Some entries reference another module (`_.GY`), so resolve them through `n.d(t,{GY:()=>L})` and `L={binds:…}`. Watch for `isMac() ? […] : […]` binds.
 5. `mod` means ⌘ on a Mac (`isMac() ? "cmd" : "ctrl"`). The Keyboard Shortcuts sheet's labels come from the cached English strings bundle, keyed like `"yYsRlD":["Toggle QuickSwitcher"]`.
 
+### Microsoft Word (ask Word's own key table)
+
+Word's nibs have no key equivalents, because Word builds its menus at runtime. Ask the running app instead:
+
+1. Open a blank document (`tell application "Microsoft Word" to make new document`), then close it with `saving no` when you're done.
+2. `find key key code N` returns the key binding for a combination, with `command` (for example `Bold`) and `binding key string`.
+3. Pass raw integers, because some `WdKey` names in `Word.sdef` have trailing spaces (`f2_key `, `slash_key `) and can't be referenced. `N` is the Windows virtual-key code plus ⌘ 256, ⇧ 512, ⌥ 2048, ⌃ 4096, so ⌘B = 66 + 256.
+4. Sweep every key under each modifier combination. Cross-check against the live menu bar, read with System Events (`AXMenuItemCmdChar` / `AXMenuItemCmdModifiers`).
+5. Custom key bindings would be in `Normal.dotm` as `word/customizations.xml`.
+
+The `sdef` command needs full Xcode, so read `Contents/Resources/Word.sdef` directly.
+
 ### Leave out
 
 - **Keys that depend on how the user has arranged the app.** Teams' app bar `⌘1–9`, for example, opens whatever the user has put in each slot.
