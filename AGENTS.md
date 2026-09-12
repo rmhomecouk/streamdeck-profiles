@@ -111,6 +111,16 @@ VS Code's native menu accelerators are derived from its keybinding registry, so 
 5. Check `~/Library/Application Support/Code/User/keybindings.json` for user overrides. Also check each `~/.vscode/extensions/*/package.json` under `contributes.keybindings` for extension keys and clashes (Claude Code's ⌘Esc came from there).
 6. Check `com.apple.symbolichotkeys` for system shortcuts. A missing entry means the macOS default is on. F11 is macOS's default Show Desktop shortcut, so VS Code's Step into (F11) was left out.
 
+### Discord (web client cached in Chromium's HTTP cache)
+
+Discord's native menu (`discord_desktop_core`'s `core.asar`) only adds Preferences ⌘,. The real keymap is in the web client, which the desktop app caches in `~/Library/Application Support/discord/Cache/Cache_Data`:
+
+1. Walk the simple-cache entries. The header here is **24 bytes**, so the key starts at byte 24 and the body at `24 + keyLen`. The body ends at the first EOF record (`d8 41 0d 97 45 6f fa f4`), and the HTTP headers follow it.
+2. Keep the `/assets/` entries with `content-type: text/javascript`. Their bodies are brotli, which Node's `zlib.brotliDecompressSync` handles.
+3. Several builds may be cached. Pick the `web.*.js` with the highest `buildNumber`.
+4. Read the keybind action table: `{[IWg.TOGGLE_MUTE]: {binds: ["mod+shift+m"], …}}`. Some entries reference another module (`_.GY`), so resolve them through `n.d(t,{GY:()=>L})` and `L={binds:…}`. Watch for `isMac() ? […] : […]` binds.
+5. `mod` means ⌘ on a Mac (`isMac() ? "cmd" : "ctrl"`). The Keyboard Shortcuts sheet's labels come from the cached English strings bundle, keyed like `"yYsRlD":["Toggle QuickSwitcher"]`.
+
 ### Leave out
 
 - **Keys that depend on how the user has arranged the app.** Teams' app bar `⌘1–9`, for example, opens whatever the user has put in each slot.

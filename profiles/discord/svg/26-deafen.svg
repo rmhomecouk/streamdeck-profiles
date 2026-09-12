@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#2b2d31"/><stop offset="0.55" stop-color="#1e1f22"/><stop offset="1" stop-color="#111214"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#f23f43" stop-opacity="0.13"/><stop offset="1" stop-color="#f23f43" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<circle cx="18" cy="18" r="9.1" fill="#000" fill-opacity="0.35"/><circle cx="18" cy="18" r="6.5" fill="#f23f43" stroke="none" stroke-width="0"/><rect x="14.4" y="16.8" width="7.2" height="2.4" rx="1.2" fill="#1a1b1e"/>
+<g transform="translate(40 14)" filter="url(#lift)"><path d="M9 42 V33 Q9 9 32 9 Q55 9 55 33 V42" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="5" y="37" width="13" height="21" rx="6" fill="none" stroke="#ffffff" stroke-width="4.2"/><rect x="46" y="37" width="13" height="21" rx="6" fill="none" stroke="#ffffff" stroke-width="4.2"/><line x1="10" y1="8" x2="54" y2="54" stroke="#f23f43" stroke-width="4.8" stroke-linecap="round"/></g>
+<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Deafen</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#ff6b6e" stroke="#ff6b6e" stroke-width="0.45" text-anchor="middle">⇧⌘D</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

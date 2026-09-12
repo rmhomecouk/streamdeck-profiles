@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#2b2d31"/><stop offset="0.55" stop-color="#1e1f22"/><stop offset="1" stop-color="#111214"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#f0b232" stop-opacity="0.13"/><stop offset="1" stop-color="#f0b232" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<circle cx="18" cy="18" r="9.1" fill="#000" fill-opacity="0.35"/><mask id="moon"><circle cx="18" cy="18" r="6.5" fill="#fff"/><circle cx="14.4" cy="14.4" r="4.03" fill="#000"/></mask><circle cx="18" cy="18" r="6.5" fill="#f0b232" mask="url(#moon)"/>
+<g transform="translate(40 14)" filter="url(#lift)"><line x1="16" y1="54" x2="16" y2="10" stroke="#f0b232" stroke-width="5" stroke-linecap="round"/><polyline points="22.5,16.5 16,10 9.5,16.5" fill="none" stroke="#f0b232" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="32" y="9" width="5" height="14" rx="2.5" fill="#ffffff"/><line x1="44" y1="16" x2="58" y2="16" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/><line x1="44" y1="34" x2="56" y2="34" stroke="#ffffff77" stroke-width="3.4" stroke-linecap="round"/><line x1="44" y1="48" x2="54" y2="48" stroke="#ffffff77" stroke-width="3.4" stroke-linecap="round"/></g>
+<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Prev unread</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#f6c65a" stroke="#f6c65a" stroke-width="0.45" text-anchor="middle">⌥⇧↑</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

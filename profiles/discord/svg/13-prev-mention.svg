@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#2b2d31"/><stop offset="0.55" stop-color="#1e1f22"/><stop offset="1" stop-color="#111214"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#f0b232" stop-opacity="0.13"/><stop offset="1" stop-color="#f0b232" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<circle cx="18" cy="18" r="9.1" fill="#000" fill-opacity="0.35"/><mask id="moon"><circle cx="18" cy="18" r="6.5" fill="#fff"/><circle cx="14.4" cy="14.4" r="4.03" fill="#000"/></mask><circle cx="18" cy="18" r="6.5" fill="#f0b232" mask="url(#moon)"/>
+<g transform="translate(40 14)" filter="url(#lift)"><line x1="16" y1="54" x2="16" y2="10" stroke="#f0b232" stroke-width="5" stroke-linecap="round"/><polyline points="22.5,16.5 16,10 9.5,16.5" fill="none" stroke="#f0b232" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="41.8" y1="27" x2="39.05" y2="49" stroke="#ffffff" stroke-width="3.6" stroke-linecap="round"/><line x1="48.95" y1="27" x2="46.2" y2="49" stroke="#ffffff" stroke-width="3.6" stroke-linecap="round"/><line x1="33" y1="33.82" x2="55" y2="33.82" stroke="#ffffff" stroke-width="3.6" stroke-linecap="round"/><line x1="32.45" y1="42.18" x2="54.45" y2="42.18" stroke="#ffffff" stroke-width="3.6" stroke-linecap="round"/><circle cx="50" cy="14" r="13" fill="#1a1b1e"/><circle cx="50" cy="14" r="10" fill="#f23f43" stroke="none" stroke-width="0"/><text x="50" y="19.5" font-family=".SF NS Rounded" font-size="15" font-weight="700" fill="#fff" stroke="#fff" stroke-width="0.4" text-anchor="middle">@</text></g>
+<text x="72" y="106" font-family=".SF NS Rounded" font-size="15.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Prev mention</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#f6c65a" stroke="#f6c65a" stroke-width="0.45" text-anchor="middle">⌥⇧⌘↑</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

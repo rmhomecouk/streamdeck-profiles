@@ -1,0 +1,418 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-discord.png",
+    "id": "discord",
+    "label": "Discord",
+    "keys": "open app",
+    "action": "launch / focus Discord.app",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-quick-switcher.png",
+    "id": "quick-switcher",
+    "label": "Quick switcher",
+    "keys": "⌘K",
+    "action": "QUICKSWITCHER_SHOW · mod+k",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-search.png",
+    "id": "search",
+    "label": "Search",
+    "keys": "⌘F",
+    "action": "FOCUS_SEARCH · mod+f",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-back.png",
+    "id": "back",
+    "label": "Back",
+    "keys": "⌘[",
+    "action": "NAVIGATE_BACK · mod+[ (Mac)",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-forward.png",
+    "id": "forward",
+    "label": "Forward",
+    "keys": "⌘]",
+    "action": "NAVIGATE_FORWARD · mod+] (Mac)",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-prev-server.png",
+    "id": "prev-server",
+    "label": "Prev server",
+    "keys": "⌥⌘↑",
+    "action": "SERVER_PREV · mod+alt+up",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-next-server.png",
+    "id": "next-server",
+    "label": "Next server",
+    "keys": "⌥⌘↓",
+    "action": "SERVER_NEXT · mod+alt+down",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-dms-toggle.png",
+    "id": "dms-toggle",
+    "label": "DMs / server",
+    "keys": "⌥⌘→",
+    "action": "TOGGLE_PREVIOUS_GUILD · mod+alt+right",
+    "when": "anywhere",
+    "category": "nav"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-prev-channel.png",
+    "id": "prev-channel",
+    "label": "Prev channel",
+    "keys": "⌥↑",
+    "action": "CHANNEL_PREV · alt+up",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-next-channel.png",
+    "id": "next-channel",
+    "label": "Next channel",
+    "keys": "⌥↓",
+    "action": "CHANNEL_NEXT · alt+down",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-prev-unread.png",
+    "id": "prev-unread",
+    "label": "Prev unread",
+    "keys": "⌥⇧↑",
+    "action": "UNREAD_PREV · alt+shift+up",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-next-unread.png",
+    "id": "next-unread",
+    "label": "Next unread",
+    "keys": "⌥⇧↓",
+    "action": "UNREAD_NEXT · alt+shift+down",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-prev-mention.png",
+    "id": "prev-mention",
+    "label": "Prev mention",
+    "keys": "⌥⇧⌘↑",
+    "action": "MENTION_CHANNEL_PREV · mod+shift+alt+up",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-next-mention.png",
+    "id": "next-mention",
+    "label": "Next mention",
+    "keys": "⌥⇧⌘↓",
+    "action": "MENTION_CHANNEL_NEXT · mod+shift+alt+down",
+    "when": "anywhere",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-mark-read.png",
+    "id": "mark-read",
+    "label": "Mark read",
+    "keys": "esc",
+    "action": "MARK_CHANNEL_READ · esc",
+    "when": "chat",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-mark-server-read.png",
+    "id": "mark-server-read",
+    "label": "Mark server read",
+    "keys": "⇧esc",
+    "action": "MARK_SERVER_READ · shift+esc",
+    "when": "server",
+    "category": "read"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-inbox.png",
+    "id": "inbox",
+    "label": "Inbox",
+    "keys": "⌘I",
+    "action": "TOGGLE_INBOX · mod+i",
+    "when": "anywhere",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-pins.png",
+    "id": "pins",
+    "label": "Pins",
+    "keys": "⌘P",
+    "action": "TOGGLE_CHANNEL_PINS · mod+p",
+    "when": "chat",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-members.png",
+    "id": "members",
+    "label": "Members",
+    "keys": "⌘U",
+    "action": "TOGGLE_USERS · mod+u",
+    "when": "chat",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-emoji.png",
+    "id": "emoji",
+    "label": "Emoji",
+    "keys": "⌘E",
+    "action": "SEARCH_EMOJIS · mod+e",
+    "when": "chat",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-gifs.png",
+    "id": "gifs",
+    "label": "GIFs",
+    "keys": "⌘G",
+    "action": "SEARCH_GIFS · mod+g",
+    "when": "chat",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-upload.png",
+    "id": "upload",
+    "label": "Upload",
+    "keys": "⇧⌘U",
+    "action": "UPLOAD_FILE · mod+shift+u",
+    "when": "chat",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-copy-link.png",
+    "id": "copy-link",
+    "label": "Copy link",
+    "keys": "⇧⌘L",
+    "action": "COPY_CHANNEL_LINK · mod+shift+l",
+    "when": "chat",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-new-group.png",
+    "id": "new-group",
+    "label": "New group DM",
+    "keys": "⇧⌘T",
+    "action": "CREATE_DM_GROUP · mod+shift+t",
+    "when": "anywhere",
+    "category": "chat"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-mute.png",
+    "id": "mute",
+    "label": "Mute",
+    "keys": "⇧⌘M",
+    "action": "TOGGLE_MUTE · mod+shift+m",
+    "when": "anywhere",
+    "category": "voice"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-deafen.png",
+    "id": "deafen",
+    "label": "Deafen",
+    "keys": "⇧⌘D",
+    "action": "TOGGLE_DEAFEN · mod+shift+d",
+    "when": "anywhere",
+    "category": "voice"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-answer.png",
+    "id": "answer",
+    "label": "Answer call",
+    "keys": "⌘↩",
+    "action": "CALL_ACCEPT · mod+return",
+    "when": "ringing",
+    "category": "voice"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-start-call.png",
+    "id": "start-call",
+    "label": "Start call",
+    "keys": "⌃'",
+    "action": "CALL_START · ctrl+'",
+    "when": "dm",
+    "category": "voice"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-go-to-call.png",
+    "id": "go-to-call",
+    "label": "Go to call",
+    "keys": "⌥⇧⌘V",
+    "action": "JUMP_TO_CURRENT_CALL · mod+shift+alt+v",
+    "when": "call",
+    "category": "voice"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-soundboard.png",
+    "id": "soundboard",
+    "label": "Soundboard",
+    "keys": "⇧⌘B",
+    "action": "SEARCH_SOUNDBOARD · mod+shift+b",
+    "when": "call",
+    "category": "voice"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-settings.png",
+    "id": "settings",
+    "label": "Settings",
+    "keys": "⌘,",
+    "action": "Native menu: Discord ▸ Preferences (OPEN_SETTINGS)",
+    "when": "anywhere",
+    "category": "voice"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-shortcuts.png",
+    "id": "shortcuts",
+    "label": "Shortcuts",
+    "keys": "⌘/",
+    "action": "TOGGLE_HOTKEYS · mod+/",
+    "when": "anywhere",
+    "category": "voice"
+  }
+]

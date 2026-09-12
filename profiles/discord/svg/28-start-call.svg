@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#2b2d31"/><stop offset="0.55" stop-color="#1e1f22"/><stop offset="1" stop-color="#111214"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#f23f43" stop-opacity="0.13"/><stop offset="1" stop-color="#f23f43" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<circle cx="18" cy="18" r="9.1" fill="#000" fill-opacity="0.35"/><circle cx="18" cy="18" r="6.5" fill="#f23f43" stroke="none" stroke-width="0"/><rect x="14.4" y="16.8" width="7.2" height="2.4" rx="1.2" fill="#1a1b1e"/>
+<g transform="translate(40 14)" filter="url(#lift)"><path d="M16 8 Q9 9 8 17 Q9 36 25 50 Q40 60 49 55 Q55 52 55 47 L55 43 Q55 40 52 39 L44 36 Q41 35 39 38 L36 42 Q26 37 21 27 L25 24 Q28 22 27 19 L24 11 Q23 8 20 8 Z" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 8 Q52 10 55 22" fill="none" stroke="#f23f43" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 17 Q45 18 46 25" fill="none" stroke="#f23f43" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Start call</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#ff6b6e" stroke="#ff6b6e" stroke-width="0.45" text-anchor="middle">⌃'</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

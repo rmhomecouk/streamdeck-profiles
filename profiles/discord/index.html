@@ -1,0 +1,227 @@
+<title>Discord Deck</title>
+<style>
+:root{
+  --ground:#e3e5e8; --rail:#e3e5e8; --side:#f2f3f5; --win:#ffffff; --panel:#ebedef;
+  --line:#e1e2e4; --text:#313338; --muted:#5c5e66; --hover:#f2f3f5; --sel:#5865f21f; --link:#4752c4;
+  --plate:#111214; --chip:#ebedef; --blurple:#5865f2;
+  --nav:#4752c4; --read:#b07c0c; --chat:#1a8a4a; --voice:#d22d31;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#111214; --rail:#1e1f22; --side:#2b2d31; --win:#313338; --panel:#232428;
+  --line:#3f4147; --text:#dbdee1; --muted:#949ba4; --hover:#35373c; --sel:#5865f23d; --link:#949cf7;
+  --plate:#0b0b0d; --chip:#1e1f22; --blurple:#5865f2;
+  --nav:#949cf7; --read:#f0b232; --chat:#3bd67f; --voice:#ff6b6e;
+}}
+:root[data-theme="dark"]{
+  --ground:#111214; --rail:#1e1f22; --side:#2b2d31; --win:#313338; --panel:#232428;
+  --line:#3f4147; --text:#dbdee1; --muted:#949ba4; --hover:#35373c; --sel:#5865f23d; --link:#949cf7;
+  --plate:#0b0b0d; --chip:#1e1f22; --blurple:#5865f2;
+  --nav:#949cf7; --read:#f0b232; --chat:#3bd67f; --voice:#ff6b6e;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--text);font:15px/1.4 "gg sans","SF Pro Rounded",ui-rounded,-apple-system,system-ui,sans-serif;padding:28px 16px 48px}
+code,.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.window{max-width:1240px;margin:0 auto;border-radius:12px;overflow:hidden;background:var(--rail);box-shadow:0 24px 60px -30px #000a;display:grid;grid-template-columns:72px 240px 1fr;min-height:680px}
+/* server rail: one squircle per row */
+.rail{background:var(--rail);padding:12px 0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.lights{display:flex;gap:6px;margin-bottom:6px}.lights i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.lights i:nth-child(2){background:#febc2e}.lights i:nth-child(3){background:#28c840}
+.srv{all:unset;position:relative;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:var(--win);color:var(--text);font-weight:700;font-size:15px;transition:border-radius .15s,background .15s}
+.srv:hover,.srv[aria-pressed="true"]{border-radius:16px}
+.srv[aria-pressed="true"]{background:var(--blurple);color:#fff}
+.srv::before{content:"";position:absolute;left:-12px;width:4px;height:0;border-radius:0 4px 4px 0;background:var(--text);transition:height .15s}
+.srv:hover::before{height:20px}.srv[aria-pressed="true"]::before{height:40px}
+.srv:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.srv svg{width:28px;height:28px}
+.sep{width:32px;height:2px;border-radius:1px;background:var(--line)}
+.srv .st{position:absolute;right:-3px;bottom:-3px;width:16px;height:16px;border-radius:50%;border:3px solid var(--rail)}
+/* channel sidebar */
+.side{background:var(--side);display:flex;flex-direction:column}
+.sname{height:48px;padding:0 16px;display:flex;align-items:center;font-weight:700;border-bottom:1px solid var(--line)}
+.chans{padding:12px 8px;display:flex;flex-direction:column;gap:2px;flex:1}
+.sec{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--muted);padding:12px 8px 4px;text-transform:uppercase}
+.ch{all:unset;display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:4px;cursor:pointer;color:var(--muted);font-weight:500}
+.ch:hover{background:var(--hover);color:var(--text)}
+.ch[aria-pressed="true"]{background:var(--sel);color:var(--text);font-weight:700}
+.ch:focus-visible{outline:2px solid var(--link)}
+.ch .h{font-size:20px;line-height:1;width:18px;text-align:center;opacity:.8}
+.ch .n{margin-left:auto;font-size:12px;font-weight:700;color:var(--muted)}
+.info{padding:2px 8px;color:var(--muted);font-size:13px}
+.me{background:var(--panel);height:56px;padding:0 10px;display:flex;align-items:center;gap:8px}
+.av{position:relative;width:32px;height:32px;border-radius:50%;background:var(--blurple);display:grid;place-items:center}
+.av::after{content:"";position:absolute;right:-2px;bottom:-2px;width:10px;height:10px;border-radius:50%;background:#23a55a;border:3px solid var(--panel)}
+.me b{font-size:14px;display:block}.me small{color:var(--muted);font-size:12px}
+.me .tools{margin-left:auto;display:flex;gap:2px;color:var(--muted)}
+.me .tools span{width:30px;height:30px;display:grid;place-items:center;border-radius:4px}
+/* main chat */
+.main{background:var(--win);min-width:0;display:flex;flex-direction:column}
+.chead{height:48px;padding:0 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;min-width:0}
+.chead b{font-size:16px;white-space:nowrap}.chead .h{font-size:22px;color:var(--muted)}
+.chead span{color:var(--muted);font-size:13px;border-left:1px solid var(--line);padding-left:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.body{padding:18px 16px 26px;display:grid;gap:20px}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+.device{background:var(--plate);border-radius:22px;padding:16px;box-shadow:inset 0 0 0 1px #ffffff14,0 14px 30px -18px #000}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}
+.key{padding:0;border:0;background:none;cursor:pointer;border-radius:14%;aspect-ratio:1;transition:transform .12s,opacity .15s,filter .15s}
+.key img{width:100%;height:100%;display:block;border-radius:14%}
+.key:hover{transform:translateY(-2px)}
+.key:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+.key[aria-pressed="true"]{outline:2px solid #fff;outline-offset:3px}
+.key.dim{opacity:.2;filter:saturate(.3)}
+/* detail panel styled as a message from a bot */
+.msg{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:10px 12px;border-radius:8px;background:var(--hover)}
+.msg .pic{width:40px;height:40px;border-radius:50%}
+.who{font-weight:700;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.bot{font-size:10px;font-weight:700;background:var(--blurple);color:#fff;border-radius:4px;padding:1px 5px;letter-spacing:.02em}
+.who small{font-weight:500;color:var(--muted);font-size:12px}
+.msg h2{font-size:17px;margin:4px 0 6px}
+.caps{display:flex;gap:4px;flex-wrap:wrap;margin:6px 0}
+kbd{font:700 12px ui-monospace,"SF Mono",Menlo,monospace;min-width:24px;padding:3px 7px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;background:var(--chip)}
+.msg p{margin:6px 0 0;font-size:14px}
+.embed{margin-top:8px;border-left:4px solid var(--line);border-radius:4px;background:var(--chip);padding:8px 10px;color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+.embed b{color:var(--text);font-size:12px;display:block;margin-bottom:2px}
+/* when filter */
+.filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter .lbl{color:var(--muted);font-size:13px;margin-right:4px}
+.chip{border:1px solid var(--line);background:var(--win);color:var(--text);border-radius:999px;padding:4px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--blurple);border-color:var(--blurple);color:#fff;font-weight:700}
+.chip:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
+th{text-align:left;font-weight:700;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td{padding:7px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{background:var(--sel)}tbody tr.dim{opacity:.35}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
+@media (max-width:980px){.window{grid-template-columns:72px 1fr}.side{display:none}.stage{grid-template-columns:1fr}}
+@media (max-width:600px){.window{grid-template-columns:1fr}.rail{flex-direction:row;justify-content:center;flex-wrap:wrap}.lights,.sep{display:none}}
+@media (prefers-reduced-motion:reduce){.key,.srv,.srv::before{transition:none}}
+</style>
+
+<div class="window">
+  <nav class="rail" aria-label="Rows">
+    <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+    <button class="srv" data-cat="all" aria-pressed="true" aria-label="All keys" title="All keys"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.25.67-1.9.92.35.7.75 1.35 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3 15.12c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.89 2.27-2 2.27Zm7.4 0c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.88 2.27-2 2.27Z"/></svg></button>
+    <div class="sep"></div>
+    <button class="srv" data-cat="nav" aria-pressed="false" title="Navigate">Nav<span class="st" style="background:#5865f2"></span></button>
+    <button class="srv" data-cat="read" aria-pressed="false" title="Catch up">Up<span class="st" style="background:#f0b232"></span></button>
+    <button class="srv" data-cat="chat" aria-pressed="false" title="Chat">Ch<span class="st" style="background:#23a55a"></span></button>
+    <button class="srv" data-cat="voice" aria-pressed="false" title="Voice &amp; more">Vo<span class="st" style="background:#f23f43"></span></button>
+  </nav>
+  <aside class="side">
+    <div class="sname">streamdeck-profiles</div>
+    <div class="chans" id="chans">
+      <div class="sec">Text channels · one per row</div>
+      <button class="ch" data-cat="all" aria-pressed="true"><span class="h">#</span>stream-deck-xl<span class="n">32</span></button>
+      <button class="ch" data-cat="nav" aria-pressed="false"><span class="h">#</span>navigate<span class="n">8</span></button>
+      <button class="ch" data-cat="read" aria-pressed="false"><span class="h">#</span>catch-up<span class="n">8</span></button>
+      <button class="ch" data-cat="chat" aria-pressed="false"><span class="h">#</span>chat<span class="n">8</span></button>
+      <button class="ch" data-cat="voice" aria-pressed="false"><span class="h">#</span>voice-and-more<span class="n">8</span></button>
+      <div class="sec">About</div>
+      <div class="info">Discord 0.0.411 · web build 609489</div>
+      <div class="info">Stream Deck XL · 8 × 4</div>
+    </div>
+    <div class="me" aria-hidden="true">
+      <div class="av"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.25.67-1.9.92.35.7.75 1.35 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83Z"/></svg></div>
+      <div><b>Stream Deck</b><small>Online</small></div>
+      <div class="tools"><span title="Mute ⇧⌘M">🎙</span><span title="Deafen ⇧⌘D">🎧</span><span title="Settings ⌘,">⚙</span></div>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="chead"><span class="h" aria-hidden="true">#</span><b id="chan">stream-deck-xl</b><span>32 keys taken from Discord's own keybind table. Click a key or a channel to see the source.</span></div>
+    <div class="body">
+      <div class="stage">
+        <div class="device"><div class="grid" id="grid"></div></div>
+        <div class="msg" id="detail" aria-live="polite"></div>
+      </div>
+      <div class="filter" role="group" aria-label="Filter by where it works">
+        <span class="lbl">Works when:</span>
+        <button class="chip" data-when="all" aria-pressed="true">All keys</button>
+        <button class="chip" data-when="anywhere" aria-pressed="false">Anywhere in Discord</button>
+        <button class="chip" data-when="chat" aria-pressed="false">In a channel or DM</button>
+        <button class="chip" data-when="server" aria-pressed="false">In a server</button>
+        <button class="chip" data-when="dm" aria-pressed="false">In a DM</button>
+        <button class="chip" data-when="call" aria-pressed="false">In a call</button>
+        <button class="chip" data-when="ringing" aria-pressed="false">Call ringing</button>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Key</th><th>Shortcut</th><th>Works when</th><th>Source in Discord</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const CATS = { nav: 'navigate', read: 'catch-up', chat: 'chat', voice: 'voice-and-more' };
+const WHEN = { anywhere: 'Anywhere in Discord', chat: 'In a channel or DM', server: 'In a server', dm: 'In a DM', call: 'In a call', ringing: 'Call ringing' };
+const K = [
+  ['discord','Discord','open app','Stream Deck Open Application · com.hnc.Discord','nav','anywhere','Opens Discord or brings it to the front. A long press quits it.'],
+  ['quick-switcher','Quick switcher','⌘K','QUICKSWITCHER_SHOW · mod+k','nav','anywhere','Jump to any server, channel or DM by typing its name.'],
+  ['search','Search','⌘F','FOCUS_SEARCH · mod+f','nav','anywhere','Search messages, starting in the current channel. ⇧⌘F searches everywhere.'],
+  ['back','Back','⌘[','NAVIGATE_BACK · mod+[ (Mac only; alt+left elsewhere)','nav','anywhere','Back to the previous channel or page.'],
+  ['forward','Forward','⌘]','NAVIGATE_FORWARD · mod+] (Mac only; alt+right elsewhere)','nav','anywhere','Forward again after Back.'],
+  ['prev-server','Prev server','⌥⌘↑','SERVER_PREV · mod+alt+up (also mod+shift+[)','nav','anywhere','Move up the server list.'],
+  ['next-server','Next server','⌥⌘↓','SERVER_NEXT · mod+alt+down (also mod+shift+])','nav','anywhere','Move down the server list.'],
+  ['dms-toggle','DMs / server','⌥⌘→','TOGGLE_PREVIOUS_GUILD · mod+alt+right','nav','anywhere','Flip between your direct messages and the last server you were in.'],
+  ['prev-channel','Prev channel','⌥↑','CHANNEL_PREV · alt+up','read','anywhere','Move up one channel, or one DM in the DM list.'],
+  ['next-channel','Next channel','⌥↓','CHANNEL_NEXT · alt+down','read','anywhere','Move down one channel, or one DM in the DM list.'],
+  ['prev-unread','Prev unread','⌥⇧↑','UNREAD_PREV · alt+shift+up','read','anywhere','Jump up to the previous channel with unread messages.'],
+  ['next-unread','Next unread','⌥⇧↓','UNREAD_NEXT · alt+shift+down','read','anywhere','Jump down to the next channel with unread messages.'],
+  ['prev-mention','Prev mention','⌥⇧⌘↑','MENTION_CHANNEL_PREV · mod+shift+alt+up','read','anywhere','Jump up to the previous channel where you were mentioned.'],
+  ['next-mention','Next mention','⌥⇧⌘↓','MENTION_CHANNEL_NEXT · mod+shift+alt+down','read','anywhere','Jump down to the next channel where you were mentioned.'],
+  ['mark-read','Mark read','esc','MARK_CHANNEL_READ · esc','read','chat','Marks the current channel read. If a menu, pop-out or search is open, Esc closes that first. It also declines a ringing call.'],
+  ['mark-server-read','Mark server read','⇧esc','MARK_SERVER_READ · shift+esc','read','server','Marks every channel in the current server read.'],
+  ['inbox','Inbox','⌘I','TOGGLE_INBOX · mod+i','chat','anywhere','Opens the inbox pop-out: mentions and unreads.'],
+  ['pins','Pins','⌘P','TOGGLE_CHANNEL_PINS · mod+p','chat','chat','Shows the messages pinned in this channel.'],
+  ['members','Members','⌘U','TOGGLE_USERS · mod+u','chat','chat','Shows or hides the member list. In a voice channel it toggles the text chat.'],
+  ['emoji','Emoji','⌘E','SEARCH_EMOJIS · mod+e','chat','chat','Opens the emoji picker for the message you are writing.'],
+  ['gifs','GIFs','⌘G','SEARCH_GIFS · mod+g','chat','chat','Opens the GIF picker.'],
+  ['upload','Upload','⇧⌘U','UPLOAD_FILE · mod+shift+u','chat','chat','Attach a file to the current channel.'],
+  ['copy-link','Copy link','⇧⌘L','COPY_CHANNEL_LINK · mod+shift+l','chat','chat','Copies a link to the current channel.'],
+  ['new-group','New group DM','⇧⌘T','CREATE_DM_GROUP · mod+shift+t','chat','anywhere','Start a private group message.'],
+  ['mute','Mute','⇧⌘M','TOGGLE_MUTE · mod+shift+m','voice','anywhere','Mute or unmute your microphone. Works while Discord is in front.'],
+  ['deafen','Deafen','⇧⌘D','TOGGLE_DEAFEN · mod+shift+d','voice','anywhere','Deafen or undeafen: mutes what you hear and your mic.'],
+  ['answer','Answer call','⌘↩','CALL_ACCEPT · mod+return','voice','ringing','Picks up an incoming call. Esc declines it.'],
+  ['start-call','Start call','⌃\'','CALL_START · ctrl+\'','voice','dm','Starts a voice call in the current DM or group DM.'],
+  ['go-to-call','Go to call','⌥⇧⌘V','JUMP_TO_CURRENT_CALL · mod+shift+alt+v','voice','call','Takes you to the voice channel or call you are in.'],
+  ['soundboard','Soundboard','⇧⌘B','SEARCH_SOUNDBOARD · mod+shift+b','voice','call','Opens the soundboard.'],
+  ['settings','Settings','⌘,','Native menu: Discord ▸ Preferences (OPEN_SETTINGS)','voice','anywhere','User settings.'],
+  ['shortcuts','Shortcuts','⌘/','TOGGLE_HOTKEYS · mod+/','voice','anywhere','Opens Discord\'s own keyboard shortcuts list.'],
+].map(([id,label,keys,src,cat,when,note],i)=>({id,label,keys,src,cat,when,note,n:String(i+1).padStart(2,'0')}));
+
+const $ = (s) => document.querySelector(s);
+const img = (k) => `icons/${k.n}-${k.id}.png`;
+const caps = (keys) => {
+  if (keys === 'open app') return '<kbd>open app</kbd>';
+  const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
+  return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
+};
+const color = (c) => `var(--${c})`;
+let cat = 'all', when = 'all';
+
+$('#grid').innerHTML = K.map((k, i) => `<button class="key" data-i="${i}" aria-label="${k.label}, ${k.keys}" aria-pressed="false"><img src="${img(k)}" alt=""></button>`).join('');
+$('#rows').innerHTML = K.map((k, i) => `<tr data-i="${i}"><td><span class="dot" style="background:${color(k.cat)}"></span>${k.label}</td><td><span class="caps">${caps(k.keys)}</span></td><td>${WHEN[k.when]}</td><td class="mono" style="font-size:12.5px">${k.src}</td></tr>`).join('');
+
+function show(k) {
+  $('#detail').innerHTML = `<img class="pic" src="${img(k)}" alt=""><div><div class="who">Stream Deck <span class="bot">APP</span><small>#${CATS[k.cat]}</small></div>
+  <h2>${k.label}</h2><div class="caps">${caps(k.keys)}</div><p>${k.note}</p>
+  <div class="embed" style="border-left-color:${color(k.cat)}"><b>${WHEN[k.when]}</b><span class="mono">${k.src}</span></div></div>`;
+  document.querySelectorAll('.key').forEach((b) => b.setAttribute('aria-pressed', String(K[b.dataset.i] === k)));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('sel', K[r.dataset.i] === k));
+}
+function apply() {
+  const off = (k) => (cat !== 'all' && k.cat !== cat) || (when !== 'all' && k.when !== when);
+  document.querySelectorAll('.key').forEach((b) => b.classList.toggle('dim', off(K[b.dataset.i])));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('dim', off(K[r.dataset.i])));
+  document.querySelectorAll('[data-cat]').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.cat === cat)));
+  document.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.when === when)));
+  $('#chan').textContent = cat === 'all' ? 'stream-deck-xl' : CATS[cat];
+}
+$('#grid').addEventListener('click', (e) => { const b = e.target.closest('.key'); if (b) show(K[b.dataset.i]); });
+$('#rows').addEventListener('click', (e) => { const r = e.target.closest('tr'); if (r) show(K[r.dataset.i]); });
+document.querySelectorAll('[data-cat]').forEach((c) => c.addEventListener('click', () => { cat = c.dataset.cat; apply(); }));
+document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => { when = c.dataset.when; apply(); }));
+show(K[1]); apply();
+</script>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#2b2d31"/><stop offset="0.55" stop-color="#1e1f22"/><stop offset="1" stop-color="#111214"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#5865f2" stop-opacity="0.13"/><stop offset="1" stop-color="#5865f2" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<circle cx="18" cy="18" r="9.1" fill="#000" fill-opacity="0.35"/><circle cx="18" cy="18" r="5.2" fill="none" stroke="#5865f2" stroke-width="2.6"/>
+<g transform="translate(40 14)" filter="url(#lift)"><circle cx="27" cy="27" r="17" fill="none" stroke="#ffffff" stroke-width="4.2"/><line x1="39.24" y1="39.24" x2="53.35" y2="53.35" stroke="#5865f2" stroke-width="6" stroke-linecap="round"/><path d="M18 23 A10 10 0 0 1 26 16" fill="none" stroke="#5865f2" stroke-width="3.4" stroke-linecap="round"/></g>
+<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Search</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#949cf7" stroke="#949cf7" stroke-width="0.45" text-anchor="middle">⌘F</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

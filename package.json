@@ -24,7 +24,10 @@
     "slack": "npm run slack:icons && npm run slack:profile",
     "outlook:icons": "node profiles/outlook/gen.mjs",
     "outlook:profile": "node profiles/outlook/profile.mjs",
-    "outlook": "npm run outlook:icons && npm run outlook:profile"
+    "outlook": "npm run outlook:icons && npm run outlook:profile",
+    "discord:icons": "node profiles/discord/gen.mjs",
+    "discord:profile": "node profiles/discord/profile.mjs",
+    "discord": "npm run discord:icons && npm run discord:profile"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2"
