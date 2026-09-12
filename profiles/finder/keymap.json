@@ -1,0 +1,426 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-finder.png",
+    "id": "finder",
+    "label": "Finder",
+    "keys": "main",
+    "action": "Switch Profile → Main",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-back.png",
+    "id": "back",
+    "label": "Back",
+    "keys": "⌘[",
+    "action": "Go ▸ Back",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-forward.png",
+    "id": "forward",
+    "label": "Forward",
+    "keys": "⌘]",
+    "action": "Go ▸ Forward",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-enclosing.png",
+    "id": "enclosing",
+    "label": "Enclosing folder",
+    "keys": "⌘↑",
+    "action": "Go ▸ Enclosing Folder",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-home.png",
+    "id": "home",
+    "label": "Home",
+    "keys": "⇧⌘H",
+    "action": "Go ▸ Home",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-downloads.png",
+    "id": "downloads",
+    "label": "Downloads",
+    "keys": "⌥⌘L",
+    "action": "Go ▸ Downloads",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-applications.png",
+    "id": "applications",
+    "label": "Applications",
+    "keys": "⇧⌘A",
+    "action": "Go ▸ Applications",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-go-to-folder.png",
+    "id": "go-to-folder",
+    "label": "Go to folder",
+    "keys": "⇧⌘G",
+    "action": "Go ▸ Go to Folder…",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-new-window.png",
+    "id": "new-window",
+    "label": "New window",
+    "keys": "⌘N",
+    "action": "File ▸ New Finder Window",
+    "when": "anywhere",
+    "category": "file"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-new-tab.png",
+    "id": "new-tab",
+    "label": "New tab",
+    "keys": "⌘T",
+    "action": "File ▸ New Tab",
+    "when": "anywhere",
+    "category": "file"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-new-folder.png",
+    "id": "new-folder",
+    "label": "New folder",
+    "keys": "⇧⌘N",
+    "action": "File ▸ New Folder",
+    "when": "window",
+    "category": "file"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-get-info.png",
+    "id": "get-info",
+    "label": "Get info",
+    "keys": "⌘I",
+    "action": "File ▸ Get Info",
+    "when": "selection",
+    "category": "file"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-duplicate.png",
+    "id": "duplicate",
+    "label": "Duplicate",
+    "keys": "⌘D",
+    "action": "File ▸ Duplicate",
+    "when": "selection",
+    "category": "file"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-copy-path.png",
+    "id": "copy-path",
+    "label": "Copy path",
+    "keys": "⌥⌘C",
+    "action": "Edit ▸ Copy as Pathname",
+    "when": "selection",
+    "category": "file"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-search.png",
+    "id": "search",
+    "label": "Search",
+    "keys": "⌘F",
+    "action": "Edit ▸ Search",
+    "when": "anywhere",
+    "category": "file"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-trash.png",
+    "id": "trash",
+    "label": "Trash",
+    "keys": "⌘⌫",
+    "action": "File ▸ Move to Trash",
+    "when": "selection",
+    "category": "file"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-tag-red.png",
+    "id": "tag-red",
+    "label": "Red",
+    "keys": "plugin",
+    "plugin": "me.hckr.findertags.tag-red",
+    "action": "Finder Tags ▸ Red Tag",
+    "when": "selection",
+    "category": "tag"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-tag-orange.png",
+    "id": "tag-orange",
+    "label": "Orange",
+    "keys": "plugin",
+    "plugin": "me.hckr.findertags.tag-orange",
+    "action": "Finder Tags ▸ Orange Tag",
+    "when": "selection",
+    "category": "tag"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-tag-yellow.png",
+    "id": "tag-yellow",
+    "label": "Yellow",
+    "keys": "plugin",
+    "plugin": "me.hckr.findertags.tag-yellow",
+    "action": "Finder Tags ▸ Yellow Tag",
+    "when": "selection",
+    "category": "tag"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-tag-green.png",
+    "id": "tag-green",
+    "label": "Green",
+    "keys": "plugin",
+    "plugin": "me.hckr.findertags.tag-green",
+    "action": "Finder Tags ▸ Green Tag",
+    "when": "selection",
+    "category": "tag"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-tag-blue.png",
+    "id": "tag-blue",
+    "label": "Blue",
+    "keys": "plugin",
+    "plugin": "me.hckr.findertags.tag-blue",
+    "action": "Finder Tags ▸ Blue Tag",
+    "when": "selection",
+    "category": "tag"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-tag-purple.png",
+    "id": "tag-purple",
+    "label": "Purple",
+    "keys": "plugin",
+    "plugin": "me.hckr.findertags.tag-purple",
+    "action": "Finder Tags ▸ Purple Tag",
+    "when": "selection",
+    "category": "tag"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-tag-gray.png",
+    "id": "tag-gray",
+    "label": "Gray",
+    "keys": "plugin",
+    "plugin": "me.hckr.findertags.tag-gray",
+    "action": "Finder Tags ▸ Gray Tag",
+    "when": "selection",
+    "category": "tag"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-clear-tags.png",
+    "id": "clear-tags",
+    "label": "Clear tags",
+    "keys": "plugin",
+    "plugin": "me.hckr.findertags.clear-tags",
+    "action": "Finder Tags ▸ Clear All Tags",
+    "when": "selection",
+    "category": "tag"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-as-icons.png",
+    "id": "as-icons",
+    "label": "Icons",
+    "keys": "⌘1",
+    "action": "View ▸ as Icons",
+    "when": "window",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-as-list.png",
+    "id": "as-list",
+    "label": "List",
+    "keys": "⌘2",
+    "action": "View ▸ as List",
+    "when": "window",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-as-columns.png",
+    "id": "as-columns",
+    "label": "Columns",
+    "keys": "⌘3",
+    "action": "View ▸ as Columns",
+    "when": "window",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-as-gallery.png",
+    "id": "as-gallery",
+    "label": "Gallery",
+    "keys": "⌘4",
+    "action": "View ▸ as Gallery",
+    "when": "window",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-quick-look.png",
+    "id": "quick-look",
+    "label": "Quick Look",
+    "keys": "⌘Y",
+    "action": "File ▸ Quick Look",
+    "when": "selection",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-sidebar.png",
+    "id": "sidebar",
+    "label": "Sidebar",
+    "keys": "⌃⌘S",
+    "action": "View ▸ Hide / Show Sidebar",
+    "when": "window",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-preview.png",
+    "id": "preview",
+    "label": "Preview pane",
+    "keys": "⇧⌘P",
+    "action": "View ▸ Hide / Show Preview",
+    "when": "window",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-view-options.png",
+    "id": "view-options",
+    "label": "View options",
+    "keys": "⌘J",
+    "action": "View ▸ Show View Options",
+    "when": "window",
+    "category": "view"
+  }
+]

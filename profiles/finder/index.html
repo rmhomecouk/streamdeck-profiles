@@ -1,0 +1,209 @@
+<title>Finder Deck</title>
+<style>
+:root{
+  --ground:#e7e9ee; --win:#ffffff; --side:#f1f1f4; --bar:#f7f7f9; --line:#e0e1e6; --text:#1d1d1f; --muted:#6e6e73;
+  --brand:#007aff; --hover:#0000000a; --sel:#007aff1f; --plate:#0b0b0d; --chip:#f0f0f3; --seg:#e5e6ea; --segon:#ffffff;
+  --go:#0a95e0; --file:#2c6fe6; --tag:#6e6e73; --view:#5b5ce0;
+  --t-red:#ff3b30; --t-orange:#ff9500; --t-yellow:#e6b800; --t-green:#28b446; --t-blue:#007aff; --t-purple:#af52de; --t-gray:#8e8e93;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0d0e11; --win:#1e1e20; --side:#262629; --bar:#2a2a2d; --line:#39393d; --text:#f2f2f4; --muted:#a1a1a8;
+  --brand:#0a84ff; --hover:#ffffff0a; --sel:#0a84ff33; --plate:#0b0b0d; --chip:#2c2c2f; --seg:#2c2c2f; --segon:#4a4a4f;
+  --go:#4cc3ff; --file:#3a8cff; --tag:#c7c7cc; --view:#8f95ff;
+  --t-red:#ff453a; --t-orange:#ff9f0a; --t-yellow:#ffd60a; --t-green:#32d74b; --t-blue:#0a84ff; --t-purple:#bf5af2; --t-gray:#98989d;
+}}
+:root[data-theme="dark"]{
+  --ground:#0d0e11; --win:#1e1e20; --side:#262629; --bar:#2a2a2d; --line:#39393d; --text:#f2f2f4; --muted:#a1a1a8;
+  --brand:#0a84ff; --hover:#ffffff0a; --sel:#0a84ff33; --plate:#0b0b0d; --chip:#2c2c2f; --seg:#2c2c2f; --segon:#4a4a4f;
+  --go:#4cc3ff; --file:#3a8cff; --tag:#c7c7cc; --view:#8f95ff;
+  --t-red:#ff453a; --t-orange:#ff9f0a; --t-yellow:#ffd60a; --t-green:#32d74b; --t-blue:#0a84ff; --t-purple:#bf5af2; --t-gray:#98989d;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--text);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Helvetica Neue",system-ui,sans-serif;padding:28px 16px 48px}
+.window{max-width:1240px;margin:0 auto;background:var(--win);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px -30px #0008}
+.shell{display:grid;grid-template-columns:220px minmax(0,1fr)}
+/* the Finder sidebar: Favorites, then Tags with their coloured dots */
+.side{background:var(--side);border-right:1px solid var(--line);padding:12px 10px 18px;display:flex;flex-direction:column;gap:1px}
+.lights{display:flex;gap:8px;padding:4px 6px 16px}.lights i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.lights i:nth-child(2){background:#febc2e}.lights i:nth-child(3){background:#28c840}
+.sh{font-size:11px;font-weight:700;color:var(--muted);padding:10px 8px 4px;letter-spacing:.02em}
+.sb{all:unset;display:flex;align-items:center;gap:9px;padding:5px 8px;border-radius:6px;cursor:pointer;font-size:13.5px}
+.sb:hover{background:var(--hover)}
+.sb[aria-pressed="true"]{background:var(--sel)}
+.sb:focus-visible{outline:2px solid var(--brand);outline-offset:1px}
+.sb svg{flex:none}
+.sb .n{margin-left:auto;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.tdot{width:11px;height:11px;border-radius:50%;flex:none;display:inline-block}
+.content{min-width:0;display:flex;flex-direction:column}
+/* toolbar: back/forward, title, the view switcher (used as the "works when" filter), search */
+.toolbar{display:flex;align-items:center;gap:10px;height:52px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bar);overflow-x:auto}
+.nav{display:flex;gap:2px;color:var(--muted);flex:none}
+.nav span{width:28px;height:28px;display:grid;place-items:center;border-radius:6px}
+.toolbar .t{font-size:13px;font-weight:700;margin-right:auto;white-space:nowrap}
+.seg{display:flex;gap:2px;padding:2px;background:var(--seg);border-radius:8px;flex:none}
+.seg button{all:unset;padding:4px 11px;border-radius:6px;font-size:12.5px;cursor:pointer;white-space:nowrap;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--segon);color:var(--text);font-weight:600;box-shadow:0 1px 2px #0002}
+.seg button:focus-visible{outline:2px solid var(--brand);outline-offset:1px}
+.search{width:170px;height:28px;border-radius:7px;background:var(--seg);display:flex;align-items:center;gap:6px;padding:0 9px;color:var(--muted);font-size:13px;flex:none}
+.main{padding:18px 22px 22px;display:grid;gap:16px;min-width:0}
+h1{font-size:21px;font-weight:700;margin:0;text-wrap:balance}
+.lede{margin:3px 0 0;color:var(--muted);max-width:76ch}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+.device{background:var(--plate);border-radius:22px;padding:16px;box-shadow:inset 0 0 0 1px #ffffff14,0 14px 30px -18px #000}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}
+.key{padding:0;border:0;background:none;cursor:pointer;border-radius:14%;aspect-ratio:1;transition:transform .12s,opacity .15s,filter .15s}
+.key img{width:100%;height:100%;display:block;border-radius:14%}
+.key:hover{transform:translateY(-2px)}
+.key:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.key[aria-pressed="true"]{outline:2px solid #fff;outline-offset:3px}
+.key.dim{opacity:.2;filter:saturate(.3)}
+/* the detail panel is a Get Info window */
+.info{border:1px solid var(--line);border-radius:10px;background:var(--win);overflow:hidden}
+.info .ttl{font-size:12px;font-weight:600;text-align:center;padding:6px;background:var(--bar);border-bottom:1px solid var(--line);color:var(--muted)}
+.info .hd{display:flex;gap:12px;align-items:center;padding:14px 14px 12px}
+.info .hd img{width:52px;height:52px;border-radius:10px}
+.info h2{font-size:17px;margin:0;font-weight:700}
+.info .hd small{color:var(--muted);font-size:12px}
+.info .sec{border-top:1px solid var(--line);padding:10px 14px 12px}
+.info .sec b{display:block;font-size:12px;margin-bottom:6px}
+.info dl{display:grid;grid-template-columns:78px 1fr;gap:6px 10px;margin:0;font-size:12.5px}
+.info dt{color:var(--muted);text-align:right}
+.info dd{margin:0;overflow-wrap:anywhere}
+.info p{margin:0;font-size:13px}
+.caps{display:flex;gap:4px;flex-wrap:wrap}
+kbd{font:600 12px ui-monospace,"SF Mono",Menlo,monospace;min-width:24px;padding:2px 7px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;background:var(--chip)}
+.pill{display:inline-block;font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--chip)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:720px}
+th{text-align:left;font-weight:600;color:var(--muted);background:var(--side);padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:12.5px}
+td{padding:7px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{background:var(--sel)}tbody tr.dim{opacity:.35}
+td .tdot{margin-right:8px;vertical-align:-1px}
+/* the path bar along the bottom of a Finder window */
+.pathbar{display:flex;align-items:center;gap:6px;padding:7px 16px;border-top:1px solid var(--line);background:var(--bar);font-size:12px;color:var(--muted);overflow-x:auto;white-space:nowrap}
+.pathbar b{color:var(--text);font-weight:600}
+@media (max-width:980px){.shell{grid-template-columns:1fr}.side{display:none}.stage{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.key{transition:none}}
+</style>
+
+<div class="window">
+  <div class="shell">
+    <nav class="side" aria-label="Rows and tags">
+      <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="sh">Favorites</div>
+      <button class="sb" data-cat="all" aria-pressed="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--brand)" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.5"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1.5"/><rect x="1.5" y="9" width="5.5" height="5.5" rx="1.5"/><rect x="9" y="9" width="5.5" height="5.5" rx="1.5"/></svg>All keys<span class="n">32</span></button>
+      <div id="rowlist"></div>
+      <div class="sh">Tags</div>
+      <div id="taglist"></div>
+    </nav>
+    <div class="content">
+      <div class="toolbar">
+        <div class="nav" aria-hidden="true"><span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 2 3.5 7l5 5"/></svg></span><span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 2 5 5-5 5"/></svg></span></div>
+        <div class="t">Stream Deck XL</div>
+        <div class="seg" role="group" aria-label="Filter by when a key works" id="when"></div>
+        <span class="search" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>Search</span>
+      </div>
+      <main class="main">
+        <header>
+          <h1>The Finder on a Stream Deck XL</h1>
+          <p class="lede">32 keys for the Finder in macOS 27. The shortcuts come from the Finder's own menus, each one checked in the running menu bar. The third row doesn't send shortcuts: it tags the selected files through the <b>Finder Tags</b> plugin you have installed. Pick a row or a tag in the sidebar, filter by when a key works, or click a key for its Get Info.</p>
+        </header>
+        <div class="stage">
+          <div class="device"><div class="grid" id="grid"></div></div>
+          <aside class="info" id="detail" aria-live="polite"></aside>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Key</th><th>Shortcut</th><th>Works when</th><th>Where it comes from</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+      </main>
+      <div class="pathbar" id="path" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const CATS = { go: 'Go', file: 'Files', tag: 'Tags', view: 'View' };
+const ICON = {
+  go: '<path d="M2 8h11M9 4l4 4-4 4"/>',
+  file: '<path d="M1.5 4.5a1.5 1.5 0 0 1 1.5-1.5h3l1.3 1.5H13a1.5 1.5 0 0 1 1.5 1.5v6A1.5 1.5 0 0 1 13 13.5H3A1.5 1.5 0 0 1 1.5 12z"/>',
+  tag: '<path d="M8.5 1.8h4.2c.8 0 1.5.7 1.5 1.5v4.2L7.6 14 2 8.4z"/><circle cx="11" cy="5" r="1"/>',
+  view: '<rect x="1.5" y="2.5" width="13" height="11" rx="2"/><path d="M6 2.5v11"/>',
+};
+const WHEN = { anywhere: 'Anywhere', window: 'A window is open', selection: 'Items are selected' };
+const TAGS = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'gray'];
+const tagNote = (c) => `Tags the selected files and folders ${c}. If they're already ${c}, it takes the tag off again.`;
+const K = [
+  ['finder','Finder','main','Switch Profile → Main','go','anywhere','Goes back to the Main launcher, which has a key for every deck.'],
+  ['back','Back','⌘[','Go ▸ Back','go','anywhere','Go to the previous folder in this window.'],
+  ['forward','Forward','⌘]','Go ▸ Forward','go','anywhere','Go forward again after going back.'],
+  ['enclosing','Enclosing folder','⌘↑','Go ▸ Enclosing Folder','go','anywhere','Go up to the folder that contains this one.'],
+  ['home','Home','⇧⌘H','Go ▸ Home','go','anywhere','Open your home folder.'],
+  ['downloads','Downloads','⌥⌘L','Go ▸ Downloads','go','anywhere','Open your Downloads folder.'],
+  ['applications','Applications','⇧⌘A','Go ▸ Applications','go','anywhere','Open the Applications folder.'],
+  ['go-to-folder','Go to folder','⇧⌘G','Go ▸ Go to Folder…','go','anywhere','Type a path, such as ~/Library, and jump straight to it.'],
+  ['new-window','New window','⌘N','File ▸ New Finder Window','file','anywhere','Open a new Finder window.'],
+  ['new-tab','New tab','⌘T','File ▸ New Tab','file','anywhere','Open a new tab in the front Finder window.'],
+  ['new-folder','New folder','⇧⌘N','File ▸ New Folder','file','window','Make a new folder in the folder you\'re looking at.'],
+  ['get-info','Get info','⌘I','File ▸ Get Info','file','selection','Open the Get Info window for the selected items.'],
+  ['duplicate','Duplicate','⌘D','File ▸ Duplicate','file','selection','Make a copy of the selected items next to them.'],
+  ['copy-path','Copy path','⌥⌘C','Edit ▸ Copy as Pathname','file','selection','Copy the full path of the selected item, like ~/Documents/notes.txt spelled out in full. The menu item names the item: Copy “notes.txt” as Pathname.'],
+  ['search','Search','⌘F','Edit ▸ Search','file','anywhere','Jump to the search field in the front window.'],
+  ['trash','Trash','⌘⌫','File ▸ Move to Trash','file','selection','Move the selected items to the Trash. They stay there until you empty it.'],
+  ...TAGS.map((c) => [`tag-${c}`, c[0].toUpperCase() + c.slice(1), 'plugin', `Finder Tags ▸ ${c[0].toUpperCase() + c.slice(1)} Tag`, 'tag', 'selection', tagNote(c), c]),
+  ['clear-tags','Clear tags','plugin','Finder Tags ▸ Clear All Tags','tag','selection','Takes every tag off the selected files and folders, colours and named tags alike.'],
+  ['as-icons','Icons','⌘1','View ▸ as Icons','view','window','Show the front window as icons.'],
+  ['as-list','List','⌘2','View ▸ as List','view','window','Show the front window as a list.'],
+  ['as-columns','Columns','⌘3','View ▸ as Columns','view','window','Show the front window as columns.'],
+  ['as-gallery','Gallery','⌘4','View ▸ as Gallery','view','window','Show the front window as a gallery, with a big preview.'],
+  ['quick-look','Quick Look','⌘Y','File ▸ Quick Look','view','selection','Preview the selected items without opening them.'],
+  ['sidebar','Sidebar','⌃⌘S','View ▸ Hide / Show Sidebar','view','window','Show or hide the sidebar.'],
+  ['preview','Preview pane','⇧⌘P','View ▸ Hide / Show Preview','view','window','Show or hide the preview pane on the right of the window.'],
+  ['view-options','View options','⌘J','View ▸ Show View Options','view','window','Open the view options for the front window: icon size, sorting and so on.'],
+].map(([id,label,keys,src,cat,when,note,tag],i)=>({id,label,keys,src,cat,when,note,tag,n:String(i+1).padStart(2,'0')}));
+
+const $ = (s) => document.querySelector(s);
+const img = (k) => `icons/${k.n}-${k.id}.png`;
+const color = (k) => k.tag ? `var(--t-${k.tag})` : `var(--${k.cat})`;
+const catIcon = (c) => `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--${c})" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[c]}</svg>`;
+const caps = (k) => {
+  if (k.keys === 'main') return '<kbd>main</kbd>';
+  if (k.keys === 'plugin') return '<span class="pill">Finder Tags plugin</span>';
+  const m = k.keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
+  return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
+};
+let cat = 'all', when = 'all';
+
+$('#rowlist').innerHTML = Object.entries(CATS).map(([c, name]) => `<button class="sb" data-cat="${c}" aria-pressed="false">${catIcon(c)}${name}<span class="n">8</span></button>`).join('');
+$('#taglist').innerHTML = TAGS.map((c) => `<button class="sb" data-tag="${c}"><span class="tdot" style="background:var(--t-${c})"></span>${c[0].toUpperCase() + c.slice(1)}</button>`).join('');
+$('#when').innerHTML = [['all', 'All'], ...Object.entries(WHEN)].map(([w, name]) => `<button data-when="${w}" aria-pressed="${w === 'all'}">${name}</button>`).join('');
+$('#grid').innerHTML = K.map((k, i) => `<button class="key" data-i="${i}" aria-label="${k.label}, ${k.keys === 'plugin' ? 'Finder Tags plugin' : k.keys}" aria-pressed="false"><img src="${img(k)}" alt=""></button>`).join('');
+$('#rows').innerHTML = K.map((k, i) => `<tr data-i="${i}"><td><span class="tdot" style="background:${color(k)}"></span>${k.label}</td><td><span class="caps">${caps(k)}</span></td><td>${WHEN[k.when]}</td><td>${k.src}</td></tr>`).join('');
+
+function show(k) {
+  const plugin = k.keys === 'plugin';
+  const kind = k.keys === 'main' ? 'Switch Profile' : plugin ? `Plugin action · me.hckr.findertags.${k.id === 'clear-tags' ? 'clear-tags' : k.id}` : 'Keyboard shortcut';
+  $('#detail').innerHTML = `<div class="ttl">${k.label} Info</div>
+  <div class="hd"><img src="${img(k)}" alt=""><div><h2>${k.label}</h2><small>Key ${k.n} · ${CATS[k.cat]} row</small></div></div>
+  <div class="sec"><b>General:</b><dl><dt>Kind:</dt><dd>${kind}</dd><dt>Sends:</dt><dd><span class="caps">${caps(k)}</span></dd><dt>Works when:</dt><dd>${WHEN[k.when]}</dd><dt>Where:</dt><dd>${k.src}</dd>${k.tag ? `<dt>Tag:</dt><dd><span class="tdot" style="background:${color(k)};margin-right:6px;vertical-align:-1px"></span>${k.label}</dd>` : ''}</dl></div>
+  <div class="sec"><b>Comments:</b><p>${k.note}</p></div>`;
+  $('#path').innerHTML = `Stream Deck XL <span aria-hidden="true">›</span> Finder <span aria-hidden="true">›</span> ${CATS[k.cat]} <span aria-hidden="true">›</span> <b>${k.label}</b>`;
+  document.querySelectorAll('.key').forEach((b) => b.setAttribute('aria-pressed', String(K[b.dataset.i] === k)));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('sel', K[r.dataset.i] === k));
+}
+function apply() {
+  const off = (k) => (cat !== 'all' && k.cat !== cat) || (when !== 'all' && k.when !== when);
+  document.querySelectorAll('.key').forEach((b) => b.classList.toggle('dim', off(K[b.dataset.i])));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('dim', off(K[r.dataset.i])));
+  document.querySelectorAll('.sb[data-cat]').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.cat === cat)));
+  document.querySelectorAll('#when button').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.when === when)));
+}
+$('#grid').addEventListener('click', (e) => { const b = e.target.closest('.key'); if (b) show(K[b.dataset.i]); });
+$('#rows').addEventListener('click', (e) => { const r = e.target.closest('tr'); if (r) show(K[r.dataset.i]); });
+document.querySelectorAll('.sb[data-cat]').forEach((c) => c.addEventListener('click', () => { cat = c.dataset.cat; apply(); }));
+document.querySelectorAll('.sb[data-tag]').forEach((c) => c.addEventListener('click', () => show(K.find((k) => k.tag === c.dataset.tag))));
+document.querySelectorAll('#when button').forEach((c) => c.addEventListener('click', () => { when = c.dataset.when; apply(); }));
+show(K[16]); apply();
+</script>

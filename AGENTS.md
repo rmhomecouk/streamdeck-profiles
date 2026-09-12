@@ -4,7 +4,7 @@ This is the playbook for AI agents (and people) who add or change profiles here.
 
 Target hardware: **Stream Deck XL** (8 × 4 keys, model `20GAT9901`), Stream Deck app **7.5.x** on macOS.
 
-The repo holds one **app deck** per app (Ghostty, VS Code, Claude, Safari, Slack, Teams, Outlook, Discord, Word, Excel) and a **Main** launcher. Each deck is linked to its app, so it appears when that app is in front. Main appears for every other app, with one key per deck. The top-left key of every deck goes back to Main. Everything reaches the user's Stream Deck through **one backup file** that the user restores.
+The repo holds one **app deck** per app (Ghostty, VS Code, Claude, Safari, Slack, Teams, Outlook, Discord, Word, Excel, PowerPoint, Mail, Finder) and a **Main** launcher. Each deck is linked to its app, so it appears when that app is in front. Main appears for every other app, with one key per deck. The top-left key of every deck goes back to Main. Everything reaches the user's Stream Deck through **one backup file** that the user restores.
 
 ## The one rule: ground truth over guesses
 
@@ -139,9 +139,9 @@ Then pick the technique that fits the app.
 
 Ghostty, for example: run `ghostty +list-keybinds --default`. Then diff that against `+list-keybinds`, which includes the user's config, to find any overrides.
 
-### Native AppKit apps (Safari, Outlook, Mail)
+### Native AppKit apps (Safari, Outlook, Mail, Finder)
 
-Menu shortcuts live in compiled nibs in `Contents/Resources/Base.lproj/`: `MainMenu.nib` for Safari, and several nibs (`OutlookApp`, `DocumentMenus`, `ViewMenus`, …) for Outlook. The files are **NIBArchive**, not property lists, so `plistlib` can't read them. Use the parser in this repo:
+Menu shortcuts live in compiled nibs in `Contents/Resources/Base.lproj/`: `MainMenu.nib` for Safari, several nibs (`OutlookApp`, `DocumentMenus`, `ViewMenus`, …) for Outlook, and `MenuBar.nib` plus `ArrangeByMenu.nib` for the Finder, which has no `MainMenu.nib`. When you don't know which nib holds the menus, run the parser over every nib in the folder. The files are **NIBArchive**, not property lists, so `plistlib` can't read them. Use the parser in this repo:
 
 ```bash
 python3 tools/nib-shortcuts.py "/Applications/Safari.app/Contents/Resources/Base.lproj/MainMenu.nib"
@@ -153,7 +153,14 @@ It handles two AppKit rules for you:
 
 Items that the app adds to its menus at runtime (Safari's Web Inspector, for example) aren't in the nib, so leave them out rather than guess.
 
-Then **confirm every key in the live menu bar** (next section). The nib can be stale: Mail 16's nib still lists Open Quickly `⇧⌘O` and full screen `⌃⌘F`, but the live menus have no Open Quickly, and full screen is 🌐F (modifiers value 24), which a Stream Deck hotkey can't send. Walking every menu through System Events takes minutes, so query one top-level menu at a time in bulk: `menuItems.name()` and `menuItems.attributes.byName('AXMenuItemCmdChar').value()`.
+Then **confirm every key in the live menu bar** (next section). The nib can be stale: Mail 16's nib still lists Open Quickly `⇧⌘O` and full screen `⌃⌘F`, but the live menus have no Open Quickly, and full screen is 🌐F (modifiers value 24), which a Stream Deck hotkey can't send. Walking every menu through System Events takes minutes, so query one top-level menu at a time in bulk: `menuItems.name()` and `menuItems.attributes.byName('AXMenuItemCmdChar').value()`. If a bulk query fails with *Can't get object* (the Finder's File menu does), read that menu one item at a time.
+
+### Stream Deck plugins (Finder Tags)
+
+A key can run a third-party plugin's action instead of a shortcut. The Finder deck's tags row uses the Finder Tags plugin (`me.hckr.findertags`). Before using a plugin:
+- Read its `manifest.json` in `~/Library/Application Support/com.elgato.StreamDeck/Plugins/<uuid>.sdPlugin/` for the action UUIDs, names and version. Marketplace plugins often ship an encrypted manifest (it starts with `ELGATO`); those can't be used this way.
+- Read its source, if it's published, to learn what a press does (the Finder Tags colour keys toggle their tag) and whether it sets its own title or image on the key (`setTitle`, `setImage`), which can cover the profile's image.
+- The user must have the plugin installed. Say so in the deck's README.
 
 ### Apps that build their menus at runtime
 
@@ -266,6 +273,7 @@ The `profile.mjs` files and `tools/backup.mjs` already implement all of this. Th
 - **Shifted characters:** send the physical key plus ⇧. A menu shortcut of ⌘+ is sent as ⇧⌘= (AppKit treats the Shift as implied).
 - **Switch Profile** (`com.elgato.streamdeck.profile.rotate`): `{DeviceUUID: "", PageIndex: 1, ProfileUUID: "<target id, lowercase>"}`.
 - **Multi Action Switch** (`com.elgato.streamdeck.multiactions.routine2`, plugin `com.elgato.streamdeck.multiactions`): `Actions: [{Actions: [...]}, {Actions: [...]}]`, one list per state, alternating on each press. It has two `States`. Put the same steps in both lists.
+- **Third-party plugin action:** the same shape as the built-in actions. `Name` is the action's name from the plugin's manifest, `Plugin` is `{Name, UUID, Version}` of the plugin, `UUID` is the action's UUID, and `Settings` holds whatever the plugin's property inspector would save (`{}` when it saves nothing). This was copied from a profile the Stream Deck app exported: the one File Explorer ships (`FileExplorerView.streamDeckProfile`). Add the plugin's UUID to `RequiredPlugins` in `package.json`.
 - **Open Application** (`com.elgato.streamdeck.system.openapp`) uses exactly these settings keys: `app_name`, `args`, `bring_to_front`, `bundle_id`, `bundle_path`, `exec`, `is_bundle`, `long_press` (`"quit"`), `source`. When the app writes it, `exec` is `<bundle>/Contents/MacOS/<CFBundleExecutable>` and `source` is the bundle path. Any other names (the old guess was `path`/`bundleIdentifier`) are replaced with empty values on import, and the key does nothing.
 - **Changing a key's action in the Stream Deck app wipes its image.** Tell the user to drag the PNG from `icons/` back onto the key.
 - **Titles:** set `ShowTitle: false`, because the labels are part of the images.
@@ -306,6 +314,7 @@ The launcher copies `svg/01-<id>.svg` unchanged, so the deck and Main show the s
   - Discord: its dark greys, blurple plus presence colours by row, a status dot
   - Word, Excel and PowerPoint: the icon's colours by row, Aptos (which ships in the app's `Resources/DFonts`)
   - Mail: the navy of Mail's sidebar, Mail's flag colours by row, a small flag in the corner
+  - Finder: the Finder window's dark grey, the icon's three blues by row, the tag colours on the tags row, a tag dot in the corner
 - **Colour by row,** one accent per category taken from the app's palette. Individual keys can override the colour for meaning: red to leave or decline, green to accept, presence colours for status.
 - **Keep labels short** and use sentence case, in the house style of the app.
 

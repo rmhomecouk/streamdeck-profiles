@@ -1,6 +1,17 @@
 [
   {
     "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-finder.png",
+    "id": "finder",
+    "label": "Finder",
+    "profile": "Finder",
+    "bundle": "/System/Library/CoreServices/Finder.app"
+  },
+  {
+    "pos": {
       "col": 1,
       "row": 1
     },

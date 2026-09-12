@@ -84,6 +84,7 @@ td img{width:26px;height:26px;border-radius:6px;vertical-align:middle;margin-rig
 
 <script>
 const K = [
+  ['finder','Finder','Finder','/System/Library/CoreServices/Finder.app',0,3],
   ['discord','Discord','Discord','/Applications/Discord.app',1,1],
   ['vscode','VS Code','VS Code','/Applications/Visual Studio Code.app',1,2],
   ['claude','Claude','Claude','/Applications/Claude.app',1,3],
@@ -108,7 +109,7 @@ for (let r = 0; r < 4; r++) for (let c = 0; c < 8; c++) {
 }
 $('#grid').innerHTML = cells;
 $('#rows').innerHTML = K.map((k) => `<tr data-id="${k.id}"><td><img src="${img(k)}" alt="">${k.label}</td><td>Profile “${k.profile}”</td><td class="mono" style="font-size:12.5px">${k.bundle}</td></tr>`).join('');
-$('#dock').innerHTML = K.map((k, i) => (i === 6 ? '<span class="sep" aria-hidden="true"></span>' : '') + `<button data-id="${k.id}" title="${k.label}"><img src="${img(k)}" alt="${k.label}"></button>`).join('');
+$('#dock').innerHTML = K.map((k, i) => (i && k.row !== K[i - 1].row ? '<span class="sep" aria-hidden="true"></span>' : '') + `<button data-id="${k.id}" title="${k.label}"><img src="${img(k)}" alt="${k.label}"></button>`).join('');
 
 function show(k) {
   $('#detail').innerHTML = `<div class="head"><img src="${img(k)}" alt=""><div><h2>${k.label}</h2><small>Multi Action · both steps run on every press</small></div></div>

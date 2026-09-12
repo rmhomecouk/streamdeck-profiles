@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#2a2b30"/><stop offset="0.55" stop-color="#1c1d21"/><stop offset="1" stop-color="#111215"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#8f95ff" stop-opacity="0.12"/><stop offset="1" stop-color="#8f95ff" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+  <clipPath id="fr"><rect x="6" y="10" width="52" height="44" rx="7"/></clipPath>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<circle cx="125" cy="19" r="6" fill="#8f95ff" stroke="#000" stroke-opacity="0.35" stroke-width="1.5" opacity="0.9"/>
+<g transform="translate(40 14)" filter="url(#lift)"><rect x="6" y="6" width="22" height="22" rx="5" fill="none" stroke="#ffffff" stroke-width="4.2"/><rect x="36" y="6" width="22" height="22" rx="5" fill="#8f95ff44" stroke="#8f95ff" stroke-width="4.2"/><rect x="6" y="36" width="22" height="22" rx="5" fill="none" stroke="#ffffff" stroke-width="4.2"/><rect x="36" y="36" width="22" height="22" rx="5" fill="none" stroke="#ffffff" stroke-width="4.2"/></g>
+<text x="72" y="117.4" font-family=".SF NS Rounded" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.3" text-anchor="middle" filter="url(#lift)">Icons</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

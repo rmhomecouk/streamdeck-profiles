@@ -15,6 +15,8 @@ fs.mkdirSync(path.join(OUT, 'svg'), { recursive: true });
 
 // profile = the Name of the app profile to switch to; svg = that deck's top-left tile source
 const APPS = [
+  // row 1, column 4: the Finder
+  { id: 'finder', label: 'Finder', profile: 'Finder', svg: 'finder/svg/01-finder.svg', row: 0, col: 3, bundle: '/System/Library/CoreServices/Finder.app' },
   // rows 2 and 3, columns 2–7: a centred block of six, arranged by the user in the Stream Deck app
   { id: 'discord', label: 'Discord', profile: 'Discord', svg: 'discord/svg/01-discord.svg', row: 1, col: 1, bundle: '/Applications/Discord.app' },
   { id: 'vscode', label: 'VS Code', profile: 'VS Code', svg: 'vscode/svg/01-code.svg', row: 1, col: 2, bundle: '/Applications/Visual Studio Code.app' },
