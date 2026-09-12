@@ -7,8 +7,8 @@
     "file": "01-teams.png",
     "id": "teams",
     "label": "Teams",
-    "keys": "open app",
-    "action": "launch / focus Microsoft Teams.app",
+    "keys": "main",
+    "action": "Switch Profile → Main",
     "when": "anywhere",
     "category": "meet"
   },

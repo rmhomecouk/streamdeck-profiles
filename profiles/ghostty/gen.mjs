@@ -62,6 +62,14 @@ function ghost() {
   d += ' Z';
   return pathS(d, W, 'rgba(238,243,255,0.16)') + poly('22,27 28,32 22,37', W) + line(32, 37, 42, 37, W);
 }
+// Ghostty's own mark for the top-left key: the ghost filled in, with its prompt in the screen blue, as on the app icon
+function ghostSolid() {
+  let d = 'M12 54 V32 A20 20 0 0 1 52 32 V54';
+  let x = 52;
+  for (let i = 0; i < 4; i++) { d += ` Q${x - 2.5} 60 ${x - 5} 55 Q${x - 7.5} 50 ${x - 10} 55`; x -= 10; }
+  d += ' Z';
+  return pathS(d, '#f4f6ff', '#dfe3ff', 2) + poly('22,27 28,32 22,37', '#1d2bb5', 4.4) + line(32, 37, 42, 37, '#1d2bb5', 4.4);
+}
 // half of the standard frame, filled, clipped to the frame's rounded shape
 const half = (side, c) => {
   const r = { l: [6, 10, 26, 44], r: [32, 10, 26, 44], u: [6, 10, 52, 22], d: [6, 32, 52, 22] }[side];
@@ -91,7 +99,7 @@ const arcArrow = (cx, cy, r, a0, a1, c) => {
 // action = Ghostty default keybind action; keys = macOS hotkey to send
 const KEYS = [
   // row 1 — windows & tabs
-  { id: 'quick-terminal', label: 'quick term', keys: '⌘`', action: 'toggle_quick_terminal', cat: 'win', hero: true, icon: () => ghost() },
+  { id: 'ghostty', label: 'ghostty', keys: 'main', action: 'Switch Profile → Main', cat: 'win', hero: true, icon: () => ghostSolid() },
   { id: 'new-window', label: 'new window', keys: '⌘N', action: 'new_window', cat: 'win', icon: (a) => frame() + line(6, 21, 58, 21) + plus(32, 38, 8, a) },
   { id: 'new-tab', label: 'new tab', keys: '⌘T', action: 'new_tab', cat: 'win', icon: (a) => tabBar(0, a) + plus(46, 16, 5.5, a) + line(34, 24, 58, 24) },
   { id: 'prev-tab', label: 'prev tab', keys: '⇧⌘[', action: 'previous_tab', cat: 'win', icon: (a) => tabBar(1, a) + poly('36,32 29,39 36,46', a) },

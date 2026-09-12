@@ -79,7 +79,7 @@ function slackMark() {
 // src = where the binding lives in Slack 4.52 (menu id, global shortcut table id, or Keyboard Shortcuts sheet title)
 const KEYS = [
   // row 1 — navigate
-  { id: 'slack', label: 'Slack', keys: 'open app', src: 'launch / focus Slack.app', cat: 'nav', when: 'anywhere', hero: true, icon: () => slackMark() },
+  { id: 'slack', label: 'Slack', keys: 'main', src: 'Switch Profile → Main', cat: 'nav', when: 'anywhere', hero: true, icon: () => slackMark() },
   { id: 'jump-to', label: 'Jump to', keys: '⌘K', src: 'SWITCH_TO_CHANNEL · Go ▸ Switch to Channel', cat: 'nav', when: 'anywhere', icon: (a) => rect(3, 12, 58, 40, 11) + hash(22, 32, 9, a, 3.8) + poly('39,24 47,32 39,40', W, 4.4) },
   { id: 'search', label: 'Search', keys: '⌘G', src: 'SEARCH · Edit ▸ Search', cat: 'nav', when: 'anywhere', icon: (a) => lens(27, 27, 17, a) + `<path d="M18 23 A10 10 0 0 1 26 16" fill="none" stroke="${a}" stroke-width="3.4" stroke-linecap="round"/>` },
   { id: 'back', label: 'Back', keys: '⌘[', src: 'Sheet: Back in history', cat: 'nav', when: 'anywhere', icon: (a) => arrow(32, 32, 'l', 44, a, 5) },

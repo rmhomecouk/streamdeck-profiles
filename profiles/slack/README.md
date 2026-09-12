@@ -12,7 +12,7 @@ Mockup: [live](https://claude.ai/code/artifact/4877865c-049a-4959-ad8b-acfb9c6b9
 open -a "Elgato Stream Deck" profiles/slack/Slack.streamDeckProfile
 ```
 
-- **Slack key.** This key opens Slack or brings it to the front. A long press quits it. If the key does nothing, edit it in the Stream Deck app and pick Slack again under **App / File**.
+- **Top-left key.** It goes back to the **Main** launcher, which has a key for every deck (a Stream Deck *Switch Profile* action). In the full setup (`npm run backup`, see the [repo README](../../README.md)) it already points at Main. If you import this file on its own, select the key in the Stream Deck app and pick your Main profile.
 - **Link the profile** to Slack under **Preferences → Profiles**, so the deck switches to it when Slack is in front.
 
 ## Where the shortcuts come from
@@ -29,7 +29,7 @@ The desktop shell (`app.asar`) only holds generic menus: Edit, View, Window and 
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| **Navigate** | Slack *(open app)* | Jump to ⌘K | Search ⌘G | Back ⌘[ | Forward ⌘] | All unreads ⇧⌘A | Threads ⇧⌘T | Activity ⇧⌘M |
+| **Navigate** | Slack *(Main)* | Jump to ⌘K | Search ⌘G | Back ⌘[ | Forward ⌘] | All unreads ⇧⌘A | Threads ⇧⌘T | Activity ⇧⌘M |
 | **Messaging** | New message ⌘N | DMs ⇧⌘K | Channels ⇧⌘L | Directory ⇧⌘E | Channel info ⇧⌘I | React ⇧⌘\ | Find ⌘F | Add a file ⌘O |
 | **Catch up** | Mark read Esc | Mark all read ⇧Esc | Prev unread ⌥⇧↑ | Next unread ⌥⇧↓ | Prev channel ⌥↑ | Next channel ⌥↓ | Close pane ⌘. | Sidebar ⇧⌘D |
 | **Huddles & you** | Huddle ⇧⌘H | Mute ⇧⌘Space | Set status ⇧⌘Y | New canvas ⇧⌘N | Downloads ⇧⌘J | Workspaces ⇧⌘S | Preferences ⌘, | Shortcuts ⌘/ |

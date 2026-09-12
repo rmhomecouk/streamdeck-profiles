@@ -7,8 +7,8 @@
     "file": "01-discord.png",
     "id": "discord",
     "label": "Discord",
-    "keys": "open app",
-    "action": "launch / focus Discord.app",
+    "keys": "main",
+    "action": "Switch Profile → Main",
     "when": "anywhere",
     "category": "nav"
   },

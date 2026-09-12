@@ -1,6 +1,6 @@
 # Ghostty
 
-A 32-key Stream Deck XL profile for the [Ghostty](https://github.com/ghostty-org/ghostty) terminal. It uses Ghostty 1.3's default macOS keybinds, plus a global quick-terminal binding.
+A 32-key Stream Deck XL profile for the [Ghostty](https://github.com/ghostty-org/ghostty) terminal. It uses Ghostty 1.3's default macOS keybinds. The top-left key goes back to the Main launcher.
 
 ![Ghostty deck](sheet.png)
 
@@ -12,7 +12,7 @@ The icons follow Ghostty's own app icon: glowing line glyphs on a blue dot-matri
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| **Windows & tabs** | quick term `` ⌘` `` | new window `⌘N` | new tab `⌘T` | prev tab `⇧⌘[` | next tab `⇧⌘]` | close `⌘W` | reopen `⌘Z` | palette `⇧⌘P` |
+| **Windows & tabs** | ghostty *(Main)* | new window `⌘N` | new tab `⌘T` | prev tab `⇧⌘[` | next tab `⇧⌘]` | close `⌘W` | reopen `⌘Z` | palette `⇧⌘P` |
 | **Splits** | split → `⌘D` | split ↓ `⇧⌘D` | focus ← `⌥⌘←` | focus ↑ `⌥⌘↑` | focus ↓ `⌥⌘↓` | focus → `⌥⌘→` | zoom `⇧⌘↩` | equalize `⌃⌘=` |
 | **Navigate & search** | prompt ↑ `⌘↑` | prompt ↓ `⌘↓` | top `⌘Home` | bottom `⌘End` | find `⌘F` | find prev `⇧⌘G` | find next `⌘G` | clear `⌘K` |
 | **Clipboard, view, config** | copy `⌘C` | paste `⌘V` | font − `⌘−` | font reset `⌘0` | font + `⌘=` | fullscreen `⌘↩` | config `⌘,` | reload `⇧⌘,` |
@@ -21,12 +21,8 @@ The icons follow Ghostty's own app icon: glowing line glyphs on a blue dot-matri
 
 ## Setup notes
 
-- **Quick term** needs this line in your Ghostty config, because Ghostty has no default quick-terminal binding:
-  ```
-  keybind = global:cmd+backquote=toggle_quick_terminal
-  ```
-  With it, the key works from any app.
-- **All other keys** only work while Ghostty has focus. Link the profile to Ghostty.app under **Preferences → Profiles** so the deck switches in automatically.
+- **Top-left key.** It goes back to the **Main** launcher, which has a key for every deck (a Stream Deck *Switch Profile* action). In the full setup (`npm run backup`, see the [repo README](../../README.md)) it already points at Main. If you import this file on its own, select the key in the Stream Deck app and pick your Main profile.
+- **The other keys** only work while Ghostty has focus. Link the profile to Ghostty.app under **Preferences → Profiles** so the deck switches in automatically.
 - **Prompt ↑ / ↓** need Ghostty's shell integration, which is on by default for zsh, bash and fish.
 
 ## Files

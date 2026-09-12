@@ -73,7 +73,7 @@ function claudeSpark(c) {
 // cmd = VS Code command id (default macOS keybinding in VS Code 1.136); when = where it works
 const KEYS = [
   // row 1 — navigate
-  { id: 'code', label: 'VS Code', keys: 'open app', cmd: 'launch / focus Visual Studio Code.app', cat: 'nav', when: 'anywhere', hero: true, icon: () => codeMark() },
+  { id: 'code', label: 'VS Code', keys: 'main', cmd: 'Switch Profile → Main', cat: 'nav', when: 'anywhere', hero: true, icon: () => codeMark() },
   { id: 'commands', label: 'Commands', keys: '⇧⌘P', cmd: 'workbench.action.showCommands', cat: 'nav', when: 'anywhere', icon: (a) => rect(4, 12, 56, 40, 9) + poly('15,24 23,32 15,40', a, 4.6) + line(29, 40, 45, 40, a, 4.6) },
   { id: 'quick-open', label: 'Quick open', keys: '⌘P', cmd: 'workbench.action.quickOpen', cat: 'nav', when: 'anywhere', icon: (a) => doc(8, 5, 34, 46) + lens(43, 41, 9, a) },
   { id: 'symbol', label: 'Go to symbol', keys: '⇧⌘O', cmd: 'workbench.action.gotoSymbol', cat: 'nav', when: 'editor', icon: (a) => rect(4, 6, 56, 52, 11) + mono(32, 47, 44, '@', a) },

@@ -11,6 +11,7 @@ Custom Elgato Stream Deck profiles with generated icon sets. Each profile lives 
 
 | Profile | Device | Keys | Mockup | Preview |
 |---|---|---|---|---|
+| [Main](profiles/main/) *(launcher)* | Stream Deck XL | 10 | [live](https://claude.ai/code/artifact/7af261fc-6cdb-472a-bc91-6e06f6e4eb08) · [local](profiles/main/index.html) | <img src="profiles/main/sheet.png" width="360" alt="Main launcher"> |
 | [Ghostty](profiles/ghostty/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/0b677874-a30c-473f-9104-18c0ce02b17f) · [local](profiles/ghostty/index.html) | <img src="profiles/ghostty/sheet.png" width="360" alt="Ghostty deck"> |
 | [Claude](profiles/claude/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/e322b528-abbb-4874-b1f0-8e6d39fe08c3) · [local](profiles/claude/index.html) | <img src="profiles/claude/sheet.png" width="360" alt="Claude deck"> |
 | [Safari](profiles/safari/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/589a06e9-d96b-4750-b59f-a9a2613080eb) · [local](profiles/safari/index.html) | <img src="profiles/safari/sheet.png" width="360" alt="Safari deck"> |
@@ -24,7 +25,24 @@ Custom Elgato Stream Deck profiles with generated icon sets. Each profile lives 
 
 The live mockups are private Claude artifacts, so only you can open them unless you share them. The local `index.html` files work offline from a clone.
 
-## Install a profile
+## Install
+
+**Main** is the home screen: one key per deck. Each key switches to that app's deck and brings the app to the front. On every app deck, the top-left key goes back to Main.
+
+### Everything at once (recommended)
+
+```bash
+npm install
+npm run backup
+```
+
+This writes `build/streamdeck-profiles.streamDeckProfilesBackup`. It holds all the profiles: Main is linked to *other applications*, each deck is linked to its app, and the Main keys and each deck's top-left key already point at each other. In the Stream Deck app, restore it from **Preferences → Profiles → Restore from Backup**.
+
+- **Restoring replaces every profile on every device**, and the Stream Deck app can't undo it. The app keeps its own daily backups in `~/Library/Application Support/com.elgato.StreamDeck/BackupV3`.
+- **Why a backup, not imports.** Importing a `.streamDeckProfile` gives it a new profile id, so keys that point at other profiles can't be set in advance. A restore keeps the ids it's given. `tools/backup.mjs` derives stable ids from each profile's folder name.
+- **The backup contains your Stream Deck's serial number**, which every profile in a backup must carry. `tools/backup.mjs` reads it from your installed profiles, so at least one XL profile must already be installed. That's also why the output goes to the git-ignored `build/` folder.
+
+### One profile
 
 Double-click the `.streamDeckProfile` file in a profile's folder, or run:
 
@@ -32,7 +50,7 @@ Double-click the `.streamDeckProfile` file in a profile's folder, or run:
 open -a "Elgato Stream Deck" profiles/ghostty/Ghostty.streamDeckProfile
 ```
 
-Then pick the profile in the Stream Deck app's profile dropdown. For app-specific profiles, go to **Preferences → Profiles** and link the profile to its app so it switches in automatically.
+Then go to **Preferences → Profiles** and link the profile to its app, so it switches in automatically. A deck imported on its own has a top-left key with no target: select it and pick your Main profile. `Main.streamDeckProfile`'s keys need their deck picked the same way.
 
 ## Rebuild
 
@@ -72,4 +90,7 @@ Figured out from real ProfilesV3 data and confirmed with a successful import on 
 - **Actions.** Keys are addressed as `"col,row"`. Hotkey actions use the plugin `com.elgato.streamdeck.system.hotkey`, with four `Hotkeys` slots (unused slots: `NativeCode: -1`, `QTKeyCode: 33554431`).
 - **Modifiers.** `KeyModifiers` is a bitmask: shift = 1, ctrl = 2, option = 4, cmd = 8.
 - **Key codes.** `NativeCode` = `VKeyCode` = the macOS virtual keycode. `QTKeyCode` is the Qt key value (the unshifted character).
+- **Switch Profile** (`com.elgato.streamdeck.profile.rotate`): `{"DeviceUUID": "", "PageIndex": 1, "ProfileUUID": "<target profile id, lowercase>"}`.
+- **Multi Action Switch** (`com.elgato.streamdeck.multiactions.routine2`, plugin `com.elgato.streamdeck.multiactions`) has `Actions: [{Actions: [...]}, {Actions: [...]}]`, one list per state, and alternates between them on each press. Put the same steps in both lists to make every press identical.
+- **Backups** (`.streamDeckProfilesBackup`) are an uncompressed zip of `Resources/manifest.json` plus `Profiles/<ID>.sdProfile/` folders, with no `package.json`. Each profile manifest adds `AppIdentifier` (an app path, or `*` for other applications) and the device serial in `Device.UUID`.
 - **Open Application** (`com.elgato.streamdeck.system.openapp`). Its settings keys are `app_name`, `args`, `bring_to_front`, `bundle_id`, `bundle_path`, `exec`, `is_bundle`, `long_press` and `source`. These are the names Stream Deck 7.5 writes itself. If you use any other names, Stream Deck quietly replaces them with empty values, and the key does nothing.

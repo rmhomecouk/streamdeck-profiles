@@ -73,7 +73,7 @@ function teamsMark() {
 // cmd = Teams' own command id (macOS desktop keymap); when = where it works
 const KEYS = [
   // row 1 — in the meeting
-  { id: 'teams', label: 'Teams', keys: 'open app', cmd: 'launch / focus Microsoft Teams.app', cat: 'meet', when: 'anywhere', hero: true, icon: () => teamsMark() },
+  { id: 'teams', label: 'Teams', keys: 'main', cmd: 'Switch Profile → Main', cat: 'meet', when: 'anywhere', hero: true, icon: () => teamsMark() },
   { id: 'mute', label: 'Mute', keys: '⇧⌘M', cmd: 'ToggleMuteCurrentCall', cat: 'meet', when: 'meeting', icon: (a) => rect(24, 6, 16, 30, 8) + pathS('M14 30 A18 18 0 0 0 50 30') + line(32, 48, 32, 56) + line(24, 56, 40, 56) + line(12, 8, 52, 52, a, 4.8) },
   { id: 'camera', label: 'Camera', keys: '⇧⌘O', cmd: 'ToggleVideoCurrentCall', cat: 'meet', when: 'meeting', icon: (a) => camera(W, a) },
   { id: 'raise-hand', label: 'Raise hand', keys: '⇧⌘K', cmd: 'ToggleRaiseHandCurrentCall', cat: 'meet', when: 'meeting', icon: (a) => `<g fill="${W}"><rect x="17" y="14" width="8" height="26" rx="4"/><rect x="25.5" y="7" width="8" height="30" rx="4"/><rect x="34" y="8" width="8" height="29" rx="4"/><rect x="42.5" y="15" width="8" height="24" rx="4"/><rect x="17" y="28" width="33.5" height="29" rx="13"/><rect x="7" y="29" width="8" height="22" rx="4" transform="rotate(-38 11 40)"/></g>` + line(6, 8, 10, 13, a, 3.4) + line(58, 8, 54, 13, a, 3.4) },

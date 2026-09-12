@@ -7,8 +7,8 @@
     "file": "01-excel.png",
     "id": "excel",
     "label": "Excel",
-    "keys": "open app",
-    "action": "launch / focus Microsoft Excel.app",
+    "keys": "main",
+    "action": "Switch Profile → Main",
     "when": "anywhere",
     "category": "book"
   },

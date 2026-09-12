@@ -75,7 +75,7 @@ const lens = (inner, c) => circ(27, 27, 16) + line(39, 39, 53, 53, c, 6.5) + inn
 // what = where the shortcut comes from in Claude 1.52 (menu accelerator or in-app shortcut id)
 const KEYS = [
   // row 1 — chats & navigation
-  { id: 'claude', label: 'Claude', keys: 'open app', what: 'launch / focus Claude.app', cat: 'chat', hero: true, icon: () => spark() },
+  { id: 'claude', label: 'Claude', keys: 'main', what: 'Switch Profile → Main', cat: 'chat', hero: true, icon: () => spark() },
   { id: 'new-chat', label: 'New chat', keys: '⌘N', what: 'File ▸ New Chat (New session on the Code tab)', cat: 'chat', icon: (a) => bubble(8, 10, 48, 34) + plus(32, 27, 8, a) },
   { id: 'search', label: 'Search', keys: '⌘K', what: 'command_palette — quick chat or search', cat: 'chat', icon: (a) => lens(pathS('M19 24 A9 9 0 0 1 26 18', a, 'none', 3), a) },
   { id: 'quick-chat', label: 'Quick chat', keys: '⌃⌘K', what: 'quick_chat', cat: 'chat', icon: (a) => bubble(8, 10, 48, 34) + pathS('M35 14 L24 30 H32 L29 40 L40 24 H32 Z', a, a, 1.5) },

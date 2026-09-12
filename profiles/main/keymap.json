@@ -1,0 +1,112 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-ghostty.png",
+    "id": "ghostty",
+    "label": "Ghostty",
+    "profile": "Ghostty",
+    "bundle": "/Applications/Ghostty.app"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-vscode.png",
+    "id": "vscode",
+    "label": "VS Code",
+    "profile": "VS Code",
+    "bundle": "/Applications/Visual Studio Code.app"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-claude.png",
+    "id": "claude",
+    "label": "Claude",
+    "profile": "Claude",
+    "bundle": "/Applications/Claude.app"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-safari.png",
+    "id": "safari",
+    "label": "Safari",
+    "profile": "Safari",
+    "bundle": "/Applications/Safari.app"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-slack.png",
+    "id": "slack",
+    "label": "Slack",
+    "profile": "Slack",
+    "bundle": "/Applications/Slack.app"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-teams.png",
+    "id": "teams",
+    "label": "Teams",
+    "profile": "Teams",
+    "bundle": "/Applications/Microsoft Teams.app"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-outlook.png",
+    "id": "outlook",
+    "label": "Outlook",
+    "profile": "Outlook",
+    "bundle": "/Applications/Microsoft Outlook.app"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-discord.png",
+    "id": "discord",
+    "label": "Discord",
+    "profile": "Discord",
+    "bundle": "/Applications/Discord.app"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-word.png",
+    "id": "word",
+    "label": "Word",
+    "profile": "Word",
+    "bundle": "/Applications/Microsoft Word.app"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-excel.png",
+    "id": "excel",
+    "label": "Excel",
+    "profile": "Excel",
+    "bundle": "/Applications/Microsoft Excel.app"
+  }
+]

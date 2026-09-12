@@ -85,7 +85,7 @@ function compass() {
 // menu = where the shortcut lives in Safari 27's menu bar (read from MainMenu.nib)
 const KEYS = [
   // row 1 — tabs & windows
-  { id: 'safari', label: 'Safari', keys: 'open app', menu: 'launch / focus Safari.app', cat: 'tabs', hero: true, icon: () => compass() },
+  { id: 'safari', label: 'Safari', keys: 'main', menu: 'Switch Profile → Main', cat: 'tabs', hero: true, icon: () => compass() },
   { id: 'new-tab', label: 'New tab', keys: '⌘T', menu: 'File ▸ New Tab', cat: 'tabs', icon: (a) => tabBar(0, a) + plus(46, 16, 5.5, a) + line(34, 24, 58, 24) },
   { id: 'new-window', label: 'New window', keys: '⌘N', menu: 'File ▸ New Window', cat: 'tabs', icon: (a) => frame() + line(6, 21, 58, 21) + plus(32, 38, 8, a) },
   { id: 'private', label: 'Private', keys: '⇧⌘N', menu: 'File ▸ New Private Window', cat: 'tabs', icon: (a) => rect(6, 10, 52, 44, 7, W, 'rgba(0,0,0,0.45)') + line(6, 21, 58, 21) + pathS('M17 38 Q32 25 47 38 Q32 51 17 38 Z', a, 'none', 3.4) + circ(32, 38, 4, 'none', a, 0) + line(21, 48, 43, 28, W, 3.4) },

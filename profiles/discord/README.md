@@ -12,7 +12,7 @@ Mockup: [live](https://claude.ai/code/artifact/36be267f-77fe-4bb5-a3e4-572d2e3ef
 open -a "Elgato Stream Deck" profiles/discord/Discord.streamDeckProfile
 ```
 
-- **Discord key.** This key opens Discord or brings it to the front. A long press quits it. If the key does nothing, edit it in the Stream Deck app and pick Discord again under **App / File**.
+- **Top-left key.** It goes back to the **Main** launcher, which has a key for every deck (a Stream Deck *Switch Profile* action). In the full setup (`npm run backup`, see the [repo README](../../README.md)) it already points at Main. If you import this file on its own, select the key in the Stream Deck app and pick your Main profile.
 - **Link the profile** to Discord under **Preferences → Profiles**, so the deck switches to it when Discord is in front.
 
 ## Where the shortcuts come from
@@ -34,7 +34,7 @@ Every binding was read from the installed app: **Discord 0.0.411**, running web 
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| **Navigate** | Discord *(open app)* | Quick switcher ⌘K | Search ⌘F | Back ⌘[ | Forward ⌘] | Prev server ⌥⌘↑ | Next server ⌥⌘↓ | DMs / server ⌥⌘→ |
+| **Navigate** | Discord *(Main)* | Quick switcher ⌘K | Search ⌘F | Back ⌘[ | Forward ⌘] | Prev server ⌥⌘↑ | Next server ⌥⌘↓ | DMs / server ⌥⌘→ |
 | **Catch up** | Prev channel ⌥↑ | Next channel ⌥↓ | Prev unread ⌥⇧↑ | Next unread ⌥⇧↓ | Prev mention ⌥⇧⌘↑ | Next mention ⌥⇧⌘↓ | Mark read Esc | Mark server read ⇧Esc |
 | **Chat** | Inbox ⌘I | Pins ⌘P | Members ⌘U | Emoji ⌘E | GIFs ⌘G | Upload ⇧⌘U | Copy link ⇧⌘L | New group DM ⇧⌘T |
 | **Voice & more** | Mute ⇧⌘M | Deafen ⇧⌘D | Answer call ⌘↩ | Start call ⌃' | Go to call ⌥⇧⌘V | Soundboard ⇧⌘B | Settings ⌘, | Shortcuts ⌘/ |

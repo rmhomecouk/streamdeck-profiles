@@ -7,8 +7,8 @@
     "file": "01-slack.png",
     "id": "slack",
     "label": "Slack",
-    "keys": "open app",
-    "action": "launch / focus Slack.app",
+    "keys": "main",
+    "action": "Switch Profile → Main",
     "when": "anywhere",
     "category": "nav"
   },

@@ -128,7 +128,7 @@ tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{back
 const CATS = { go: 'Go to', mail: 'Compose', tri: 'Triage', cal: 'Calendar & view' };
 const WHEN = { anywhere: 'Anywhere', mail: 'Mail', compose: 'Writing an email', calendar: 'Calendar' };
 const K = [
-  ['outlook','Outlook','open app','Stream Deck Open Application · com.microsoft.Outlook','go','anywhere','Opens Outlook or brings it to the front. A long press quits it.'],
+  ['outlook','Outlook','main','Switch Profile → Main','go','anywhere','Goes back to the Main launcher, which has a key for every deck.'],
   ['mail','Mail','⌘1','Go To ▸ Mail','go','anywhere','Switch to your inbox.'],
   ['calendar','Calendar','⌘2','Go To ▸ Calendar','go','anywhere','Switch to the calendar.'],
   ['people','People','⌘3','Go To ▸ People','go','anywhere','Switch to contacts.'],
@@ -165,7 +165,7 @@ const K = [
 const $ = (s) => document.querySelector(s);
 const img = (k) => `icons/${k.n}-${k.id}.png`;
 const caps = (keys) => {
-  if (keys === 'open app') return '<kbd>open app</kbd>';
+  if (keys === 'main') return '<kbd>main</kbd>';
   const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
   return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
 };

@@ -23,7 +23,7 @@ Every binding was read from **VS Code 1.136.2** itself. There are no `keybinding
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| **Navigate** | VS Code *(open app)* | Commands ⇧⌘P | Quick open ⌘P | Go to symbol ⇧⌘O | Go to line ⌃G | Definition F12 | Back ⌃- | Forward ⌃⇧- |
+| **Navigate** | VS Code *(Main)* | Commands ⇧⌘P | Quick open ⌘P | Go to symbol ⇧⌘O | Go to line ⌃G | Definition F12 | Back ⌃- | Forward ⌃⇧- |
 | **Edit** | Rename F2 | Format ⇧⌥F | Quick fix ⌘. | Comment ⌘/ | Line up ⌥↑ | Line down ⌥↓ | Duplicate ⇧⌥↓ | Next match ⌘D |
 | **Workbench** | Explorer ⇧⌘E | Search ⇧⌘F | Source control ⌃⇧G | Extensions ⇧⌘X | Sidebar ⌘B | Terminal ⌃` | Split editor ⌘\ | Problems ⇧⌘M |
 | **Run & AI** | Debug F5 | Step over F10 | Restart ⇧⌘F5 | Stop ⇧F5 | Breakpoint F9 | Chat ⌃⌘I | Inline chat ⌘I | Claude Code ⌘Esc |
@@ -62,7 +62,7 @@ Every binding was read from **VS Code 1.136.2** itself. There are no `keybinding
 
 ## Setup notes
 
-- **VS Code key.** This key opens VS Code or brings it to the front. A long press quits it. If the key does nothing, edit it in the Stream Deck app and pick Visual Studio Code again under **App / File**.
+- **Top-left key.** It goes back to the **Main** launcher, which has a key for every deck (a Stream Deck *Switch Profile* action). In the full setup (`npm run backup`, see the [repo README](../../README.md)) it already points at Main. If you import this file on its own, select the key in the Stream Deck app and pick your Main profile.
 - **Link the profile** to Visual Studio Code under **Preferences → Profiles**, so the deck switches to it when VS Code is in front.
 - **Keys that depend on context:**
   - **Editor focus.** Go to symbol, Go to line, Definition, the whole Edit row, Breakpoint and Inline chat act on the text editor.

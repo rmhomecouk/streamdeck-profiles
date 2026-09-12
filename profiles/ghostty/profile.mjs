@@ -18,9 +18,9 @@ const KEY = {
   left: [123, 0x01000012], up: [126, 0x01000013], right: [124, 0x01000014], down: [125, 0x01000015],
   return: [36, 0x01000004], home: [115, 0x01000010], end: [119, 0x01000011],
 };
-// id -> [key, ...modifiers]
+// id -> [key, ...modifiers]; the top-left key ('ghostty') is Switch Profile → Main
 const SEND = {
-  'quick-terminal': ['`', 'cmd'], 'new-window': ['N', 'cmd'], 'new-tab': ['T', 'cmd'],
+  'new-window': ['N', 'cmd'], 'new-tab': ['T', 'cmd'],
   'prev-tab': ['[', 'cmd', 'shift'], 'next-tab': [']', 'cmd', 'shift'], close: ['W', 'cmd'], reopen: ['Z', 'cmd'],
   palette: ['P', 'cmd', 'shift'],
   'split-right': ['D', 'cmd'], 'split-down': ['D', 'cmd', 'shift'],
@@ -56,26 +56,34 @@ fs.mkdirSync(path.join(page, 'Images'), { recursive: true });
 fs.mkdirSync(path.join(sd, 'Profiles', defaultPageId, 'Images'), { recursive: true });
 fs.mkdirSync(path.join(stage, 'Resources'), { recursive: true });
 
+// Top-left key: Switch Profile back to the Main launcher (settings shape copied from a key the Stream Deck app wrote).
+// tools/backup.mjs passes Main's id in; when this file is imported on its own the target is empty, so pick Main in the Stream Deck app
+const MAIN = { DeviceUUID: '', PageIndex: 1, ProfileUUID: (process.env.MAIN_PROFILE_UUID || '').toLowerCase() };
+const HOTKEY = { Name: 'Activate a Key Command', UUID: 'com.elgato.streamdeck.system.hotkey', Version: '1.0' };
+const SWITCH = { Name: 'Switch Profile', UUID: 'com.elgato.streamdeck.profile.rotate', Version: '1.0' };
+
 const actions = {};
 for (const k of keymap) {
+  const isMain = k.id === 'ghostty';
   const send = SEND[k.id];
-  if (!send) throw new Error(`no hotkey for ${k.id}`);
+  if (!isMain && !send) throw new Error(`no hotkey for ${k.id}`);
   const img = `${imageId()}.png`;
   fs.copyFileSync(path.join(ICONS, k.file), path.join(page, 'Images', img));
+  const plugin = isMain ? SWITCH : HOTKEY;
   actions[`${k.pos.col},${k.pos.row}`] = {
     ActionID: crypto.randomUUID(),
     LinkedTitle: true,
-    Name: 'Hotkey',
-    Plugin: { Name: 'Activate a Key Command', UUID: 'com.elgato.streamdeck.system.hotkey', Version: '1.0' },
+    Name: isMain ? 'Switch Profile' : 'Hotkey',
+    Plugin: plugin,
     Resources: null,
-    Settings: { Coalesce: true, Hotkeys: [hotkey(send), EMPTY, EMPTY, EMPTY] },
+    Settings: isMain ? { ...MAIN } : { Coalesce: true, Hotkeys: [hotkey(send), EMPTY, EMPTY, EMPTY] },
     State: 0,
     States: [{
       FontFamily: '', FontSize: 12, FontStyle: '', FontUnderline: false,
       Image: `Images/${img}`, OutlineThickness: 2, ShowTitle: false, Title: '',
       TitleAlignment: 'bottom', TitleColor: '#ffffff',
     }],
-    UUID: 'com.elgato.streamdeck.system.hotkey',
+    UUID: plugin.UUID,
   };
 }
 
@@ -100,7 +108,7 @@ w(path.join(stage, 'package.json'), {
   FormatVersion: 1,
   OSType: 'macOS',
   OSVersion: osVersion,
-  RequiredPlugins: ['com.elgato.streamdeck.system.hotkey'],
+  RequiredPlugins: [HOTKEY.UUID, SWITCH.UUID],
 });
 
 fs.rmSync(OUTFILE, { force: true });

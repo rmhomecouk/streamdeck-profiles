@@ -112,7 +112,7 @@
   <header>
     <div class="prompt"><b>rico@mac</b> ~ % ghostty +list-keybinds --default | streamdeck --xl</div>
     <h1>ghostty deck<span class="cursor" aria-hidden="true"></span></h1>
-    <p class="lede">A 32-key Stream Deck XL layout for Ghostty 1.3, mapped to its default macOS keybinds plus your global quick-terminal binding. Each key is styled after Ghostty's own icon: a glowing line glyph on a blue dot-matrix screen, set in JetBrains Mono, with each row in a colour from your Spacedust theme. Tap a key to see what it sends.</p>
+    <p class="lede">A 32-key Stream Deck XL layout for Ghostty 1.3, mapped to its default macOS keybinds. The top-left key goes back to the Main launcher. Each key is styled after Ghostty's own icon: a glowing line glyph on a blue dot-matrix screen, set in JetBrains Mono, with each row in a colour from your Spacedust theme. Tap a key to see what it sends.</p>
   </header>
 
   <div class="stage">
@@ -124,7 +124,7 @@
   <div class="below">
     <section class="detail" id="detail" aria-live="polite"></section>
     <section class="groups" aria-label="Key groups">
-      <div class="group" style="--c:var(--win)"><i class="swatch"></i><div><b>Windows &amp; tabs</b><p>Quick terminal (the ghost), new window/tab, cycle tabs, close and reopen, command palette.</p></div><span class="row">row 1</span></div>
+      <div class="group" style="--c:var(--win)"><i class="swatch"></i><div><b>Windows &amp; tabs</b><p>Back to Main (the ghost), new window/tab, cycle tabs, close and reopen, command palette.</p></div><span class="row">row 1</span></div>
       <div class="group" style="--c:var(--split)"><i class="swatch"></i><div><b>Splits</b><p>Split right/down, move focus in four directions like a d-pad, zoom a split, equalize.</p></div><span class="row">row 2</span></div>
       <div class="group" style="--c:var(--nav)"><i class="swatch"></i><div><b>Navigate &amp; search</b><p>Jump between shell prompts, scroll to top/bottom, find with prev/next, clear screen.</p></div><span class="row">row 3</span></div>
       <div class="group" style="--c:var(--edit)"><i class="swatch"></i><div><b>Clipboard &amp; view</b><p>Copy, paste, font size −/0/+, fullscreen.</p></div><span class="row">row 4</span></div>
@@ -151,7 +151,7 @@
 
 <script>
 const K = [
-  ["quick-terminal","quick term","⌘ `","global:cmd+backquote","toggle_quick_terminal","hero","Global bind from your config — works from any app, so this key never needs Ghostty focused."],
+  ["ghostty","ghostty","main","Stream Deck: Switch Profile","Switch Profile → Main","hero","Goes back to the Main launcher, which has a key for every deck."],
   ["new-window","new window","⌘ N","super+n","new_window","win"],
   ["new-tab","new tab","⌘ T","super+t","new_tab","win"],
   ["prev-tab","prev tab","⇧ ⌘ [","super+shift+[","previous_tab","win"],
@@ -184,7 +184,7 @@ const K = [
   ["open-config","config","⌘ ,","super+comma","open_config","cfg","Opens ~/.config/ghostty/config in your default editor."],
   ["reload-config","reload","⇧ ⌘ ,","super+shift+comma","reload_config","cfg"],
 ];
-const GROUP = { hero: "Quick terminal", win: "Windows & tabs", split: "Splits", nav: "Navigate & search", edit: "Clipboard & view", cfg: "Config" };
+const GROUP = { hero: "Main", win: "Windows & tabs", split: "Splits", nav: "Navigate & search", edit: "Clipboard & view", cfg: "Config" };
 const src = (i) => `icons/${String(i + 1).padStart(2, "0")}-${K[i][0]}.png`;
 const pos = (i) => `r${Math.floor(i / 8) + 1} · c${(i % 8) + 1}`;
 const col = (g) => `var(--${g})`;

@@ -7,8 +7,8 @@
     "file": "01-outlook.png",
     "id": "outlook",
     "label": "Outlook",
-    "keys": "open app",
-    "action": "launch / focus Microsoft Outlook.app",
+    "keys": "main",
+    "action": "Switch Profile → Main",
     "when": "anywhere",
     "category": "go"
   },

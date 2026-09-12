@@ -7,8 +7,8 @@
     "file": "01-claude.png",
     "id": "claude",
     "label": "Claude",
-    "keys": "open app",
-    "action": "launch / focus Claude.app",
+    "keys": "main",
+    "action": "Switch Profile → Main",
     "category": "chat"
   },
   {

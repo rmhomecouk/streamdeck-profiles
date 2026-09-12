@@ -16,7 +16,7 @@ The keys follow Claude's own look: warm charcoal tiles with a fine paper grain, 
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| **Chats** (terracotta) | Claude *(open app)* | New chat `⌘N` | Search `⌘K` | Quick chat `⌃⌘K` | Incognito `⇧⌘I` | Prev chat `⇧⌘[` | Next chat `⇧⌘]` | Sidebar `⌘.` |
+| **Chats** (terracotta) | Claude *(Main)* | New chat `⌘N` | Search `⌘K` | Quick chat `⌃⌘K` | Incognito `⇧⌘I` | Prev chat `⇧⌘[` | Next chat `⇧⌘]` | Sidebar `⌘.` |
 | **Composer** (kraft) | Attach `⌘U` | Dictate `⌘D` | Thinking `⇧⌘E` | Model `⇧⌘.` | Stop `esc` | Side chat `⌘;` | Close `⌘W` | Reopen `⇧⌘T` |
 | **Claude Code** (blue) | Open folder `⇧⌘O` | Prev pane `⌃[` | Next pane `⌃]` | Close pane `⌘\` | Prompt up `⌥⌘↑` | Prompt down `⌥⌘↓` | Files `⇧⌘F` | Open PR `⌥⌘G` |
 | **Sessions & app** (heather) | Fork `⌥⌘O` | Pin `⌥⌘P` | Archive `⌥⌘A` | Find `⌘F` | Zoom out `⌘−` | Zoom in `⌘=` | Shortcuts `⌘/` | Settings `⌘,` |
@@ -25,7 +25,7 @@ The keys follow Claude's own look: warm charcoal tiles with a fine paper grain, 
 
 ## Setup notes
 
-- **The Claude key** is an Open Application action. It launches Claude, or brings it to the front. The profile uses `/Applications/Claude.app`. If the key does nothing, select it in the Stream Deck app and pick Claude.app again.
+- **Top-left key.** It goes back to the **Main** launcher, which has a key for every deck (a Stream Deck *Switch Profile* action). In the full setup (`npm run backup`, see the [repo README](../../README.md)) it already points at Main. If you import this file on its own, select the key in the Stream Deck app and pick your Main profile.
 - **Quick Entry.** Claude's global Quick Entry shortcut defaults to double-tapping ⌥, which a Stream Deck hotkey can't send. To get a Quick Entry key, set a normal key combination as the **Quick Entry keyboard shortcut** in Claude's Settings, then point a Hotkey key at it.
 - **Keys depend on the current tab.** A few shortcuts do different things in different places:
   - `⌘N` starts a new chat, a new task or a new Code session.

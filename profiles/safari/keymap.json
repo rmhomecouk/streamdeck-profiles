@@ -7,8 +7,8 @@
     "file": "01-safari.png",
     "id": "safari",
     "label": "Safari",
-    "keys": "open app",
-    "action": "launch / focus Safari.app",
+    "keys": "main",
+    "action": "Switch Profile → Main",
     "category": "tabs"
   },
   {

@@ -18,7 +18,7 @@ The keys use a dark Fluent style: neutral tiles with a violet wash, white rounde
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| **In the meeting** (violet) | Teams *(open app)* | Mute `⇧⌘M` | Camera `⇧⌘O` | Raise hand `⇧⌘K` | Share `⇧⌘E` | Blur `⇧⌘P` | Captions `⇧⌘A` | Leave `⇧⌘H` |
+| **In the meeting** (violet) | Teams *(Main)* | Mute `⇧⌘M` | Camera `⇧⌘O` | Raise hand `⇧⌘K` | Share `⇧⌘E` | Blur `⇧⌘P` | Captions `⇧⌘A` | Leave `⇧⌘H` |
 | **Calls** (green) | Accept video `⇧⌘V` | Accept audio `⇧⌘A` | Decline `⇧⌘D` | Join `⇧⌘J` | Admit `⇧⌘Y` | Speaker `⇧⌘U` | Audio call `⌥⌘S` | Video call `⇧⌘S` |
 | **Reactions & status** (amber) | Like `⌥⇧1` | Heart `⌥⇧2` | Applause `⌥⇧3` | Laugh `⌥⇧4` | Surprised `⌥⇧5` | Available `⌥⇧Q` | Busy `⌥⇧Y` | Do not disturb `⌥⇧U` |
 | **Chat & app** (blue) | Search `⌘E` | New chat `⌘N` | Go to `⌘G` | Compose `⌘R` | Pop out `⌘O` | On top `⌃⌘T` | Settings `⌘,` | Shortcuts `⌘.` |
@@ -27,7 +27,7 @@ The keys use a dark Fluent style: neutral tiles with a violet wash, white rounde
 
 ## Setup notes
 
-- **The Teams key** is an Open Application action. It launches Teams, or brings it to the front, from any app. If it does nothing, select the key in the Stream Deck app and pick Microsoft Teams.app again.
+- **Top-left key.** It goes back to the **Main** launcher, which has a key for every deck (a Stream Deck *Switch Profile* action). In the full setup (`npm run backup`, see the [repo README](../../README.md)) it already points at Main. If you import this file on its own, select the key in the Stream Deck app and pick your Main profile.
 - **Focus.** Every other key only works while Teams is the active app. Link the profile to Microsoft Teams.app under **Preferences → Profiles** so it switches in automatically.
 - **Captions and Accept audio are both `⇧⌘A`.** Teams decides by context: in a meeting it toggles captions, and while a call is ringing it answers.
 - **Keys that do something else in Calendar.** Busy (`⌥⇧Y`) jumps to the current time there, and Like, Heart and Applause (`⌥⇧1`–`3`) switch calendar views.

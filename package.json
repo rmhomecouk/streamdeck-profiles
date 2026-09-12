@@ -33,7 +33,11 @@
     "word": "npm run word:icons && npm run word:profile",
     "excel:icons": "node profiles/excel/gen.mjs",
     "excel:profile": "node profiles/excel/profile.mjs",
-    "excel": "npm run excel:icons && npm run excel:profile"
+    "excel": "npm run excel:icons && npm run excel:profile",
+    "main:icons": "node profiles/main/gen.mjs",
+    "main:profile": "node profiles/main/profile.mjs",
+    "main": "npm run main:icons && npm run main:profile",
+    "backup": "node tools/backup.mjs"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2"

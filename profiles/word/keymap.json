@@ -7,8 +7,8 @@
     "file": "01-word.png",
     "id": "word",
     "label": "Word",
-    "keys": "open app",
-    "action": "launch / focus Microsoft Word.app",
+    "keys": "main",
+    "action": "Switch Profile → Main",
     "when": "anywhere",
     "category": "doc"
   },

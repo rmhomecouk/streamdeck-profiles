@@ -7,8 +7,8 @@
     "file": "01-code.png",
     "id": "code",
     "label": "VS Code",
-    "keys": "open app",
-    "action": "launch / focus Visual Studio Code.app",
+    "keys": "main",
+    "action": "Switch Profile → Main",
     "when": "anywhere",
     "category": "nav"
   },

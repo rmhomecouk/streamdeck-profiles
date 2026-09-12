@@ -12,7 +12,7 @@ Mockup: [live](https://claude.ai/code/artifact/c06c47c8-eab6-4ea0-8b83-4f8f52bf8
 open -a "Elgato Stream Deck" profiles/outlook/Outlook.streamDeckProfile
 ```
 
-- **Outlook key.** This key opens Outlook or brings it to the front. A long press quits it. If the key does nothing, edit it in the Stream Deck app and pick Microsoft Outlook again under **App / File**.
+- **Top-left key.** It goes back to the **Main** launcher, which has a key for every deck (a Stream Deck *Switch Profile* action). In the full setup (`npm run backup`, see the [repo README](../../README.md)) it already points at Main. If you import this file on its own, select the key in the Stream Deck app and pick your Main profile.
 - **Link the profile** to Microsoft Outlook under **Preferences → Profiles**, so the deck switches to it when Outlook is in front.
 
 ## Where the shortcuts come from
@@ -32,7 +32,7 @@ Outlook is a native AppKit app, but its menus aren't in a single `MainMenu.nib`.
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| **Go to** | Outlook *(open app)* | Mail ⌘1 | Calendar ⌘2 | People ⌘3 | Tasks ⌘4 | Search ⇧⌘F | Go to folder ⌃G | Sync ⌃⌘K |
+| **Go to** | Outlook *(Main)* | Mail ⌘1 | Calendar ⌘2 | People ⌘3 | Tasks ⌘4 | Search ⇧⌘F | Go to folder ⌃G | Sync ⌃⌘K |
 | **Compose** | New email ⌘N | Reply ⌘R | Reply all ⇧⌘R | Forward ⌘J | Send ⌘↩ | Discard ⌘Esc | Undo send ⌥⌘↩ | React ⌃⌘R |
 | **Triage** | Archive ⌃E | Delete ⌘⌫ | Move ⇧⌘M | Mark read ⌘T | Mark unread ⇧⌘T | Flag ⌃1 | Pin ⌃P | Junk ⇧⌘J |
 | **Calendar & view** | Today ⌘T | Day ⌃⌘1 | Work week ⌃⌘2 | Month ⌃⌘4 | Previous ⌥⌘← | Next ⌥⌘→ | Reading pane ⌘\ | Sidebar ⇧⌘[ |

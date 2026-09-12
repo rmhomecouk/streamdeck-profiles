@@ -122,7 +122,7 @@ tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{back
 const CATS = { book: 'Workbook', edit: 'Edit & data', fmt: 'Format', sheet: 'Sheets & view' };
 const WHEN = { anywhere: 'Anywhere', workbook: 'A workbook is open', cells: 'Cells selected' };
 const K = [
-  ['excel','Excel','open app','Stream Deck Open Application · com.microsoft.Excel','book','anywhere','Opens Excel or brings it to the front. A long press quits it.'],
+  ['excel','Excel','main','Switch Profile → Main','book','anywhere','Goes back to the Main launcher, which has a key for every deck.'],
   ['save','Save','⌘S','Menu: File ▸ Save','book','workbook','Saves the workbook.'],
   ['save-as','Save as','⇧⌘S','Menu: File ▸ Save As…','book','workbook','Save a copy under a new name, place or format.'],
   ['print','Print','⌘P','Menu: File ▸ Print…','book','workbook','Opens the print dialog.'],
@@ -159,7 +159,7 @@ const K = [
 const $ = (s) => document.querySelector(s);
 const img = (k) => `icons/${k.n}-${k.id}.png`;
 const caps = (keys) => {
-  if (keys === 'open app') return '<kbd>open app</kbd>';
+  if (keys === 'main') return '<kbd>main</kbd>';
   const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
   return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
 };

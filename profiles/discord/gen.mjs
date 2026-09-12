@@ -88,7 +88,7 @@ function status(cat, a) {
 // src = the keybind action id in Discord's web client (build 609489), or the native menu item
 const KEYS = [
   // row 1 — navigate
-  { id: 'discord', label: 'Discord', keys: 'open app', src: 'launch / focus Discord.app', cat: 'nav', when: 'anywhere', hero: true, icon: () => clyde() },
+  { id: 'discord', label: 'Discord', keys: 'main', src: 'Switch Profile → Main', cat: 'nav', when: 'anywhere', hero: true, icon: () => clyde() },
   { id: 'quick-switcher', label: 'Quick switcher', keys: '⌘K', src: 'QUICKSWITCHER_SHOW · mod+k', cat: 'nav', when: 'anywhere', icon: (a) => rect(3, 12, 58, 40, 11) + circ(20, 31, 7, a, 'none', 3.8) + line(25, 36, 29, 40, a, 3.8) + line(35, 26, 51, 26, W, 3.4) + line(35, 36, 46, 36, W, 3.4) },
   { id: 'search', label: 'Search', keys: '⌘F', src: 'FOCUS_SEARCH · mod+f', cat: 'nav', when: 'anywhere', icon: (a) => lens(27, 27, 17, a) + `<path d="M18 23 A10 10 0 0 1 26 16" fill="none" stroke="${a}" stroke-width="3.4" stroke-linecap="round"/>` },
   { id: 'back', label: 'Back', keys: '⌘[', src: 'NAVIGATE_BACK · mod+[ (Mac)', cat: 'nav', when: 'anywhere', icon: (a) => arrow(32, 32, 'l', 44, a, 5) },

@@ -33,7 +33,7 @@ The only dependency is `@resvg/resvg-js`, installed with `npm install`. Start a 
 ## Workflow
 
 1. **Get the shortcuts** from the app, using one of the extraction techniques below. Record where each one came from.
-2. **Plan the layout**: 32 keys in four rows of eight, one category per row. Key `0,0` is the hero key, which opens the app.
+2. **Plan the layout**: 32 keys in four rows of eight, one category per row. Key `0,0` is the top-left key: the app's mark, name and "main", as a Switch Profile back to the Main launcher.
 3. **Design the icons** from the app's own visual identity, following the icon system below.
 4. **Write `gen.mjs`, render, and look at `sheet.png`.** Fix anything that's off before going further.
 5. **Write `profile.mjs`, build, and verify the zip** (see Verify).
@@ -176,7 +176,7 @@ Each tile is a 144 × 144 SVG viewBox rendered to a **288 px** PNG with resvg.
 | Glyph | a 64-unit box at `translate(40 14)` (Teams uses 16); strokes 4.2 wide with round caps and joins |
 | Label | `y ≈ 106`, about 17.5 px, bold faked with a same-colour `stroke-width 0.55–0.6`; about 15.5 px when longer than 11 characters |
 | Shortcut | `y ≈ 127`, about 15 px, in the row's accent colour |
-| Hero key | position `0,0`: the app's own mark, using an Open Application action |
+| Top-left key | position `0,0`: the app's own mark, the app name, and `main` on the shortcut line; a Switch Profile back to Main |
 
 Design rules:
 - **Base each profile's look on the app**, extracted with `NSWorkspace iconForFile` through JXA (JavaScript for Automation). Past profiles:
@@ -204,8 +204,8 @@ Look at `sheet.png` after every render. Image viewers may cache by path, so copy
 
 Unzip the built profile and check:
 - 32 actions and 32 images, with every `States[0].Image` present
-- the action types: 31 hotkeys plus 1 Open Application, or whatever the plan calls for
-- the Open Application settings: exactly the 9 keys above, with `bundle_path` and `bundle_id` filled in and `is_bundle: true`
+- the action types: 31 hotkeys plus 1 Switch Profile on the top-left key, or whatever the plan calls for
+- the top-left key's settings: `{DeviceUUID: "", PageIndex: 1, ProfileUUID}`, with `ProfileUUID` empty in the repo's files and Main's id in the backup
 - `KeyModifiers`, `NativeCode` and `QTKeyCode` on the tricky keys (shifted characters, Tab, arrows, ⌥ combinations)
 
 ## Import and confirm
@@ -215,6 +215,26 @@ Unzip the built profile and check:
 - Confirm in `~/Library/Application Support/com.elgato.StreamDeck/ProfilesV3/` that a new `.sdProfile` with the right `Name` exists, with 32 actions. Re-check the Open Application settings, because the app may rewrite them.
 - Never edit `ProfilesV3` directly, and never delete a user's profiles.
 - You can't press keys yourself. Ask the user to test the hero key and a few hotkeys.
+
+## Main launcher and the full backup
+
+**Main** (`profiles/main/`) is the home screen. It has one key per deck, each showing the deck's top-left tile with the text removed and the mark scaled to fill the key. Each key is a **Multi Action Switch** whose two lists are the same two steps: Switch Profile to the deck, then Open Application. Both steps are needed. If the app is already in front, macOS reports no app change, so Stream Deck's automatic profile switch never runs.
+
+The action shapes were copied from keys made by hand in the Stream Deck app, not guessed:
+- **Switch Profile:** `{DeviceUUID: "", PageIndex: 1, ProfileUUID}`, with a lowercase id.
+- **Open Application,** when the app writes it, fills in `exec` (`<bundle>/Contents/MacOS/<CFBundleExecutable>`) and `source` (the bundle path). `profiles/main/profile.mjs` does the same.
+
+**Imports get new profile ids,** so keys that point at other profiles only work from a backup restore. `tools/backup.mjs`:
+1. Gives every profile a stable id, derived from its folder name.
+2. Runs each profile's own `profile.mjs`, passing `MAIN_PROFILE_UUID` to the decks and `DECK_PROFILE_UUIDS` to Main.
+3. Adds `AppIdentifier` and the device serial (read from the installed profiles) to each profile.
+4. Zips everything to `build/`, which is git-ignored because the serial must never be committed.
+
+**Adding a deck:**
+1. Add it to `APPS` in `profiles/main/gen.mjs` (its position and top-left SVG) and to `DECKS` in `tools/backup.mjs` (its app path).
+2. Make its top-left key a Switch Profile, reading `MAIN_PROFILE_UUID`.
+3. Run `npm run main && npm run backup`, and have the user restore.
+4. Restoring replaces every profile on every device. Say so, and let the user do it.
 
 ## Mockup page (`index.html`)
 

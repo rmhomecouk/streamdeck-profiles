@@ -12,7 +12,7 @@ Mockup: [live](https://claude.ai/code/artifact/166dc283-5955-49a2-b354-43fa1356d
 open -a "Elgato Stream Deck" profiles/excel/Excel.streamDeckProfile
 ```
 
-- **Excel key.** This key opens Excel or brings it to the front. A long press quits it. If the key does nothing, edit it in the Stream Deck app and pick Microsoft Excel again under **App / File**.
+- **Top-left key.** It goes back to the **Main** launcher, which has a key for every deck (a Stream Deck *Switch Profile* action). In the full setup (`npm run backup`, see the [repo README](../../README.md)) it already points at Main. If you import this file on its own, select the key in the Stream Deck app and pick your Main profile.
 - **Link the profile** to Microsoft Excel under **Preferences → Profiles**, so the deck switches to it when Excel is in front.
 
 ## Where the shortcuts come from
@@ -29,7 +29,7 @@ Every binding was confirmed in **Excel 16.112.4** itself. Excel needed a differe
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| **Workbook** | Excel *(open app)* | Save ⌘S | Save as ⇧⌘S | Print ⌘P | Undo ⌘Z | Find ⌃F | Replace ⌃H | Go to ⌃G |
+| **Workbook** | Excel *(Main)* | Save ⌘S | Save as ⇧⌘S | Print ⌘P | Undo ⌘Z | Find ⌃F | Replace ⌃H | Go to ⌃G |
 | **Edit & data** | Fill down ⌘D | Fill right ⌘R | AutoSum ⇧⌘T | Today ⌃; | Insert ⌃⇧= | Delete ⌘- | Filter ⇧⌘F | Sort ⇧⌘R |
 | **Format** | Format cells ⌘1 | Bold ⌘B | Italic ⌘I | Currency ⌃⇧$ | Percent ⌃⇧% | Number ⌃⇧! | Border ⌥⌘0 | Center ⌘E |
 | **Sheets & view** | Prev sheet ⌥← | Next sheet ⌥→ | New sheet ⇧F11 | Hide row ⌃9 | Hide column ⌃0 | Show formulas ⌃` | Current time ⌘; | Paste special ⌃⌘V |

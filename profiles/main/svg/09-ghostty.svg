@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="28%" r="85%">
+    <stop offset="0" stop-color="#3446ff"/><stop offset="0.55" stop-color="#1624c8"/><stop offset="1" stop-color="#0a1286"/>
+  </radialGradient>
+  <radialGradient id="aura" cx="50%" cy="36%" r="42%">
+    <stop offset="0" stop-color="#9fb0ff" stop-opacity="0.35"/><stop offset="1" stop-color="#3fd0e8" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="0.75" fill="#c8d2ff" opacity="0.2"/>
+  </pattern>
+  <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0.09"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="3.4" result="b"/>
+    <feFlood flood-color="#bcc8ff" flood-opacity="0.85"/>
+    <feComposite in2="b" operator="in" result="g"/>
+    <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tglow" x="-20%" y="-60%" width="140%" height="220%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="b"/>
+    <feFlood flood-color="#bcc8ff" flood-opacity="0.5"/>
+    <feComposite in2="b" operator="in" result="g"/>
+    <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <clipPath id="fr"><rect x="6" y="10" width="52" height="44" rx="7"/></clipPath>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#dots)"/>
+<rect width="144" height="144" fill="url(#aura)"/>
+<rect width="144" height="72" fill="url(#sheen)"/>
+<g transform="translate(12 12) scale(1.875)"><g transform="translate(-6 -10) scale(0.95)">
+  <path d="M12 54 V32 A20 20 0 0 1 52 32 V54 Q49.5 60 47 55 Q44.5 50 42 55 Q39.5 60 37 55 Q34.5 50 32 55 Q29.5 60 27 55 Q24.5 50 22 55 Q19.5 60 17 55 Q14.5 50 12 55 Z" fill="#dfe3ff" stroke="#f4f6ff" stroke-width="1.6" stroke-linejoin="round"/>
+  <polyline points="21,27 28,32 21,37" fill="none" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="32" y1="37" x2="43" y2="37" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round"/>
+</g></g>
+<g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
+  
+  
+</g>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5"/>
+</svg>

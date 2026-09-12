@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#4f1c51"/><stop offset="0.55" stop-color="#351437"/><stop offset="1" stop-color="#1f0c20"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#ffffff" stop-opacity="0.1"/><stop offset="1" stop-color="#36c5f0" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+
+<g transform="translate(12 12) scale(1.875)" filter="url(#lift)"><g transform="rotate(0 32 32)"><rect x="4" y="21" width="27" height="10" rx="5" fill="#36c5f0"/><path d="M31 19 H26 A5 5 0 0 1 21 14 A5 5 0 0 1 26 9 A5 5 0 0 1 31 14 Z" fill="#36c5f0"/></g><g transform="rotate(90 32 32)"><rect x="4" y="21" width="27" height="10" rx="5" fill="#2eb67d"/><path d="M31 19 H26 A5 5 0 0 1 21 14 A5 5 0 0 1 26 9 A5 5 0 0 1 31 14 Z" fill="#2eb67d"/></g><g transform="rotate(180 32 32)"><rect x="4" y="21" width="27" height="10" rx="5" fill="#ecb22e"/><path d="M31 19 H26 A5 5 0 0 1 21 14 A5 5 0 0 1 26 9 A5 5 0 0 1 31 14 Z" fill="#ecb22e"/></g><g transform="rotate(270 32 32)"><rect x="4" y="21" width="27" height="10" rx="5" fill="#e01e5a"/><path d="M31 19 H26 A5 5 0 0 1 21 14 A5 5 0 0 1 26 9 A5 5 0 0 1 31 14 Z" fill="#e01e5a"/></g></g>
+
+
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5"/>
+</svg>

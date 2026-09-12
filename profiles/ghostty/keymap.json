@@ -4,11 +4,11 @@
       "col": 0,
       "row": 0
     },
-    "file": "01-quick-terminal.png",
-    "id": "quick-terminal",
-    "label": "quick term",
-    "keys": "⌘`",
-    "action": "toggle_quick_terminal",
+    "file": "01-ghostty.png",
+    "id": "ghostty",
+    "label": "ghostty",
+    "keys": "main",
+    "action": "Switch Profile → Main",
     "category": "win"
   },
   {

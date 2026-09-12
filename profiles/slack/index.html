@@ -126,7 +126,7 @@ tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{back
 const CATS = { nav: '#navigate', msg: '#messaging', read: '#catch-up', you: '#huddles-and-you' };
 const WHEN = { anywhere: 'Anywhere in Slack', channel: 'In a conversation', huddle: 'In a huddle' };
 const K = [
-  ['slack','Slack','open app','Stream Deck Open Application · com.tinyspeck.slackmacgap','nav','anywhere','Opens Slack or brings it to the front. A long press quits it.'],
+  ['slack','Slack','main','Switch Profile → Main','nav','anywhere','Goes back to the Main launcher, which has a key for every deck.'],
   ['jump-to','Jump to','⌘K','SWITCH_TO_CHANNEL · Go ▸ Switch to Channel','nav','anywhere','The quick switcher. Type a channel, person or canvas name.'],
   ['search','Search','⌘G','SEARCH · Edit ▸ Search','nav','anywhere','Search the whole workspace.'],
   ['back','Back','⌘[','Sheet: Back in history','nav','anywhere','Back to the previous conversation or view.'],
@@ -163,7 +163,7 @@ const K = [
 const $ = (s) => document.querySelector(s);
 const img = (k) => `icons/${k.n}-${k.id}.png`;
 const caps = (keys) => {
-  if (keys === 'open app') return '<kbd>open app</kbd>';
+  if (keys === 'main') return '<kbd>main</kbd>';
   const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
   return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
 };

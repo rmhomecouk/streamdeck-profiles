@@ -15,6 +15,6 @@
 
 <g transform="translate(40 14)" filter="url(#lift)"><g transform="rotate(0 32 32)"><rect x="4" y="21" width="27" height="10" rx="5" fill="#36c5f0"/><path d="M31 19 H26 A5 5 0 0 1 21 14 A5 5 0 0 1 26 9 A5 5 0 0 1 31 14 Z" fill="#36c5f0"/></g><g transform="rotate(90 32 32)"><rect x="4" y="21" width="27" height="10" rx="5" fill="#2eb67d"/><path d="M31 19 H26 A5 5 0 0 1 21 14 A5 5 0 0 1 26 9 A5 5 0 0 1 31 14 Z" fill="#2eb67d"/></g><g transform="rotate(180 32 32)"><rect x="4" y="21" width="27" height="10" rx="5" fill="#ecb22e"/><path d="M31 19 H26 A5 5 0 0 1 21 14 A5 5 0 0 1 26 9 A5 5 0 0 1 31 14 Z" fill="#ecb22e"/></g><g transform="rotate(270 32 32)"><rect x="4" y="21" width="27" height="10" rx="5" fill="#e01e5a"/><path d="M31 19 H26 A5 5 0 0 1 21 14 A5 5 0 0 1 26 9 A5 5 0 0 1 31 14 Z" fill="#e01e5a"/></g></g>
 <text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Slack</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#e8c9ea" stroke="#e8c9ea" stroke-width="0.45" text-anchor="middle">open app</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#e8c9ea" stroke="#e8c9ea" stroke-width="0.45" text-anchor="middle">main</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5"/>
 </svg>

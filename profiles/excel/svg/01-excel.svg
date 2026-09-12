@@ -26,6 +26,6 @@
 <rect x="0" y="23" width="32" height="32" rx="8" fill="url(#xb)" stroke="#0b2a18" stroke-opacity="0.5" stroke-width="1"/>
 <text x="16" y="47.5" font-family="Aptos" font-size="25" font-weight="700" font-style="normal" fill="#f2f7f2" text-anchor="middle">X</text></g>
 <text x="72" y="106" font-family="Aptos" font-size="18" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Excel</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#d6f09d" stroke="#d6f09d" stroke-width="0.45" text-anchor="middle">open app</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#d6f09d" stroke="#d6f09d" stroke-width="0.45" text-anchor="middle">main</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5"/>
 </svg>

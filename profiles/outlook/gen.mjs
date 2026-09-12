@@ -81,7 +81,7 @@ function outlookMark() {
 // src = menu path in Outlook 16.112 (from its Base.lproj nibs); when = where it works
 const KEYS = [
   // row 1 — go to
-  { id: 'outlook', label: 'Outlook', keys: 'open app', src: 'launch / focus Microsoft Outlook.app', cat: 'go', when: 'anywhere', hero: true, icon: () => outlookMark() },
+  { id: 'outlook', label: 'Outlook', keys: 'main', src: 'Switch Profile → Main', cat: 'go', when: 'anywhere', hero: true, icon: () => outlookMark() },
   { id: 'mail', label: 'Mail', keys: '⌘1', src: 'Go To ▸ Mail · ViewMenus.nib', cat: 'go', when: 'anywhere', icon: (a) => envelope(4, 12, 56, 40, W, a) },
   { id: 'calendar', label: 'Calendar', keys: '⌘2', src: 'Go To ▸ Calendar · ViewMenus.nib', cat: 'go', when: 'anywhere', icon: (a) => calendar(a, [[18, 32], [32, 32], [46, 32], [18, 45], [32, 45]].map(([x, y]) => dot(x, y, 3.2, W)).join('') + dot(46, 45, 4, a)) },
   { id: 'people', label: 'People', keys: '⌘3', src: 'Go To ▸ People · ViewMenus.nib', cat: 'go', when: 'anywhere', icon: (a) => person(24, 30, 19) + person(46, 33, 15, a) },

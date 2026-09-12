@@ -157,7 +157,7 @@ tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{back
 const CATS = { nav: 'navigate', read: 'catch-up', chat: 'chat', voice: 'voice-and-more' };
 const WHEN = { anywhere: 'Anywhere in Discord', chat: 'In a channel or DM', server: 'In a server', dm: 'In a DM', call: 'In a call', ringing: 'Call ringing' };
 const K = [
-  ['discord','Discord','open app','Stream Deck Open Application · com.hnc.Discord','nav','anywhere','Opens Discord or brings it to the front. A long press quits it.'],
+  ['discord','Discord','main','Switch Profile → Main','nav','anywhere','Goes back to the Main launcher, which has a key for every deck.'],
   ['quick-switcher','Quick switcher','⌘K','QUICKSWITCHER_SHOW · mod+k','nav','anywhere','Jump to any server, channel or DM by typing its name.'],
   ['search','Search','⌘F','FOCUS_SEARCH · mod+f','nav','anywhere','Search messages, starting in the current channel. ⇧⌘F searches everywhere.'],
   ['back','Back','⌘[','NAVIGATE_BACK · mod+[ (Mac only; alt+left elsewhere)','nav','anywhere','Back to the previous channel or page.'],
@@ -194,7 +194,7 @@ const K = [
 const $ = (s) => document.querySelector(s);
 const img = (k) => `icons/${k.n}-${k.id}.png`;
 const caps = (keys) => {
-  if (keys === 'open app') return '<kbd>open app</kbd>';
+  if (keys === 'main') return '<kbd>main</kbd>';
   const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
   return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
 };

@@ -132,7 +132,7 @@ tbody tr.dim{opacity:.4}
       </div>
     </div>
   </div>
-  <div class="status"><div><span>⎇ main</span><span>32 keys · 31 hotkeys + open app</span></div><div><span>Stream Deck XL</span><span>VS Code 1.136.2</span></div></div>
+  <div class="status"><div><span>⎇ main</span><span>32 keys · 31 hotkeys + Main</span></div><div><span>Stream Deck XL</span><span>VS Code 1.136.2</span></div></div>
 </div>
 
 <script>
@@ -144,7 +144,7 @@ const CATS = {
 };
 const WHEN = { anywhere: 'anywhere', editor: 'editorTextFocus', debugging: 'inDebugMode' };
 const K = [
-  ['code','VS Code','open app','Open Application · com.microsoft.VSCode','nav','anywhere','Opens VS Code or brings it to the front. A long press quits it.','Stream Deck action'],
+  ['code','VS Code','main','Switch Profile → Main','nav','anywhere','Goes back to the Main launcher, which has a key for every deck.','Stream Deck action'],
   ['commands','Commands','⇧⌘P','workbench.action.showCommands','nav','anywhere','The Command Palette, for anything without a key of its own.','workbench bundle · 3118'],
   ['quick-open','Quick open','⌘P','workbench.action.quickOpen','nav','anywhere','Fuzzy-find a file in the workspace. Type @, : or > for symbols, lines or commands.','workbench bundle · 2094'],
   ['symbol','Go to symbol','⇧⌘O','workbench.action.gotoSymbol','nav','editor','Jump to a function, class or heading in the current file.','workbench bundle · 3117'],
@@ -181,7 +181,7 @@ const K = [
 const $ = (s) => document.querySelector(s);
 const img = (k) => `icons/${k.n}-${k.id}.png`;
 const caps = (keys) => {
-  if (keys === 'open app') return '<kbd>open app</kbd>';
+  if (keys === 'main') return '<kbd>main</kbd>';
   const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
   return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
 };

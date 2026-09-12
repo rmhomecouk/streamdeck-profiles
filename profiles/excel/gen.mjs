@@ -91,7 +91,7 @@ ${txt(16, 47.5, 'X', '#f2f7f2', 25, { w: 700 })}`;
 // src = where the binding was confirmed in Excel 16.112.4: a live menu item, or a key test in a scratch workbook
 const KEYS = [
   // row 1 — workbook
-  { id: 'excel', label: 'Excel', keys: 'open app', src: 'launch / focus Microsoft Excel.app', cat: 'book', when: 'anywhere', hero: true, icon: () => excelMark() },
+  { id: 'excel', label: 'Excel', keys: 'main', src: 'Switch Profile → Main', cat: 'book', when: 'anywhere', hero: true, icon: () => excelMark() },
   { id: 'save', label: 'Save', keys: '⌘S', src: 'Menu: File ▸ Save', cat: 'book', when: 'workbook', icon: (a) => floppy(W, a) },
   { id: 'save-as', label: 'Save as', keys: '⇧⌘S', src: 'Menu: File ▸ Save As…', cat: 'book', when: 'workbook', icon: (a) => floppy(W, a) + badge(50, 50, 10) + pathS('M42 58 L43 52 L54 41 L59 46 L48 57 Z', a, INK, 3.4) },
   { id: 'print', label: 'Print', keys: '⌘P', src: 'Menu: File ▸ Print…', cat: 'book', when: 'workbook', icon: (a) => rect(18, 4, 28, 16, 2) + pathS('M14 46 H8 Q4 46 4 42 V26 Q4 20 10 20 H54 Q60 20 60 26 V42 Q60 46 56 46 H50') + rect(18, 36, 28, 22, 2, a, INK) + dot(50, 28, 3, a) },

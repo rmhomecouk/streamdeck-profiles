@@ -1,3 +1,5 @@
+# tools/backup.mjs output: a full Stream Deck backup carries the device's serial number, so it never gets committed
+build/
+# stages left behind if a profile build is interrupted
+.build-*
 node_modules/
-.DS_Store
-.build-*/

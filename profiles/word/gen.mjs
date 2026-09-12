@@ -72,7 +72,7 @@ ${txt(16, 47, 'W', '#f4f6ff', 25, { w: 700 })}`;
 // src = the Word command bound to the key, as Word 16.112's own key table reports it (find key), plus the menu item where there is one
 const KEYS = [
   // row 1 — document
-  { id: 'word', label: 'Word', keys: 'open app', src: 'launch / focus Microsoft Word.app', cat: 'doc', when: 'anywhere', hero: true, icon: () => wordMark() },
+  { id: 'word', label: 'Word', keys: 'main', src: 'Switch Profile → Main', cat: 'doc', when: 'anywhere', hero: true, icon: () => wordMark() },
   { id: 'save', label: 'Save', keys: '⌘S', src: 'FileSave · File ▸ Save', cat: 'doc', when: 'document', icon: (a) => floppy(W, a) },
   { id: 'save-as', label: 'Save as', keys: '⇧⌘S', src: 'FileSaveAs · File ▸ Save As…', cat: 'doc', when: 'document', icon: (a) => floppy(W, a) + badge(50, 50, 10) + pathS('M42 58 L43 52 L54 41 L59 46 L48 57 Z', a, INK, 3.4) },
   { id: 'print', label: 'Print', keys: '⌘P', src: 'FilePrint · File ▸ Print…', cat: 'doc', when: 'document', icon: (a) => rect(18, 4, 28, 16, 2) + pathS('M14 46 H8 Q4 46 4 42 V26 Q4 20 10 20 H54 Q60 20 60 26 V42 Q60 46 56 46 H50') + rect(18, 36, 28, 22, 2, a, INK) + dot(50, 28, 3, a) },

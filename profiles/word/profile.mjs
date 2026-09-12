@@ -11,11 +11,9 @@ const ICONS = path.resolve(process.argv[2] || path.join(HERE, 'icons'));
 const OUTFILE = path.resolve(process.argv[3] || path.join(HERE, 'Word.streamDeckProfile'));
 const keymap = JSON.parse(fs.readFileSync(path.join(ICONS, '..', 'keymap.json'), 'utf8'));
 
-// Open Application settings, using the key names Stream Deck 7.5 itself writes for this action
-const APP = {
-  app_name: 'Microsoft Word', args: '', bring_to_front: true, bundle_id: 'com.microsoft.Word',
-  bundle_path: '/Applications/Microsoft Word.app', exec: '', is_bundle: true, long_press: 'quit', source: '',
-};
+// Top-left key: Switch Profile back to the Main launcher (settings shape copied from a key the Stream Deck app wrote).
+// tools/backup.mjs passes Main's id in; when this file is imported on its own the target is empty, so pick Main in the Stream Deck app
+const MAIN = { DeviceUUID: '', PageIndex: 1, ProfileUUID: (process.env.MAIN_PROFILE_UUID || '').toLowerCase() };
 
 // macOS virtual keycode (kVK_*) and Qt::Key value for each key we send
 const KEY = {
@@ -23,7 +21,7 @@ const KEY = {
   R: [15, 82], S: [1, 83], U: [32, 85], V: [9, 86], X: [7, 88], Z: [6, 90],
   '1': [18, 49], '2': [19, 50], '3': [20, 51], '[': [33, 91], ']': [30, 93], Return: [36, 0x01000004],
 };
-// id -> [key, ...modifiers], from Word 16.112's own key table (AppleScript find key); 'word' is Open Application
+// id -> [key, ...modifiers], from Word 16.112's own key table (AppleScript find key); the top-left key is Switch Profile → Main
 const SEND = {
   save: ['S', 'cmd'], 'save-as': ['S', 'shift', 'cmd'], print: ['P', 'cmd'], undo: ['Z', 'cmd'], redo: ['Z', 'shift', 'cmd'],
   find: ['F', 'cmd'], 'go-to': ['G', 'opt', 'cmd'],
@@ -57,7 +55,7 @@ const state = (img) => ({
 });
 const PLUGIN = {
   hotkey: { Name: 'Activate a Key Command', UUID: 'com.elgato.streamdeck.system.hotkey', Version: '1.0', action: 'Hotkey' },
-  openapp: { Name: 'Open Application', UUID: 'com.elgato.streamdeck.system.openapp', Version: '1.0', action: 'Open Application' },
+  main: { Name: 'Switch Profile', UUID: 'com.elgato.streamdeck.profile.rotate', Version: '1.0', action: 'Switch Profile' },
 };
 
 const stage = fs.mkdtempSync(path.join(path.dirname(OUTFILE), '.build-'));
@@ -70,9 +68,9 @@ fs.mkdirSync(path.join(stage, 'Resources'), { recursive: true });
 
 const actions = {};
 for (const k of keymap) {
-  const isApp = k.id === 'word';
-  if (!isApp && !SEND[k.id]) throw new Error(`no hotkey for ${k.id}`);
-  const p = isApp ? PLUGIN.openapp : PLUGIN.hotkey;
+  const isMain = k.id === 'word';
+  if (!isMain && !SEND[k.id]) throw new Error(`no hotkey for ${k.id}`);
+  const p = isMain ? PLUGIN.main : PLUGIN.hotkey;
   const img = `${imageId()}.png`;
   fs.copyFileSync(path.join(ICONS, k.file), path.join(page, 'Images', img));
   actions[`${k.pos.col},${k.pos.row}`] = {
@@ -81,7 +79,7 @@ for (const k of keymap) {
     Name: p.action,
     Plugin: { Name: p.Name, UUID: p.UUID, Version: p.Version },
     Resources: null,
-    Settings: isApp ? { ...APP } : { Coalesce: true, Hotkeys: [hotkey(SEND[k.id]), EMPTY, EMPTY, EMPTY] },
+    Settings: isMain ? { ...MAIN } : { Coalesce: true, Hotkeys: [hotkey(SEND[k.id]), EMPTY, EMPTY, EMPTY] },
     State: 0,
     States: [state(img)],
     UUID: p.UUID,
@@ -109,7 +107,7 @@ w(path.join(stage, 'package.json'), {
   FormatVersion: 1,
   OSType: 'macOS',
   OSVersion: osVersion,
-  RequiredPlugins: [PLUGIN.hotkey.UUID, PLUGIN.openapp.UUID],
+  RequiredPlugins: [PLUGIN.hotkey.UUID, PLUGIN.main.UUID],
 });
 
 fs.rmSync(OUTFILE, { force: true });

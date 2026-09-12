@@ -12,7 +12,7 @@ The keys borrow from Safari's icon: dark glass tiles with a faint compass bezel,
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| **Tabs & windows** (cyan) | Safari *(open app)* | New tab `⌘T` | New window `⌘N` | Private `⇧⌘N` | Prev tab `⌃⇧⇥` | Next tab `⌃⇥` | Close tab `⌘W` | Overview `⇧⌘\` |
+| **Tabs & windows** (cyan) | Safari *(Main)* | New tab `⌘T` | New window `⌘N` | Private `⇧⌘N` | Prev tab `⌃⇧⇥` | Next tab `⌃⇥` | Close tab `⌘W` | Overview `⇧⌘\` |
 | **Navigate** (green) | Back `⌘[` | Forward `⌘]` | Reload `⌘R` | Stop `⌘.` | Address `⌘L` | Home `⇧⌘H` | History `⌘Y` | Reopen `⌘Z` |
 | **Find & view** (amber) | Find `⌘F` | Find prev `⇧⌘G` | Find next `⌘G` | Reader `⇧⌘R` | Zoom out `⌘−` | Actual size `⌘0` | Zoom in `⌘+` | Full screen `⌃⌘F` |
 | **Bookmarks & sidebar** (red) | Sidebar `⇧⌘L` | Add bookmark `⌘D` | Reading list `⇧⌘D` | Bookmarks `⌥⌘B` | Favorites `⇧⌘B` | Downloads `⌥⌘L` | Prev group `⇧⌘↑` | Next group `⇧⌘↓` |
@@ -21,7 +21,7 @@ The keys borrow from Safari's icon: dark glass tiles with a faint compass bezel,
 
 ## Setup notes
 
-- **The Safari key** is an Open Application action. It launches Safari, or brings it to the front, from any app. If it does nothing, select the key in the Stream Deck app and pick Safari.app again.
+- **Top-left key.** It goes back to the **Main** launcher, which has a key for every deck (a Stream Deck *Switch Profile* action). In the full setup (`npm run backup`, see the [repo README](../../README.md)) it already points at Main. If you import this file on its own, select the key in the Stream Deck app and pick your Main profile.
 - **All other keys** only work while Safari is the active app. Link the profile to Safari.app under **Preferences → Profiles** so the deck switches in automatically.
 - **Reopen** sends ⌘Z (Edit ▸ Undo). It brings back a tab only if you press it straight after closing one.
 - **Zoom in** is ⌘+ in the menu. Because `+` is Shift-`=` on the keyboard, the key sends ⇧⌘=.
