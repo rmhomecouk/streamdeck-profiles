@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#352027"/><stop offset="0.55" stop-color="#22151b"/><stop offset="1" stop-color="#140c10"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#ff7358" stop-opacity="0.22"/><stop offset="1" stop-color="#ffa53d" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+
+<g transform="translate(12 12) scale(1.875)" filter="url(#lift)"><defs>
+  <linearGradient id="disc" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffa53d"/><stop offset="0.5" stop-color="#ff5f7e"/><stop offset="1" stop-color="#e83f9a"/></linearGradient>
+  <linearGradient id="fold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c8284f"/><stop offset="1" stop-color="#ff6a6a"/></linearGradient>
+  <linearGradient id="pb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e63a4c"/><stop offset="1" stop-color="#a8142c"/></linearGradient>
+</defs>
+<circle cx="36" cy="29" r="27" fill="url(#disc)"/>
+<path d="M28 3.4 Q36 2 40 10 L40 26 Q41 32 47 33 L62 34 Q60 44 52 50 Q44 42 36 42 L22 42 Q18 42 16 38 L16 10 Q20 4 28 3.4 Z" fill="url(#fold)" opacity="0.85"/>
+<rect x="1" y="30" width="31" height="31" rx="7" fill="url(#pb)" stroke="#6d0a1b" stroke-opacity="0.45" stroke-width="1"/>
+<text x="16.5" y="54" font-family="Aptos" font-size="25" font-weight="700" fill="#fff5f6" text-anchor="middle">P</text></g>
+
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5"/>
+</svg>

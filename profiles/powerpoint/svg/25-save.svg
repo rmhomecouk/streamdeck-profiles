@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#2b1f24"/><stop offset="0.55" stop-color="#1d1519"/><stop offset="1" stop-color="#120d10"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#d47cff" stop-opacity="0.13"/><stop offset="1" stop-color="#d47cff" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<g opacity="0.7"><rect x="10" y="12" width="17" height="10.5" rx="2" fill="none" stroke="#d47cff" stroke-width="1.6"/><rect x="13" y="15" width="8" height="2.2" rx="1" fill="#d47cff"/></g>
+<g transform="translate(40 14)" filter="url(#lift)"><path d="M8 12 Q8 6 14 6 H44 L56 18 V50 Q56 56 50 56 H14 Q8 56 8 50 Z" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="18" y="6" width="22" height="14" rx="2" fill="#d47cff44" stroke="#d47cff" stroke-width="3.2"/><rect x="17" y="34" width="30" height="22" rx="3" fill="none" stroke="#ffffff" stroke-width="3.4"/></g>
+<text x="72" y="117.4" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Save</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

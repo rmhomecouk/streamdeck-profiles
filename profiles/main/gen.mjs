@@ -25,6 +25,7 @@ const APPS = [
   { id: 'outlook', label: 'Outlook', profile: 'Outlook', svg: 'outlook/svg/01-outlook.svg', row: 1, col: 6, bundle: '/Applications/Microsoft Outlook.app' },
   { id: 'discord', label: 'Discord', profile: 'Discord', svg: 'discord/svg/01-discord.svg', row: 1, col: 7, bundle: '/Applications/Discord.app' },
   // row 3 — continues from the middle
+  { id: 'powerpoint', label: 'PowerPoint', profile: 'PowerPoint', svg: 'powerpoint/svg/01-powerpoint.svg', row: 2, col: 2, bundle: '/Applications/Microsoft PowerPoint.app' },
   { id: 'word', label: 'Word', profile: 'Word', svg: 'word/svg/01-word.svg', row: 2, col: 3, bundle: '/Applications/Microsoft Word.app' },
   { id: 'excel', label: 'Excel', profile: 'Excel', svg: 'excel/svg/01-excel.svg', row: 2, col: 4, bundle: '/Applications/Microsoft Excel.app' },
   { id: 'mail', label: 'Mail', profile: 'Mail', svg: 'mail/svg/01-mail.svg', row: 2, col: 5, bundle: '/System/Applications/Mail.app' },

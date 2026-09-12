@@ -33,6 +33,7 @@ const DECKS = [
   { dir: 'word', name: 'Word', app: '/Applications/Microsoft Word.app' },
   { dir: 'excel', name: 'Excel', app: '/Applications/Microsoft Excel.app' },
   { dir: 'mail', name: 'Mail', app: '/System/Applications/Mail.app' },
+  { dir: 'powerpoint', name: 'PowerPoint', app: '/Applications/Microsoft PowerPoint.app' },
 ];
 
 // stable profile ids, derived from each profile's folder name, so rebuilds keep pointing at the same profiles

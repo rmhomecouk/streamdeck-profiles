@@ -232,6 +232,16 @@ Excel's nibs have no key equivalents, and `Excel.sdef` has no key lookup (only `
 3. Use the macOS key codes Stream Deck will send, under the user's real keyboard layout. On British, `⌃⇧#` doesn't exist as ⌃⇧3.
 4. Keep anything you can't confirm off the deck. Tests that open a dialog (Create table, Insert) can leave Excel stuck on a modal, which then blocks closing and quitting. If that happens, list the `AXDialog` window's buttons with System Events before touching it.
 
+### Microsoft PowerPoint (live menu bar)
+
+PowerPoint's nibs have no key equivalents, and `PowerPoint.sdef` has no key lookup. Its live menu bar is rich (90+ shortcuts), so a whole deck can come from it without key tests:
+
+1. If PowerPoint isn't running, launch it in the background (`open -g -a "Microsoft PowerPoint"`), then `make new presentation`.
+2. Read each top-level menu in bulk with System Events, plus one level of submenus.
+3. Close the scratch deck with `close active presentation saving no`. Quit PowerPoint if it wasn't running before.
+
+Watch the modifier values: 8 means *no* ⌘, so 10 is ⌥ alone (Presenter View ⌥↩) and 12 is ⌃ alone (Replace ⌃H). Some item titles depend on the selection (⇧⌘V reads "Apply To Defaults" with nothing selected), so leave those out.
+
 ### Leave out
 
 - **Keys that depend on how the user has arranged the app.** Teams' app bar `⌘1–9`, for example, opens whatever the user has put in each slot.
@@ -294,7 +304,7 @@ The launcher copies `svg/01-<id>.svg` unchanged, so the deck and Main show the s
   - Slack: aubergine, with the logo's four colours by row
   - Outlook: navy, the envelope's blues and violets by row
   - Discord: its dark greys, blurple plus presence colours by row, a status dot
-  - Word and Excel: the icon's layered colours by row, Aptos (which ships in the app's `Resources/DFonts`)
+  - Word, Excel and PowerPoint: the icon's colours by row, Aptos (which ships in the app's `Resources/DFonts`)
   - Mail: the navy of Mail's sidebar, Mail's flag colours by row, a small flag in the corner
 - **Colour by row,** one accent per category taken from the app's palette. Individual keys can override the colour for meaning: red to leave or decline, green to accept, presence colours for status.
 - **Keep labels short** and use sentence case, in the house style of the app.

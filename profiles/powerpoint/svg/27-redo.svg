@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#2b1f24"/><stop offset="0.55" stop-color="#1d1519"/><stop offset="1" stop-color="#120d10"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#d47cff" stop-opacity="0.13"/><stop offset="1" stop-color="#d47cff" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<g opacity="0.7"><rect x="10" y="12" width="17" height="10.5" rx="2" fill="none" stroke="#d47cff" stroke-width="1.6"/><rect x="13" y="15" width="8" height="2.2" rx="1" fill="#d47cff"/></g>
+<g transform="translate(40 14)" filter="url(#lift)"><g transform="translate(64 0) scale(-1 1)"><path d="M18 24 H40 Q56 24 56 40 Q56 56 40 56 H26" fill="none" stroke="#d47cff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="27,13 16,24 27,35" fill="none" stroke="#d47cff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+<text x="72" y="117.4" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Redo</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

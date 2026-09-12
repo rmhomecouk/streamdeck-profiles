@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#2b1f24"/><stop offset="0.55" stop-color="#1d1519"/><stop offset="1" stop-color="#120d10"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#ff5c95" stop-opacity="0.13"/><stop offset="1" stop-color="#ff5c95" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<g opacity="0.7"><rect x="10" y="12" width="17" height="10.5" rx="2" fill="none" stroke="#ff5c95" stroke-width="1.6"/><rect x="13" y="15" width="8" height="2.2" rx="1" fill="#ff5c95"/></g>
+<g transform="translate(40 14)" filter="url(#lift)"><rect x="4" y="4" width="56" height="56" rx="7" fill="none" stroke="#ffffff" stroke-width="4.2"/><rect x="11" y="12" width="8" height="8" rx="2" fill="#ff5c95" stroke="none" stroke-width="0"/><line x1="24" y1="16" x2="40" y2="16" stroke="#ff5c95" stroke-width="3.4" stroke-linecap="round"/><path d="M44 16 Q48.5 11.5 53 16 Q48.5 20.5 44 16 Z" fill="none" stroke="#ffffffaa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="11" y="26" width="8" height="8" rx="2" fill="#ffffff99" stroke="none" stroke-width="0"/><line x1="24" y1="30" x2="40" y2="30" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/><path d="M44 30 Q48.5 25.5 53 30 Q48.5 34.5 44 30 Z" fill="none" stroke="#ffffffaa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="11" y="40" width="8" height="8" rx="2" fill="#ffffff99" stroke="none" stroke-width="0"/><line x1="24" y1="44" x2="40" y2="44" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/><path d="M44 44 Q48.5 39.5 53 44 Q48.5 48.5 44 44 Z" fill="none" stroke="#ffffffaa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="72" y="104.7" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Selection</text>
+<text x="72" y="130.1" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">pane</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

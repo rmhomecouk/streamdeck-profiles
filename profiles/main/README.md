@@ -24,7 +24,7 @@ It restores Main together with every deck. Main is linked to *other applications
 |---|---|---|---|---|---|---|---|---|
 | **Row 1** | | | | | | | | |
 | **Row 2** | Ghostty | VS Code | Claude | Safari | Slack | Teams | Outlook | Discord |
-| **Row 3** | | | | Word | Excel | Mail | | |
+| **Row 3** | | | PowerPoint | Word | Excel | Mail | | |
 | **Row 4** | | | | | | | | |
 
 The apps start on row 2 and fill it, then continue from the middle of row 3. The empty keys leave room for new decks.

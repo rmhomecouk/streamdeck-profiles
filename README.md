@@ -11,7 +11,7 @@ Custom Elgato Stream Deck profiles with generated icon sets. Each profile lives 
 
 | Profile | Device | Keys | Mockup | Preview |
 |---|---|---|---|---|
-| [Main](profiles/main/) *(launcher)* | Stream Deck XL | 11 | [live](https://claude.ai/code/artifact/7af261fc-6cdb-472a-bc91-6e06f6e4eb08) · [local](profiles/main/index.html) | <img src="profiles/main/sheet.png" width="360" alt="Main launcher"> |
+| [Main](profiles/main/) *(launcher)* | Stream Deck XL | 12 | [live](https://claude.ai/code/artifact/7af261fc-6cdb-472a-bc91-6e06f6e4eb08) · [local](profiles/main/index.html) | <img src="profiles/main/sheet.png" width="360" alt="Main launcher"> |
 | [Ghostty](profiles/ghostty/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/0b677874-a30c-473f-9104-18c0ce02b17f) · [local](profiles/ghostty/index.html) | <img src="profiles/ghostty/sheet.png" width="360" alt="Ghostty deck"> |
 | [Claude](profiles/claude/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/e322b528-abbb-4874-b1f0-8e6d39fe08c3) · [local](profiles/claude/index.html) | <img src="profiles/claude/sheet.png" width="360" alt="Claude deck"> |
 | [Safari](profiles/safari/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/589a06e9-d96b-4750-b59f-a9a2613080eb) · [local](profiles/safari/index.html) | <img src="profiles/safari/sheet.png" width="360" alt="Safari deck"> |
@@ -23,6 +23,7 @@ Custom Elgato Stream Deck profiles with generated icon sets. Each profile lives 
 | [Microsoft Word](profiles/word/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/8188ebce-238d-437d-b4ac-860b02ad2787) · [local](profiles/word/index.html) | <img src="profiles/word/sheet.png" width="360" alt="Word deck"> |
 | [Microsoft Excel](profiles/excel/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/166dc283-5955-49a2-b354-43fa1356d629) · [local](profiles/excel/index.html) | <img src="profiles/excel/sheet.png" width="360" alt="Excel deck"> |
 | [Mail](profiles/mail/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/fdec2192-c67f-4d51-9f6f-3dc0d7ec22e0) · [local](profiles/mail/index.html) | <img src="profiles/mail/sheet.png" width="360" alt="Mail deck"> |
+| [Microsoft PowerPoint](profiles/powerpoint/) | Stream Deck XL | 32 | [live](https://claude.ai/code/artifact/2e92727d-ae25-4022-97e0-eb15ef3b9a7e) · [local](profiles/powerpoint/index.html) | <img src="profiles/powerpoint/sheet.png" width="360" alt="PowerPoint deck"> |
 
 The live mockups are private Claude artifacts, so only you can open them unless you share them. The local `index.html` files work offline from a clone.
 

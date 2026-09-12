@@ -1,0 +1,173 @@
+<title>PowerPoint Deck</title>
+<style>
+:root{
+  --ground:#f1ecee; --win:#ffffff; --pane:#f7f3f4; --bar:#fbf8f9; --line:#e6dfe2; --text:#242424; --muted:#6b6468;
+  --brand:#c43e1c; --hover:#0000000a; --sel:#c43e1c1a; --plate:#120d10; --chip:#f3eef0; --canvas:#e9e4e6;
+  --show:#d9730d; --slide:#e0533a; --arr:#d93d78; --edit:#9a4fd0;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0f0b0d; --win:#1f1c1e; --pane:#1a1719; --bar:#262225; --line:#3a3437; --text:#ede8ea; --muted:#a79fa3;
+  --brand:#ff8a65; --hover:#ffffff0a; --sel:#ff8a6524; --plate:#120d10; --chip:#2c282a; --canvas:#141113;
+  --show:#ffa53d; --slide:#ff7358; --arr:#ff5c95; --edit:#d47cff;
+}}
+:root[data-theme="dark"]{
+  --ground:#0f0b0d; --win:#1f1c1e; --pane:#1a1719; --bar:#262225; --line:#3a3437; --text:#ede8ea; --muted:#a79fa3;
+  --brand:#ff8a65; --hover:#ffffff0a; --sel:#ff8a6524; --plate:#120d10; --chip:#2c282a; --canvas:#141113;
+  --show:#ffa53d; --slide:#ff7358; --arr:#ff5c95; --edit:#d47cff;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--text);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;padding:28px 16px 48px}
+.window{max-width:1240px;margin:0 auto;background:var(--win);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 24px 60px -30px #0008}
+/* title bar and ribbon tabs */
+.top{display:flex;align-items:center;gap:14px;height:40px;padding:0 14px;background:var(--brand);color:#fff}
+.lights{display:flex;gap:8px}.lights i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.lights i:nth-child(2){background:#febc2e}.lights i:nth-child(3){background:#28c840}
+.top .name{font-size:13px;font-weight:600;margin:0 auto}
+.tabs{display:flex;gap:2px;padding:0 10px;border-bottom:1px solid var(--line);background:var(--bar);overflow-x:auto}
+.tab{font-size:13px;color:var(--muted);padding:9px 12px 8px;white-space:nowrap;border-bottom:2px solid transparent}
+.tab.on{color:var(--text);font-weight:600;border-bottom-color:var(--brand)}
+.shell{display:grid;grid-template-columns:200px minmax(0,1fr)}
+/* slide thumbnails pane: one thumbnail per row of keys */
+.thumbs{background:var(--pane);border-right:1px solid var(--line);padding:14px 12px;display:flex;flex-direction:column;gap:12px}
+.th{all:unset;display:grid;grid-template-columns:18px 1fr;gap:6px;align-items:start;cursor:pointer}
+.th .num{font-size:12px;color:var(--muted);text-align:right;padding-top:2px;font-variant-numeric:tabular-nums}
+.th .card{aspect-ratio:16/9;border-radius:5px;border:1.5px solid var(--line);background:var(--win);padding:8px 9px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.th .card b{font-size:12.5px}
+.th .card .bar{height:5px;border-radius:3px;width:60%}
+.th .card small{font-size:11px;color:var(--muted)}
+.th[aria-pressed="true"] .card{border-color:var(--brand);box-shadow:0 0 0 2px var(--sel)}
+.th:focus-visible .card{outline:2px solid var(--brand);outline-offset:2px}
+.canvas{background:var(--canvas);padding:22px;display:grid;gap:18px;min-width:0}
+header h1{font-size:22px;font-weight:700;margin:0;text-wrap:balance}
+.lede{margin:4px 0 0;color:var(--muted);max-width:74ch}
+.filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter .lbl{color:var(--muted);font-size:13px;margin-right:2px}
+.chip{border:1px solid var(--line);background:var(--win);color:var(--text);border-radius:999px;padding:4px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--sel);border-color:var(--brand);color:var(--brand);font-weight:600}
+.chip:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+/* the device sits on the canvas like the slide being edited */
+.device{background:var(--plate);border-radius:22px;padding:16px;box-shadow:0 18px 40px -22px #000c,inset 0 0 0 1px #ffffff14}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}
+.key{padding:0;border:0;background:none;cursor:pointer;border-radius:14%;aspect-ratio:1;transition:transform .12s,opacity .15s,filter .15s}
+.key img{width:100%;height:100%;display:block;border-radius:14%}
+.key:hover{transform:translateY(-2px)}
+.key:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.key[aria-pressed="true"]{outline:2px solid #fff;outline-offset:3px}
+.key.dim{opacity:.2;filter:saturate(.3)}
+/* speaker notes pane under the slide */
+.notes{background:var(--win);border:1px solid var(--line);border-radius:8px}
+.notes .nh{display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.notes .nb{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:12px 14px}
+.notes img{width:64px;height:64px;border-radius:12px}
+.notes h2{margin:0 0 6px;font-size:17px}
+.caps{display:flex;gap:4px;flex-wrap:wrap;margin:0 0 8px}
+kbd{font:600 12px ui-monospace,"SF Mono",Menlo,monospace;min-width:24px;padding:3px 7px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;background:var(--chip)}
+.src{margin-top:8px;font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+.pill{display:inline-block;font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--chip);margin-right:4px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--win)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:720px}
+th{text-align:left;font-weight:600;color:var(--muted);background:var(--pane);padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:12.5px}
+td{padding:7px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{background:var(--sel)}tbody tr.dim{opacity:.35}
+.dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:8px;vertical-align:1px}
+@media (max-width:960px){.shell{grid-template-columns:1fr}.thumbs{display:none}}
+@media (prefers-reduced-motion:reduce){.key{transition:none}}
+</style>
+
+<div class="window">
+  <div class="top"><div class="lights" aria-hidden="true"><i></i><i></i><i></i></div><div class="name">Stream Deck XL — PowerPoint</div></div>
+  <div class="tabs" aria-hidden="true"><span class="tab">Home</span><span class="tab">Insert</span><span class="tab">Draw</span><span class="tab">Design</span><span class="tab">Transitions</span><span class="tab">Animations</span><span class="tab on">Slide Show</span><span class="tab">Review</span><span class="tab">View</span></div>
+  <div class="shell">
+    <nav class="thumbs" aria-label="Rows" id="thumbs"></nav>
+    <main class="canvas">
+      <header>
+        <h1>PowerPoint on a Stream Deck XL</h1>
+        <p class="lede">32 keys for PowerPoint 16.112 on the Mac. Every shortcut was read from PowerPoint's own menu bar while it was running. Present from the top row, build slides on the second, arrange shapes on the third, and edit and view on the last. Pick a row from the slide pane, or click a key to read its notes.</p>
+      </header>
+      <div class="filter" role="group" aria-label="Filter by when it works" id="filter"></div>
+      <div class="device"><div class="grid" id="grid"></div></div>
+      <section class="notes" id="detail" aria-live="polite"></section>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Key</th><th>Shortcut</th><th>Works when</th><th>PowerPoint menu</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+const CATS = { show: 'Present', slide: 'Slides', arr: 'Arrange', edit: 'Edit & view' };
+const WHEN = { deck: 'A presentation is open', select: 'Something is selected' };
+const K = [
+  ['powerpoint','PowerPoint','main','Switch Profile → Main','show','deck','Goes back to the Main launcher, which has a key for every deck.'],
+  ['play-start','Play from start','⇧⌘↩','Slide Show ▸ Play from Start','show','deck','Start the slide show from the first slide.'],
+  ['play-current','From current','⌘↩','Slide Show ▸ Play from Current Slide','show','deck','Start the slide show from the slide you are on.'],
+  ['presenter','Presenter view','⌥↩','Slide Show ▸ Presenter View','show','deck','Present with your notes, the next slide and a timer on your screen. It has no ⌘.'],
+  ['normal','Normal','⌘1','View ▸ Normal','show','deck','The editing view: slide pane on the left, slide in the middle.'],
+  ['sorter','Slide sorter','⌘2','View ▸ Slide Sorter','show','deck','See every slide as a thumbnail, to reorder them.'],
+  ['notes','Notes page','⌘3','View ▸ Notes Page','show','deck','Each slide with its speaker notes underneath, as it prints.'],
+  ['reading','Reading view','⌘5','View ▸ Reading View','show','deck','Play the deck in its window, without going full screen.'],
+  ['new-slide','New slide','⇧⌘N','Insert ▸ New Slide','slide','deck','Add a slide after the current one.'],
+  ['duplicate-slide','Duplicate slide','⇧⌘D','Insert ▸ Duplicate Slide','slide','deck','Copy the current slide.'],
+  ['comment','Comment','⇧⌘M','Insert ▸ Comment','slide','deck','Add a comment to the slide.'],
+  ['link','Link','⌘K','Insert ▸ Hyperlink…','slide','select','Link the selected text or shape.'],
+  ['slide-master','Slide master','⌥⌘1','View ▸ Master ▸ Slide Master','slide','deck','Edit the master slide and layouts behind the deck.'],
+  ['background','Background','⇧⌘2','Format ▸ Slide Background…','slide','deck','Open the slide background settings.'],
+  ['find','Find','⌘F','Edit ▸ Find ▸ Find…','slide','deck','Search the text in the deck.'],
+  ['replace','Replace','⌃H','Edit ▸ Find ▸ Replace…','slide','deck','Find and replace text. It\'s ⌃H, with no ⌘.'],
+  ['bring-front','Bring to front','⇧⌘F','Arrange ▸ Bring to Front','arr','select','Put the selected shape on top of everything.'],
+  ['send-back','Send to back','⇧⌘B','Arrange ▸ Send to Back','arr','select','Put the selected shape behind everything.'],
+  ['bring-forward','Bring forward','⌥⇧⌘F','Arrange ▸ Bring Forward','arr','select','Move the selected shape up one layer.'],
+  ['send-backward','Send backward','⌥⇧⌘B','Arrange ▸ Send Backward','arr','select','Move the selected shape down one layer.'],
+  ['group','Group','⌥⌘G','Arrange ▸ Group','arr','select','Group the selected shapes into one.'],
+  ['ungroup','Ungroup','⌥⇧⌘G','Arrange ▸ Ungroup','arr','select','Split the selected group back into its shapes.'],
+  ['duplicate','Duplicate','⌘D','Edit ▸ Duplicate','arr','select','Copy the selected shape in place.'],
+  ['selection-pane','Selection pane','⌥⌘U','Arrange ▸ Selection Pane…','arr','deck','List every object on the slide, to select, hide or reorder them.'],
+  ['save','Save','⌘S','File ▸ Save','edit','deck','Save the presentation.'],
+  ['undo','Undo','⌘Z','Edit ▸ Undo','edit','deck','Undo the last change.'],
+  ['redo','Redo','⌘Y','Edit ▸ Redo (Repeat)','edit','deck','Redo the last undone change, or repeat the last action.'],
+  ['format-pane','Format pane','⇧⌘1','Format ▸ Format Object…','edit','select','Open the Format pane for the selected shape, picture or text box.'],
+  ['guides','Guides','⌃⌥⌘G','View ▸ Grid and Guides ▸ Guides','edit','deck','Show or hide the drawing guides.'],
+  ['gridlines','Gridlines','⌘\'','View ▸ Grid and Guides ▸ Gridlines','edit','deck','Show or hide the gridlines.'],
+  ['fit-window','Fit to window','⌥⌘O','View ▸ Zoom ▸ Fit to Window','edit','deck','Zoom so the whole slide fits the window.'],
+  ['ribbon','Ribbon','⌥⌘R','View ▸ Ribbon','edit','deck','Show or hide the ribbon.'],
+].map(([id,label,keys,src,cat,when,note],i)=>({id,label,keys,src,cat,when,note,n:String(i+1).padStart(2,'0')}));
+
+const $ = (s) => document.querySelector(s);
+const img = (k) => `icons/${k.n}-${k.id}.png`;
+const color = (c) => `var(--${c})`;
+const caps = (keys) => {
+  if (keys === 'main') return '<kbd>main</kbd>';
+  const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
+  return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
+};
+let cat = 'all', when = 'all';
+
+$('#thumbs').innerHTML = [['all', 'All keys', 'var(--brand)', '32 keys'], ...Object.entries(CATS).map(([c, n]) => [c, n, color(c), K.filter((k) => k.cat === c).map((k) => k.label).slice(0, 3).join(' · ')])]
+  .map(([c, n, col, sub], i) => `<button class="th" data-cat="${c}" aria-pressed="${c === 'all'}"><span class="num">${i + 1}</span><span class="card"><b>${n}</b><span class="bar" style="background:${col}"></span><small>${sub}</small></span></button>`).join('');
+$('#filter').innerHTML = '<span class="lbl">Works when:</span>' + [['all', 'All keys'], ...Object.entries(WHEN)].map(([w, n]) => `<button class="chip" data-when="${w}" aria-pressed="${w === 'all'}">${n}</button>`).join('');
+$('#grid').innerHTML = K.map((k, i) => `<button class="key" data-i="${i}" aria-label="${k.label}, ${k.keys}" aria-pressed="false"><img src="${img(k)}" alt=""></button>`).join('');
+$('#rows').innerHTML = K.map((k, i) => `<tr data-i="${i}"><td><span class="dot" style="background:${color(k.cat)}"></span>${k.label}</td><td><span class="caps" style="margin:0">${caps(k.keys)}</span></td><td>${WHEN[k.when]}</td><td>${k.src}</td></tr>`).join('');
+
+function show(k) {
+  $('#detail').innerHTML = `<div class="nh">Notes · Key ${k.n} · ${WHEN[k.when]}</div>
+  <div class="nb"><img src="${img(k)}" alt=""><div><h2>${k.label}</h2><div class="caps">${caps(k.keys)}</div>${k.note}
+  <div class="src"><span class="pill" style="color:${color(k.cat)}">${CATS[k.cat]}</span><span class="pill">Menu</span> ${k.src}</div></div></div>`;
+  document.querySelectorAll('.key').forEach((b) => b.setAttribute('aria-pressed', String(K[b.dataset.i] === k)));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('sel', K[r.dataset.i] === k));
+}
+function apply() {
+  const off = (k) => (cat !== 'all' && k.cat !== cat) || (when !== 'all' && k.when !== when);
+  document.querySelectorAll('.key').forEach((b) => b.classList.toggle('dim', off(K[b.dataset.i])));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('dim', off(K[r.dataset.i])));
+  document.querySelectorAll('.th').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.cat === cat)));
+  document.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.when === when)));
+}
+$('#grid').addEventListener('click', (e) => { const b = e.target.closest('.key'); if (b) show(K[b.dataset.i]); });
+$('#rows').addEventListener('click', (e) => { const r = e.target.closest('tr'); if (r) show(K[r.dataset.i]); });
+document.querySelectorAll('.th').forEach((c) => c.addEventListener('click', () => { cat = c.dataset.cat; apply(); }));
+document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => { when = c.dataset.when; apply(); }));
+show(K[1]); apply();
+</script>

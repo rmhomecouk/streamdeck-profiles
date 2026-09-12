@@ -1,0 +1,418 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-powerpoint.png",
+    "id": "powerpoint",
+    "label": "PowerPoint",
+    "keys": "main",
+    "action": "Switch Profile → Main",
+    "when": "deck",
+    "category": "show"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-play-start.png",
+    "id": "play-start",
+    "label": "Play from start",
+    "keys": "⇧⌘↩",
+    "action": "Slide Show ▸ Play from Start",
+    "when": "deck",
+    "category": "show"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-play-current.png",
+    "id": "play-current",
+    "label": "From current",
+    "keys": "⌘↩",
+    "action": "Slide Show ▸ Play from Current Slide",
+    "when": "deck",
+    "category": "show"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-presenter.png",
+    "id": "presenter",
+    "label": "Presenter view",
+    "keys": "⌥↩",
+    "action": "Slide Show ▸ Presenter View",
+    "when": "deck",
+    "category": "show"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-normal.png",
+    "id": "normal",
+    "label": "Normal",
+    "keys": "⌘1",
+    "action": "View ▸ Normal",
+    "when": "deck",
+    "category": "show"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-sorter.png",
+    "id": "sorter",
+    "label": "Slide sorter",
+    "keys": "⌘2",
+    "action": "View ▸ Slide Sorter",
+    "when": "deck",
+    "category": "show"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-notes.png",
+    "id": "notes",
+    "label": "Notes page",
+    "keys": "⌘3",
+    "action": "View ▸ Notes Page",
+    "when": "deck",
+    "category": "show"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-reading.png",
+    "id": "reading",
+    "label": "Reading view",
+    "keys": "⌘5",
+    "action": "View ▸ Reading View",
+    "when": "deck",
+    "category": "show"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-new-slide.png",
+    "id": "new-slide",
+    "label": "New slide",
+    "keys": "⇧⌘N",
+    "action": "Insert ▸ New Slide",
+    "when": "deck",
+    "category": "slide"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-duplicate-slide.png",
+    "id": "duplicate-slide",
+    "label": "Duplicate slide",
+    "keys": "⇧⌘D",
+    "action": "Insert ▸ Duplicate Slide",
+    "when": "deck",
+    "category": "slide"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-comment.png",
+    "id": "comment",
+    "label": "Comment",
+    "keys": "⇧⌘M",
+    "action": "Insert ▸ Comment",
+    "when": "deck",
+    "category": "slide"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-link.png",
+    "id": "link",
+    "label": "Link",
+    "keys": "⌘K",
+    "action": "Insert ▸ Hyperlink…",
+    "when": "select",
+    "category": "slide"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-slide-master.png",
+    "id": "slide-master",
+    "label": "Slide master",
+    "keys": "⌥⌘1",
+    "action": "View ▸ Master ▸ Slide Master",
+    "when": "deck",
+    "category": "slide"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-background.png",
+    "id": "background",
+    "label": "Background",
+    "keys": "⇧⌘2",
+    "action": "Format ▸ Slide Background…",
+    "when": "deck",
+    "category": "slide"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-find.png",
+    "id": "find",
+    "label": "Find",
+    "keys": "⌘F",
+    "action": "Edit ▸ Find ▸ Find…",
+    "when": "deck",
+    "category": "slide"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-replace.png",
+    "id": "replace",
+    "label": "Replace",
+    "keys": "⌃H",
+    "action": "Edit ▸ Find ▸ Replace…",
+    "when": "deck",
+    "category": "slide"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-bring-front.png",
+    "id": "bring-front",
+    "label": "Bring to front",
+    "keys": "⇧⌘F",
+    "action": "Arrange ▸ Bring to Front",
+    "when": "select",
+    "category": "arr"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-send-back.png",
+    "id": "send-back",
+    "label": "Send to back",
+    "keys": "⇧⌘B",
+    "action": "Arrange ▸ Send to Back",
+    "when": "select",
+    "category": "arr"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-bring-forward.png",
+    "id": "bring-forward",
+    "label": "Bring forward",
+    "keys": "⌥⇧⌘F",
+    "action": "Arrange ▸ Bring Forward",
+    "when": "select",
+    "category": "arr"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-send-backward.png",
+    "id": "send-backward",
+    "label": "Send backward",
+    "keys": "⌥⇧⌘B",
+    "action": "Arrange ▸ Send Backward",
+    "when": "select",
+    "category": "arr"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-group.png",
+    "id": "group",
+    "label": "Group",
+    "keys": "⌥⌘G",
+    "action": "Arrange ▸ Group",
+    "when": "select",
+    "category": "arr"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-ungroup.png",
+    "id": "ungroup",
+    "label": "Ungroup",
+    "keys": "⌥⇧⌘G",
+    "action": "Arrange ▸ Ungroup",
+    "when": "select",
+    "category": "arr"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-duplicate.png",
+    "id": "duplicate",
+    "label": "Duplicate",
+    "keys": "⌘D",
+    "action": "Edit ▸ Duplicate",
+    "when": "select",
+    "category": "arr"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-selection-pane.png",
+    "id": "selection-pane",
+    "label": "Selection pane",
+    "keys": "⌥⌘U",
+    "action": "Arrange ▸ Selection Pane…",
+    "when": "deck",
+    "category": "arr"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-save.png",
+    "id": "save",
+    "label": "Save",
+    "keys": "⌘S",
+    "action": "File ▸ Save",
+    "when": "deck",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-undo.png",
+    "id": "undo",
+    "label": "Undo",
+    "keys": "⌘Z",
+    "action": "Edit ▸ Undo",
+    "when": "deck",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-redo.png",
+    "id": "redo",
+    "label": "Redo",
+    "keys": "⌘Y",
+    "action": "Edit ▸ Redo (Repeat)",
+    "when": "deck",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-format-pane.png",
+    "id": "format-pane",
+    "label": "Format pane",
+    "keys": "⇧⌘1",
+    "action": "Format ▸ Format Object…",
+    "when": "select",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-guides.png",
+    "id": "guides",
+    "label": "Guides",
+    "keys": "⌃⌥⌘G",
+    "action": "View ▸ Grid and Guides ▸ Guides",
+    "when": "deck",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-gridlines.png",
+    "id": "gridlines",
+    "label": "Gridlines",
+    "keys": "⌘'",
+    "action": "View ▸ Grid and Guides ▸ Gridlines",
+    "when": "deck",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-fit-window.png",
+    "id": "fit-window",
+    "label": "Fit to window",
+    "keys": "⌥⌘O",
+    "action": "View ▸ Zoom ▸ Fit to Window",
+    "when": "deck",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-ribbon.png",
+    "id": "ribbon",
+    "label": "Ribbon",
+    "keys": "⌥⌘R",
+    "action": "View ▸ Ribbon",
+    "when": "deck",
+    "category": "edit"
+  }
+]

@@ -89,6 +89,17 @@
   },
   {
     "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-powerpoint.png",
+    "id": "powerpoint",
+    "label": "PowerPoint",
+    "profile": "PowerPoint",
+    "bundle": "/Applications/Microsoft PowerPoint.app"
+  },
+  {
+    "pos": {
       "col": 3,
       "row": 2
     },
