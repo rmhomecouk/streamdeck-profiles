@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <g opacity="0.55"><text x="17" y="26" font-family="Aptos" font-size="17" font-weight="700" font-style="normal" fill="#5fd0f6" text-anchor="middle">¶</text></g>
 <g transform="translate(40 14)" filter="url(#lift)"><rect x="18" y="4" width="28" height="16" rx="2" fill="none" stroke="#ffffff" stroke-width="4.2"/><path d="M14 46 H8 Q4 46 4 42 V26 Q4 20 10 20 H54 Q60 20 60 26 V42 Q60 46 56 46 H50" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="18" y="36" width="28" height="22" rx="2" fill="#131722" stroke="#5fd0f6" stroke-width="4.2"/><circle cx="50" cy="28" r="3" fill="#5fd0f6" stroke="none" stroke-width="0"/></g>
-<text x="72" y="106" font-family="Aptos" font-size="18" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Print</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#86dcf9" stroke="#86dcf9" stroke-width="0.45" text-anchor="middle">⌘P</text>
+<text x="72" y="117.4" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Print</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

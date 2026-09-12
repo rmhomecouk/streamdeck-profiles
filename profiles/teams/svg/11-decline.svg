@@ -21,7 +21,6 @@
 <rect width="144" height="80" fill="url(#sheen)"/>
 <rect x="60" y="6" width="24" height="4" rx="2" fill="#ff5c6c"/>
 <g transform="translate(40 16)" filter="url(#lift)"><circle cx="32" cy="32" r="28" fill="#ff5c6c" stroke="none" stroke-width="0"/><g transform="translate(32 32) scale(0.58) rotate(135) translate(-32 -32)"><path d="M17 8 C12 8 9 12 9 17 C11 40 25 53 47 55 C52 55 56 52 56 47 V41 C56 39 55 38 53 37 L44 34 C42 33.5 40 34 39 35.5 L36 39.5 C29 36 26 32 23 26 L27 23 C28.5 22 29 20 28.5 18 L25.5 9.5 C25 8.5 24 8 22.5 8 Z" fill="#ffffff" stroke="none" stroke-width="0" stroke-linejoin="round"/></g></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="17.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Decline</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#ff5c6c" stroke="#ff5c6c" stroke-width="0.45" text-anchor="middle">⇧⌘D</text>
+<text x="72" y="118.4" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Decline</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

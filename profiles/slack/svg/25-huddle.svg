@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <g opacity="0.5"><line x1="15" y1="9" x2="13.75" y2="19" stroke="#e01e5a" stroke-width="1.8" stroke-linecap="round"/><line x1="18.25" y1="9" x2="17" y2="19" stroke="#e01e5a" stroke-width="1.8" stroke-linecap="round"/><line x1="11" y1="12.1" x2="21" y2="12.1" stroke="#e01e5a" stroke-width="1.8" stroke-linecap="round"/><line x1="10.75" y1="15.9" x2="20.75" y2="15.9" stroke="#e01e5a" stroke-width="1.8" stroke-linecap="round"/></g>
 <g transform="translate(40 14)" filter="url(#lift)"><path d="M9 40 V32 Q9 9 32 9 Q55 9 55 32 V40" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="5" y="36" width="13" height="21" rx="6" fill="#e01e5a55" stroke="#e01e5a" stroke-width="4.2"/><rect x="46" y="36" width="13" height="21" rx="6" fill="#e01e5a55" stroke="#e01e5a" stroke-width="4.2"/></g>
-<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Huddle</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#ff5c8d" stroke="#ff5c8d" stroke-width="0.45" text-anchor="middle">⇧⌘H</text>
+<text x="72" y="117.4" font-family=".SF NS Rounded" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Huddle</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

@@ -21,7 +21,6 @@
 <rect width="144" height="80" fill="url(#sheen)"/>
 <rect x="60" y="6" width="24" height="4" rx="2" fill="#ffc34d"/>
 <g transform="translate(40 16)" filter="url(#lift)"><rect x="5" y="28" width="12" height="27" rx="3" fill="#f0a830" stroke="none" stroke-width="0"/><path d="M21 28 L28 11 Q30 6.5 34.5 7.5 Q39 9 38 15 L36 23 H50 Q57 23 55.5 30.5 L52.5 47 Q51.5 54 44.5 54 H21 Z" fill="#ffc83d" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="17.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Like</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#ffc34d" stroke="#ffc34d" stroke-width="0.45" text-anchor="middle">⌥⇧1</text>
+<text x="72" y="118.4" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Like</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

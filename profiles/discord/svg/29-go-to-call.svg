@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <circle cx="18" cy="18" r="9.1" fill="#000" fill-opacity="0.35"/><circle cx="18" cy="18" r="6.5" fill="#f23f43" stroke="none" stroke-width="0"/><rect x="14.4" y="16.8" width="7.2" height="2.4" rx="1.2" fill="#1a1b1e"/>
 <g transform="translate(40 14)" filter="url(#lift)"><path d="M6 24 H16 L30 12 V52 L16 40 H6 Z" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 22 Q44 32 38 42" fill="none" stroke="#f23f43" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M45 14 Q56 32 45 50" fill="none" stroke="#f23f43" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Go to call</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#ff6b6e" stroke="#ff6b6e" stroke-width="0.45" text-anchor="middle">⌥⇧⌘V</text>
+<text x="72" y="117.4" font-family=".SF NS Rounded" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Go to call</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

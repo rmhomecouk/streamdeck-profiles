@@ -18,7 +18,7 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <polyline points="61,5 72,11 83,5" fill="none" stroke="#b9a8ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
 <g transform="translate(40 16)" filter="url(#lift)"><rect x="4" y="10" width="56" height="44" rx="7" fill="none" stroke="#ffffff" stroke-width="4.2"/><rect x="34" y="12" width="24" height="40" rx="5" fill="#b9a8ff" fill-opacity="0.45"/><line x1="33" y1="12" x2="33" y2="52" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/><line x1="11" y1="22" x2="26" y2="22" stroke="#ffffffaa" stroke-width="3.2" stroke-linecap="round"/><line x1="11" y1="32" x2="26" y2="32" stroke="#ffffffaa" stroke-width="3.2" stroke-linecap="round"/><line x1="11" y1="42" x2="22" y2="42" stroke="#ffffffaa" stroke-width="3.2" stroke-linecap="round"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="15.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Reading pane</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#b9a8ff" stroke="#b9a8ff" stroke-width="0.45" text-anchor="middle">⌘\</text>
+<text x="72" y="105.7" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Reading</text>
+<text x="72" y="131.1" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">pane</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

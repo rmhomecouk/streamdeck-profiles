@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect x="0" y="30" width="4.5" height="52" fill="#4daafc"/>
 <g transform="translate(40 14)" filter="url(#lift)"><path d="M18 8 Q9 8 9 16 V26 Q9 32 3 32 Q9 32 9 38 V48 Q9 56 18 56" fill="none" stroke="#e8e8e8" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M46 8 Q55 8 55 16 V26 Q55 32 61 32 Q55 32 55 38 V48 Q55 56 46 56" fill="none" stroke="#e8e8e8" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="32" y1="17" x2="32" y2="43" stroke="#4daafc" stroke-width="4.2" stroke-linecap="round"/><polyline points="26,37 32,43 38,37" fill="none" stroke="#4daafc" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="24" y1="47" x2="40" y2="47" stroke="#4daafc" stroke-width="4.2" stroke-linecap="round"/></g>
-<text x="72" y="106" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Definition</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#4daafc" stroke="#4daafc" stroke-width="0.45" text-anchor="middle">F12</text>
+<text x="72" y="117.4" font-family="Helvetica Neue" font-size="24" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Definition</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

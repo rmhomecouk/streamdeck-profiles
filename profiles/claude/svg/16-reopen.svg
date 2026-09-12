@@ -20,7 +20,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect width="144" height="144" fill="url(#grain)"/>
 <g transform="translate(40 14)" filter="url(#lift)"><path d="M16 22 H38 A13 13 0 0 1 38 48 H18" fill="none" stroke="#f4f1ea" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="24,14 16,22 24,30" fill="none" stroke="#e3b57c" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="106" font-family="New York" font-size="19" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Reopen</text>
-<text x="72" y="128" font-family="SF Mono" font-size="14.5" fill="#e3b57c" stroke="#e3b57c" stroke-width="0.35" text-anchor="middle">⇧⌘T</text>
+<text x="72" y="117.4" font-family="New York" font-size="24" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Reopen</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.07" stroke-width="1.5"/>
 </svg>

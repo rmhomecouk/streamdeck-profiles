@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <g opacity="0.6"><rect x="11" y="12" width="15" height="11" fill="none" stroke="#3ccf9e" stroke-width="1.8"/><rect x="23.5" y="20.5" width="5" height="5" fill="#3ccf9e"/></g>
 <g transform="translate(40 14)" filter="url(#lift)"><text x="32" y="44" font-family="Aptos" font-size="27" font-weight="700" font-style="normal" fill="#3ccf9e" text-anchor="middle">0.00</text><line x1="8" y1="54" x2="56" y2="54" stroke="#ffffff66" stroke-width="3" stroke-linecap="round"/></g>
-<text x="72" y="106" font-family="Aptos" font-size="18" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Number</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#6ddcb5" stroke="#6ddcb5" stroke-width="0.45" text-anchor="middle">⌃⇧!</text>
+<text x="72" y="117.4" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Number</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

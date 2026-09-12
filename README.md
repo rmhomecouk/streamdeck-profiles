@@ -71,7 +71,8 @@ AI agents: read [AGENTS.md](AGENTS.md) first. It's the full playbook: how the us
 
 1. **Mockup:**
    - Create `profiles/<name>/` with a `gen.mjs` that writes `icons/`, `svg/`, `keymap.json` and `sheet.png`.
-   - The top-left key shows the app's mark, its name and `main`.
+   - Each key shows its glyph and name, sized by `tools/tile.mjs`. The shortcut isn't printed on the key.
+   - The top-left key shows only the app's mark, filling the key. The launcher reuses that tile as is.
    - Add an `index.html` mockup and a README. Wait for approval.
 2. **Build:**
    - Copy the closest deck's `profile.mjs`, then update `KEY`/`SEND`, the profile `Name` and the top-left key's id.

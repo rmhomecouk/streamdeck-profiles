@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <g opacity="0.6"><rect x="11" y="12" width="15" height="11" fill="none" stroke="#6fd47a" stroke-width="1.8"/><rect x="23.5" y="20.5" width="5" height="5" fill="#6fd47a"/></g>
 <g transform="translate(40 14)" filter="url(#lift)"><text x="14" y="26" font-family="Aptos" font-size="22" font-weight="700" font-style="normal" fill="#ffffff" text-anchor="middle">A</text><text x="14" y="58" font-family="Aptos" font-size="22" font-weight="700" font-style="normal" fill="#ffffff" text-anchor="middle">Z</text><line x1="46" y1="8" x2="46" y2="56" stroke="#6fd47a" stroke-width="5" stroke-linecap="round"/><polyline points="39.5,49.5 46,56 52.5,49.5" fill="none" stroke="#6fd47a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="106" font-family="Aptos" font-size="18" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Sort</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#8fe097" stroke="#8fe097" stroke-width="0.45" text-anchor="middle">⇧⌘R</text>
+<text x="72" y="117.4" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Sort</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

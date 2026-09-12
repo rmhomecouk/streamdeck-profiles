@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <circle cx="18" cy="18" r="9.1" fill="#000" fill-opacity="0.35"/><circle cx="18" cy="18" r="6.5" fill="#f23f43" stroke="none" stroke-width="0"/><rect x="14.4" y="16.8" width="7.2" height="2.4" rx="1.2" fill="#1a1b1e"/>
 <g transform="translate(40 14)" filter="url(#lift)"><rect x="4" y="4" width="25" height="25" rx="8.5" fill="#f23f4355" stroke="#f23f43" stroke-width="4.2"/><rect x="35" y="4" width="25" height="25" rx="8.5" fill="none" stroke="#ffffff" stroke-width="4.2"/><rect x="4" y="35" width="25" height="25" rx="8.5" fill="none" stroke="#ffffff" stroke-width="4.2"/><rect x="35" y="35" width="25" height="25" rx="8.5" fill="none" stroke="#ffffff" stroke-width="4.2"/><g transform="translate(9 9)"><path d="M6 13 V3 L13 1.5" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="13" r="3" fill="#ffffff" stroke="none" stroke-width="0"/></g></g>
-<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Soundboard</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#ff6b6e" stroke="#ff6b6e" stroke-width="0.45" text-anchor="middle">⇧⌘B</text>
+<text x="72" y="117.2" font-family=".SF NS Rounded" font-size="23.3" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Soundboard</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

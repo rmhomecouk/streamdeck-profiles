@@ -18,7 +18,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <polyline points="61,5 72,11 83,5" fill="none" stroke="#ff5c6c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
 <g transform="translate(40 16)" filter="url(#lift)"><line x1="12" y1="6" x2="12" y2="58" stroke="#ff5c6c" stroke-width="4.6" stroke-linecap="round"/><path d="M12 9 H52 L44 22 L52 35 H12" fill="#ff5c6c55" stroke="#ff5c6c" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="17.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Flag</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#ff5c6c" stroke="#ff5c6c" stroke-width="0.45" text-anchor="middle">⌃1</text>
+<text x="72" y="118.4" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Flag</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

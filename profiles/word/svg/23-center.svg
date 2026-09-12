@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <g opacity="0.55"><text x="17" y="26" font-family="Aptos" font-size="17" font-weight="700" font-style="normal" fill="#a393ff" text-anchor="middle">¶</text></g>
 <g transform="translate(40 14)" filter="url(#lift)"><line x1="6" y1="10" x2="58" y2="10" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/><line x1="16" y1="24" x2="48" y2="24" stroke="#a393ff" stroke-width="4.2" stroke-linecap="round"/><line x1="6" y1="38" x2="58" y2="38" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/><line x1="20" y1="52" x2="44" y2="52" stroke="#a393ff" stroke-width="4.2" stroke-linecap="round"/></g>
-<text x="72" y="106" font-family="Aptos" font-size="18" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Center</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#bdb3ff" stroke="#bdb3ff" stroke-width="0.45" text-anchor="middle">⌘E</text>
+<text x="72" y="117.4" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Center</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

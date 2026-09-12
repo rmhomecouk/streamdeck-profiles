@@ -3,6 +3,7 @@ import { Resvg } from '@resvg/resvg-js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fitLabel, HERO_GLYPH } from '../../tools/tile.mjs';
 
 // Output defaults to this profile's folder: svg/, icons/, keymap.json, sheet.png
 const OUT = process.argv[2] || path.dirname(fileURLToPath(import.meta.url));
@@ -161,9 +162,8 @@ function tile(k) {
 <rect width="144" height="144" fill="url(#wash)"/>
 ${ring}
 <rect width="144" height="80" fill="url(#sheen)"/>
-<g transform="translate(40 14)" filter="url(#lift)">${k.icon(a)}</g>
-<text x="72" y="106" font-family="${SANS}" font-size="17.5" fill="${W}" stroke="${W}" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">${k.label}</text>
-<text x="72" y="127" font-family="${MONO}" font-size="15" fill="${k.hero ? '#a6f7ff' : a}" stroke="${k.hero ? '#a6f7ff' : a}" stroke-width="0.45" text-anchor="middle">${k.keys}</text>
+<g transform="${k.hero ? HERO_GLYPH : 'translate(40 14)'}" filter="url(#lift)">${k.icon(a)}</g>
+${k.hero ? '' : fitLabel(k.label, { family: SANS, weight: 400, font: FONT }).map((l) => `<text x="72" y="${l.y}" font-family="${SANS}" font-size="${l.size}" fill="${W}" stroke="${W}" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">${l.text}</text>`).join('\n')}
 <rect x="0.9" y="0.9" width="142.2" height="142.2" rx="20" fill="none" stroke="url(#rim)" stroke-width="1.8"/>
 </svg>`;
 }

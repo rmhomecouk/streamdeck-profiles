@@ -13,7 +13,7 @@
 <rect width="144" height="144" fill="url(#bg)"/>
 <rect width="144" height="144" fill="url(#wash)"/>
 
-<g transform="translate(40 14)" filter="url(#lift)"><defs>
+<g transform="translate(12 12) scale(1.875)" filter="url(#lift)"><defs>
   <linearGradient id="l1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fd6f8"/><stop offset="1" stop-color="#b3a9f5"/></linearGradient>
   <linearGradient id="l2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3c86e0"/><stop offset="1" stop-color="#7466e0"/></linearGradient>
   <linearGradient id="l3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b3cc0"/><stop offset="1" stop-color="#2452d8"/></linearGradient>
@@ -24,7 +24,6 @@
 <rect x="16" y="2" width="46" height="26" rx="7" fill="url(#l1)"/>
 <rect x="0" y="23" width="32" height="32" rx="8" fill="url(#wb)" stroke="#0b1650" stroke-opacity="0.5" stroke-width="1"/>
 <text x="16" y="47" font-family="Aptos" font-size="25" font-weight="700" font-style="normal" fill="#f4f6ff" text-anchor="middle">W</text></g>
-<text x="72" y="106" font-family="Aptos" font-size="18" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Word</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#c9d6ff" stroke="#c9d6ff" stroke-width="0.45" text-anchor="middle">main</text>
+
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5"/>
 </svg>

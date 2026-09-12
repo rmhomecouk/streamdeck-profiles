@@ -18,7 +18,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <polyline points="61,5 72,11 83,5" fill="none" stroke="#6cd0fa" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
 <g transform="translate(40 16)" filter="url(#lift)"><path d="M5 16 Q5 10 11 10 H24 L29 16 H53 Q59 16 59 22 V50 Q59 56 53 56 H11 Q5 56 5 50 Z" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="44" cy="42" r="15" fill="#141824"/><circle cx="42" cy="40" r="8" fill="none" stroke="#6cd0fa" stroke-width="3.8"/><line x1="48" y1="46" x2="55" y2="53" stroke="#6cd0fa" stroke-width="4.6" stroke-linecap="round"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="15.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Go to folder</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#6cd0fa" stroke="#6cd0fa" stroke-width="0.45" text-anchor="middle">⌃G</text>
+<text x="72" y="118.4" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Go to folder</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

@@ -32,8 +32,7 @@
 <rect width="144" height="72" fill="url(#sheen)"/>
 <g transform="translate(40 14)" filter="url(#glow)"><path d="M9.45 23.79 A24 24 0 0 1 52.78 20.00" fill="none" stroke="#8fb8ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="54.80,12.49 52.78,20.00 45.27,17.99" fill="none" stroke="#8fb8ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M54.55 40.21 A24 24 0 0 1 11.22 44.00" fill="none" stroke="#8fb8ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9.20,51.51 11.22,44.00 18.73,46.01" fill="none" stroke="#8fb8ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><polygon points="28.24,23.82 29.26,20.32 34.74,20.32 35.76,23.82 37.20,24.65 40.75,23.79 43.49,28.53 40.96,31.17 40.96,32.83 43.49,35.47 40.75,40.21 37.20,39.35 35.76,40.18 34.74,43.68 29.26,43.68 28.24,40.18 26.80,39.35 23.25,40.21 20.51,35.47 23.04,32.83 23.04,31.17 20.51,28.53 23.25,23.79 26.80,24.65" fill="none" stroke="#eef3ff" stroke-width="3.2" stroke-linejoin="round"/></g>
 <g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
-  <text x="72" y="105" font-size="17" font-weight="700" fill="#eef3ff" filter="url(#tglow)">reload</text>
-  <text x="72" y="128" font-size="16" font-weight="700" fill="#8fb8ff" opacity="0.92">⇧⌘,</text>
+  <text x="72" y="117.4" font-size="24" font-weight="700" fill="#eef3ff" filter="url(#tglow)">reload</text>
 </g>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

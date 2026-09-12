@@ -1,5 +1,6 @@
 // Generates the Main launcher's key icons (one per app profile) plus a contact sheet.
-// Each key is its app deck's top-left tile with the text removed and the app's mark scaled to fill the key.
+// Each key is its app deck's top-left tile, used as is: that tile already has no text and its mark fills the key
+// (see HERO_GLYPH in tools/tile.mjs), so the deck and the launcher show the same icon.
 import { Resvg } from '@resvg/resvg-js';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -28,30 +29,6 @@ const APPS = [
   { id: 'excel', label: 'Excel', profile: 'Excel', svg: 'excel/svg/01-excel.svg', row: 2, col: 4, bundle: '/Applications/Microsoft Excel.app' },
 ];
 
-// Ghostty's main app icon: a solid ghost with its prompt in the upper left of the blue dot-matrix screen.
-// The tile's own dotted blue background is the screen, so no bezel is drawn.
-function ghosttyApp() {
-  let d = 'M12 54 V32 A20 20 0 0 1 52 32 V54';
-  let x = 52;
-  for (let i = 0; i < 4; i++) { d += ` Q${x - 2.5} 60 ${x - 5} 55 Q${x - 7.5} 50 ${x - 10} 55`; x -= 10; }
-  d += ' Z';
-  return `<g transform="translate(-6 -10) scale(0.95)">
-  <path d="${d}" fill="#dfe3ff" stroke="#f4f6ff" stroke-width="1.6" stroke-linejoin="round"/>
-  <polyline points="21,27 28,32 21,37" fill="none" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="32" y1="37" x2="43" y2="37" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round"/>
-</g>`;
-}
-
-// drop the name and shortcut lines (y ≈ 105–128) and the per-deck edge marks (VS Code's activity bar, Teams' top pill),
-// then scale the 64-unit mark group up to fill the tile
-function fullBleed(svg, id) {
-  svg = svg.replace(/<text x="72" y="1(0[0-9]|1[0-9]|2[0-9])"[^>]*>[^<]*<\/text>/g, '')
-    .replace(/<rect x="0" y="30" width="4\.5" height="52"[^>]*\/>/, '')
-    .replace(/<rect x="60" y="6" width="24" height="4" rx="2"[^>]*\/>/, '');
-  if (id === 'ghostty') svg = svg.replace(/(<g transform="translate\(40 14\)" filter="url\(#glow\)">)[\s\S]*?(<\/g>)/, `<g transform="translate(40 14)">${ghosttyApp()}</g>`);
-  return svg.replace(/<g transform="translate\(40 1[46]\)"/, '<g transform="translate(12 12) scale(1.875)"');
-}
-
 const fontDir = path.join(os.homedir(), 'Library/Fonts');
 const FONT = {
   fontFiles: [
@@ -66,7 +43,7 @@ const pngs = {};
 for (const a of APPS) {
   const n = String(a.row * 8 + a.col + 1).padStart(2, '0');
   a.file = `${n}-${a.id}.png`;
-  const svg = fullBleed(fs.readFileSync(path.join(PROFILES, a.svg), 'utf8'), a.id);
+  const svg = fs.readFileSync(path.join(PROFILES, a.svg), 'utf8');
   fs.writeFileSync(path.join(OUT, 'svg', `${n}-${a.id}.svg`), svg);
   const png = new Resvg(svg, { fitTo: { mode: 'width', value: 288 }, font: FONT }).render().asPng();
   fs.writeFileSync(path.join(OUT, 'icons', a.file), png);

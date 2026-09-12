@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <g opacity="0.5"><line x1="15" y1="9" x2="13.75" y2="19" stroke="#36c5f0" stroke-width="1.8" stroke-linecap="round"/><line x1="18.25" y1="9" x2="17" y2="19" stroke="#36c5f0" stroke-width="1.8" stroke-linecap="round"/><line x1="11" y1="12.1" x2="21" y2="12.1" stroke="#36c5f0" stroke-width="1.8" stroke-linecap="round"/><line x1="10.75" y1="15.9" x2="20.75" y2="15.9" stroke="#36c5f0" stroke-width="1.8" stroke-linecap="round"/></g>
 <g transform="translate(40 14)" filter="url(#lift)"><line x1="54" y1="32" x2="10" y2="32" stroke="#36c5f0" stroke-width="5" stroke-linecap="round"/><polyline points="16.5,25.5 10,32 16.5,38.5" fill="none" stroke="#36c5f0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Back</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#5fd3f5" stroke="#5fd3f5" stroke-width="0.45" text-anchor="middle">⌘[</text>
+<text x="72" y="117.4" font-family=".SF NS Rounded" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Back</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

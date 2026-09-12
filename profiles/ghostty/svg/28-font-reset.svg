@@ -32,8 +32,8 @@
 <rect width="144" height="72" fill="url(#sheen)"/>
 <g transform="translate(40 14)" filter="url(#glow)"><text x="24" y="54" font-family="JetBrainsMono Nerd Font" font-weight="800" font-size="50" fill="#eef3ff" text-anchor="middle">A</text><text x="51" y="30" font-family="JetBrainsMono Nerd Font" font-weight="800" font-size="24" fill="#ff8a3a" text-anchor="middle">0</text></g>
 <g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
-  <text x="72" y="105" font-size="17" font-weight="700" fill="#eef3ff" filter="url(#tglow)">font reset</text>
-  <text x="72" y="128" font-size="16" font-weight="700" fill="#ff8a3a" opacity="0.92">⌘0</text>
+  <text x="72" y="104.7" font-size="24" font-weight="700" fill="#eef3ff" filter="url(#tglow)">font</text>
+  <text x="72" y="130.1" font-size="24" font-weight="700" fill="#eef3ff" filter="url(#tglow)">reset</text>
 </g>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

@@ -18,7 +18,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <polyline points="61,5 72,11 83,5" fill="none" stroke="#4d9bf7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
 <g transform="translate(40 16)" filter="url(#lift)"><path d="M12 6 H38 L50 18 V58 H12 Z" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="38,6 38,18 50,18" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="46" r="13" fill="#141824"/><line x1="40" y1="40" x2="52" y2="52" stroke="#ff5c6c" stroke-width="4.6" stroke-linecap="round"/><line x1="52" y1="40" x2="40" y2="52" stroke="#ff5c6c" stroke-width="4.6" stroke-linecap="round"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="17.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Discard</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#4d9bf7" stroke="#4d9bf7" stroke-width="0.45" text-anchor="middle">⌘esc</text>
+<text x="72" y="118.4" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Discard</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

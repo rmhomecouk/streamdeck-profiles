@@ -32,8 +32,7 @@
 <rect width="144" height="72" fill="url(#sheen)"/>
 <g transform="translate(40 14)" filter="url(#glow)"><path d="M6 24 V16 Q6 12 10 12 H26 Q30 12 30 16 V24" fill="none" stroke="#eef3ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="24" width="52" height="30" rx="5" fill="none" stroke="#eef3ff" stroke-width="4"/><line x1="40.5" y1="16" x2="51.5" y2="16" stroke="#3fd0e8" stroke-width="4" stroke-linecap="round"/><line x1="46" y1="10.5" x2="46" y2="21.5" stroke="#3fd0e8" stroke-width="4" stroke-linecap="round"/><line x1="34" y1="24" x2="58" y2="24" stroke="#eef3ff" stroke-width="4" stroke-linecap="round"/></g>
 <g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
-  <text x="72" y="105" font-size="17" font-weight="700" fill="#eef3ff" filter="url(#tglow)">new tab</text>
-  <text x="72" y="128" font-size="16" font-weight="700" fill="#3fd0e8" opacity="0.92">⌘T</text>
+  <text x="72" y="117.4" font-size="24" font-weight="700" fill="#eef3ff" filter="url(#tglow)">new tab</text>
 </g>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

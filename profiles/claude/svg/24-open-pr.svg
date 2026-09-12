@@ -20,7 +20,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect width="144" height="144" fill="url(#grain)"/>
 <g transform="translate(40 14)" filter="url(#lift)"><circle cx="17" cy="13" r="5" fill="none" stroke="#f4f1ea" stroke-width="4.2"/><circle cx="17" cy="51" r="5" fill="none" stroke="#f4f1ea" stroke-width="4.2"/><circle cx="47" cy="51" r="5" fill="none" stroke="#f4f1ea" stroke-width="4.2"/><line x1="17" y1="18" x2="17" y2="46" stroke="#f4f1ea" stroke-width="4.2" stroke-linecap="round"/><path d="M47 46 V25 Q47 16 38 16 H29" fill="none" stroke="#8fb4e3" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="34,11 29,16 34,21" fill="none" stroke="#8fb4e3" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="106" font-family="New York" font-size="19" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Open PR</text>
-<text x="72" y="128" font-family="SF Mono" font-size="14.5" fill="#8fb4e3" stroke="#8fb4e3" stroke-width="0.35" text-anchor="middle">⌥⌘G</text>
+<text x="72" y="117.4" font-family="New York" font-size="24" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Open PR</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.07" stroke-width="1.5"/>
 </svg>

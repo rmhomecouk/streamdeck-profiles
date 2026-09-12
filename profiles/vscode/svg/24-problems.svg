@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect x="0" y="30" width="4.5" height="52" fill="#4ec9b0"/>
 <g transform="translate(40 14)" filter="url(#lift)"><circle cx="20" cy="22" r="15" fill="none" stroke="#f14c4c" stroke-width="4.2"/><line x1="14" y1="16" x2="26" y2="28" stroke="#f14c4c" stroke-width="4.2" stroke-linecap="round"/><line x1="26" y1="16" x2="14" y2="28" stroke="#f14c4c" stroke-width="4.2" stroke-linecap="round"/><path d="M44 30 L60 58 H28 Z" fill="none" stroke="#cca700" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="44" y1="40" x2="44" y2="47" stroke="#cca700" stroke-width="3.6" stroke-linecap="round"/><circle cx="44" cy="53" r="1.6" fill="#cca700" stroke="none" stroke-width="0"/></g>
-<text x="72" y="106" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Problems</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#4ec9b0" stroke="#4ec9b0" stroke-width="0.45" text-anchor="middle">⇧⌘M</text>
+<text x="72" y="117.4" font-family="Helvetica Neue" font-size="24" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Problems</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

@@ -32,8 +32,7 @@
 <rect width="144" height="72" fill="url(#sheen)"/>
 <g transform="translate(40 14)" filter="url(#glow)"><path d="M16 22 H38 A13 13 0 0 1 38 48 H18" fill="none" stroke="#eef3ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="24,14 16,22 24,30" fill="none" stroke="#3fd0e8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
 <g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
-  <text x="72" y="105" font-size="17" font-weight="700" fill="#eef3ff" filter="url(#tglow)">reopen</text>
-  <text x="72" y="128" font-size="16" font-weight="700" fill="#3fd0e8" opacity="0.92">⌘Z</text>
+  <text x="72" y="117.4" font-size="24" font-weight="700" fill="#eef3ff" filter="url(#tglow)">reopen</text>
 </g>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

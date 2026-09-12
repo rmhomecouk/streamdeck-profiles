@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect x="0" y="30" width="4.5" height="52" fill="#4ec9b0"/>
 <g transform="translate(40 14)" filter="url(#lift)"><circle cx="36" cy="26" r="17" fill="none" stroke="#e8e8e8" stroke-width="4.2"/><line x1="24" y1="38" x2="8" y2="54" stroke="#e8e8e8" stroke-width="6" stroke-linecap="round"/><path d="M29 21 A9 9 0 0 1 37 15" fill="none" stroke="#4ec9b0" stroke-width="3.4" stroke-linecap="round"/></g>
-<text x="72" y="106" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Search</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#4ec9b0" stroke="#4ec9b0" stroke-width="0.45" text-anchor="middle">⇧⌘F</text>
+<text x="72" y="117.4" font-family="Helvetica Neue" font-size="24" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Search</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

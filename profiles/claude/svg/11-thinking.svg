@@ -20,7 +20,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect width="144" height="144" fill="url(#grain)"/>
 <g transform="translate(40 14)" filter="url(#lift)"><path d="M20 40 A9 9 0 0 1 17 22 A12 12 0 0 1 38 14 A11 11 0 0 1 51 30 A9 9 0 0 1 44 40 Z" fill="none" stroke="#f4f1ea" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="28" r="2.8" fill="#e3b57c" stroke="none" stroke-width="0"/><circle cx="33" cy="28" r="2.8" fill="#e3b57c" stroke="none" stroke-width="0"/><circle cx="41" cy="28" r="2.8" fill="#e3b57c" stroke="none" stroke-width="0"/><circle cx="17" cy="48" r="3.4" fill="none" stroke="#f4f1ea" stroke-width="3"/><circle cx="10" cy="56" r="2.2" fill="none" stroke="#f4f1ea" stroke-width="2.6"/></g>
-<text x="72" y="106" font-family="New York" font-size="19" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Thinking</text>
-<text x="72" y="128" font-family="SF Mono" font-size="14.5" fill="#e3b57c" stroke="#e3b57c" stroke-width="0.35" text-anchor="middle">⇧⌘E</text>
+<text x="72" y="117.4" font-family="New York" font-size="24" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Thinking</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.07" stroke-width="1.5"/>
 </svg>

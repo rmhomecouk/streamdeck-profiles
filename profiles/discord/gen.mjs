@@ -3,6 +3,7 @@ import { Resvg } from '@resvg/resvg-js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fitLabel, HERO_GLYPH } from '../../tools/tile.mjs';
 
 // Output defaults to this profile's folder: svg/, icons/, keymap.json, sheet.png
 const OUT = process.argv[2] || path.dirname(fileURLToPath(import.meta.url));
@@ -25,8 +26,6 @@ const C = {
   chat: '#23a55a', // GREEN_360 (online) — chat
   voice: '#f23f43', // RED_400 (do not disturb) — voice & more
 };
-// shortcut text: the same hues, lifted so they read on Discord's dark greys (BRAND_360, GREEN_300)
-const T = { nav: '#949cf7', read: '#f6c65a', chat: '#3bd67f', voice: '#ff6b6e' };
 const W = '#ffffff';
 const INK = '#1a1b1e'; // PRIMARY_730
 
@@ -122,7 +121,7 @@ const KEYS = [
   // row 4 — voice & more
   { id: 'mute', label: 'Mute', keys: '⇧⌘M', src: 'TOGGLE_MUTE · mod+shift+m', cat: 'voice', when: 'anywhere', icon: (a) => mic() + line(12, 8, 52, 52, a, 4.8) },
   { id: 'deafen', label: 'Deafen', keys: '⇧⌘D', src: 'TOGGLE_DEAFEN · mod+shift+d', cat: 'voice', when: 'anywhere', icon: (a) => pathS('M9 42 V33 Q9 9 32 9 Q55 9 55 33 V42') + rect(5, 37, 13, 21, 6, W, 'none') + rect(46, 37, 13, 21, 6, W, 'none') + line(10, 8, 54, 54, a, 4.8) },
-  { id: 'answer', label: 'Answer call', keys: '⌘↩', src: 'CALL_ACCEPT · mod+return', cat: 'voice', when: 'ringing', c: '#23a55a', t: '#3bd67f', icon: (a) => phone(a, `${a}55`) },
+  { id: 'answer', label: 'Answer call', keys: '⌘↩', src: 'CALL_ACCEPT · mod+return', cat: 'voice', when: 'ringing', c: '#23a55a', icon: (a) => phone(a, `${a}55`) },
   { id: 'start-call', label: 'Start call', keys: '⌃\'', src: 'CALL_START · ctrl+\'', cat: 'voice', when: 'dm', icon: (a) => phone(W) + pathS('M40 8 Q52 10 55 22', a, 'none', 3.8) + pathS('M38 17 Q45 18 46 25', a, 'none', 3.8) },
   { id: 'go-to-call', label: 'Go to call', keys: '⌥⇧⌘V', src: 'JUMP_TO_CURRENT_CALL · mod+shift+alt+v', cat: 'voice', when: 'call', icon: (a) => speaker() + pathS('M38 22 Q44 32 38 42', a, 'none', 4) + pathS('M45 14 Q56 32 45 50', a, 'none', 4) },
   { id: 'soundboard', label: 'Soundboard', keys: '⇧⌘B', src: 'SEARCH_SOUNDBOARD · mod+shift+b', cat: 'voice', when: 'call', icon: (a) => server(4, 4, 25, a, `${a}55`) + server(35, 4, 25) + server(4, 35, 25) + server(35, 35, 25) + `<g transform="translate(9 9)">${pathS('M6 13 V3 L13 1.5', W, 'none', 2.6)}${dot(4, 13, 3, W)}</g>` },
@@ -132,10 +131,8 @@ const KEYS = [
 
 function tile(k) {
   const a = k.c || C[k.cat];
-  const t = k.t || T[k.cat];
   // PRIMARY_660 → PRIMARY_730 → PRIMARY_800; the hero uses the app icon's near-black
   const bg = k.hero ? ['#232428', '#161719', '#0c0c0e'] : ['#2b2d31', '#1e1f22', '#111214'];
-  const labelSize = k.label.length > 14 ? 14.5 : k.label.length > 11 ? 15.5 : 17.5;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
 <defs>
   <radialGradient id="bg" cx="50%" cy="20%" r="95%">
@@ -151,9 +148,8 @@ function tile(k) {
 <rect width="144" height="144" fill="url(#bg)"/>
 <rect width="144" height="144" fill="url(#wash)"/>
 ${k.hero ? '' : status(k.cat, C[k.cat])}
-<g transform="translate(40 14)" filter="url(#lift)">${k.icon(a)}</g>
-<text x="72" y="106" font-family="${SANS}" font-size="${labelSize}" font-weight="700" fill="${W}" stroke="${W}" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">${k.label}</text>
-<text x="72" y="127" font-family="${MONO}" font-size="15" fill="${k.hero ? '#bcc1fa' : t}" stroke="${k.hero ? '#bcc1fa' : t}" stroke-width="0.45" text-anchor="middle">${k.keys}</text>
+<g transform="${k.hero ? HERO_GLYPH : 'translate(40 14)'}" filter="url(#lift)">${k.icon(a)}</g>
+${k.hero ? '' : fitLabel(k.label, { family: SANS, weight: 700, font: FONT }).map((l) => `<text x="72" y="${l.y}" font-family="${SANS}" font-size="${l.size}" font-weight="700" fill="${W}" stroke="${W}" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">${l.text}</text>`).join('\n')}
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="${k.hero ? 0.2 : 0.08}" stroke-width="1.5"/>
 </svg>`;
 }

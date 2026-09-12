@@ -14,7 +14,7 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <g opacity="0.6"><rect x="11" y="12" width="15" height="11" fill="none" stroke="#a7d9b5" stroke-width="1.8"/><rect x="23.5" y="20.5" width="5" height="5" fill="#a7d9b5"/></g>
 <g transform="translate(40 14)" filter="url(#lift)"><circle cx="32" cy="32" r="25" fill="none" stroke="#ffffff" stroke-width="4.2"/><polyline points="32,16 32,32 44,40" fill="none" stroke="#a7d9b5" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="106" font-family="Aptos" font-size="16" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Current time</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#c2e6cc" stroke="#c2e6cc" stroke-width="0.45" text-anchor="middle">⌘;</text>
+<text x="72" y="104.7" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Current</text>
+<text x="72" y="130.1" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">time</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

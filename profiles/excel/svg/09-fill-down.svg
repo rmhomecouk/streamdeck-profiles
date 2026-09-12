@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <g opacity="0.6"><rect x="11" y="12" width="15" height="11" fill="none" stroke="#6fd47a" stroke-width="1.8"/><rect x="23.5" y="20.5" width="5" height="5" fill="#6fd47a"/></g>
 <g transform="translate(40 14)" filter="url(#lift)"><rect x="8" y="4" width="26" height="18" fill="#6fd47a" fill-opacity="0.5"/><rect x="8" y="4" width="26" height="54" rx="3" fill="none" stroke="#ffffff" stroke-width="3.4"/><line x1="8" y1="22" x2="34" y2="22" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/><line x1="8" y1="40" x2="34" y2="40" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/><text x="21" y="18" font-family="Aptos" font-size="14" font-weight="700" font-style="normal" fill="#ffffff" text-anchor="middle">5</text><line x1="50" y1="10" x2="50" y2="54" stroke="#6fd47a" stroke-width="5" stroke-linecap="round"/><polyline points="43.5,47.5 50,54 56.5,47.5" fill="none" stroke="#6fd47a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="106" font-family="Aptos" font-size="18" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Fill down</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#8fe097" stroke="#8fe097" stroke-width="0.45" text-anchor="middle">⌘D</text>
+<text x="72" y="117.4" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Fill down</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

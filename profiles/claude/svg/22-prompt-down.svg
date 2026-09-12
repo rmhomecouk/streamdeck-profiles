@@ -20,7 +20,7 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect width="144" height="144" fill="url(#grain)"/>
 <g transform="translate(40 14)" filter="url(#lift)"><polyline points="18,10 25,17 18,24" fill="none" stroke="#f4f1ea" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="30" y1="24" x2="46" y2="24" stroke="#f4f1ea" stroke-width="4.2" stroke-linecap="round"/><line x1="32" y1="34" x2="32" y2="54" stroke="#8fb4e3" stroke-width="4.2" stroke-linecap="round"/><polyline points="26.5,48.5 32,54 37.5,48.5" fill="none" stroke="#8fb4e3" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="106" font-family="New York" font-size="19" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Prompt down</text>
-<text x="72" y="128" font-family="SF Mono" font-size="14.5" fill="#8fb4e3" stroke="#8fb4e3" stroke-width="0.35" text-anchor="middle">⌥⌘↓</text>
+<text x="72" y="104.7" font-family="New York" font-size="24" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Prompt</text>
+<text x="72" y="130.1" font-family="New York" font-size="24" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">down</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.07" stroke-width="1.5"/>
 </svg>

@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <g opacity="0.55"><text x="17" y="26" font-family="Aptos" font-size="17" font-weight="700" font-style="normal" fill="#5fd0f6" text-anchor="middle">¶</text></g>
 <g transform="translate(40 14)" filter="url(#lift)"><g transform="translate(64 0) scale(-1 1)"><path d="M18 24 H40 Q56 24 56 40 Q56 56 40 56 H26" fill="none" stroke="#5fd0f6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="27,13 16,24 27,35" fill="none" stroke="#5fd0f6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></g>
-<text x="72" y="106" font-family="Aptos" font-size="18" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Redo</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#86dcf9" stroke="#86dcf9" stroke-width="0.45" text-anchor="middle">⇧⌘Z</text>
+<text x="72" y="117.4" font-family="Aptos" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Redo</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

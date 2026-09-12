@@ -3,6 +3,7 @@ import { Resvg } from '@resvg/resvg-js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fitLabel, HERO_GLYPH } from '../../tools/tile.mjs';
 
 // Output defaults to this profile's folder: svg/, icons/, keymap.json, sheet.png
 const OUT = process.argv[2] || path.dirname(fileURLToPath(import.meta.url));
@@ -29,8 +30,6 @@ const C = {
   read: '#ecb22e', // yellow — catch up
   you: '#e01e5a',  // red    — huddles & you
 };
-// shortcut text: the same hues, lifted so they read on aubergine
-const T = { nav: '#5fd3f5', msg: '#4cd395', read: '#f3c451', you: '#ff5c8d' };
 const W = '#ffffff';
 const INK = '#1a0f1b';
 
@@ -122,7 +121,6 @@ const KEYS = [
 function tile(k) {
   const a = k.c || C[k.cat];
   const bg = k.hero ? ['#4f1c51', '#351437', '#1f0c20'] : ['#3a1c3c', '#27132a', '#190c1a'];
-  const labelSize = k.label.length > 11 ? 15.5 : 17.5;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
 <defs>
   <radialGradient id="bg" cx="50%" cy="20%" r="95%">
@@ -138,9 +136,8 @@ function tile(k) {
 <rect width="144" height="144" fill="url(#bg)"/>
 <rect width="144" height="144" fill="url(#wash)"/>
 ${k.hero ? '' : `<g opacity="0.5">${hash(16, 14, 5, a, 1.8)}</g>`}
-<g transform="translate(40 14)" filter="url(#lift)">${k.icon(a)}</g>
-<text x="72" y="106" font-family="${SANS}" font-size="${labelSize}" font-weight="700" fill="${W}" stroke="${W}" stroke-width="${lato.length ? 0 : 0.6}" text-anchor="middle" filter="url(#lift)">${k.label}</text>
-<text x="72" y="127" font-family="${MONO}" font-size="15" fill="${k.hero ? '#e8c9ea' : T[k.cat]}" stroke="${k.hero ? '#e8c9ea' : T[k.cat]}" stroke-width="0.45" text-anchor="middle">${k.keys}</text>
+<g transform="${k.hero ? HERO_GLYPH : 'translate(40 14)'}" filter="url(#lift)">${k.icon(a)}</g>
+${k.hero ? '' : fitLabel(k.label, { family: SANS, weight: 700, font: FONT }).map((l) => `<text x="72" y="${l.y}" font-family="${SANS}" font-size="${l.size}" font-weight="700" fill="${W}" stroke="${W}" stroke-width="${lato.length ? 0 : 0.6}" text-anchor="middle" filter="url(#lift)">${l.text}</text>`).join('\n')}
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="${k.hero ? 0.2 : 0.08}" stroke-width="1.5"/>
 </svg>`;
 }

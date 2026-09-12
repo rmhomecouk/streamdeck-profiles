@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <circle cx="18" cy="18" r="9.1" fill="#000" fill-opacity="0.35"/><circle cx="18" cy="18" r="6.5" fill="#23a55a" stroke="none" stroke-width="0"/>
 <g transform="translate(40 14)" filter="url(#lift)"><g transform="rotate(35 32 32)"><path d="M23 6 H41 L39 22 Q48 27 49 36 H15 Q16 27 25 22 Z" fill="#23a55a55" stroke="#23a55a" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="32" y1="36" x2="32" y2="60" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/></g></g>
-<text x="72" y="106" font-family=".SF NS Rounded" font-size="17.5" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Pins</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#3bd67f" stroke="#3bd67f" stroke-width="0.45" text-anchor="middle">⌘P</text>
+<text x="72" y="117.4" font-family=".SF NS Rounded" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Pins</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

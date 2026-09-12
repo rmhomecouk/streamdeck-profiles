@@ -18,7 +18,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <polyline points="61,5 72,11 83,5" fill="none" stroke="#6cd0fa" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
 <g transform="translate(40 16)" filter="url(#lift)"><rect x="5" y="8" width="15" height="15" rx="4" fill="#6cd0fa40" stroke="#6cd0fa" stroke-width="3.4"/><polyline points="8.5,15.5 11.5,18.5 16.5,12.5" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><line x1="27" y1="15.5" x2="58" y2="15.5" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/><rect x="5" y="30" width="15" height="15" rx="4" fill="none" stroke="#ffffff" stroke-width="3.4"/><line x1="27" y1="37.5" x2="58" y2="37.5" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/><line x1="27" y1="54" x2="48" y2="54" stroke="#ffffff88" stroke-width="3.4" stroke-linecap="round"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="17.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Tasks</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#6cd0fa" stroke="#6cd0fa" stroke-width="0.45" text-anchor="middle">⌘4</text>
+<text x="72" y="118.4" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Tasks</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

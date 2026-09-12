@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect x="0" y="30" width="4.5" height="52" fill="#c586c0"/>
 <g transform="translate(40 14)" filter="url(#lift)"><rect x="3" y="11" width="26" height="17" rx="3" fill="#c586c0" fill-opacity="0.35"/><rect x="31" y="36" width="26" height="17" rx="3" fill="#c586c0" fill-opacity="0.35"/><line x1="29" y1="8" x2="29" y2="31" stroke="#e8e8e8" stroke-width="3.4" stroke-linecap="round"/><line x1="57" y1="33" x2="57" y2="56" stroke="#e8e8e8" stroke-width="3.4" stroke-linecap="round"/><line x1="6" y1="44" x2="26" y2="44" stroke="#858585" stroke-width="3" stroke-linecap="round"/><line x1="34" y1="20" x2="56" y2="20" stroke="#858585" stroke-width="3" stroke-linecap="round"/></g>
-<text x="72" y="106" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Next match</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#c586c0" stroke="#c586c0" stroke-width="0.45" text-anchor="middle">⌘D</text>
+<text x="72" y="116.7" font-family="Helvetica Neue" font-size="22" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Next match</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

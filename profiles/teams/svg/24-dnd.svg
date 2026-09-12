@@ -21,7 +21,7 @@
 <rect width="144" height="80" fill="url(#sheen)"/>
 <rect x="60" y="6" width="24" height="4" rx="2" fill="#ff5c6c"/>
 <g transform="translate(40 16)" filter="url(#lift)"><circle cx="32" cy="32" r="25" fill="#ff5c6c" stroke="none" stroke-width="0"/><line x1="19" y1="32" x2="45" y2="32" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="15.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Do not disturb</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#ff5c6c" stroke="#ff5c6c" stroke-width="0.45" text-anchor="middle">⌥⇧U</text>
+<text x="72" y="105.7" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Do not</text>
+<text x="72" y="131.1" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">disturb</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

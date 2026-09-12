@@ -31,7 +31,7 @@ The apps start on row 2 and fill it, then continue from the middle of row 3. The
 
 ## Icons
 
-Each tile is its deck's top-left tile with the name and shortcut text removed, the app's mark scaled to fill the key, and the per-deck edge marks taken off (VS Code's activity bar, Teams' top pill). Ghostty shows its app icon: a solid ghost with its prompt, in the upper left of the blue dot-matrix screen.
+Each tile is its deck's top-left tile (`svg/01-*.svg`), copied as is, so a deck and the launcher always show the same icon. That tile has no text: the app's mark is scaled to fill the key (`HERO_GLYPH` in `tools/tile.mjs`), with no edge mark. Ghostty shows its app icon: a solid ghost with its prompt, in the upper left of the blue dot-matrix screen.
 
 ## How each key works
 

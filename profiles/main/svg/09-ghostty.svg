@@ -35,9 +35,6 @@
   <polyline points="21,27 28,32 21,37" fill="none" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
   <line x1="32" y1="37" x2="43" y2="37" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round"/>
 </g></g>
-<g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
-  
-  
-</g>
+
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5"/>
 </svg>

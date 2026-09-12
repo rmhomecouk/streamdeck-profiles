@@ -32,8 +32,7 @@
 <rect width="144" height="72" fill="url(#sheen)"/>
 <g transform="translate(40 14)" filter="url(#glow)"><line x1="32" y1="28" x2="32" y2="8" stroke="#ffc878" stroke-width="4" stroke-linecap="round"/><polyline points="37.5,13.5 32,8 26.5,13.5" fill="none" stroke="#ffc878" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="18,38 25,45 18,52" fill="none" stroke="#eef3ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><line x1="30" y1="52" x2="46" y2="52" stroke="#eef3ff" stroke-width="4" stroke-linecap="round"/></g>
 <g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
-  <text x="72" y="105" font-size="17" font-weight="700" fill="#eef3ff" filter="url(#tglow)">prompt ↑</text>
-  <text x="72" y="128" font-size="16" font-weight="700" fill="#ffc878" opacity="0.92">⌘↑</text>
+  <text x="72" y="117.4" font-size="24" font-weight="700" fill="#eef3ff" filter="url(#tglow)">prompt ↑</text>
 </g>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

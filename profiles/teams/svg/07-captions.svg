@@ -21,7 +21,6 @@
 <rect width="144" height="80" fill="url(#sheen)"/>
 <rect x="60" y="6" width="24" height="4" rx="2" fill="#8b8ff8"/>
 <g transform="translate(40 16)" filter="url(#lift)"><rect x="5" y="13" width="54" height="38" rx="8" fill="none" stroke="#ffffff" stroke-width="4.2"/><text x="32" y="40" font-family=".SF NS Rounded" font-size="21" fill="#8b8ff8" stroke="#8b8ff8" stroke-width="1" text-anchor="middle">CC</text></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="17.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Captions</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#8b8ff8" stroke="#8b8ff8" stroke-width="0.45" text-anchor="middle">⇧⌘A</text>
+<text x="72" y="118.4" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Captions</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

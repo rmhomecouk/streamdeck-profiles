@@ -21,7 +21,6 @@
 <rect width="144" height="80" fill="url(#sheen)"/>
 <rect x="60" y="6" width="24" height="4" rx="2" fill="#5fd38a"/>
 <g transform="translate(40 16)" filter="url(#lift)"><path d="M34 7 H49 Q57 7 57 15 V49 Q57 57 49 57 H34" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="9" y1="32" x2="39" y2="32" stroke="#5fd38a" stroke-width="4.2" stroke-linecap="round"/><polyline points="33.5,37.5 39,32 33.5,26.5" fill="none" stroke="#5fd38a" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="17.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Join</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#5fd38a" stroke="#5fd38a" stroke-width="0.45" text-anchor="middle">⇧⌘J</text>
+<text x="72" y="118.4" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Join</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

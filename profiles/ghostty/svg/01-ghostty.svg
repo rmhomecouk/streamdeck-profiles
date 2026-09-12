@@ -30,10 +30,11 @@
 <rect width="144" height="144" fill="url(#dots)"/>
 <rect width="144" height="144" fill="url(#aura)"/>
 <rect width="144" height="72" fill="url(#sheen)"/>
-<g transform="translate(40 14)" filter="url(#glow)"><path d="M12 54 V32 A20 20 0 0 1 52 32 V54 Q49.5 60 47 55 Q44.5 50 42 55 Q39.5 60 37 55 Q34.5 50 32 55 Q29.5 60 27 55 Q24.5 50 22 55 Q19.5 60 17 55 Q14.5 50 12 55 Z" fill="#dfe3ff" stroke="#f4f6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,27 28,32 22,37" fill="none" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><line x1="32" y1="37" x2="42" y2="37" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round"/></g>
-<g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
-  <text x="72" y="105" font-size="17" font-weight="700" fill="#eef3ff" filter="url(#tglow)">ghostty</text>
-  <text x="72" y="128" font-size="16" font-weight="700" fill="#c8d2ff" opacity="0.92">main</text>
-</g>
+<g transform="translate(12 12) scale(1.875)"><g transform="translate(-6 -10) scale(0.95)">
+  <path d="M12 54 V32 A20 20 0 0 1 52 32 V54 Q49.5 60 47 55 Q44.5 50 42 55 Q39.5 60 37 55 Q34.5 50 32 55 Q29.5 60 27 55 Q24.5 50 22 55 Q19.5 60 17 55 Q14.5 50 12 55 Z" fill="#dfe3ff" stroke="#f4f6ff" stroke-width="1.6" stroke-linejoin="round"/>
+  <polyline points="21,27 28,32 21,37" fill="none" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="32" y1="37" x2="43" y2="37" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round"/>
+</g></g>
+
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5"/>
 </svg>

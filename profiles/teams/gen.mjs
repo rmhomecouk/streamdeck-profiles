@@ -3,6 +3,7 @@ import { Resvg } from '@resvg/resvg-js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fitLabel, HERO_GLYPH } from '../../tools/tile.mjs';
 
 // Output defaults to this profile's folder: svg/, icons/, keymap.json, sheet.png
 const OUT = process.argv[2] || path.dirname(fileURLToPath(import.meta.url));
@@ -116,7 +117,6 @@ const KEYS = [
 function tile(k) {
   const a = k.c || C[k.cat];
   const bg = k.hero ? ['#302d4d', '#211f36', '#16151f'] : ['#2c2b35', '#1f1f26', '#16161b'];
-  const labelSize = k.label.length > 11 ? 15.5 : 17.5;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
 <defs>
   <radialGradient id="bg" cx="50%" cy="20%" r="95%">
@@ -138,10 +138,9 @@ function tile(k) {
 <rect width="144" height="144" fill="url(#bg)"/>
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect width="144" height="80" fill="url(#sheen)"/>
-<rect x="60" y="6" width="24" height="4" rx="2" fill="${k.hero ? '#a59cff' : a}"/>
-<g transform="translate(40 16)" filter="url(#lift)">${k.icon(a)}</g>
-<text x="72" y="107" font-family="${SANS}" font-size="${labelSize}" fill="${W}" stroke="${W}" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">${k.label}</text>
-<text x="72" y="128" font-family="${MONO}" font-size="15" fill="${k.hero ? '#c4bdff' : a}" stroke="${k.hero ? '#c4bdff' : a}" stroke-width="0.45" text-anchor="middle">${k.keys}</text>
+${k.hero ? '' : `<rect x="60" y="6" width="24" height="4" rx="2" fill="${a}"/>`}
+<g transform="${k.hero ? HERO_GLYPH : 'translate(40 16)'}" filter="url(#lift)">${k.icon(a)}</g>
+${k.hero ? '' : fitLabel(k.label, { family: SANS, weight: 400, font: FONT }, { glyphBottom: 80 }).map((l) => `<text x="72" y="${l.y}" font-family="${SANS}" font-size="${l.size}" fill="${W}" stroke="${W}" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">${l.text}</text>`).join('\n')}
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="${k.hero ? 0.2 : 0.08}" stroke-width="1.5"/>
 </svg>`;
 }

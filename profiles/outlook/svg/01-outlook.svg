@@ -17,8 +17,7 @@
 <rect width="144" height="144" fill="url(#bg)"/>
 <rect width="144" height="144" fill="url(#wash)"/>
 
-<g transform="translate(40 16)" filter="url(#lift)"><path d="M10 24 L34 8 Q37 6 40 8 L62 22 V52 Q62 58 56 58 H16 Q10 58 10 52 Z" fill="url(#ob)"/><path d="M22 14 L34 7 Q37 5.5 40 7 L62 21 V30 L48 40 Z" fill="url(#os)" opacity="0.95"/><path d="M10 26 L40 46 L62 30 V52 Q62 58 56 58 H16 Q10 58 10 52 Z" fill="url(#of)"/><rect x="0" y="22" width="32" height="32" rx="7" fill="url(#op)"/><ellipse cx="16" cy="38" rx="8" ry="9" fill="none" stroke="#fff" stroke-width="5"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="17.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Outlook</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#a9d4ff" stroke="#a9d4ff" stroke-width="0.45" text-anchor="middle">main</text>
+<g transform="translate(12 12) scale(1.875)" filter="url(#lift)"><path d="M10 24 L34 8 Q37 6 40 8 L62 22 V52 Q62 58 56 58 H16 Q10 58 10 52 Z" fill="url(#ob)"/><path d="M22 14 L34 7 Q37 5.5 40 7 L62 21 V30 L48 40 Z" fill="url(#os)" opacity="0.95"/><path d="M10 26 L40 46 L62 30 V52 Q62 58 56 58 H16 Q10 58 10 52 Z" fill="url(#of)"/><rect x="0" y="22" width="32" height="32" rx="7" fill="url(#op)"/><ellipse cx="16" cy="38" rx="8" ry="9" fill="none" stroke="#fff" stroke-width="5"/></g>
+
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5"/>
 </svg>

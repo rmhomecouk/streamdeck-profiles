@@ -18,7 +18,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <polyline points="61,5 72,11 83,5" fill="none" stroke="#8a7ff8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
 <g transform="translate(40 16)" filter="url(#lift)"><path d="M6 28 L32 10 L58 28 V54 Q58 58 54 58 H10 Q6 58 6 54 Z" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="8,30 32,46 56,30" fill="none" stroke="#8a7ff8" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="17.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Mark read</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#8a7ff8" stroke="#8a7ff8" stroke-width="0.45" text-anchor="middle">⌘T</text>
+<text x="72" y="118.4" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Mark read</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

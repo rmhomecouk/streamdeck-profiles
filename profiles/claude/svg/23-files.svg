@@ -20,7 +20,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect width="144" height="144" fill="url(#grain)"/>
 <g transform="translate(40 14)" filter="url(#lift)"><path d="M14 8 H36 L50 22 V52 Q50 56 46 56 H18 Q14 56 14 52 Z" fill="none" stroke="#f4f1ea" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 8 V22 H50" fill="none" stroke="#f4f1ea" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="22" y1="34" x2="42" y2="34" stroke="#8fb4e3" stroke-width="3.4" stroke-linecap="round"/><line x1="22" y1="43" x2="36" y2="43" stroke="#8fb4e3" stroke-width="3.4" stroke-linecap="round"/></g>
-<text x="72" y="106" font-family="New York" font-size="19" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Files</text>
-<text x="72" y="128" font-family="SF Mono" font-size="14.5" fill="#8fb4e3" stroke="#8fb4e3" stroke-width="0.35" text-anchor="middle">⇧⌘F</text>
+<text x="72" y="117.4" font-family="New York" font-size="24" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Files</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.07" stroke-width="1.5"/>
 </svg>

@@ -17,7 +17,8 @@ The same goes for the Stream Deck file format. Copy structures from real files t
 - **"Mockup a profile for X"** means build the mockup only: `gen.mjs`, the icons and `sheet.png`, `index.html`, the profile README, and a published artifact. Then **stop and wait for approval**. Don't write `profile.mjs`, deploy or commit.
 - **"Build it and push"** (or "do it", "all good") means finish the job: write `profile.mjs`, wire the deck into the repo and the launcher, build, verify, rebuild the backup, commit and push, then hand the restore to the user.
 - **Change requests on a mockup** ("remove the text", "move it to row 2") mean updating the mockup and republishing the same artifact. Don't build until approved.
-- Keep the **tile layout consistent across decks**: glyph, label, then the shortcut as plain accent text. Per-app flavour belongs in the palette, glyphs and one small edge mark, not in the tile structure. A filled status-bar strip behind the shortcut was rejected for this reason.
+- Keep the **tile layout consistent across decks**: the glyph, then the key's name as large as it fits (`fitLabel` in `tools/tile.mjs`). **No shortcut text on the keys**: the user asked for them off so the names can be bigger. The shortcuts live in the README table and the mockup page. Per-app flavour belongs in the palette, glyphs and one small edge mark, not in the tile structure.
+- **The top-left key and the launcher show the same icon**: the app's mark filling the key, with no text.
 - Say what you're doing in short updates. Summarise results in plain language: what changed, what the user needs to do, what's still unverified.
 
 ## Safety rules
@@ -55,7 +56,7 @@ The only dependency is `@resvg/resvg-js`, installed with `npm install`. Start a 
 
 **Mockup phase** (stop at the end and wait for approval):
 1. **Get the shortcuts** from the installed app (see *Getting the shortcuts*). Record where each one came from.
-2. **Plan the layout:** 32 keys in four rows of eight, one category per row. Key `0,0` is the **top-left key**: the app's mark, its name, and `main` on the shortcut line. It goes back to Main.
+2. **Plan the layout:** 32 keys in four rows of eight, one category per row. Key `0,0` is the **top-left key**: the app's mark filling the key, with no text. It goes back to Main. In `gen.mjs` it has `hero: true` and `keys: 'main'` (the keymap and the mockup page use that; the key doesn't print it).
 3. **Design the icons** from the app's own icon and palette (see *Icon system*). The top-left tile must follow the rules in *Top-left tile*, so the launcher can reuse it.
 4. **Write `gen.mjs`, render, and look at `sheet.png`.** Fix anything that's off before going further.
 5. **Write `index.html`** (the mockup) and the profile `README.md`, with Status set to "Mockup only".
@@ -71,7 +72,7 @@ The only dependency is `@resvg/resvg-js`, installed with `npm install`. Start a 
    - `APPS` in `profiles/main/gen.mjs`: id, label, profile Name, `svg/01-*.svg` path, row, column and bundle path. The keys fill row 2, then continue from the middle of row 3 (columns 4 and 5, then outward). Ask the user if the next free spot isn't obvious.
    - `DECKS` in `tools/backup.mjs`: dir, profile Name and app path. The Name must match the deck's `profile.mjs` and the launcher's `APPS` entry.
    - Update `profiles/main/index.html` (the `K` array) and the launcher README's layout table.
-4. **Build:** run `npm run <deck>`, then `npm run main`. Look at `profiles/main/sheet.png`: the new tile must fill its key with no stray text or edge marks.
+4. **Build:** run `npm run <deck>`, then `npm run main`. Look at `profiles/main/sheet.png`, and check that `cmp profiles/<deck>/icons/01-*.png profiles/main/icons/NN-<deck>.png` reports no difference.
 5. **Verify** the deck's zip (see *Verify a build*).
 6. **Deploy** (see *Deploy to the user's Stream Deck*), then **commit and push**.
 
@@ -87,7 +88,7 @@ The only dependency is `@resvg/resvg-js`, installed with `npm install`. Start a 
 ### Change the launcher
 
 - **Layout or keys:** edit `APPS` in `profiles/main/gen.mjs`, plus the `K` array in `index.html` and the README table. Run `npm run main`.
-- **Tile look:** `fullBleed()` in `profiles/main/gen.mjs` strips each deck's text and edge marks, then scales the mark group. If a deck adds a new edge mark, add a `replace` for it there.
+- **Tile look:** the launcher copies each deck's `svg/01-*.svg` unchanged, so change a launcher icon by changing that deck's top-left tile in its `gen.mjs`, then run the deck and `npm run main`.
 - **Behaviour:** `profiles/main/profile.mjs` builds each key as a Multi Action Switch whose two lists are the same two steps: Switch Profile to the deck, then Open Application.
 - Then run `npm run backup`, deploy, commit and push. Republish the launcher artifact (same scratchpad path, so the same URL).
 
@@ -265,22 +266,20 @@ Each tile is a 144 × 144 SVG viewBox rendered to a **288 px** PNG with resvg.
 | Element | Spec |
 |---|---|
 | Glyph | a 64-unit group at `translate(40 14)` (Teams and Outlook use 16); strokes 4.2 wide with round caps and joins |
-| Label | `<text x="72" y≈106>`, about 17.5 px, bold faked with a same-colour `stroke-width 0.55–0.6`; about 15.5 px when longer than 11 characters |
-| Shortcut | `<text x="72" y≈127>`, about 15 px, in the row's accent colour |
+| Name | `fitLabel(label, { family, weight, font: FONT })` from `tools/tile.mjs` returns one or two `{ text, size, y }` lines, centred in the space under the glyph (y 84–134, 118 wide). Names go up to 24 px on one line. Below 22 px they split onto two lines at the space that keeps them biggest. A single long word just shrinks ("Strikethrough"). Bold is faked with a same-colour `stroke-width 0.25–0.6`. Pass `{ glyphBottom: 80 }` when the glyph sits at `translate(40 16)` |
+| Shortcut | **not drawn.** It stays in `keymap.json`, the README table and the mockup page |
 | Edge mark | one small per-deck flourish (Teams' top pill, VS Code's activity bar, Slack's `#`, Outlook's chevron, Discord's status dot, Word's ¶, Excel's cell) |
+
+`fitLabel` measures each name with resvg itself (`getBBox`), so the size matches the render. Use it for every deck; don't hand-pick label sizes.
 
 ### Top-left tile
 
-Key `0,0` on every deck:
-- shows the app's own mark as the glyph, the app's name as the label, and `main` on the shortcut line
-- uses a slightly brighter background than the other tiles. It may keep the deck's edge mark (Teams and VS Code do)
+Key `0,0` on every deck (`hero: true`):
+- shows only the app's own mark, scaled to fill the key: its glyph group uses `HERO_GLYPH` (`translate(12 12) scale(1.875)`) from `tools/tile.mjs`
+- has no name, no edge mark, and a slightly brighter background than the other tiles
 - is a **Switch Profile to Main** in `profile.mjs` (`isMain`), never an Open Application or a hotkey
 
-The launcher builds its tiles from `svg/01-<id>.svg`, so that file must keep:
-- the mark in the one `translate(40 14|16)` group
-- the label and shortcut as `<text x="72" y="105–128">`
-
-If the tile has an edge mark, add a `replace` for it in `fullBleed()` in `profiles/main/gen.mjs`, or it shows up as a stray line on the launcher.
+The launcher copies `svg/01-<id>.svg` unchanged, so the deck and Main show the same icon. Draw the mark so it reads at full size (Ghostty's is its app icon, the solid ghost with the prompt).
 
 ### Design rules
 
@@ -303,8 +302,7 @@ If the tile has an edge mark, add a `replace` for it in `fullBleed()` in `profil
 - Use SF Pro Rounded (`.SF NS Rounded`, from `SFNSRounded.ttf`), SF Mono (`.SF NS Mono`), Helvetica Neue, New York, JetBrainsMono Nerd Font, or an app's bundled font (Aptos).
 - Use the family name from the font's `name` table, not its marketing name.
 - To test a font, render sample text with `loadSystemFonts: false` and only that font file loaded, then count the opaque pixels. With system fonts enabled, unknown names fall back silently and look like they work.
-- If any glyph in a `<text>` run needs a fallback font, resvg swaps the font for the **whole run**, and `<tspan>` doesn't help. So keep arrows and math signs (← ↑ − +) out of labels and write words instead ("Prev pane", "Zoom out"). Modifier symbols (⌘⇧⌥⌃) are fine in the shortcut line.
-
+- If any glyph in a `<text>` run needs a fallback font, resvg swaps the font for the **whole run**, and `<tspan>` doesn't help. So keep arrows and math signs (← ↑ − +) out of labels and write words instead ("Prev pane", "Zoom out").
 ### Review
 
 Look at `sheet.png` after every render. Image viewers may cache by path, so copy the sheet to a new filename in the scratchpad before looking at it again.

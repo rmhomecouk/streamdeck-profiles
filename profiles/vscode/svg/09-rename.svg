@@ -14,7 +14,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect x="0" y="30" width="4.5" height="52" fill="#c586c0"/>
 <g transform="translate(40 14)" filter="url(#lift)"><rect x="3" y="17" width="58" height="30" rx="6" fill="none" stroke="#e8e8e8" stroke-width="4.2"/><text x="8" y="40" font-family=".SF NS Mono" font-size="19" fill="#e8e8e8" stroke="#e8e8e8" stroke-width="0.86" text-anchor="start">ab</text><line x1="40" y1="23" x2="40" y2="41" stroke="#c586c0" stroke-width="3.6" stroke-linecap="round"/><line x1="35" y1="23" x2="45" y2="23" stroke="#c586c0" stroke-width="3" stroke-linecap="round"/><line x1="35" y1="41" x2="45" y2="41" stroke="#c586c0" stroke-width="3" stroke-linecap="round"/></g>
-<text x="72" y="106" font-family="Helvetica Neue" font-size="18" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Rename</text>
-<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#c586c0" stroke="#c586c0" stroke-width="0.45" text-anchor="middle">F2</text>
+<text x="72" y="117.4" font-family="Helvetica Neue" font-size="24" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">Rename</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

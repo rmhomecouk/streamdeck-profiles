@@ -32,8 +32,7 @@
 <rect width="144" height="72" fill="url(#sheen)"/>
 <g transform="translate(40 14)" filter="url(#glow)"><g transform="rotate(-38 32 30)"><rect x="12" y="21" width="40" height="18" rx="4" fill="#ffc878" stroke="#ffc878" stroke-width="0"/><rect x="12" y="21" width="16" height="18" rx="4" fill="#07102a" opacity="0"/><rect x="26" y="21" width="26" height="18" rx="4" fill="#07102a" stroke="#eef3ff" stroke-width="4"/><rect x="12" y="21" width="40" height="18" rx="4" fill="none" stroke="#eef3ff" stroke-width="4"/></g><line x1="10" y1="56" x2="54" y2="56" stroke="#eef3ff" stroke-width="3" stroke-linecap="round"/></g>
 <g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
-  <text x="72" y="105" font-size="17" font-weight="700" fill="#eef3ff" filter="url(#tglow)">clear</text>
-  <text x="72" y="128" font-size="16" font-weight="700" fill="#ffc878" opacity="0.92">⌘K</text>
+  <text x="72" y="117.4" font-size="24" font-weight="700" fill="#eef3ff" filter="url(#tglow)">clear</text>
 </g>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

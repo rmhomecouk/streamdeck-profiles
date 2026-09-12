@@ -6,7 +6,7 @@ A 32-key Stream Deck XL profile for Safari 27. Every shortcut was read from Safa
 
 **Interactive mockup:** [live version](https://claude.ai/code/artifact/589a06e9-d96b-4750-b59f-a9a2613080eb), or open `index.html` locally. Click any key to see its shortcut and the Safari menu item behind it.
 
-The keys borrow from Safari's icon: dark glass tiles with a faint compass bezel, a bright glass rim, and white glyphs. Labels are set in SF Pro Rounded and shortcuts in SF Mono. Each row has its own colour. The hero key is the compass itself.
+The keys borrow from Safari's icon: dark glass tiles with a faint compass bezel, a bright glass rim, and white glyphs. Labels are set in SF Pro Rounded. Each row has its own colour. The hero key is the compass itself.
 
 ## Layout
 

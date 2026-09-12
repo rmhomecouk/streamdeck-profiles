@@ -21,7 +21,6 @@
 <rect width="144" height="80" fill="url(#sheen)"/>
 <rect x="60" y="6" width="24" height="4" rx="2" fill="#ffc34d"/>
 <g transform="translate(40 16)" filter="url(#lift)"><path d="M32 55 C10 41 5 29 11 19 C17 10 28 11 32 20 C36 11 47 10 53 19 C59 29 54 41 32 55 Z" fill="#ff6b8a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="72" y="107" font-family=".SF NS Rounded" font-size="17.5" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Heart</text>
-<text x="72" y="128" font-family=".SF NS Mono" font-size="15" fill="#ffc34d" stroke="#ffc34d" stroke-width="0.45" text-anchor="middle">⌥⇧2</text>
+<text x="72" y="118.4" font-family=".SF NS Rounded" font-size="24" fill="#ffffff" stroke="#ffffff" stroke-width="0.6" text-anchor="middle" filter="url(#lift)">Heart</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
 </svg>

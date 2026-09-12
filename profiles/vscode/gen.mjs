@@ -3,6 +3,7 @@ import { Resvg } from '@resvg/resvg-js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fitLabel, HERO_GLYPH } from '../../tools/tile.mjs';
 
 // Output defaults to this profile's folder: svg/, icons/, keymap.json, sheet.png
 const OUT = process.argv[2] || path.dirname(fileURLToPath(import.meta.url));fs.mkdirSync(path.join(OUT, 'svg'), { recursive: true });
@@ -116,7 +117,6 @@ const KEYS = [
 function tile(k) {
   const a = k.c || C[k.cat];
   const bg = k.hero ? ['#26303d', '#1b2028', '#141619'] : ['#272727', '#1e1e1e', '#161616'];
-  const labelSize = k.label.length > 11 ? 16 : 18;
   const tint = k.hero ? '#4c9df0' : a;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
 <defs>
@@ -132,10 +132,9 @@ function tile(k) {
 </defs>
 <rect width="144" height="144" fill="url(#bg)"/>
 <rect width="144" height="144" fill="url(#wash)"/>
-<rect x="0" y="30" width="4.5" height="52" fill="${tint}"/>
-<g transform="translate(40 14)" filter="url(#lift)">${k.icon(a)}</g>
-<text x="72" y="106" font-family="${SANS}" font-size="${labelSize}" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">${k.label}</text>
-<text x="72" y="127" font-family="${MONO}" font-size="15" fill="${k.hero ? '#9cc9ff' : a}" stroke="${k.hero ? '#9cc9ff' : a}" stroke-width="0.45" text-anchor="middle">${k.keys}</text>
+${k.hero ? '' : `<rect x="0" y="30" width="4.5" height="52" fill="${tint}"/>`}
+<g transform="${k.hero ? HERO_GLYPH : 'translate(40 14)'}" filter="url(#lift)">${k.icon(a)}</g>
+${k.hero ? '' : fitLabel(k.label, { family: SANS, weight: 700, font: FONT }).map((l) => `<text x="72" y="${l.y}" font-family="${SANS}" font-size="${l.size}" font-weight="700" fill="#f2f2f2" text-anchor="middle" filter="url(#lift)">${l.text}</text>`).join('\n')}
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="${k.hero ? 0.2 : 0.08}" stroke-width="1.5"/>
 </svg>`;
 }

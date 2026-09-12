@@ -20,7 +20,6 @@
 <rect width="144" height="144" fill="url(#wash)"/>
 <rect width="144" height="144" fill="url(#grain)"/>
 <g transform="translate(40 14)" filter="url(#lift)"><circle cx="17" cy="12" r="5" fill="none" stroke="#f4f1ea" stroke-width="4.2"/><circle cx="47" cy="12" r="5" fill="none" stroke="#f4f1ea" stroke-width="4.2"/><circle cx="32" cy="52" r="5" fill="none" stroke="#f4f1ea" stroke-width="4.2"/><path d="M17 17 V22 Q17 31 26 31 H38 Q47 31 47 22 V17" fill="none" stroke="#b9b3e0" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="32" y1="31" x2="32" y2="47" stroke="#b9b3e0" stroke-width="4.2" stroke-linecap="round"/></g>
-<text x="72" y="106" font-family="New York" font-size="19" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Fork</text>
-<text x="72" y="128" font-family="SF Mono" font-size="14.5" fill="#b9b3e0" stroke="#b9b3e0" stroke-width="0.35" text-anchor="middle">⌥⌘O</text>
+<text x="72" y="117.4" font-family="New York" font-size="24" fill="#f4f1ea" stroke="#f4f1ea" stroke-width="0.55" text-anchor="middle" filter="url(#lift)">Fork</text>
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.07" stroke-width="1.5"/>
 </svg>

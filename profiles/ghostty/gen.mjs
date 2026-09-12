@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
+import { fitLabel, HERO_GLYPH } from '../../tools/tile.mjs';
 
 // Output defaults to this profile's folder: svg/, icons/, keymap.json, sheet.png
 const OUT = process.argv[2] || path.dirname(fileURLToPath(import.meta.url));
@@ -63,12 +64,18 @@ function ghost() {
   return pathS(d, W, 'rgba(238,243,255,0.16)') + poly('22,27 28,32 22,37', W) + line(32, 37, 42, 37, W);
 }
 // Ghostty's own mark for the top-left key: the ghost filled in, with its prompt in the screen blue, as on the app icon
+// Ghostty's main app icon: a solid ghost with its prompt in the upper left of the blue dot-matrix screen.
+// The tile's own dotted blue background is the screen, so no bezel is drawn.
 function ghostSolid() {
   let d = 'M12 54 V32 A20 20 0 0 1 52 32 V54';
   let x = 52;
   for (let i = 0; i < 4; i++) { d += ` Q${x - 2.5} 60 ${x - 5} 55 Q${x - 7.5} 50 ${x - 10} 55`; x -= 10; }
   d += ' Z';
-  return pathS(d, '#f4f6ff', '#dfe3ff', 2) + poly('22,27 28,32 22,37', '#1d2bb5', 4.4) + line(32, 37, 42, 37, '#1d2bb5', 4.4);
+  return `<g transform="translate(-6 -10) scale(0.95)">
+  <path d="${d}" fill="#dfe3ff" stroke="#f4f6ff" stroke-width="1.6" stroke-linejoin="round"/>
+  <polyline points="21,27 28,32 21,37" fill="none" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="32" y1="37" x2="43" y2="37" stroke="#1d2bb5" stroke-width="4.4" stroke-linecap="round"/>
+</g>`;
 }
 // half of the standard frame, filled, clipped to the frame's rounded shape
 const half = (side, c) => {
@@ -180,11 +187,10 @@ function tile(k, i) {
 <rect width="144" height="144" fill="url(#dots)"/>
 <rect width="144" height="144" fill="url(#aura)"/>
 <rect width="144" height="72" fill="url(#sheen)"/>
-<g transform="translate(40 14)" filter="url(#glow)">${k.icon(a)}</g>
-<g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
-  <text x="72" y="105" font-size="17" font-weight="700" fill="${W}" filter="url(#tglow)">${k.label}</text>
-  <text x="72" y="128" font-size="16" font-weight="700" fill="${k.hero ? '#c8d2ff' : a}" opacity="0.92">${k.keys}</text>
-</g>
+${k.hero ? `<g transform="${HERO_GLYPH}">${k.icon(a)}</g>` : `<g transform="translate(40 14)" filter="url(#glow)">${k.icon(a)}</g>`}
+${k.hero ? '' : `<g font-family="JetBrainsMono Nerd Font" text-anchor="middle">
+  ${fitLabel(k.label, { family: 'JetBrainsMono Nerd Font', weight: 700, font: FONT }).map((l) => `<text x="72" y="${l.y}" font-size="${l.size}" font-weight="700" fill="${W}" filter="url(#tglow)">${l.text}</text>`).join('\n  ')}
+</g>`}
 <rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#ffffff" stroke-opacity="${k.hero ? 0.22 : 0.08}" stroke-width="1.5"/>
 </svg>`;
 }
