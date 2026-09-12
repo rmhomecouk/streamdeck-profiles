@@ -61,15 +61,24 @@ npm install
 npm run ghostty
 ```
 
-`npm run ghostty` regenerates the icons (`gen.mjs`) and then the profile (`profile.mjs`). Each build creates new UUIDs, so re-importing adds a fresh copy of the profile rather than replacing the existing one.
+`npm run ghostty` regenerates the icons (`gen.mjs`) and then the profile (`profile.mjs`). `npm run main` rebuilds the launcher, and `npm run backup` rebuilds the full backup from whatever is currently built.
+
+After any change, run the deck's script, then `npm run main` if its top-left tile changed, then `npm run backup`, and restore the backup. Re-importing a single `.streamDeckProfile` instead adds a fresh copy with a new id, which breaks the keys that point at it.
 
 ## Adding a profile
 
-AI agents: read [AGENTS.md](AGENTS.md) first. It's the full playbook: where to find an app's real shortcuts, the icon system, how to build and check the profile file, the import steps, and the traps to avoid. `CLAUDE.md` loads it automatically for Claude Code. The short version:
+AI agents: read [AGENTS.md](AGENTS.md) first. It's the full playbook: how the user likes to work, where to find an app's real shortcuts, the icon system, how to build and check the files, how to deploy through the backup, and the traps to avoid. `CLAUDE.md` loads it automatically for Claude Code. The short version:
 
-1. Create `profiles/<name>/` with a `gen.mjs` that writes `icons/`, `svg/`, `keymap.json` and `sheet.png`.
-2. Copy `profiles/ghostty/profile.mjs`, then update the `KEY`/`SEND` hotkey maps, the profile `Name` and the device model.
-3. Add `<name>:icons`, `<name>:profile` and `<name>` scripts to `package.json`, and a row to the table above.
+1. **Mockup:**
+   - Create `profiles/<name>/` with a `gen.mjs` that writes `icons/`, `svg/`, `keymap.json` and `sheet.png`.
+   - The top-left key shows the app's mark, its name and `main`.
+   - Add an `index.html` mockup and a README. Wait for approval.
+2. **Build:**
+   - Copy the closest deck's `profile.mjs`, then update `KEY`/`SEND`, the profile `Name` and the top-left key's id.
+   - Add `<name>:icons`, `<name>:profile` and `<name>` to `package.json`, and a row to the table above.
+3. **Launcher:** add the deck to `APPS` in `profiles/main/gen.mjs` and to `DECKS` in `tools/backup.mjs`, then run `npm run main`.
+4. **Deploy:** run `npm run backup`, check it, and restore it in the Stream Deck app.
+5. **Commit:** scan the staged diff for personal paths and serials, then commit and push.
 
 ## Profile format notes (Stream Deck 7.x)
 

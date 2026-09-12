@@ -3,3 +3,4 @@ build/
 # stages left behind if a profile build is interrupted
 .build-*
 node_modules/
+.DS_Store
