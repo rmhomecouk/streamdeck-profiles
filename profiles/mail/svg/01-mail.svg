@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#3aa8ff"/><stop offset="0.55" stop-color="#1581ff"/><stop offset="1" stop-color="#0a5ee6"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/><stop offset="1" stop-color="#409cff" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.25"/>
+  </filter>
+  <clipPath id="fr"><rect x="6" y="10" width="52" height="44" rx="7"/></clipPath>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+
+<g transform="translate(12 12) scale(1.875)" filter="url(#lift)"><defs><linearGradient id="envb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dcebff"/></linearGradient>
+<linearGradient id="envf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9f3ff"/><stop offset="1" stop-color="#b8d5fb"/></linearGradient></defs>
+<rect x="3" y="12" width="58" height="42" rx="7" fill="url(#envb)" stroke="#ffffff" stroke-width="1.2"/>
+<path d="M5 52 L25 34 M59 52 L39 34" stroke="#a9c9f3" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M5 15 L26.5 34.5 Q32 39.5 37.5 34.5 L59 15" fill="url(#envf)" stroke="#ffffff" stroke-width="1.4" stroke-linejoin="round"/></g>
+
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.3" stroke-width="1.5"/>
+</svg>

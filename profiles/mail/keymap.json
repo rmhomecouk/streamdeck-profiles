@@ -1,0 +1,418 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-mail.png",
+    "id": "mail",
+    "label": "Mail",
+    "keys": "main",
+    "action": "Switch Profile → Main",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-get-mail.png",
+    "id": "get-mail",
+    "label": "Get mail",
+    "keys": "⇧⌘N",
+    "action": "Mailbox ▸ Get All New Mail",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-search.png",
+    "id": "search",
+    "label": "Search",
+    "keys": "⌥⌘F",
+    "action": "Edit ▸ Find ▸ Mailbox Search",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-jump-to-top.png",
+    "id": "jump-to-top",
+    "label": "Jump to top",
+    "keys": "⌃⌘T",
+    "action": "Edit ▸ Find ▸ Jump to Top",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-primary.png",
+    "id": "primary",
+    "label": "Primary",
+    "keys": "⌥⌘1",
+    "action": "Mailbox ▸ Go to Mailbox Category ▸ Primary",
+    "when": "categories",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-all-mail.png",
+    "id": "all-mail",
+    "label": "All mail",
+    "keys": "⌥⌘5",
+    "action": "Mailbox ▸ Go to Mailbox Category ▸ All Mail",
+    "when": "categories",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-prev-unread.png",
+    "id": "prev-unread",
+    "label": "Prev unread",
+    "keys": "⌃⌥⌘[",
+    "action": "Mailbox ▸ Go to Previous Unread Mailbox",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-next-unread.png",
+    "id": "next-unread",
+    "label": "Next unread",
+    "keys": "⌃⌥⌘]",
+    "action": "Mailbox ▸ Go to Next Unread Mailbox",
+    "when": "anywhere",
+    "category": "go"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-new-message.png",
+    "id": "new-message",
+    "label": "New message",
+    "keys": "⌘N",
+    "action": "File ▸ New Message",
+    "when": "anywhere",
+    "category": "write"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-reply.png",
+    "id": "reply",
+    "label": "Reply",
+    "keys": "⌘R",
+    "action": "Message ▸ Reply",
+    "when": "message",
+    "category": "write"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-reply-all.png",
+    "id": "reply-all",
+    "label": "Reply all",
+    "keys": "⇧⌘R",
+    "action": "Message ▸ Reply All",
+    "when": "message",
+    "category": "write"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-forward.png",
+    "id": "forward",
+    "label": "Forward",
+    "keys": "⇧⌘F",
+    "action": "Message ▸ Forward",
+    "when": "message",
+    "category": "write"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-redirect.png",
+    "id": "redirect",
+    "label": "Redirect",
+    "keys": "⇧⌘E",
+    "action": "Message ▸ Redirect",
+    "when": "message",
+    "category": "write"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-send.png",
+    "id": "send",
+    "label": "Send",
+    "keys": "⇧⌘D",
+    "action": "Message ▸ Send",
+    "when": "compose",
+    "category": "write"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-attach.png",
+    "id": "attach",
+    "label": "Attach",
+    "keys": "⇧⌘A",
+    "action": "File ▸ Attach Files…",
+    "when": "compose",
+    "category": "write"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-add-link.png",
+    "id": "add-link",
+    "label": "Add link",
+    "keys": "⌘K",
+    "action": "Edit ▸ Add Link…",
+    "when": "compose",
+    "category": "write"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-archive.png",
+    "id": "archive",
+    "label": "Archive",
+    "keys": "⌃⌘A",
+    "action": "Message ▸ Archive",
+    "when": "message",
+    "category": "sort"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-delete.png",
+    "id": "delete",
+    "label": "Delete",
+    "keys": "⌘⌫",
+    "action": "Edit ▸ Delete",
+    "when": "message",
+    "category": "sort"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-junk.png",
+    "id": "junk",
+    "label": "Junk",
+    "keys": "⇧⌘J",
+    "action": "Message ▸ Move to Junk",
+    "when": "message",
+    "category": "sort"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-mark-read.png",
+    "id": "mark-read",
+    "label": "Read / unread",
+    "keys": "⇧⌘U",
+    "action": "Message ▸ Mark as Read (or Unread)",
+    "when": "message",
+    "category": "sort"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-flag.png",
+    "id": "flag",
+    "label": "Flag",
+    "keys": "⇧⌘L",
+    "action": "Message ▸ Flag ▸ Toggle Flag",
+    "when": "message",
+    "category": "sort"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-mute.png",
+    "id": "mute",
+    "label": "Mute thread",
+    "keys": "⌃⇧M",
+    "action": "Message ▸ Mute",
+    "when": "message",
+    "category": "sort"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-move-suggested.png",
+    "id": "move-suggested",
+    "label": "Move to suggested",
+    "keys": "⌃⌘M",
+    "action": "Message ▸ Move to Predicted Mailbox",
+    "when": "message",
+    "category": "sort"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-apply-rules.png",
+    "id": "apply-rules",
+    "label": "Apply rules",
+    "keys": "⌥⌘L",
+    "action": "Message ▸ Apply Rules",
+    "when": "message",
+    "category": "sort"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-sidebar.png",
+    "id": "sidebar",
+    "label": "Sidebar",
+    "keys": "⌃⌘S",
+    "action": "View ▸ Show Sidebar",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-favorites.png",
+    "id": "favorites",
+    "label": "Favorites bar",
+    "keys": "⌥⇧⌘H",
+    "action": "View ▸ Show Favorites Bar",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-filter.png",
+    "id": "filter",
+    "label": "Unread filter",
+    "keys": "⌘L",
+    "action": "View ▸ Filter ▸ Enable Message Filter",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-find.png",
+    "id": "find",
+    "label": "Find",
+    "keys": "⌘F",
+    "action": "Edit ▸ Find ▸ Find…",
+    "when": "message",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-all-headers.png",
+    "id": "all-headers",
+    "label": "All headers",
+    "keys": "⇧⌘H",
+    "action": "View ▸ Message ▸ All Headers",
+    "when": "message",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-quick-look.png",
+    "id": "quick-look",
+    "label": "Quick Look",
+    "keys": "⌘Y",
+    "action": "File ▸ Quick Look Attachments…",
+    "when": "message",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-activity.png",
+    "id": "activity",
+    "label": "Activity",
+    "keys": "⌥⌘0",
+    "action": "Window ▸ Activity",
+    "when": "anywhere",
+    "category": "view"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-settings.png",
+    "id": "settings",
+    "label": "Settings",
+    "keys": "⌘,",
+    "action": "Mail ▸ Settings…",
+    "when": "anywhere",
+    "category": "view"
+  }
+]

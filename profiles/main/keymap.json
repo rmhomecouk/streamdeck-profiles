@@ -108,5 +108,16 @@
     "label": "Excel",
     "profile": "Excel",
     "bundle": "/Applications/Microsoft Excel.app"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-mail.png",
+    "id": "mail",
+    "label": "Mail",
+    "profile": "Mail",
+    "bundle": "/System/Applications/Mail.app"
   }
 ]

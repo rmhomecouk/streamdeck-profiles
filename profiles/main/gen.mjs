@@ -27,6 +27,7 @@ const APPS = [
   // row 3 — continues from the middle
   { id: 'word', label: 'Word', profile: 'Word', svg: 'word/svg/01-word.svg', row: 2, col: 3, bundle: '/Applications/Microsoft Word.app' },
   { id: 'excel', label: 'Excel', profile: 'Excel', svg: 'excel/svg/01-excel.svg', row: 2, col: 4, bundle: '/Applications/Microsoft Excel.app' },
+  { id: 'mail', label: 'Mail', profile: 'Mail', svg: 'mail/svg/01-mail.svg', row: 2, col: 5, bundle: '/System/Applications/Mail.app' },
 ];
 
 const fontDir = path.join(os.homedir(), 'Library/Fonts');

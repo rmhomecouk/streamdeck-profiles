@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#1f2b40"/><stop offset="0.55" stop-color="#141c2b"/><stop offset="1" stop-color="#0b101a"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#30d158" stop-opacity="0.13"/><stop offset="1" stop-color="#30d158" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+  <clipPath id="fr"><rect x="6" y="10" width="52" height="44" rx="7"/></clipPath>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<g opacity="0.75"><line x1="12" y1="11" x2="12" y2="23.65" stroke="#30d158" stroke-width="1.8" stroke-linecap="round"/><path d="M12 12 Q14.75 10.12 17.5 11.66 Q20.25 13.2 23 11.66 V17.38 Q20.25 18.92 17.5 17.38 Q14.75 15.84 12 17.6" fill="#30d158" stroke="#30d158" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(40 14)" filter="url(#lift)"><path d="M44 22 L25 41 Q20 46 15 41 Q10 36 15 31 L36 10 Q43 3 50 10 Q57 17 50 24 L30 44" fill="none" stroke="#30d158" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="72" y="117.4" font-family=".SF NS Rounded" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.3" text-anchor="middle" filter="url(#lift)">Attach</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

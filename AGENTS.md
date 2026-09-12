@@ -139,7 +139,7 @@ Then pick the technique that fits the app.
 
 Ghostty, for example: run `ghostty +list-keybinds --default`. Then diff that against `+list-keybinds`, which includes the user's config, to find any overrides.
 
-### Native AppKit apps (Safari, Outlook)
+### Native AppKit apps (Safari, Outlook, Mail)
 
 Menu shortcuts live in compiled nibs in `Contents/Resources/Base.lproj/`: `MainMenu.nib` for Safari, and several nibs (`OutlookApp`, `DocumentMenus`, `ViewMenus`, …) for Outlook. The files are **NIBArchive**, not property lists, so `plistlib` can't read them. Use the parser in this repo:
 
@@ -152,6 +152,8 @@ It handles two AppKit rules for you:
 - `NSKeyEquivModMask` bits are ⇧ `1<<17`, ⌃ `1<<18`, ⌥ `1<<19`, ⌘ `1<<20`. A missing mask means ⌘.
 
 Items that the app adds to its menus at runtime (Safari's Web Inspector, for example) aren't in the nib, so leave them out rather than guess.
+
+Then **confirm every key in the live menu bar** (next section). The nib can be stale: Mail 16's nib still lists Open Quickly `⇧⌘O` and full screen `⌃⌘F`, but the live menus have no Open Quickly, and full screen is 🌐F (modifiers value 24), which a Stream Deck hotkey can't send. Walking every menu through System Events takes minutes, so query one top-level menu at a time in bulk: `menuItems.name()` and `menuItems.attributes.byName('AXMenuItemCmdChar').value()`.
 
 ### Apps that build their menus at runtime
 
@@ -293,6 +295,7 @@ The launcher copies `svg/01-<id>.svg` unchanged, so the deck and Main show the s
   - Outlook: navy, the envelope's blues and violets by row
   - Discord: its dark greys, blurple plus presence colours by row, a status dot
   - Word and Excel: the icon's layered colours by row, Aptos (which ships in the app's `Resources/DFonts`)
+  - Mail: the navy of Mail's sidebar, Mail's flag colours by row, a small flag in the corner
 - **Colour by row,** one accent per category taken from the app's palette. Individual keys can override the colour for meaning: red to leave or decline, green to accept, presence colours for status.
 - **Keep labels short** and use sentence case, in the house style of the app.
 

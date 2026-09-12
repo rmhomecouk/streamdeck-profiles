@@ -94,6 +94,7 @@ const K = [
   ['discord','Discord','Discord','/Applications/Discord.app',1,7],
   ['word','Word','Word','/Applications/Microsoft Word.app',2,3],
   ['excel','Excel','Excel','/Applications/Microsoft Excel.app',2,4],
+  ['mail','Mail','Mail','/System/Applications/Mail.app',2,5],
 ].map(([id,label,profile,bundle,row,col])=>({id,label,profile,bundle,row,col,n:String(row*8+col+1).padStart(2,'0')}));
 const $ = (s) => document.querySelector(s);
 const img = (k) => `icons/${k.n}-${k.id}.png`;

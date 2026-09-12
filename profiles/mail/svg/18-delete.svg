@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#1f2b40"/><stop offset="0.55" stop-color="#141c2b"/><stop offset="1" stop-color="#0b101a"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#ff453a" stop-opacity="0.13"/><stop offset="1" stop-color="#ff453a" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+  <clipPath id="fr"><rect x="6" y="10" width="52" height="44" rx="7"/></clipPath>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<g opacity="0.75"><line x1="12" y1="11" x2="12" y2="23.65" stroke="#ff9f0a" stroke-width="1.8" stroke-linecap="round"/><path d="M12 12 Q14.75 10.12 17.5 11.66 Q20.25 13.2 23 11.66 V17.38 Q20.25 18.92 17.5 17.38 Q14.75 15.84 12 17.6" fill="#ff9f0a" stroke="#ff9f0a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(40 14)" filter="url(#lift)"><line x1="9" y1="15" x2="55" y2="15" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/><path d="M24 15 V10 Q24 7 27 7 H37 Q40 7 40 10 V15" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 15 L17 52 Q17.5 57 22 57 H42 Q46.5 57 47 52 L50 15" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="27" y1="25" x2="27" y2="47" stroke="#ff453a" stroke-width="3.6" stroke-linecap="round"/><line x1="37" y1="25" x2="37" y2="47" stroke="#ff453a" stroke-width="3.6" stroke-linecap="round"/></g>
+<text x="72" y="117.4" font-family=".SF NS Rounded" font-size="24" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.3" text-anchor="middle" filter="url(#lift)">Delete</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>
