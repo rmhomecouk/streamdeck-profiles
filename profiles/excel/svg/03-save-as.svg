@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#1b261f"/><stop offset="0.55" stop-color="#131b16"/><stop offset="1" stop-color="#0b100d"/>
+  </radialGradient>
+  <radialGradient id="wash" cx="50%" cy="34%" r="44%">
+    <stop offset="0" stop-color="#c6ea7c" stop-opacity="0.13"/><stop offset="1" stop-color="#c6ea7c" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+</defs>
+<rect width="144" height="144" fill="url(#bg)"/>
+<rect width="144" height="144" fill="url(#wash)"/>
+<g opacity="0.6"><rect x="11" y="12" width="15" height="11" fill="none" stroke="#c6ea7c" stroke-width="1.8"/><rect x="23.5" y="20.5" width="5" height="5" fill="#c6ea7c"/></g>
+<g transform="translate(40 14)" filter="url(#lift)"><path d="M8 12 Q8 6 14 6 H44 L56 18 V50 Q56 56 50 56 H14 Q8 56 8 50 Z" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="18" y="6" width="22" height="14" rx="2" fill="#c6ea7c44" stroke="#c6ea7c" stroke-width="3.2"/><rect x="17" y="34" width="30" height="22" rx="3" fill="none" stroke="#ffffff" stroke-width="3.4"/><circle cx="50" cy="50" r="13" fill="#111a14"/><path d="M42 58 L43 52 L54 41 L59 46 L48 57 Z" fill="#111a14" stroke="#c6ea7c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="72" y="106" font-family="Aptos" font-size="18" font-weight="700" fill="#ffffff" stroke="#ffffff" stroke-width="0.25" text-anchor="middle" filter="url(#lift)">Save as</text>
+<text x="72" y="127" font-family=".SF NS Mono" font-size="15" fill="#d6f09d" stroke="#d6f09d" stroke-width="0.45" text-anchor="middle">⇧⌘S</text>
+<rect x="0.75" y="0.75" width="142.5" height="142.5" rx="20" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/>
+</svg>

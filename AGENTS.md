@@ -133,6 +133,15 @@ Word's nibs have no key equivalents, because Word builds its menus at runtime. A
 
 The `sdef` command needs full Xcode, so read `Contents/Resources/Word.sdef` directly.
 
+### Microsoft Excel (menu bar plus key tests)
+
+Excel's nibs have no key equivalents, and `Excel.sdef` has no key lookup (only `on key`). The live menu bar has just 61 shortcuts. So:
+
+1. Read the menu bar with System Events while a blank workbook is open.
+2. Test the rest. Send each candidate key straight to Excel's process with `CGEventPostToPid` (JXA, `CGEventCreateKeyboardEvent` plus flags), so nothing reaches the user's frontmost app. Send it to a fresh `make new workbook`, then read the result back through AppleScript: `value`, `formula`, `number format`, `autofilter mode`, `row height`, `display formulas of active window`, and so on. Close it with `close active workbook saving no`.
+3. Use the macOS key codes Stream Deck will send, under the user's real keyboard layout. On British, `⌃⇧#` doesn't exist as ⌃⇧3.
+4. Keep anything you can't confirm off the deck. Tests that open a dialog (Create table, Insert) can leave Excel stuck on a modal. If that happens, list the `AXDialog` window's buttons with System Events before touching it.
+
 ### Leave out
 
 - **Keys that depend on how the user has arranged the app.** Teams' app bar `⌘1–9`, for example, opens whatever the user has put in each slot.

@@ -1,0 +1,200 @@
+<title>Excel Deck</title>
+<style>
+:root{
+  --ground:#e7ece8; --chrome:#f3f3f3; --ribbon:#ffffff; --canvas:#ffffff; --gridline:#e1e1e1; --hdr:#f5f5f5;
+  --line:#dedede; --text:#242424; --muted:#616161; --hover:#f0f0f0; --sel:#107c411a; --xl:#107c41; --xltx:#0e6b38;
+  --plate:#0b100d; --chip:#f5f5f5;
+  --book:#6c8f1c; --edit:#1f8a33; --fmt:#0f8a64; --sheet:#4d7a5a;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0d110e; --chrome:#1f1f1f; --ribbon:#292929; --canvas:#1c1c1c; --gridline:#333333; --hdr:#262626;
+  --line:#3d3d3d; --text:#e6e6e6; --muted:#a8a8a8; --hover:#333333; --sel:#6fd47a22; --xl:#2e9e5b; --xltx:#8fe097;
+  --plate:#070a08; --chip:#1f1f1f;
+  --book:#c6ea7c; --edit:#6fd47a; --fmt:#3ccf9e; --sheet:#a7d9b5;
+}}
+:root[data-theme="dark"]{
+  --ground:#0d110e; --chrome:#1f1f1f; --ribbon:#292929; --canvas:#1c1c1c; --gridline:#333333; --hdr:#262626;
+  --line:#3d3d3d; --text:#e6e6e6; --muted:#a8a8a8; --hover:#333333; --sel:#6fd47a22; --xl:#2e9e5b; --xltx:#8fe097;
+  --plate:#070a08; --chip:#1f1f1f;
+  --book:#c6ea7c; --edit:#6fd47a; --fmt:#3ccf9e; --sheet:#a7d9b5;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--text);font:15px/1.5 Aptos,"Segoe UI","Helvetica Neue",-apple-system,system-ui,sans-serif;padding:28px 16px 48px}
+code,.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.window{max-width:1220px;margin:0 auto;border-radius:12px;overflow:hidden;background:var(--canvas);box-shadow:0 24px 60px -30px #000a}
+.top{height:40px;display:grid;grid-template-columns:120px 1fr 120px;align-items:center;background:var(--chrome)}
+.lights{display:flex;gap:8px;padding-left:14px}.lights i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.lights i:nth-child(2){background:#febc2e}.lights i:nth-child(3){background:#28c840}
+.docname{justify-self:center;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
+.docname .x{width:18px;height:18px;border-radius:4px;background:var(--xl);color:#fff;font-weight:800;font-size:11px;display:grid;place-items:center}
+.docname span{color:var(--muted);font-weight:400}
+/* formula bar: name box + fx + the selected key's formula */
+.fbar{display:grid;grid-template-columns:110px 34px 1fr;align-items:center;background:var(--ribbon);border-bottom:1px solid var(--line);font-size:13px}
+.fbar .nb{padding:7px 10px;border-right:1px solid var(--line);font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.fbar .fx{text-align:center;color:var(--muted);font-style:italic;font-weight:700}
+.fbar .fv{padding:7px 10px;border-left:1px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.body{padding:18px 20px 12px;display:grid;gap:18px}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start}
+.device{background:var(--plate);border-radius:22px;padding:16px;box-shadow:inset 0 0 0 1px #ffffff14,0 14px 30px -18px #000}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}
+.key{padding:0;border:0;background:none;cursor:pointer;border-radius:14%;aspect-ratio:1;transition:transform .12s,opacity .15s,filter .15s}
+.key img{width:100%;height:100%;display:block;border-radius:14%}
+.key:hover{transform:translateY(-2px)}
+.key:focus-visible{outline:2px solid var(--xl);outline-offset:3px}
+.key[aria-pressed="true"]{outline:2px solid #fff;outline-offset:3px}
+.key.dim{opacity:.2;filter:saturate(.3)}
+/* detail panel styled as a little range of cells */
+.cells{border:1px solid var(--gridline);border-radius:4px;overflow:hidden;background:var(--canvas);font-size:14px}
+.cells .row{display:grid;grid-template-columns:34px 92px 1fr;border-top:1px solid var(--gridline)}
+.cells .row:first-child{border-top:0}
+.cells .rh,.cells .ch{background:var(--hdr);color:var(--muted);font-size:12px;text-align:center;padding:6px 0}
+.cells .ch{display:contents}
+.cells .k{padding:7px 8px;border-left:1px solid var(--gridline);color:var(--muted);font-size:12.5px}
+.cells .v{padding:7px 10px;border-left:1px solid var(--gridline);overflow-wrap:anywhere}
+.cells .hd{background:var(--hdr)}
+.cells .hd div{padding:5px 8px;border-left:1px solid var(--gridline);color:var(--muted);font-size:12px;text-align:center}
+.cells .active{outline:2px solid var(--xl);outline-offset:-2px;position:relative}
+.cells .active::after{content:"";position:absolute;right:-3px;bottom:-3px;width:6px;height:6px;background:var(--xl);border:1px solid var(--canvas)}
+.cells h2{margin:0;font-size:20px;color:var(--xltx)}
+.caps{display:flex;gap:4px;flex-wrap:wrap}
+kbd{font:700 12px ui-monospace,"SF Mono",Menlo,monospace;min-width:24px;padding:3px 7px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;background:var(--chip);color:var(--text)}
+.filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter .lbl{color:var(--muted);font-size:13px;margin-right:4px}
+.chip{border:1px solid var(--line);background:var(--ribbon);color:var(--text);border-radius:4px;padding:4px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--sel);border-color:var(--xl);color:var(--xltx);font-weight:700}
+.chip:focus-visible{outline:2px solid var(--xl);outline-offset:2px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--ribbon)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
+th{text-align:left;font-weight:700;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:13px;background:var(--hdr)}
+td{padding:7px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--hover)}tbody tr.sel{background:var(--sel)}tbody tr.dim{opacity:.35}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
+/* sheet tabs along the bottom are the rows */
+.tabs{display:flex;gap:2px;align-items:flex-end;background:var(--chrome);border-top:1px solid var(--line);padding:0 12px;overflow-x:auto}
+.tab{all:unset;padding:7px 16px 8px;font-size:13px;color:var(--text);cursor:pointer;white-space:nowrap;border-radius:0 0 6px 6px;border-bottom:3px solid transparent}
+.tab:hover{background:var(--hover)}
+.tab[aria-pressed="true"]{background:var(--canvas);font-weight:700;color:var(--xltx);border-bottom-color:var(--xl)}
+.tab:focus-visible{outline:2px solid var(--xl);outline-offset:-2px}
+.tab .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px}
+.tabs .plus{padding:7px 10px;color:var(--muted)}
+@media (max-width:920px){.stage{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.key{transition:none}}
+</style>
+
+<div class="window">
+  <div class="top">
+    <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="docname"><span class="x" aria-hidden="true">X</span>Stream Deck XL.xlsx <span>— Excel 16.112.4</span></div>
+    <div></div>
+  </div>
+  <div class="fbar" aria-live="polite"><div class="nb" id="nb">B1</div><div class="fx" aria-hidden="true">fx</div><div class="fv" id="fv"></div></div>
+  <div class="body">
+    <div class="stage">
+      <div class="device"><div class="grid" id="grid"></div></div>
+      <div class="cells" id="detail"></div>
+    </div>
+    <div class="filter" role="group" aria-label="Filter by where it works">
+      <span class="lbl">Works when:</span>
+      <button class="chip" data-when="all" aria-pressed="true">All keys</button>
+      <button class="chip" data-when="anywhere" aria-pressed="false">Anywhere</button>
+      <button class="chip" data-when="workbook" aria-pressed="false">A workbook is open</button>
+      <button class="chip" data-when="cells" aria-pressed="false">Cells selected</button>
+      <span class="lbl" style="margin-left:auto"><span class="dot" style="background:var(--xl)"></span>tested = pressed in a scratch workbook and checked</span>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Key</th><th>Shortcut</th><th>Works when</th><th>How it was confirmed</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+  <nav class="tabs" aria-label="Rows">
+    <button class="tab" data-cat="all" aria-pressed="true">All keys</button>
+    <button class="tab" data-cat="book" aria-pressed="false"><span class="sw" style="background:#c6ea7c"></span>Workbook</button>
+    <button class="tab" data-cat="edit" aria-pressed="false"><span class="sw" style="background:#6fd47a"></span>Edit &amp; data</button>
+    <button class="tab" data-cat="fmt" aria-pressed="false"><span class="sw" style="background:#3ccf9e"></span>Format</button>
+    <button class="tab" data-cat="sheet" aria-pressed="false"><span class="sw" style="background:#a7d9b5"></span>Sheets &amp; view</button>
+    <span class="plus" aria-hidden="true">+</span>
+  </nav>
+</div>
+
+<script>
+const CATS = { book: 'Workbook', edit: 'Edit & data', fmt: 'Format', sheet: 'Sheets & view' };
+const WHEN = { anywhere: 'Anywhere', workbook: 'A workbook is open', cells: 'Cells selected' };
+const K = [
+  ['excel','Excel','open app','Stream Deck Open Application · com.microsoft.Excel','book','anywhere','Opens Excel or brings it to the front. A long press quits it.'],
+  ['save','Save','⌘S','Menu: File ▸ Save','book','workbook','Saves the workbook.'],
+  ['save-as','Save as','⇧⌘S','Menu: File ▸ Save As…','book','workbook','Save a copy under a new name, place or format.'],
+  ['print','Print','⌘P','Menu: File ▸ Print…','book','workbook','Opens the print dialog.'],
+  ['undo','Undo','⌘Z','Menu: Edit ▸ Undo','book','workbook','Undo the last change.'],
+  ['find','Find','⌃F','Menu: Edit ▸ Find ▸ Find…','book','workbook','Find in the sheet. Excel\'s menu binds Find to ⌃F.'],
+  ['replace','Replace','⌃H','Menu: Edit ▸ Find ▸ Replace…','book','workbook','Find and replace.'],
+  ['go-to','Go to','⌃G','Menu: Edit ▸ Find ▸ Go To…','book','workbook','Jump to a cell reference or named range.'],
+  ['fill-down','Fill down','⌘D','Tested: A1 = 5, A1:A3 selected → A3 = 5','edit','cells','Copies the top cell of the selection down.'],
+  ['fill-right','Fill right','⌘R','Tested: A1 = 5, A1:C1 selected → C1 = 5','edit','cells','Copies the left cell of the selection across.'],
+  ['autosum','AutoSum','⇧⌘T','Tested: A1 = 1, A2 = 2, A3 selected → =SUM(A1:A2)','edit','cells','Sums the numbers above (or to the left). Press Return to accept.'],
+  ['today','Today','⌃;','Tested: A1 → today\'s date','edit','cells','Types today\'s date into the cell.'],
+  ['insert','Insert','⌃⇧=','Tested: row 1 selected → a row is inserted above','edit','cells','Inserts cells. With a whole row or column selected it inserts that row or column; otherwise Excel asks how to shift.'],
+  ['delete','Delete','⌘-','Tested: row 1 selected → row 1 is deleted','edit','cells','Deletes the selected cells, rows or columns.'],
+  ['filter','Filter','⇧⌘F','Tested: header + data, A1 selected → AutoFilter on','edit','cells','Turns filter buttons on or off for the data. ⌃⇧L does the same.'],
+  ['sort','Sort','⇧⌘R','Menu: Data ▸ Sort…','edit','cells','Opens the Sort dialog.'],
+  ['format-cells','Format cells','⌘1','Menu: Format ▸ Cells…','fmt','cells','Opens Format Cells: number, alignment, font, border, fill.'],
+  ['bold','Bold','⌘B','Tested: A1 selected → bold','fmt','cells','Bold on or off.'],
+  ['italic','Italic','⌘I','Tested: A1 selected → italic','fmt','cells','Italic on or off.'],
+  ['currency','Currency','⌃⇧$','Tested: 5 → $#,##0.00_);[Red]($#,##0.00)','fmt','cells','Applies Excel\'s built-in currency format, which uses $ whatever your region.'],
+  ['percent','Percent','⌃⇧%','Tested: 5 → 0%','fmt','cells','Percentage with no decimals.'],
+  ['number','Number','⌃⇧!','Tested: 5 → #,##0.00','fmt','cells','Two decimals with thousands separators.'],
+  ['border','Border','⌥⌘0','Tested: A1 selected → continuous outline border','fmt','cells','Puts an outline border around the selection.'],
+  ['center','Center','⌘E','Tested: A1 selected → centre alignment','fmt','cells','Centres the cell contents.'],
+  ['prev-sheet','Prev sheet','⌥←','Tested: Sheet2 → Sheet1','sheet','workbook','Moves to the sheet on the left.'],
+  ['next-sheet','Next sheet','⌥→','Tested: Sheet1 → Sheet2','sheet','workbook','Moves to the sheet on the right. ⌃PgDn works too.'],
+  ['new-sheet','New sheet','⇧F11','Menu: Insert ▸ Sheet ▸ Insert Sheet','sheet','workbook','Adds a new worksheet.'],
+  ['hide-row','Hide row','⌃9','Tested: A1 selected → row height 0','sheet','cells','Hides the selected rows.'],
+  ['hide-column','Hide column','⌃0','Tested: A1 selected → column width 0','sheet','cells','Hides the selected columns.'],
+  ['show-formulas','Show formulas','⌃`','Tested: display formulas → on','sheet','workbook','Shows formulas instead of their results. Press again to switch back.'],
+  ['time','Current time','⌘;','Tested: A1 → current time','sheet','cells','Types the current time into the cell.'],
+  ['paste-special','Paste special','⌃⌘V','Menu: Edit ▸ Paste Special…','sheet','cells','Paste values, formats, formulas or transposed.'],
+].map(([id,label,keys,src,cat,when,note],i)=>({id,label,keys,src,cat,when,note,n:String(i+1).padStart(2,'0')}));
+
+const $ = (s) => document.querySelector(s);
+const img = (k) => `icons/${k.n}-${k.id}.png`;
+const caps = (keys) => {
+  if (keys === 'open app') return '<kbd>open app</kbd>';
+  const m = keys.match(/^([⌃⌥⇧⌘]*)(.+)$/);
+  return [...m[1]].concat(m[2]).map((c) => `<kbd>${c}</kbd>`).join('');
+};
+const color = (c) => `var(--${c})`;
+const addr = (i) => 'ABCDEFGH'[i % 8] + (Math.floor(i / 8) + 1);
+let cat = 'all', when = 'all';
+
+$('#grid').innerHTML = K.map((k, i) => `<button class="key" data-i="${i}" aria-label="${k.label}, ${k.keys}" aria-pressed="false"><img src="${img(k)}" alt=""></button>`).join('');
+$('#rows').innerHTML = K.map((k, i) => `<tr data-i="${i}"><td><span class="dot" style="background:${color(k.cat)}"></span>${k.label}</td><td><span class="caps">${caps(k.keys)}</span></td><td>${WHEN[k.when]}</td><td class="mono" style="font-size:12.5px">${k.src}</td></tr>`).join('');
+
+function show(k) {
+  const i = K.indexOf(k);
+  $('#nb').textContent = addr(i);
+  $('#fv').textContent = `="${k.label}" & " · " & "${k.keys}"`;
+  $('#detail').innerHTML = `
+    <div class="row hd"><div></div><div>A</div><div>B</div></div>
+    <div class="row"><div class="rh">1</div><div class="k">Key</div><div class="v active"><h2>${k.label}</h2></div></div>
+    <div class="row"><div class="rh">2</div><div class="k">Shortcut</div><div class="v"><span class="caps">${caps(k.keys)}</span></div></div>
+    <div class="row"><div class="rh">3</div><div class="k">Row</div><div class="v"><span class="dot" style="background:${color(k.cat)}"></span>${CATS[k.cat]}</div></div>
+    <div class="row"><div class="rh">4</div><div class="k">Does</div><div class="v">${k.note}</div></div>
+    <div class="row"><div class="rh">5</div><div class="k">Works when</div><div class="v">${WHEN[k.when]}</div></div>
+    <div class="row"><div class="rh">6</div><div class="k">Confirmed</div><div class="v mono" style="font-size:12.5px">${k.src}</div></div>`;
+  document.querySelectorAll('.key').forEach((b) => b.setAttribute('aria-pressed', String(K[b.dataset.i] === k)));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('sel', K[r.dataset.i] === k));
+}
+function apply() {
+  const off = (k) => (cat !== 'all' && k.cat !== cat) || (when !== 'all' && k.when !== when);
+  document.querySelectorAll('.key').forEach((b) => b.classList.toggle('dim', off(K[b.dataset.i])));
+  document.querySelectorAll('#rows tr').forEach((r) => r.classList.toggle('dim', off(K[r.dataset.i])));
+  document.querySelectorAll('.tab').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.cat === cat)));
+  document.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.when === when)));
+}
+$('#grid').addEventListener('click', (e) => { const b = e.target.closest('.key'); if (b) show(K[b.dataset.i]); });
+$('#rows').addEventListener('click', (e) => { const r = e.target.closest('tr'); if (r) show(K[r.dataset.i]); });
+document.querySelectorAll('.tab').forEach((c) => c.addEventListener('click', () => { cat = c.dataset.cat; apply(); }));
+document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => { when = c.dataset.when; apply(); }));
+show(K[10]); apply();
+</script>

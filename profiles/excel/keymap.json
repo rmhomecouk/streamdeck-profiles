@@ -1,0 +1,418 @@
+[
+  {
+    "pos": {
+      "col": 0,
+      "row": 0
+    },
+    "file": "01-excel.png",
+    "id": "excel",
+    "label": "Excel",
+    "keys": "open app",
+    "action": "launch / focus Microsoft Excel.app",
+    "when": "anywhere",
+    "category": "book"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 0
+    },
+    "file": "02-save.png",
+    "id": "save",
+    "label": "Save",
+    "keys": "⌘S",
+    "action": "Menu: File ▸ Save",
+    "when": "workbook",
+    "category": "book"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 0
+    },
+    "file": "03-save-as.png",
+    "id": "save-as",
+    "label": "Save as",
+    "keys": "⇧⌘S",
+    "action": "Menu: File ▸ Save As…",
+    "when": "workbook",
+    "category": "book"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 0
+    },
+    "file": "04-print.png",
+    "id": "print",
+    "label": "Print",
+    "keys": "⌘P",
+    "action": "Menu: File ▸ Print…",
+    "when": "workbook",
+    "category": "book"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 0
+    },
+    "file": "05-undo.png",
+    "id": "undo",
+    "label": "Undo",
+    "keys": "⌘Z",
+    "action": "Menu: Edit ▸ Undo",
+    "when": "workbook",
+    "category": "book"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 0
+    },
+    "file": "06-find.png",
+    "id": "find",
+    "label": "Find",
+    "keys": "⌃F",
+    "action": "Menu: Edit ▸ Find ▸ Find…",
+    "when": "workbook",
+    "category": "book"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 0
+    },
+    "file": "07-replace.png",
+    "id": "replace",
+    "label": "Replace",
+    "keys": "⌃H",
+    "action": "Menu: Edit ▸ Find ▸ Replace…",
+    "when": "workbook",
+    "category": "book"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 0
+    },
+    "file": "08-go-to.png",
+    "id": "go-to",
+    "label": "Go to",
+    "keys": "⌃G",
+    "action": "Menu: Edit ▸ Find ▸ Go To…",
+    "when": "workbook",
+    "category": "book"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 1
+    },
+    "file": "09-fill-down.png",
+    "id": "fill-down",
+    "label": "Fill down",
+    "keys": "⌘D",
+    "action": "Key test: A1 = 5, A1:A3 selected → A3 = 5",
+    "when": "cells",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 1
+    },
+    "file": "10-fill-right.png",
+    "id": "fill-right",
+    "label": "Fill right",
+    "keys": "⌘R",
+    "action": "Key test: A1 = 5, A1:C1 selected → C1 = 5",
+    "when": "cells",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 1
+    },
+    "file": "11-autosum.png",
+    "id": "autosum",
+    "label": "AutoSum",
+    "keys": "⇧⌘T",
+    "action": "Key test: A1 = 1, A2 = 2, A3 selected → =SUM(A1:A2)",
+    "when": "cells",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 1
+    },
+    "file": "12-today.png",
+    "id": "today",
+    "label": "Today",
+    "keys": "⌃;",
+    "action": "Key test: A1 → today's date",
+    "when": "cells",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 1
+    },
+    "file": "13-insert.png",
+    "id": "insert",
+    "label": "Insert",
+    "keys": "⌃⇧=",
+    "action": "Key test: row 1 selected → a row is inserted above",
+    "when": "cells",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 1
+    },
+    "file": "14-delete.png",
+    "id": "delete",
+    "label": "Delete",
+    "keys": "⌘-",
+    "action": "Key test: row 1 selected → row 1 is deleted",
+    "when": "cells",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 1
+    },
+    "file": "15-filter.png",
+    "id": "filter",
+    "label": "Filter",
+    "keys": "⇧⌘F",
+    "action": "Key test: header + data, A1 selected → AutoFilter on",
+    "when": "cells",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 1
+    },
+    "file": "16-sort.png",
+    "id": "sort",
+    "label": "Sort",
+    "keys": "⇧⌘R",
+    "action": "Menu: Data ▸ Sort…",
+    "when": "cells",
+    "category": "edit"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 2
+    },
+    "file": "17-format-cells.png",
+    "id": "format-cells",
+    "label": "Format cells",
+    "keys": "⌘1",
+    "action": "Menu: Format ▸ Cells…",
+    "when": "cells",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 2
+    },
+    "file": "18-bold.png",
+    "id": "bold",
+    "label": "Bold",
+    "keys": "⌘B",
+    "action": "Key test: A1 selected → bold",
+    "when": "cells",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 2
+    },
+    "file": "19-italic.png",
+    "id": "italic",
+    "label": "Italic",
+    "keys": "⌘I",
+    "action": "Key test: A1 selected → italic",
+    "when": "cells",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 2
+    },
+    "file": "20-currency.png",
+    "id": "currency",
+    "label": "Currency",
+    "keys": "⌃⇧$",
+    "action": "Key test: 5 → $#,##0.00_);[Red]($#,##0.00)",
+    "when": "cells",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 2
+    },
+    "file": "21-percent.png",
+    "id": "percent",
+    "label": "Percent",
+    "keys": "⌃⇧%",
+    "action": "Key test: 5 → 0%",
+    "when": "cells",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 2
+    },
+    "file": "22-number.png",
+    "id": "number",
+    "label": "Number",
+    "keys": "⌃⇧!",
+    "action": "Key test: 5 → #,##0.00",
+    "when": "cells",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 2
+    },
+    "file": "23-border.png",
+    "id": "border",
+    "label": "Border",
+    "keys": "⌥⌘0",
+    "action": "Key test: A1 selected → continuous outline border",
+    "when": "cells",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 2
+    },
+    "file": "24-center.png",
+    "id": "center",
+    "label": "Center",
+    "keys": "⌘E",
+    "action": "Key test: A1 selected → centre alignment",
+    "when": "cells",
+    "category": "fmt"
+  },
+  {
+    "pos": {
+      "col": 0,
+      "row": 3
+    },
+    "file": "25-prev-sheet.png",
+    "id": "prev-sheet",
+    "label": "Prev sheet",
+    "keys": "⌥←",
+    "action": "Key test: Sheet2 → Sheet1",
+    "when": "workbook",
+    "category": "sheet"
+  },
+  {
+    "pos": {
+      "col": 1,
+      "row": 3
+    },
+    "file": "26-next-sheet.png",
+    "id": "next-sheet",
+    "label": "Next sheet",
+    "keys": "⌥→",
+    "action": "Key test: Sheet1 → Sheet2",
+    "when": "workbook",
+    "category": "sheet"
+  },
+  {
+    "pos": {
+      "col": 2,
+      "row": 3
+    },
+    "file": "27-new-sheet.png",
+    "id": "new-sheet",
+    "label": "New sheet",
+    "keys": "⇧F11",
+    "action": "Menu: Insert ▸ Sheet ▸ Insert Sheet",
+    "when": "workbook",
+    "category": "sheet"
+  },
+  {
+    "pos": {
+      "col": 3,
+      "row": 3
+    },
+    "file": "28-hide-row.png",
+    "id": "hide-row",
+    "label": "Hide row",
+    "keys": "⌃9",
+    "action": "Key test: A1 selected → row height 0",
+    "when": "cells",
+    "category": "sheet"
+  },
+  {
+    "pos": {
+      "col": 4,
+      "row": 3
+    },
+    "file": "29-hide-column.png",
+    "id": "hide-column",
+    "label": "Hide column",
+    "keys": "⌃0",
+    "action": "Key test: A1 selected → column width 0",
+    "when": "cells",
+    "category": "sheet"
+  },
+  {
+    "pos": {
+      "col": 5,
+      "row": 3
+    },
+    "file": "30-show-formulas.png",
+    "id": "show-formulas",
+    "label": "Show formulas",
+    "keys": "⌃`",
+    "action": "Key test: display formulas → true",
+    "when": "workbook",
+    "category": "sheet"
+  },
+  {
+    "pos": {
+      "col": 6,
+      "row": 3
+    },
+    "file": "31-time.png",
+    "id": "time",
+    "label": "Current time",
+    "keys": "⌘;",
+    "action": "Key test: A1 → current time",
+    "when": "cells",
+    "category": "sheet"
+  },
+  {
+    "pos": {
+      "col": 7,
+      "row": 3
+    },
+    "file": "32-paste-special.png",
+    "id": "paste-special",
+    "label": "Paste special",
+    "keys": "⌃⌘V",
+    "action": "Menu: Edit ▸ Paste Special…",
+    "when": "cells",
+    "category": "sheet"
+  }
+]

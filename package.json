@@ -30,7 +30,10 @@
     "discord": "npm run discord:icons && npm run discord:profile",
     "word:icons": "node profiles/word/gen.mjs",
     "word:profile": "node profiles/word/profile.mjs",
-    "word": "npm run word:icons && npm run word:profile"
+    "word": "npm run word:icons && npm run word:profile",
+    "excel:icons": "node profiles/excel/gen.mjs",
+    "excel:profile": "node profiles/excel/profile.mjs",
+    "excel": "npm run excel:icons && npm run excel:profile"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2"
