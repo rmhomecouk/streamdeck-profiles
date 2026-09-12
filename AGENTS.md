@@ -69,7 +69,7 @@ The only dependency is `@resvg/resvg-js`, installed with `npm install`. Start a 
    - Root README: add a table row.
    - Profile README: replace Status with the Install section (see *Profile README*).
 3. **Add it to the launcher:**
-   - `APPS` in `profiles/main/gen.mjs`: id, label, profile Name, `svg/01-*.svg` path, row, column and bundle path. The keys fill row 2, then continue from the middle of row 3 (columns 4 and 5, then outward). Ask the user if the next free spot isn't obvious.
+   - `APPS` in `profiles/main/gen.mjs`: id, label, profile Name, `svg/01-*.svg` path, row, column and bundle path. The keys are a centred block in columns 2–7 of rows 2 and 3, arranged by the user. The block is full, so ask the user where a new key goes. If the user rearranges Main in the Stream Deck app, read the positions (`"col,row"` keys of `Controllers[0].Actions`) from that profile's page manifest in ProfilesV3, without editing anything, and copy them into `APPS` and the mockup's `K`.
    - `DECKS` in `tools/backup.mjs`: dir, profile Name and app path. The Name must match the deck's `profile.mjs` and the launcher's `APPS` entry.
    - Update `profiles/main/index.html` (the `K` array) and the launcher README's layout table.
 4. **Build:** run `npm run <deck>`, then `npm run main`. Look at `profiles/main/sheet.png`, and check that `cmp profiles/<deck>/icons/01-*.png profiles/main/icons/NN-<deck>.png` reports no difference.

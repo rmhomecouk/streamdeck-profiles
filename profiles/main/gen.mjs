@@ -15,20 +15,19 @@ fs.mkdirSync(path.join(OUT, 'svg'), { recursive: true });
 
 // profile = the Name of the app profile to switch to; svg = that deck's top-left tile source
 const APPS = [
-  // row 2 — every deck, left to right
-  { id: 'ghostty', label: 'Ghostty', profile: 'Ghostty', svg: 'ghostty/svg/01-ghostty.svg', row: 1, col: 0, bundle: '/Applications/Ghostty.app' },
-  { id: 'vscode', label: 'VS Code', profile: 'VS Code', svg: 'vscode/svg/01-code.svg', row: 1, col: 1, bundle: '/Applications/Visual Studio Code.app' },
-  { id: 'claude', label: 'Claude', profile: 'Claude', svg: 'claude/svg/01-claude.svg', row: 1, col: 2, bundle: '/Applications/Claude.app' },
-  { id: 'safari', label: 'Safari', profile: 'Safari', svg: 'safari/svg/01-safari.svg', row: 1, col: 3, bundle: '/Applications/Safari.app' },
-  { id: 'slack', label: 'Slack', profile: 'Slack', svg: 'slack/svg/01-slack.svg', row: 1, col: 4, bundle: '/Applications/Slack.app' },
-  { id: 'teams', label: 'Teams', profile: 'Teams', svg: 'teams/svg/01-teams.svg', row: 1, col: 5, bundle: '/Applications/Microsoft Teams.app' },
-  { id: 'outlook', label: 'Outlook', profile: 'Outlook', svg: 'outlook/svg/01-outlook.svg', row: 1, col: 6, bundle: '/Applications/Microsoft Outlook.app' },
-  { id: 'discord', label: 'Discord', profile: 'Discord', svg: 'discord/svg/01-discord.svg', row: 1, col: 7, bundle: '/Applications/Discord.app' },
-  // row 3 — continues from the middle
+  // rows 2 and 3, columns 2–7: a centred block of six, arranged by the user in the Stream Deck app
+  { id: 'discord', label: 'Discord', profile: 'Discord', svg: 'discord/svg/01-discord.svg', row: 1, col: 1, bundle: '/Applications/Discord.app' },
+  { id: 'vscode', label: 'VS Code', profile: 'VS Code', svg: 'vscode/svg/01-code.svg', row: 1, col: 2, bundle: '/Applications/Visual Studio Code.app' },
+  { id: 'claude', label: 'Claude', profile: 'Claude', svg: 'claude/svg/01-claude.svg', row: 1, col: 3, bundle: '/Applications/Claude.app' },
+  { id: 'safari', label: 'Safari', profile: 'Safari', svg: 'safari/svg/01-safari.svg', row: 1, col: 4, bundle: '/Applications/Safari.app' },
+  { id: 'mail', label: 'Mail', profile: 'Mail', svg: 'mail/svg/01-mail.svg', row: 1, col: 5, bundle: '/System/Applications/Mail.app' },
+  { id: 'ghostty', label: 'Ghostty', profile: 'Ghostty', svg: 'ghostty/svg/01-ghostty.svg', row: 1, col: 6, bundle: '/Applications/Ghostty.app' },
+  { id: 'slack', label: 'Slack', profile: 'Slack', svg: 'slack/svg/01-slack.svg', row: 2, col: 1, bundle: '/Applications/Slack.app' },
   { id: 'powerpoint', label: 'PowerPoint', profile: 'PowerPoint', svg: 'powerpoint/svg/01-powerpoint.svg', row: 2, col: 2, bundle: '/Applications/Microsoft PowerPoint.app' },
   { id: 'word', label: 'Word', profile: 'Word', svg: 'word/svg/01-word.svg', row: 2, col: 3, bundle: '/Applications/Microsoft Word.app' },
   { id: 'excel', label: 'Excel', profile: 'Excel', svg: 'excel/svg/01-excel.svg', row: 2, col: 4, bundle: '/Applications/Microsoft Excel.app' },
-  { id: 'mail', label: 'Mail', profile: 'Mail', svg: 'mail/svg/01-mail.svg', row: 2, col: 5, bundle: '/System/Applications/Mail.app' },
+  { id: 'teams', label: 'Teams', profile: 'Teams', svg: 'teams/svg/01-teams.svg', row: 2, col: 5, bundle: '/Applications/Microsoft Teams.app' },
+  { id: 'outlook', label: 'Outlook', profile: 'Outlook', svg: 'outlook/svg/01-outlook.svg', row: 2, col: 6, bundle: '/Applications/Microsoft Outlook.app' },
 ];
 
 const fontDir = path.join(os.homedir(), 'Library/Fonts');

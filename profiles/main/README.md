@@ -23,11 +23,11 @@ It restores Main together with every deck. Main is linked to *other applications
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
 | **Row 1** | | | | | | | | |
-| **Row 2** | Ghostty | VS Code | Claude | Safari | Slack | Teams | Outlook | Discord |
-| **Row 3** | | | PowerPoint | Word | Excel | Mail | | |
+| **Row 2** | | Discord | VS Code | Claude | Safari | Mail | Ghostty | |
+| **Row 3** | | Slack | PowerPoint | Word | Excel | Teams | Outlook | |
 | **Row 4** | | | | | | | | |
 
-The apps start on row 2 and fill it, then continue from the middle of row 3. The empty keys leave room for new decks.
+The keys form a centred block of six across rows 2 and 3, in the order set in the Stream Deck app. The empty keys around it leave room for new decks.
 
 ## Icons
 
